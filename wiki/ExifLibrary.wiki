@@ -69,4 +69,4 @@ file.Save("path_to_my_image");
 
 = Known Issues =
 
-There is a known issue with JPEG images with embedded TIFF thumbnails. The current version of ExifLibrary does not read or write TIFF thumbnails.
+There is a known issue with JPEG images with embedded TIFF thumbnails. The current version of !ExifLibrary does not read or write TIFF thumbnails.

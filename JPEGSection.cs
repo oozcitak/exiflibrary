@@ -10,7 +10,7 @@ namespace ExifLibrary
     /// </summary>
     public class JPEGSection
     {
-        #region "Properties"
+        #region Properties
         /// <summary>
         /// The marker byte representing the section.
         /// </summary>
@@ -27,13 +27,7 @@ namespace ExifLibrary
         public byte[] EntropyData { get; set; }
         #endregion
 
-        #region "Constructors"
-        private JPEGSection()
-        {
-            Header = new byte[0];
-            EntropyData = new byte[0];
-        }
-
+        #region Constructors
         /// <summary>
         /// Constructs a JPEGSection represented by the marker byte and containing
         /// the given data.
@@ -53,12 +47,13 @@ namespace ExifLibrary
         /// </summary>
         /// <param name="marker">The marker byte representing the section.</param>
         public JPEGSection(JPEGMarker marker)
+            : this(marker, new byte[0], new byte[0])
         {
-            Marker = marker;
+            ;
         }
         #endregion
 
-        #region "Instance Methods"
+        #region Instance Methods
         /// <summary>
         /// Returns a string representation of the current section.
         /// </summary>

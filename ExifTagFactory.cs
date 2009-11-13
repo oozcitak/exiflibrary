@@ -4,7 +4,7 @@ namespace ExifLibrary
 {
     public static class ExifTagFactory
     {
-        #region "Static Methods"
+        #region Static Methods
         /// <summary>
         /// Returns the ExifTag corresponding to the given tag id.
         /// </summary>

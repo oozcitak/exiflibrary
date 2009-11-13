@@ -8,7 +8,7 @@ namespace ExifLibrary
     /// </summary>
     public class ExifBitConverter : BitConverterEx
     {
-        #region "Constructors"
+        #region Constructors
         public ExifBitConverter(ByteOrder from, ByteOrder to)
             : base(from, to)
         {
@@ -16,7 +16,7 @@ namespace ExifLibrary
         }
         #endregion
 
-        #region "Static Methods"
+        #region Static Methods
         /// <summary>
         /// Returns an ASCII string converted from the given byte array.
         /// </summary>

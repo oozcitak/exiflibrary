@@ -12,7 +12,7 @@ namespace ExifLibrary
     /// </summary>
     public class JPEGFile
     {
-        #region "Properties"
+        #region Properties
         /// <summary>
         /// Gets or sets the sections contained in the JPEG file.
         /// </summary>
@@ -23,7 +23,7 @@ namespace ExifLibrary
         public byte[] TrailingData { get; set; }
         #endregion
 
-        #region "Constructors"
+        #region Constructors
         protected JPEGFile()
         {
             ;
@@ -53,7 +53,7 @@ namespace ExifLibrary
         }
         #endregion
 
-        #region "Instance Methods"
+        #region Instance Methods
         /// <summary>
         /// Saves the JPEG image to the given stream. The caller is responsible for
         /// disposing the stream.
@@ -72,14 +72,15 @@ namespace ExifLibrary
                 // Write section marker
                 stream.Write(new byte[] { 0xFF, (byte)section.Marker }, 0, 2);
 
-                // Write section header
-                if (section.Header.Length != 0)
+                // SOI, EOI and RST markers do not contain any header
+                if (section.Marker != JPEGMarker.SOI && section.Marker != JPEGMarker.EOI && !(section.Marker >= JPEGMarker.RST0 && section.Marker <= JPEGMarker.RST7))
                 {
                     // Header length including the length field itself
                     stream.Write(BitConverterEx.BigEndian.GetBytes((ushort)(section.Header.Length + 2)), 0, 2);
 
-                    // Section header
-                    stream.Write(section.Header, 0, section.Header.Length);
+                    // Write section header
+                    if (section.Header.Length != 0)
+                        stream.Write(section.Header, 0, section.Header.Length);
                 }
 
                 // Write entropy coded data
@@ -122,7 +123,7 @@ namespace ExifLibrary
         }
         #endregion
 
-        #region "Private Helper Methods"
+        #region Private Helper Methods
         /// <summary>
         /// Reads the given stream.
         /// </summary>

@@ -12,7 +12,7 @@ namespace ExifLibrary
     /// </summary>
     public class ExifFile
     {
-        #region "Member Variables"
+        #region Member Variables
         private JPEGFile file;
         private JPEGSection app1;
         private uint makerNoteOffset;
@@ -22,7 +22,7 @@ namespace ExifLibrary
         private bool makerNoteProcessed;
         #endregion
 
-        #region "Properties"
+        #region Properties
         /// <summary>
         /// Gets the collection of Exif properties contained in the JPEG file.
         /// </summary>
@@ -52,14 +52,14 @@ namespace ExifLibrary
         }
         #endregion
 
-        #region "Constructors"
+        #region Constructors
         protected ExifFile()
         {
             ;
         }
         #endregion
 
-        #region "Instance Methods"
+        #region Instance Methods
         /// <summary>
         /// Saves the JPEG/Exif image with the given filename.
         /// </summary>
@@ -90,7 +90,7 @@ namespace ExifLibrary
         }
         #endregion
 
-        #region "Private Helper Methods"
+        #region Private Helper Methods
         /// <summary>
         /// Reads the APP1 section containing Exif metadata.
         /// </summary>
@@ -98,6 +98,7 @@ namespace ExifLibrary
         {
             // Find the APP1 section containing Exif metadata
             app1 = file.Sections.Find(a => (a.Marker == JPEGMarker.APP1) &&
+                a.Header.Length >= 6 &&
                 (Encoding.ASCII.GetString(a.Header, 0, 6) == "Exif\0\0"));
 
             // If there is no APP1 section, add a new one after the last APP0 section (if any).
@@ -108,6 +109,10 @@ namespace ExifLibrary
                 insertionIndex++;
                 app1 = new JPEGSection(JPEGMarker.APP1);
                 file.Sections.Insert(insertionIndex, app1);
+                if (BitConverterEx.SystemByteOrder == BitConverterEx.ByteOrder.LittleEndian)
+                    ByteOrder = BitConverterEx.ByteOrder.LittleEndian;
+                else
+                    ByteOrder = BitConverterEx.ByteOrder.BigEndian;
                 return;
             }
 
@@ -117,16 +122,27 @@ namespace ExifLibrary
 
             // TIFF header
             int tiffoffset = 6;
-            if (header[tiffoffset] == 0x49)
+            if (header[tiffoffset] == 0x49 && header[tiffoffset + 1] == 0x49)
                 ByteOrder = BitConverterEx.ByteOrder.LittleEndian;
-            else
+            else if (header[tiffoffset] == 0x4D && header[tiffoffset + 1] == 0x4D)
                 ByteOrder = BitConverterEx.ByteOrder.BigEndian;
-            BitConverterEx conv = new BitConverterEx(ByteOrder, BitConverterEx.ByteOrder.System);
+            else
+                throw new NotValidExifFileException();
+
+            // TIFF header may have a different byte order
+            BitConverterEx.ByteOrder tiffByteOrder = ByteOrder;
+            if (BitConverterEx.LittleEndian.ToUInt16(header, tiffoffset + 2) == 42)
+                tiffByteOrder = BitConverterEx.ByteOrder.LittleEndian;
+            else if (BitConverterEx.BigEndian.ToUInt16(header, tiffoffset + 2) == 42)
+                tiffByteOrder = BitConverterEx.ByteOrder.BigEndian;
+            else
+                throw new NotValidExifFileException();
 
             // Offset to 0th IFD
-            int ifd0offset = (int)conv.ToUInt32(header, tiffoffset + 4);
+            int ifd0offset = (int)BitConverterEx.ToUInt32(header, tiffoffset + 4, tiffByteOrder, BitConverterEx.ByteOrder.System);
             ifdqueue.Add(ifd0offset, IFD.Zeroth);
 
+            BitConverterEx conv = new BitConverterEx(ByteOrder, BitConverterEx.ByteOrder.System);
             int thumboffset = -1;
             int thumblength = 0;
             int thumbtype = -1;
@@ -309,8 +325,12 @@ namespace ExifLibrary
             if (ifdinterop.Count == 0 && ifdexif.ContainsKey(ExifTag.InteroperabilityIFDPointer))
                 ifdexif.Remove(ExifTag.InteroperabilityIFDPointer);
 
-            if (ifdzeroth.Count == 0)
-                throw new IFD0IsEmptyException();
+            if (ifdzeroth.Count == 0 && ifdgps.Count == 0 && ifdinterop.Count == 0 && ifdfirst.Count == 0)
+            {
+                // Nothing to write, just return an empty header
+                app1.Header = new byte[0];
+                return;
+            }
 
             // We will need these bitconverters to write byte-ordered data
             BitConverterEx bceJPEG = new BitConverterEx(BitConverterEx.ByteOrder.System, BitConverterEx.ByteOrder.BigEndian);
@@ -522,7 +542,7 @@ namespace ExifLibrary
         }
         #endregion
 
-        #region "Static Helper Methods"
+        #region Static Helper Methods
         /// <summary>
         /// Creates a new ExifFile from the given JPEG/Exif image file.
         /// </summary>

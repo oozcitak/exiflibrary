@@ -11,8 +11,18 @@ namespace ExifLibrary
         protected ExifTag mTag;
         protected IFD mIFD;
         protected string mName;
+
+        /// <summary>
+        /// Gets the Exif tag associated with this property.
+        /// </summary>
         public ExifTag Tag { get { return mTag; } }
+        /// <summary>
+        /// Gets the IFD section contaning this property.
+        /// </summary>
         public IFD IFD { get { return mIFD; } }
+        /// <summary>
+        /// Gets or sets the name of this property.
+        /// </summary>
         public string Name 
         { 
             get 
@@ -28,7 +38,13 @@ namespace ExifLibrary
             } 
         }
         protected abstract object _Value { get; set; }
+        /// <summary>
+        /// Gets or sets the value of this property.
+        /// </summary>
         public object Value { get { return _Value; } set { _Value = value; } }
+        /// <summary>
+        /// Gets interoperability data for this property.
+        /// </summary>
         public abstract ExifInterOperability Interoperability { get; }
 
         public ExifProperty(ExifTag tag)

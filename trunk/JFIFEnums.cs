@@ -23,4 +23,22 @@ namespace ExifLibrary
         /// </summary>
         DotsPerCm = 2,
     }
+    /// <summary>
+    /// Represents the JFIF extension.
+    /// </summary>
+    public enum JFIFExtension : byte
+    {
+        /// <summary>
+        /// Thumbnail coded using JPEG.
+        /// </summary>
+        ThumbnailJPEG = 0x10,
+        /// <summary>
+        /// Thumbnail stored using a 256-Color RGB palette.
+        /// </summary>
+        ThumbnailPaletteRGB = 0x11,
+        /// <summary>
+        /// Thumbnail stored using 3 bytes/pixel (24-bit) RGB values.
+        /// </summary>
+        Thumbnail24BitRGB = 0x13,
+    }
 }

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{C29BA585-E27B-4AD0-9AD1-490B5E0E2A5E}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -55,6 +55,7 @@
     <Compile Include="IFD.cs" />
     <Compile Include="JFIFEnums.cs" />
     <Compile Include="JFIFExtendedProperty.cs" />
+    <Compile Include="JFIFThumbnail.cs" />
     <Compile Include="JPEGExceptions.cs" />
     <Compile Include="JPEGFile.cs" />
     <Compile Include="JPEGMarker.cs" />

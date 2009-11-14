@@ -17,5 +17,6 @@ namespace ExifLibrary
         First = 500000,
         MakerNote = 600000,
         JFIF = 700000,
+        JFXX = 800000,
     }
 }

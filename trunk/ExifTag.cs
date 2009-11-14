@@ -195,10 +195,35 @@ namespace ExifLibrary
         /// <summary>
         /// Thumbnail horizontal pixel count.
         /// </summary>
-        XThumbnail = IFD.JFIF + 201,
+        JFIFXThumbnail = IFD.JFIF + 201,
         /// <summary>
         /// Thumbnail vertical pixel count.
         /// </summary>
-        YThumbnail = IFD.JFIF + 202,
+        JFIFYThumbnail = IFD.JFIF + 202,
+        /// <summary>
+        /// JFIF JPEG thumbnail.
+        /// </summary>
+        JFIFThumbnail = IFD.JFIF + 203,
+        /// <summary>
+        /// Code which identifies the JFIF extension.
+        /// </summary>
+        JFXXExtensionCode = IFD.JFXX + 1,
+        /// <summary>
+        /// Thumbnail horizontal pixel count.
+        /// </summary>
+        JFXXXThumbnail = IFD.JFXX + 101,
+        /// <summary>
+        /// Thumbnail vertical pixel count.
+        /// </summary>
+        JFXXYThumbnail = IFD.JFXX + 102,
+        /// <summary>
+        /// The 256-Color RGB palette.
+        /// </summary>
+        JFXXPalette = IFD.JFXX + 201,
+        /// <summary>
+        /// JFIF thumbnail. The thumbnail will be either a JPEG, 
+        /// a 256 color palette bitmap, or a 24-bit RGB bitmap.
+        /// </summary>
+        JFXXThumbnail = IFD.JFXX + 202,
     }
 }

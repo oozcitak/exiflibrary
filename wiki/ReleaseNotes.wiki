@@ -23,11 +23,7 @@
 
 === Bug Fixes ===
 
-  * Fixed a bug when reading writing an image without metadata threw an exception. Without the metadata the library defaulted to big-endian byte-order instead of platform byte-order.
-
-=== New Features ==
-
-  * JFIF metadata is partially supported.
+  * Fixed a bug when writing an image without metadata threw an exception. Without the metadata the library defaulted to big-endian byte-order instead of platform byte-order.
 
 == v0.1 Pre-Alpha ==
 

@@ -1,6 +1,7 @@
+#labels Phase-Implementation,Featured
 #Release Notes for ExifLibrary
 
-= Release Note =
+= Release Notes =
 
 == v0.4 Pre-Alpha ==
 

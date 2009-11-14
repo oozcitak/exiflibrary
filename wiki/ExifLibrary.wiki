@@ -1,3 +1,4 @@
+#labels Featured
 #Introduction to ExifLibrary
 
 = Introduction =

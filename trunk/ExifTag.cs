@@ -2,20 +2,6 @@
 namespace ExifLibrary
 {
     /// <summary>
-    /// Represents the IFD section containing exif tags.
-    /// </summary>
-    public enum IFD : int
-    {
-        Unknown = 0,
-        Zeroth = 100000,
-        EXIF = 200000,
-        GPS = 300000,
-        Interop = 400000,
-        First = 500000,
-        MakerNote = 600000,
-    }
-
-    /// <summary>
     /// Represents the tags associated with exif fields.
     /// </summary>
     public enum ExifTag : int
@@ -187,5 +173,32 @@ namespace ExifLibrary
         ThumbnailSoftware = IFD.First + 305,
         ThumbnailArtist = IFD.First + 315,
         ThumbnailCopyright = IFD.First + 33432,
+        // ****************************
+        // JFIF Tags
+        // ****************************
+        /// <summary>
+        /// Represents the JFIF version.
+        /// </summary>
+        JFIFVersion = IFD.JFIF + 1,
+        /// <summary>
+        /// Represents units for X and Y densities.
+        /// </summary>
+        JFIFUnits = IFD.JFIF + 101,
+        /// <summary>
+        /// Horizontal pixel density.
+        /// </summary>
+        XDensity = IFD.JFIF + 102,
+        /// <summary>
+        /// Vertical pixel density
+        /// </summary>
+        YDensity = IFD.JFIF + 103,
+        /// <summary>
+        /// Thumbnail horizontal pixel count.
+        /// </summary>
+        XThumbnail = IFD.JFIF + 201,
+        /// <summary>
+        /// Thumbnail vertical pixel count.
+        /// </summary>
+        YThumbnail = IFD.JFIF + 202,
     }
 }

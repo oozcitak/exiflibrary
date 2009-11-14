@@ -14,7 +14,9 @@ namespace ExifLibrary
     {
         #region Member Variables
         private JPEGFile file;
-        private JPEGSection app1;
+        private JPEGSection jfifApp0;
+        private byte[] jfifThumbnail;
+        private JPEGSection exifApp1;
         private uint makerNoteOffset;
         private long exifIFDFieldOffset, gpsIFDFieldOffset, interopIFDFieldOffset, firstIFDFieldOffset;
         private long thumbOffsetLocation, thumbSizeLocation;
@@ -77,7 +79,7 @@ namespace ExifLibrary
         /// the original file will be preserved.</param>
         public void Save(string filename, bool preserveMakerNote)
         {
-            WriteApp1(preserveMakerNote);
+            WriteExifApp1(preserveMakerNote);
             file.Save(filename);
         }
 
@@ -92,23 +94,111 @@ namespace ExifLibrary
 
         #region Private Helper Methods
         /// <summary>
+        /// Reads the APP0 section containing JFIF metadata.
+        /// </summary>
+        private void ReadJFIFAPP0()
+        {
+            // Find the APP0 section containing JFIF metadata
+            jfifApp0 = file.Sections.Find(a => (a.Marker == JPEGMarker.APP0) &&
+                a.Header.Length >= 5 &&
+                (Encoding.ASCII.GetString(a.Header, 0, 5) == "JFIF\0"));
+
+            // If there is no APP0 section, return.
+            if (jfifApp0 == null)
+                return;
+
+            byte[] header = jfifApp0.Header;
+            BitConverterEx jfifConv = BitConverterEx.BigEndian;
+
+            // Version
+            ushort version = jfifConv.ToUInt16(header, 5);
+            Properties.Add(ExifTag.JFIFVersion, new JFIFVersion(ExifTag.JFIFVersion, version));
+
+            // Units
+            byte unit = header[7];
+            Properties.Add(ExifTag.JFIFUnits, new ExifEnumProperty<JFIFDensityUnit>(ExifTag.JFIFUnits, (JFIFDensityUnit)unit));
+
+            // X and Y densities
+            ushort xdensity = jfifConv.ToUInt16(header, 8);
+            Properties.Add(ExifTag.XDensity, new ExifUShort(ExifTag.XDensity, xdensity));
+            ushort ydensity = jfifConv.ToUInt16(header, 10);
+            Properties.Add(ExifTag.YDensity, new ExifUShort(ExifTag.YDensity, ydensity));
+
+            // Thumbnails pixel count
+            byte xthumbnail = header[12];
+            Properties.Add(ExifTag.XThumbnail, new ExifByte(ExifTag.XThumbnail, xthumbnail));
+            byte ythumbnail = header[13];
+            Properties.Add(ExifTag.YThumbnail, new ExifByte(ExifTag.YThumbnail, ythumbnail));
+
+            // Read JFIF thumbnail
+            int n = xthumbnail * ythumbnail;
+            jfifThumbnail = new byte[n];
+            Array.Copy(header, 14, jfifThumbnail, 0, n);
+        }
+        /// <summary>
+        /// Replaces the contents of the APP0 section with the JFIF properties.
+        /// </summary>
+        private void WriteJFIFApp0()
+        {
+            // Which IFD sections do we have?
+            List<ExifProperty> ifdjfef = new List<ExifProperty>();
+            foreach (KeyValuePair<ExifTag, ExifProperty> pair in Properties)
+            {
+                if (pair.Value.IFD == IFD.JFIF)
+                    ifdjfef.Add(pair.Value);
+            }
+
+            if (ifdjfef.Count == 0)
+            {
+                // Nothing to write, just return an empty header
+                jfifApp0.Header = new byte[0];
+                return;
+            }
+
+            BitConverterEx jfifConv = BitConverterEx.BigEndian;
+
+            // Create a memory stream to write the APP0 section to
+            MemoryStream ms = new MemoryStream();
+
+            // JFIF identifer
+            ms.Write(Encoding.ASCII.GetBytes("JFIF\0"), 0, 5);
+
+            // Write tags
+            foreach (ExifProperty prop in ifdjfef)
+            {
+                ExifInterOperability interop = prop.Interoperability;
+                byte[] data = interop.Data;
+                if (BitConverterEx.SystemByteOrder != BitConverterEx.ByteOrder.BigEndian && interop.TypeID == 3)
+                    Array.Reverse(data);
+                ms.Write(data, 0, data.Length);
+            }
+            // Write thumbnail
+            ms.Write(jfifThumbnail, 0, jfifThumbnail.Length);
+
+            ms.Close();
+
+            // Return APP0 header
+            jfifApp0.Header = ms.ToArray();
+        }
+
+        /// <summary>
         /// Reads the APP1 section containing Exif metadata.
         /// </summary>
-        private void ReadAPP1()
+        private void ReadExifAPP1()
         {
             // Find the APP1 section containing Exif metadata
-            app1 = file.Sections.Find(a => (a.Marker == JPEGMarker.APP1) &&
+            exifApp1 = file.Sections.Find(a => (a.Marker == JPEGMarker.APP1) &&
                 a.Header.Length >= 6 &&
                 (Encoding.ASCII.GetString(a.Header, 0, 6) == "Exif\0\0"));
 
             // If there is no APP1 section, add a new one after the last APP0 section (if any).
-            if (app1 == null)
+            if (exifApp1 == null)
             {
                 int insertionIndex = file.Sections.FindLastIndex(a => a.Marker == JPEGMarker.APP0);
                 if (insertionIndex == -1) insertionIndex = 0;
                 insertionIndex++;
-                app1 = new JPEGSection(JPEGMarker.APP1);
-                file.Sections.Insert(insertionIndex, app1);
+                exifApp1 = new JPEGSection(JPEGMarker.APP1);
+                file.Sections.Insert(insertionIndex, exifApp1);
                 if (BitConverterEx.SystemByteOrder == BitConverterEx.ByteOrder.LittleEndian)
                     ByteOrder = BitConverterEx.ByteOrder.LittleEndian;
                 else
@@ -116,7 +206,7 @@ namespace ExifLibrary
                 return;
             }
 
-            byte[] header = app1.Header;
+            byte[] header = exifApp1.Header;
             SortedList<int, IFD> ifdqueue = new SortedList<int, IFD>();
             makerNoteOffset = 0;
 
@@ -266,7 +356,7 @@ namespace ExifLibrary
         /// <summary>
         /// Replaces the contents of the APP1 section with the Exif properties.
         /// </summary>
-        private void WriteApp1(bool preserveMakerNote)
+        private void WriteExifApp1(bool preserveMakerNote)
         {
             // Zero out IFD field offsets. We will fill those as we write the IFD sections
             exifIFDFieldOffset = 0;
@@ -328,7 +418,7 @@ namespace ExifLibrary
             if (ifdzeroth.Count == 0 && ifdgps.Count == 0 && ifdinterop.Count == 0 && ifdfirst.Count == 0)
             {
                 // Nothing to write, just return an empty header
-                app1.Header = new byte[0];
+                exifApp1.Header = new byte[0];
                 return;
             }
 
@@ -398,7 +488,7 @@ namespace ExifLibrary
             ms.Close();
 
             // Return APP1 header
-            app1.Header = ms.ToArray();
+            exifApp1.Header = ms.ToArray();
         }
 
         private void WriteIFD(MemoryStream stream, Dictionary<ExifTag, ExifProperty> ifd, IFD ifdtype, long tiffoffset, bool preserveMakerNote)
@@ -555,7 +645,10 @@ namespace ExifLibrary
             // Read the JPEG file and process the APP1 section
             exif.Properties = new Dictionary<ExifTag, ExifProperty>();
             exif.file = new JPEGFile(filename);
-            exif.ReadAPP1();
+            // Read JFIF section
+            exif.ReadJFIFAPP0();
+            // Read EXIF APP1 section
+            exif.ReadExifAPP1();
 
             // Process the maker note
             exif.makerNoteProcessed = false;

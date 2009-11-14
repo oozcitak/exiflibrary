@@ -69,6 +69,11 @@ namespace ExifLibrary
                 if (section.Header.Length + 2 + 2 > 64 * 1024)
                     throw new SectionExceeds64KBException();
 
+                // APP sections must have a header.
+                // Otherwise skip the entire section.
+                if (section.Marker >= JPEGMarker.APP0 && section.Marker <= JPEGMarker.APP15 && section.Header.Length == 0)
+                    continue;
+
                 // Write section marker
                 stream.Write(new byte[] { 0xFF, (byte)section.Marker }, 0, 2);
 
@@ -107,19 +112,14 @@ namespace ExifLibrary
         }
 
         /// <summary>
-        /// Converts the JPEGFile to a System.Drawing.Bitmap.
+        /// Converts the JPEGFile to a System.Drawing.Image.
         /// </summary>
-        /// <returns>Returns a System.Drawing.Bitmap containing image data.</returns>
-        public Bitmap ToBitmap()
+        /// <returns>Returns a System.Drawing.Image containing image data.</returns>
+        public Image ToImage()
         {
-            Bitmap bmp;
-            using (MemoryStream stream = new MemoryStream())
-            {
-                Save(stream);
-                bmp = new Bitmap(stream);
-                stream.Close();
-            }
-            return bmp;
+            string filename = Path.GetTempFileName();
+            Save(filename);
+            return Image.FromFile(filename);
         }
         #endregion
 

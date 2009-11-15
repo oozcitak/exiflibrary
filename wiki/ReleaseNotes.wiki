@@ -3,6 +3,12 @@
 
 = Release Notes =
 
+== v0.5 Pre-Alpha ==
+
+=== Bug Fixes ===
+
+  * Fixed a bug in fraction arithmetic operations.
+
 == v0.4 Pre-Alpha ==
 
 === Bug Fixes ===

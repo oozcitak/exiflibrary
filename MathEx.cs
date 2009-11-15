@@ -264,7 +264,7 @@ namespace ExifLibrary
             }
             public static Fraction32 operator +(Fraction32 f1, Fraction32 f2)
             {
-                int n1 = f1.Numerator, d1 = f2.Denominator;
+                int n1 = f1.Numerator, d1 = f1.Denominator;
                 int n2 = f2.Numerator, d2 = f2.Denominator;
 
                 return new Fraction32(n1 * d2 + n2 * d1, d1 * d2);
@@ -296,7 +296,7 @@ namespace ExifLibrary
             }
             public static Fraction32 operator -(Fraction32 f1, Fraction32 f2)
             {
-                int n1 = f1.Numerator, d1 = f2.Denominator;
+                int n1 = f1.Numerator, d1 = f1.Denominator;
                 int n2 = f2.Numerator, d2 = f2.Denominator;
 
                 return new Fraction32(n1 * d2 - n2 * d1, d1 * d2);
@@ -861,7 +861,7 @@ namespace ExifLibrary
             }
             public static UFraction32 operator +(UFraction32 f1, UFraction32 f2)
             {
-                uint n1 = f1.Numerator, d1 = f2.Denominator;
+                uint n1 = f1.Numerator, d1 = f1.Denominator;
                 uint n2 = f2.Numerator, d2 = f2.Denominator;
 
                 return new UFraction32(n1 * d2 + n2 * d1, d1 * d2);
@@ -893,7 +893,7 @@ namespace ExifLibrary
             }
             public static UFraction32 operator -(UFraction32 f1, UFraction32 f2)
             {
-                uint n1 = f1.Numerator, d1 = f2.Denominator;
+                uint n1 = f1.Numerator, d1 = f1.Denominator;
                 uint n2 = f2.Numerator, d2 = f2.Denominator;
 
                 return new UFraction32(n1 * d2 - n2 * d1, d1 * d2);

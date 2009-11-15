@@ -5,29 +5,18 @@
 
 == v0.5 Pre-Alpha ==
 
-=== Bug Fixes ===
-
   * Fixed a bug in fraction arithmetic operations.
 
 == v0.4 Pre-Alpha ==
 
-=== Bug Fixes ===
-
   * Fixed a bug when writing an empty APPn section wrote the section marker where it should skip the entire section.
-
-=== New Features ==
-
   * JFIF and JFXX metadata is now fully supported.
 
 == v0.3 Pre-Alpha ==
 
-=== New Features ==
-
   * JFIF metadata is partially supported.
 
 == v0.2 Pre-Alpha ==
-
-=== Bug Fixes ===
 
   * Fixed a bug when writing an image without metadata threw an exception. Without the metadata the library defaulted to big-endian byte-order instead of platform byte-order.
 

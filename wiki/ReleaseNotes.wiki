@@ -3,6 +3,10 @@
 
 = Release Notes =
 
+== v0.6 Pre-Alpha ==
+
+  * Fixed a bug where reading a Unicode UserComment field trimmed the field value after the first byte.
+
 == v0.5 Pre-Alpha ==
 
   * Fixed a bug in fraction arithmetic operations.

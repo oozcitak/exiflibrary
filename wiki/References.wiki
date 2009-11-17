@@ -1,0 +1,11 @@
+#Useful references specifications
+
+= References =
+
+  * [http://www.exif.org/Exif2-2.PDF Exif Specification 2.2 (PDF)]
+  * [http://www.adobe.com/devnet/xmp/ Adobe XMP Developer Center]
+  * [http://www.w3.org/Graphics/JPEG/jfif3.pdf JFIF Specification 1.02 (PDF)]
+  * [http://www.adobe.com/products/dng/pdfs/dng_spec_1_3_0_0.pdf DNG Specification 1.3 (PDF)]
+  * [http://www.w3.org/Graphics/GIF/spec-gif89a.txt GIF Specification 89a]
+  * [http://partners.adobe.com/public/developer/tiff/index.html TIFF Specification 6.0 and Supplements]
+  * [http://www.w3.org/TR/2003/REC-PNG-20031110/ PNG Specification (Second Edition)]

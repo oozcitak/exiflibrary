@@ -66,20 +66,17 @@ namespace ExifLibrary
                     byte[] strbytes = new byte[value.Length - 8];
                     Array.Copy(value, encbytes, 8);
                     Array.Copy(value, 8, strbytes, 0, value.Length - 8);
+                    // Default to ASCII
                     Encoding enc = Encoding.ASCII;
                     string encstr = enc.GetString(encbytes);
-                    if (encstr == "ASCII\0\0\0")
+                    if (string.Compare(encstr, "ASCII\0\0\0", StringComparison.OrdinalIgnoreCase) == 0)
                         enc = Encoding.ASCII;
-                    else if (encstr == "JIS\0\0\0\0\0")
+                    else if (string.Compare(encstr, "JIS\0\0\0\0\0", StringComparison.OrdinalIgnoreCase) == 0)
                         enc = Encoding.GetEncoding("Japanese (JIS 0208-1990 and 0212-1990)");
-                    else if (encstr == "Unicode\0")
+                    else if (string.Compare(encstr, "Unicode\0", StringComparison.OrdinalIgnoreCase) == 0)
                         enc = Encoding.Unicode;
-                    else
-                        enc = null;
 
-                    int len = Array.IndexOf(strbytes, (byte)0);
-                    if (len == -1) len = strbytes.Length;
-                    return new ExifEncodedString(ExifTag.UserComment, (enc == null ? Encoding.ASCII.GetString(strbytes, 0, len) : enc.GetString(strbytes, 0, len)), enc);
+                    return new ExifEncodedString(ExifTag.UserComment, enc.GetString(strbytes), enc);
                 }
                 else if (tag == 0x9003) // DateTimeOriginal
                     return new ExifDateTime(ExifTag.DateTimeOriginal, ExifBitConverter.ToDateTime(value));

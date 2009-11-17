@@ -62,13 +62,9 @@ namespace ExifLibrary
                     return new ExifEnumProperty<ColorSpace>(ExifTag.ColorSpace, (ColorSpace)conv.ToUInt16(value, 0));
                 else if (tag == 0x9286) // UserComment
                 {
-                    byte[] encbytes = new byte[8];
-                    byte[] strbytes = new byte[value.Length - 8];
-                    Array.Copy(value, encbytes, 8);
-                    Array.Copy(value, 8, strbytes, 0, value.Length - 8);
                     // Default to ASCII
                     Encoding enc = Encoding.ASCII;
-                    string encstr = enc.GetString(encbytes);
+                    string encstr = enc.GetString(value, 0, 8);
                     if (string.Compare(encstr, "ASCII\0\0\0", StringComparison.OrdinalIgnoreCase) == 0)
                         enc = Encoding.ASCII;
                     else if (string.Compare(encstr, "JIS\0\0\0\0\0", StringComparison.OrdinalIgnoreCase) == 0)
@@ -76,7 +72,7 @@ namespace ExifLibrary
                     else if (string.Compare(encstr, "Unicode\0", StringComparison.OrdinalIgnoreCase) == 0)
                         enc = Encoding.Unicode;
 
-                    return new ExifEncodedString(ExifTag.UserComment, enc.GetString(strbytes), enc);
+                    return new ExifEncodedString(ExifTag.UserComment, enc.GetString(value, 8, value.Length - 8), enc);
                 }
                 else if (tag == 0x9003) // DateTimeOriginal
                     return new ExifDateTime(ExifTag.DateTimeOriginal, ExifBitConverter.ToDateTime(value));

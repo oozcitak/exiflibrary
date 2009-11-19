@@ -10,6 +10,7 @@ namespace ExifLibrary
     /// <summary>
     /// Reads and writes Exif data contained in a JPEG/Exif file.
     /// </summary>
+    [TypeDescriptionProvider(typeof(ExifFileTypeDescriptionProvider))]
     public class ExifFile
     {
         #region Member Variables
@@ -28,7 +29,7 @@ namespace ExifLibrary
         /// <summary>
         /// Gets the collection of Exif properties contained in the JPEG file.
         /// </summary>
-        public Dictionary<ExifTag, ExifProperty> Properties { get; private set; }
+        public ExifPropertyCollection Properties { get; private set; }
         /// <summary>
         /// Gets or sets the byte-order of the Exif properties.
         /// </summary>
@@ -114,29 +115,29 @@ namespace ExifLibrary
 
             // Version
             ushort version = jfifConv.ToUInt16(header, 5);
-            Properties.Add(ExifTag.JFIFVersion, new JFIFVersion(ExifTag.JFIFVersion, version));
+            Properties.Add(new JFIFVersion(ExifTag.JFIFVersion, version));
 
             // Units
             byte unit = header[7];
-            Properties.Add(ExifTag.JFIFUnits, new ExifEnumProperty<JFIFDensityUnit>(ExifTag.JFIFUnits, (JFIFDensityUnit)unit));
+            Properties.Add(new ExifEnumProperty<JFIFDensityUnit>(ExifTag.JFIFUnits, (JFIFDensityUnit)unit));
 
             // X and Y densities
             ushort xdensity = jfifConv.ToUInt16(header, 8);
-            Properties.Add(ExifTag.XDensity, new ExifUShort(ExifTag.XDensity, xdensity));
+            Properties.Add(new ExifUShort(ExifTag.XDensity, xdensity));
             ushort ydensity = jfifConv.ToUInt16(header, 10);
-            Properties.Add(ExifTag.YDensity, new ExifUShort(ExifTag.YDensity, ydensity));
+            Properties.Add(new ExifUShort(ExifTag.YDensity, ydensity));
 
             // Thumbnails pixel count
             byte xthumbnail = header[12];
-            Properties.Add(ExifTag.JFIFXThumbnail, new ExifByte(ExifTag.JFIFXThumbnail, xthumbnail));
+            Properties.Add(new ExifByte(ExifTag.JFIFXThumbnail, xthumbnail));
             byte ythumbnail = header[13];
-            Properties.Add(ExifTag.JFIFYThumbnail, new ExifByte(ExifTag.JFIFYThumbnail, ythumbnail));
+            Properties.Add(new ExifByte(ExifTag.JFIFYThumbnail, ythumbnail));
 
             // Read JFIF thumbnail
             int n = xthumbnail * ythumbnail;
             byte[] jfifThumbnail = new byte[n];
             Array.Copy(header, 14, jfifThumbnail, 0, n);
-            Properties.Add(ExifTag.JFIFThumbnail, new JFIFThumbnailProperty(ExifTag.JFIFThumbnail, new JFIFThumbnail(JFIFThumbnail.ImageFormat.JPEG, jfifThumbnail)));
+            Properties.Add(new JFIFThumbnailProperty(ExifTag.JFIFThumbnail, new JFIFThumbnail(JFIFThumbnail.ImageFormat.JPEG, jfifThumbnail)));
         }
         /// <summary>
         /// Replaces the contents of the APP0 section with the JFIF properties.
@@ -145,10 +146,10 @@ namespace ExifLibrary
         {
             // Which IFD sections do we have?
             List<ExifProperty> ifdjfef = new List<ExifProperty>();
-            foreach (KeyValuePair<ExifTag, ExifProperty> pair in Properties)
+            foreach (ExifProperty prop in Properties)
             {
-                if (pair.Value.IFD == IFD.JFIF)
-                    ifdjfef.Add(pair.Value);
+                if (prop.IFD == IFD.JFIF)
+                    ifdjfef.Add(prop);
             }
 
             if (ifdjfef.Count == 0)
@@ -200,38 +201,38 @@ namespace ExifLibrary
 
             // Version
             JFIFExtension version = (JFIFExtension)header[5];
-            Properties.Add(ExifTag.JFXXExtensionCode, new ExifEnumProperty<JFIFExtension>(ExifTag.JFXXExtensionCode, version));
+            Properties.Add(new ExifEnumProperty<JFIFExtension>(ExifTag.JFXXExtensionCode, version));
 
             // Read thumbnail
             if (version == JFIFExtension.ThumbnailJPEG)
             {
                 byte[] data = new byte[header.Length - 6];
                 Array.Copy(header, 6, data, 0, data.Length);
-                Properties.Add(ExifTag.JFXXThumbnail, new JFIFThumbnailProperty(ExifTag.JFXXThumbnail, new JFIFThumbnail(JFIFThumbnail.ImageFormat.JPEG, data)));
+                Properties.Add(new JFIFThumbnailProperty(ExifTag.JFXXThumbnail, new JFIFThumbnail(JFIFThumbnail.ImageFormat.JPEG, data)));
             }
             else if (version == JFIFExtension.Thumbnail24BitRGB)
             {
                 // Thumbnails pixel count
                 byte xthumbnail = header[6];
-                Properties.Add(ExifTag.JFXXXThumbnail, new ExifByte(ExifTag.JFXXXThumbnail, xthumbnail));
+                Properties.Add(new ExifByte(ExifTag.JFXXXThumbnail, xthumbnail));
                 byte ythumbnail = header[7];
-                Properties.Add(ExifTag.JFXXYThumbnail, new ExifByte(ExifTag.JFXXYThumbnail, ythumbnail));
+                Properties.Add(new ExifByte(ExifTag.JFXXYThumbnail, ythumbnail));
                 byte[] data = new byte[3 * xthumbnail * ythumbnail];
                 Array.Copy(header, 8, data, 0, data.Length);
-                Properties.Add(ExifTag.JFXXThumbnail, new JFIFThumbnailProperty(ExifTag.JFXXThumbnail, new JFIFThumbnail(JFIFThumbnail.ImageFormat.BMP24Bit, data)));
+                Properties.Add(new JFIFThumbnailProperty(ExifTag.JFXXThumbnail, new JFIFThumbnail(JFIFThumbnail.ImageFormat.BMP24Bit, data)));
             }
             else if (version == JFIFExtension.ThumbnailPaletteRGB)
             {
                 // Thumbnails pixel count
                 byte xthumbnail = header[6];
-                Properties.Add(ExifTag.JFXXXThumbnail, new ExifByte(ExifTag.JFXXXThumbnail, xthumbnail));
+                Properties.Add(new ExifByte(ExifTag.JFXXXThumbnail, xthumbnail));
                 byte ythumbnail = header[7];
-                Properties.Add(ExifTag.JFXXYThumbnail, new ExifByte(ExifTag.JFXXYThumbnail, ythumbnail));
+                Properties.Add(new ExifByte(ExifTag.JFXXYThumbnail, ythumbnail));
                 byte[] palette = new byte[768];
                 Array.Copy(header, 8, palette, 0, palette.Length);
                 byte[] data = new byte[xthumbnail * ythumbnail];
                 Array.Copy(header, 8 + 768, data, 0, data.Length);
-                Properties.Add(ExifTag.JFXXThumbnail, new JFIFThumbnailProperty(ExifTag.JFXXThumbnail, new JFIFThumbnail(palette, data)));
+                Properties.Add(new JFIFThumbnailProperty(ExifTag.JFXXThumbnail, new JFIFThumbnail(palette, data)));
             }
         }
         /// <summary>
@@ -241,10 +242,10 @@ namespace ExifLibrary
         {
             // Which IFD sections do we have?
             List<ExifProperty> ifdjfef = new List<ExifProperty>();
-            foreach (KeyValuePair<ExifTag, ExifProperty> pair in Properties)
+            foreach (ExifProperty prop in Properties)
             {
-                if (pair.Value.IFD == IFD.JFXX)
-                    ifdjfef.Add(pair.Value);
+                if (prop.IFD == IFD.JFXX)
+                    ifdjfef.Add(prop);
             }
 
             if (ifdjfef.Count == 0)
@@ -429,7 +430,7 @@ namespace ExifLibrary
 
                     // Create the exif property from the interop data
                     ExifProperty prop = ExifPropertyFactory.Get(tag, type, count, value, ByteOrder, currentifd);
-                    Properties.Add(prop.Tag, prop);
+                    Properties.Add(prop);
                 }
 
                 // 1st IFD pointer
@@ -473,24 +474,24 @@ namespace ExifLibrary
             Dictionary<ExifTag, ExifProperty> ifdinterop = new Dictionary<ExifTag, ExifProperty>();
             Dictionary<ExifTag, ExifProperty> ifdfirst = new Dictionary<ExifTag, ExifProperty>();
 
-            foreach (KeyValuePair<ExifTag, ExifProperty> pair in Properties)
+            foreach (ExifProperty prop in Properties)
             {
-                switch (pair.Value.IFD)
+                switch (prop.IFD)
                 {
                     case IFD.Zeroth:
-                        ifdzeroth.Add(pair.Key, pair.Value);
+                        ifdzeroth.Add(prop.Tag, prop);
                         break;
                     case IFD.EXIF:
-                        ifdexif.Add(pair.Key, pair.Value);
+                        ifdexif.Add(prop.Tag, prop);
                         break;
                     case IFD.GPS:
-                        ifdgps.Add(pair.Key, pair.Value);
+                        ifdgps.Add(prop.Tag, prop);
                         break;
                     case IFD.Interop:
-                        ifdinterop.Add(pair.Key, pair.Value);
+                        ifdinterop.Add(prop.Tag, prop);
                         break;
                     case IFD.First:
-                        ifdfirst.Add(pair.Key, pair.Value);
+                        ifdfirst.Add(prop.Tag, prop);
                         break;
                 }
             }
@@ -737,11 +738,25 @@ namespace ExifLibrary
         /// <returns>An ExifFile class initialized from the specified JPEG/Exif image file.</returns>
         public static ExifFile Read(string filename)
         {
+            ExifFile exif = null;
+            using (FileStream stream = new FileStream(filename, FileMode.Open, FileAccess.Read))
+            {
+                exif = Read(stream);
+            }
+            return exif;
+        }
+        /// <summary>
+        /// Creates a new ExifFile from the given stream file.
+        /// </summary>
+        /// <param name="stream">A stream containing an JPEJ/Exif image.</param>
+        /// <returns>An ExifFile class initialized from the specified JPEG/Exif image stream.</returns>
+        public static ExifFile Read(Stream stream)
+        {
             ExifFile exif = new ExifFile();
 
             // Read the JPEG file and process sections
-            exif.Properties = new Dictionary<ExifTag, ExifProperty>();
-            exif.file = new JPEGFile(filename);
+            exif.Properties = new ExifPropertyCollection();
+            exif.file = new JPEGFile(stream);
 
             // Read metadata sections
             exif.ReadJFIFAPP0();
@@ -750,7 +765,17 @@ namespace ExifLibrary
 
             // Process the maker note
             exif.makerNoteProcessed = false;
-
+            /*
+            // Assign the custom type descriptor
+            TypeDescriptor.AddProvider(
+                new ExifFileTypeDescriptionProvider(
+                    TypeDescriptor.GetProvider(typeof(ExifFile))), exif);
+             * */
+            /*
+            PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(exif);
+            foreach (PropertyDescriptor property in properties) 
+                Console.WriteLine("- " + property.Name);
+            */
             return exif;
         }
         #endregion

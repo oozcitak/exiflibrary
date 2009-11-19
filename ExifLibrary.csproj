@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{C29BA585-E27B-4AD0-9AD1-490B5E0E2A5E}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -47,8 +47,10 @@
     <Compile Include="ExifExceptions.cs" />
     <Compile Include="ExifExtendedProperty.cs" />
     <Compile Include="ExifExtensionMethods.cs" />
+    <Compile Include="ExifFileTypeDescriptor.cs" />
     <Compile Include="ExifInterOperability.cs" />
     <Compile Include="ExifProperty.cs" />
+    <Compile Include="ExifPropertyCollection.cs" />
     <Compile Include="ExifPropertyFactory.cs" />
     <Compile Include="ExifTag.cs" />
     <Compile Include="ExifTagFactory.cs" />

@@ -1,5 +1,5 @@
+#summary Release Notes for ExifLibrary
 #labels Phase-Implementation,Featured
-#Release Notes for ExifLibrary
 
 = Release Notes =
 

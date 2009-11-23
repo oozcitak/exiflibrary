@@ -1,6 +1,4 @@
 #labels Phase-Design,Featured
-#Introduction to !ExifLibrary
-
 = Introduction =
 
 !ExifLibrary is a .NET library for extracting/editing metadata contained in JPEG/Exif files. !ExifLibrary requires the .NET Framework 2.0.

@@ -1,4 +1,4 @@
-#summary Introduction to the !ExifLibrary
+#summary Introduction to the ExifLibrary
 #labels Phase-Design,Featured
 
 = Introduction =

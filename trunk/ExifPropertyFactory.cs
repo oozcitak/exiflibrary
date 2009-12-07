@@ -34,6 +34,8 @@ namespace ExifLibrary
         public static ExifProperty Get(ushort tag, ushort type, uint count, byte[] value, BitConverterEx.ByteOrder byteOrder, IFD ifd)
         {
             BitConverterEx conv = new BitConverterEx(byteOrder, BitConverterEx.ByteOrder.System);
+                        // Find the exif tag corresponding to given tag id
+            ExifTag etag = ExifTagFactory.GetExifTag(ifd, tag);
 
             if (ifd == IFD.Zeroth)
             {
@@ -51,6 +53,9 @@ namespace ExifLibrary
                     return new ExifEnumProperty<ResolutionUnit>(ExifTag.ResolutionUnit, (ResolutionUnit)conv.ToUInt16(value, 0));
                 else if (tag == 0x132) // DateTime
                     return new ExifDateTime(ExifTag.DateTime, ExifBitConverter.ToDateTime(value));
+                else if (tag == 0x9c9b || tag == 0x9c9c ||  // Windows tags
+                    tag == 0x9c9d || tag == 0x9c9e || tag == 0x9c9f)
+                    return new WindowsByteString(etag, Encoding.Unicode.GetString(value).TrimEnd('\0'));
             }
             else if (ifd == IFD.EXIF)
             {
@@ -72,7 +77,7 @@ namespace ExifLibrary
                     else if (string.Compare(encstr, "Unicode\0", StringComparison.OrdinalIgnoreCase) == 0)
                         enc = Encoding.Unicode;
 
-                    return new ExifEncodedString(ExifTag.UserComment, enc.GetString(value, 8, value.Length - 8), enc);
+                    return new ExifEncodedString(ExifTag.UserComment, enc.GetString(value, 8, value.Length - 8).TrimEnd('\0'), enc);
                 }
                 else if (tag == 0x9003) // DateTimeOriginal
                     return new ExifDateTime(ExifTag.DateTimeOriginal, ExifBitConverter.ToDateTime(value));
@@ -191,9 +196,6 @@ namespace ExifLibrary
                 else if (tag == 0x132) // DateTime
                     return new ExifDateTime(ExifTag.ThumbnailDateTime, ExifBitConverter.ToDateTime(value));
             }
-
-            // Find the exif tag corresponding to given tag id
-            ExifTag etag = ExifTagFactory.GetExifTag(ifd, tag);
 
             if (type == 1) // 1 = BYTE An 8-bit unsigned integer.
             {

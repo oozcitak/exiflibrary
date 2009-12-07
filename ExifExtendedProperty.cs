@@ -310,4 +310,34 @@ namespace ExifLibrary
             ;
         }
     }
+
+    /// <summary>
+    /// Represents an ASCII string. (EXIF Specification: BYTE) 
+    /// Used by Windows XP.
+    /// </summary>
+    public class WindowsByteString : ExifProperty
+    {
+        protected string mValue;
+        protected override object _Value { get { return Value; } set { Value = (string)value; } }
+        public new string Value { get { return mValue; } set { mValue = value; } }
+
+        static public implicit operator string(WindowsByteString obj) { return obj.mValue; }
+
+        public override string ToString() { return mValue; }
+
+        public WindowsByteString(ExifTag tag, string value)
+            : base(tag)
+        {
+            mValue = value;
+        }
+
+        public override ExifInterOperability Interoperability
+        {
+            get
+            {
+                byte[] data = Encoding.Unicode.GetBytes(mValue);
+                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), 1, (uint)data.Length, data);
+            }
+        }
+    }
 }

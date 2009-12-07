@@ -41,6 +41,17 @@ namespace ExifLibrary
         Copyright = IFD.Zeroth + 33432,
         EXIFIFDPointer = IFD.Zeroth + 34665,
         GPSIFDPointer = IFD.Zeroth + 34853,
+        // Windows Tags
+        WindowsTitle = IFD.Zeroth + 0x9c9b,
+        WindowsComment = IFD.Zeroth + 0x9c9c,
+        WindowsAuthor = IFD.Zeroth + 0x9c9d,
+        WindowsKeywords = IFD.Zeroth + 0x9c9e,
+        WindowsSubject = IFD.Zeroth + 0x9c9f,
+        // Rating
+        Rating = IFD.Zeroth + 0x4746,
+        RatingPercent = IFD.Zeroth + 0x4749,
+        // Microsoft specifing padding and offset tags
+        ZerothIFDPadding = IFD.Zeroth + 0xea1c,
         // ****************************
         // EXIF Tags
         // ****************************
@@ -101,6 +112,9 @@ namespace ExifLibrary
         SubjectDistanceRange = IFD.EXIF + 41996,
         ImageUniqueID = IFD.EXIF + 42016,
         InteroperabilityIFDPointer = IFD.EXIF + 40965,
+        // Microsoft specifing padding and offset tags
+        ExifIFDPadding = IFD.EXIF + 0xea1c,
+        OffsetSchema = IFD.EXIF + 0xea1d,
         // ****************************
         // GPS Tags
         // ****************************
@@ -140,6 +154,8 @@ namespace ExifLibrary
         // ****************************
         InteroperabilityIndex = IFD.Interop + 1,
         InteroperabilityVersion = IFD.Interop + 2,
+        RelatedImageWidth = IFD.Interop + 0x1001,
+        RelatedImageHeight = IFD.Interop + 0x1002,
         // ****************************
         // First IFD TIFF Tags
         // ****************************

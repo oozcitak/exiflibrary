@@ -11,11 +11,30 @@ namespace ExifLibrary
         /// <summary>
         /// Returns the greatest common divisor of two numbers.
         /// </summary>
+        /// <param name="a">First number.</param>
+        /// <param name="b">Second number.</param>
         public static uint GCD(uint a, uint b)
         {
             while (b != 0)
             {
                 uint rem = a % b;
+                a = b;
+                b = rem;
+            }
+
+            return a;
+        }
+
+        /// <summary>
+        /// Returns the greatest common divisor of two numbers.
+        /// </summary>
+        /// <param name="a">First number.</param>
+        /// <param name="b">Second number.</param>
+        public static ulong GCD(ulong a, ulong b)
+        {
+            while (b != 0)
+            {
+                ulong rem = a % b;
                 a = b;
                 b = rem;
             }
@@ -602,20 +621,20 @@ namespace ExifLibrary
                 if (isneg) value = -value;
 
                 // The precision of the resulting fraction
-                int maxden = (int)System.Math.Pow(10.0, precision);
+                uint maxden = (uint)System.Math.Pow(10.0, precision);
 
                 // Input value is truncated at this many digits
-                int num = (int)(value * (double)maxden);
-                int den = maxden;
+                ulong num = (ulong)(value * (double)maxden);
+                ulong den = maxden;
 
                 // Find the GCD of numerator and denumerator
-                int gcd = (int)MathEx.GCD((uint)num, (uint)den);
+                ulong gcd = MathEx.GCD(num, den);
 
                 // Reduce the fraction by the GCD
                 num /= gcd;
                 den /= gcd;
 
-                return new Fraction32((isneg ? -1 : 1) * num, den);
+                return new Fraction32((isneg ? -1 : 1) * (int)num, (int)den);
             }
 
             /// <summary>Converts the string representation of a fraction to a Fraction type.</summary>
@@ -1188,17 +1207,17 @@ namespace ExifLibrary
                 uint maxden = (uint)System.Math.Pow(10.0, precision);
 
                 // Input value is truncated at this many digits
-                uint num = (uint)(value * (double)maxden);
-                uint den = maxden;
+                ulong num = (ulong)(value * (double)maxden);
+                ulong den = maxden;
 
                 // Find the GCD of numerator and denumerator
-                uint gcd = MathEx.GCD((uint)num, (uint)den);
+                ulong gcd = MathEx.GCD(num, den);
 
                 // Reduce the fraction by the GCD
                 num /= gcd;
                 den /= gcd;
 
-                return new UFraction32(num, den);
+                return new UFraction32((uint)num, (uint)den);
             }
 
             /// <summary>Converts the string representation of a fraction to a Fraction type.</summary>

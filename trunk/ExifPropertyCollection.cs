@@ -39,7 +39,14 @@ namespace ExifLibrary
         public ExifProperty this[ExifTag key]
         {
             get { return items[key]; }
-            set { items[key] = value; }
+            set
+            {
+                ExifProperty p = null;
+                if (items.TryGetValue(key, out p))
+                    p.Value = value;
+                else
+                    items.Add(key, value);
+            }
         }
         #endregion
 

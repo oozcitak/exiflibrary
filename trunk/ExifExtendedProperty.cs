@@ -212,6 +212,12 @@ namespace ExifLibrary
         {
             ;
         }
+
+        public ExifPointSubjectArea(ExifTag tag, ushort x, ushort y)
+            : base(tag, new ushort[] { x, y })
+        {
+            ;
+        }
     }
 
     /// <summary>
@@ -232,6 +238,12 @@ namespace ExifLibrary
 
         public ExifCircularSubjectArea(ExifTag tag, ushort[] value)
             : base(tag, value)
+        {
+            ;
+        }
+
+        public ExifCircularSubjectArea(ExifTag tag, ushort x, ushort y, ushort d)
+            : base(tag, new ushort[] { x, y, d })
         {
             ;
         }
@@ -256,6 +268,12 @@ namespace ExifLibrary
 
         public ExifRectangularSubjectArea(ExifTag tag, ushort[] value)
             : base(tag, value)
+        {
+            ;
+        }
+
+        public ExifRectangularSubjectArea(ExifTag tag, ushort x, ushort y, ushort w, ushort h)
+            : base(tag, new ushort[] { x, y, w, h })
         {
             ;
         }
@@ -287,6 +305,12 @@ namespace ExifLibrary
         {
             ;
         }
+
+        public GPSLatitudeLongitude(ExifTag tag, float d, float m, float s)
+            : base(tag, new MathEx.UFraction32[] { new MathEx.UFraction32(d), new MathEx.UFraction32(m), new MathEx.UFraction32(s) })
+        {
+            ;
+        }
     }
 
     /// <summary>
@@ -306,6 +330,12 @@ namespace ExifLibrary
 
         public GPSTimeStamp(ExifTag tag, MathEx.UFraction32[] value)
             : base(tag, value)
+        {
+            ;
+        }
+
+        public GPSTimeStamp(ExifTag tag, float h, float m, float s)
+            : base(tag, new MathEx.UFraction32[] { new MathEx.UFraction32(h), new MathEx.UFraction32(m), new MathEx.UFraction32(s) })
         {
             ;
         }

@@ -69,6 +69,7 @@ namespace ExifLibrary
                 {
                     // Default to ASCII
                     Encoding enc = Encoding.ASCII;
+                    bool hasenc = true;
                     string encstr = enc.GetString(value, 0, 8);
                     if (string.Compare(encstr, "ASCII\0\0\0", StringComparison.OrdinalIgnoreCase) == 0)
                         enc = Encoding.ASCII;
@@ -76,8 +77,11 @@ namespace ExifLibrary
                         enc = Encoding.GetEncoding("Japanese (JIS 0208-1990 and 0212-1990)");
                     else if (string.Compare(encstr, "Unicode\0", StringComparison.OrdinalIgnoreCase) == 0)
                         enc = Encoding.Unicode;
+                    else
+                        hasenc = false;
+                    string val = (hasenc ? enc.GetString(value, 8, value.Length - 8) : enc.GetString(value));
 
-                    return new ExifEncodedString(ExifTag.UserComment, enc.GetString(value, 8, value.Length - 8).TrimEnd('\0'), enc);
+                    return new ExifEncodedString(ExifTag.UserComment, val, enc);
                 }
                 else if (tag == 0x9003) // DateTimeOriginal
                     return new ExifDateTime(ExifTag.DateTimeOriginal, ExifBitConverter.ToDateTime(value));

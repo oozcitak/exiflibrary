@@ -3,6 +3,11 @@
 
 = Release Notes =
 
+== v0.8 Pre-Alpha ==
+
+  * Fixed an overflow bug in fraction calculations (Issue 11).
+  * Fixed a bug where user comment fields were trimmed after the first null character. (Issue 12)
+
 == v0.7 Pre-Alpha ==
 
   * Fixed an overflow bug in fraction calculations.

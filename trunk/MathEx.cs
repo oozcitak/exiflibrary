@@ -53,10 +53,6 @@ namespace ExifLibrary
             private int mDenominator;
             #endregion
 
-            #region Constants
-            private const int DefaultPrecision = 8;
-            #endregion
-
             #region Properties
             /// <summary>
             /// Gets or sets the numerator.
@@ -404,7 +400,7 @@ namespace ExifLibrary
             }
 
             public Fraction32(double value)
-                : this(FromDouble(value, DefaultPrecision))
+                : this(FromDouble(value))
             {
                 ;
             }
@@ -606,9 +602,8 @@ namespace ExifLibrary
             /// Converts the given floating-point number to its rational representation.
             /// </summary>
             /// <param name="value">The floating-point number to be converted.</param>
-            /// <param name="precision">Number of digits to consider.</param>
             /// <returns>The rational representation of value.</returns>
-            private static Fraction32 FromDouble(double value, int precision)
+            private static Fraction32 FromDouble(double value)
             {
                 if (double.IsNaN(value))
                     return Fraction32.NaN;
@@ -620,21 +615,41 @@ namespace ExifLibrary
                 bool isneg = (value < 0);
                 if (isneg) value = -value;
 
-                // The precision of the resulting fraction
-                uint maxden = (uint)System.Math.Pow(10.0, precision);
+                double f = value;
+                double forg = f;
+                int lnum = 0;
+                int lden = 1;
+                int num = 1;
+                int den = 0;
+                double lasterr = 1.0;
+                int a;
+                while (true)
+                {
+                    a = (int)Math.Floor(f);
+                    f = f - (double)a;
+                    if (Math.Abs(f) < double.Epsilon)
+                        break;
+                    f = 1.0 / f;
+                    if (double.IsInfinity(f))
+                        break;
+                    int cnum = num * a + lnum;
+                    int cden = den * a + lden;
+                    if (Math.Abs((double)cnum / (double)cden - forg) < double.Epsilon)
+                        break;
+                    double err = ((double)cnum / (double)cden - (double)num / (double)den) / ((double)num / (double)den);
+                    // Are we converging?
+                    if (err >= lasterr)
+                        break;
+                    lasterr = err;
+                    lnum = num;
+                    lden = den;
+                    num = cnum;
+                    den = cden;
+                }
+                int fnum = num * a + lnum;
+                int fden = den * a + lden;
 
-                // Input value is truncated at this many digits
-                ulong num = (ulong)(value * (double)maxden);
-                ulong den = maxden;
-
-                // Find the GCD of numerator and denumerator
-                ulong gcd = MathEx.GCD(num, den);
-
-                // Reduce the fraction by the GCD
-                num /= gcd;
-                den /= gcd;
-
-                return new Fraction32((isneg ? -1 : 1) * (int)num, (int)den);
+                return new Fraction32((isneg ? -1 : 1) * num, den);
             }
 
             /// <summary>Converts the string representation of a fraction to a Fraction type.</summary>
@@ -665,7 +680,7 @@ namespace ExifLibrary
                     {
                         // Parse as double
                         double dval = double.Parse(sa[0]);
-                        return FromDouble(dval, DefaultPrecision);
+                        return FromDouble(dval);
                     }
                 }
                 else if (sa.Length == 2)
@@ -703,10 +718,6 @@ namespace ExifLibrary
             #region Member Variables
             private uint mNumerator;
             private uint mDenominator;
-            #endregion
-
-            #region Constants
-            private const int DefaultPrecision = 8;
             #endregion
 
             #region Properties
@@ -990,7 +1001,7 @@ namespace ExifLibrary
             }
 
             public UFraction32(double value)
-                : this(FromDouble(value, DefaultPrecision))
+                : this(FromDouble(value))
             {
                 ;
             }
@@ -1191,9 +1202,8 @@ namespace ExifLibrary
             /// Converts the given floating-point number to its rational representation.
             /// </summary>
             /// <param name="value">The floating-point number to be converted.</param>
-            /// <param name="precision">Number of digits of value to consider.</param>
             /// <returns>The rational representation of value.</returns>
-            private static UFraction32 FromDouble(double value, int precision)
+            private static UFraction32 FromDouble(double value)
             {
                 if (value < 0)
                     throw new ArgumentException("value cannot be negative.", "value");
@@ -1203,21 +1213,41 @@ namespace ExifLibrary
                 else if (double.IsInfinity(value))
                     return UFraction32.Infinity;
 
-                // The precision of the resulting fraction
-                uint maxden = (uint)System.Math.Pow(10.0, precision);
+                double f = value;
+                double forg = f;
+                uint lnum = 0;
+                uint lden = 1;
+                uint num = 1;
+                uint den = 0;
+                double lasterr = 1.0;
+                uint a;
+                while (true)
+                {
+                    a = (uint)Math.Floor(f);
+                    f = f - (double)a;
+                    if (Math.Abs(f) < double.Epsilon)
+                        break;
+                    f = 1.0 / f;
+                    if (double.IsInfinity(f))
+                        break;
+                    uint cnum = num * a + lnum;
+                    uint cden = den * a + lden;
+                    if (Math.Abs((double)cnum / (double)cden - forg) < double.Epsilon)
+                        break;
+                    double err = ((double)cnum / (double)cden - (double)num / (double)den) / ((double)num / (double)den);
+                    // Are we converging?
+                    if (err >= lasterr)
+                        break;
+                    lasterr = err;
+                    lnum = num;
+                    lden = den;
+                    num = cnum;
+                    den = cden;
+                }
+                uint fnum = num * a + lnum;
+                uint fden = den * a + lden;
 
-                // Input value is truncated at this many digits
-                ulong num = (ulong)(value * (double)maxden);
-                ulong den = maxden;
-
-                // Find the GCD of numerator and denumerator
-                ulong gcd = MathEx.GCD(num, den);
-
-                // Reduce the fraction by the GCD
-                num /= gcd;
-                den /= gcd;
-
-                return new UFraction32((uint)num, (uint)den);
+                return new UFraction32(fnum, fden);
             }
 
             /// <summary>Converts the string representation of a fraction to a Fraction type.</summary>
@@ -1248,7 +1278,7 @@ namespace ExifLibrary
                     {
                         // Parse as double
                         double dval = double.Parse(sa[0]);
-                        return FromDouble(dval, DefaultPrecision);
+                        return FromDouble(dval);
                     }
                 }
                 else if (sa.Length == 2)

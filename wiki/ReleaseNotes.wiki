@@ -3,6 +3,10 @@
 
 = Release Notes =
 
+== v0.9 Pre-Alpha (20 January 2010) ==
+
+  * Fixed a bug where user comment fields were trimmed if shorter than 8 bytes. (Issue 12)
+
 == v0.8 Pre-Alpha ==
 
   * Fixed an overflow bug in fraction calculations (Issue 11).

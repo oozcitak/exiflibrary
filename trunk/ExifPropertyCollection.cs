@@ -43,7 +43,7 @@ namespace ExifLibrary
             {
                 ExifProperty p = null;
                 if (items.TryGetValue(key, out p))
-                    p.Value = value;
+                    p = value;
                 else
                     items.Add(key, value);
             }

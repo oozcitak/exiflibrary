@@ -138,7 +138,7 @@ namespace ExifLibrary
                 else if (tag == 0xa40a) // Sharpness
                     return new ExifEnumProperty<Sharpness>(ExifTag.Sharpness, (Sharpness)conv.ToUInt16(value, 0), true);
                 else if (tag == 0xa40c) // SubjectDistanceRange
-                    return new ExifEnumProperty<SubjectDistanceRange>(ExifTag.SubjectDistance, (SubjectDistanceRange)conv.ToUInt16(value, 0), true);
+                    return new ExifEnumProperty<SubjectDistanceRange>(ExifTag.SubjectDistanceRange, (SubjectDistanceRange)conv.ToUInt16(value, 0), true);
             }
             else if (ifd == IFD.GPS)
             {

@@ -14,7 +14,6 @@ namespace ExifLibrary
         /// </summary>
         public enum ByteOrder
         {
-            System = 0,
             LittleEndian = 1,
             BigEndian = 2,
         }
@@ -53,7 +52,7 @@ namespace ExifLibrary
         {
             get
             {
-                return new BitConverterEx(ByteOrder.LittleEndian, ByteOrder.System);
+                return new BitConverterEx(ByteOrder.LittleEndian, BitConverterEx.SystemByteOrder);
             }
         }
 
@@ -64,7 +63,7 @@ namespace ExifLibrary
         {
             get
             {
-                return new BitConverterEx(ByteOrder.BigEndian, ByteOrder.System);
+                return new BitConverterEx(ByteOrder.BigEndian, BitConverterEx.SystemByteOrder);
             }
         }
 
@@ -75,7 +74,7 @@ namespace ExifLibrary
         {
             get
             {
-                return new BitConverterEx(ByteOrder.System, ByteOrder.System);
+                return new BitConverterEx(BitConverterEx.SystemByteOrder, BitConverterEx.SystemByteOrder);
             }
         }
         #endregion
@@ -251,7 +250,7 @@ namespace ExifLibrary
         {
             return BitConverterEx.ToChar(value, startIndex, mFrom, mTo);
         }
-        
+
         /// <summary>
         /// Converts the given array of bytes to a 16-bit unsigned integer.
         /// </summary>
@@ -387,8 +386,6 @@ namespace ExifLibrary
         /// </summary>
         private static byte[] CheckData(byte[] value, int startIndex, int length, ByteOrder from, ByteOrder to)
         {
-            from = CheckByteOrder(from);
-            to = CheckByteOrder(to);
             byte[] data = new byte[length];
             Array.Copy(value, startIndex, data, 0, length);
             if (from != to)
@@ -402,22 +399,6 @@ namespace ExifLibrary
         private static byte[] CheckData(byte[] value, ByteOrder from, ByteOrder to)
         {
             return CheckData(value, 0, value.Length, from, to);
-        }
-
-        /// <summary>
-        /// Decodes the ByteOrder.System value for this platform.
-        /// </summary>
-        private static ByteOrder CheckByteOrder(ByteOrder order)
-        {
-            if (order == ByteOrder.System)
-            {
-                if (BitConverter.IsLittleEndian)
-                    return ByteOrder.LittleEndian;
-                else
-                    return ByteOrder.BigEndian;
-            }
-            else
-                return order;
         }
         #endregion
     }

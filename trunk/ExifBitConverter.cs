@@ -84,7 +84,7 @@ namespace ExifLibrary
             byte[] den = new byte[4];
             Array.Copy(data, 0, num, 0, 4);
             Array.Copy(data, 4, den, 0, 4);
-            return new MathEx.UFraction32(ToUInt32(num, 0, frombyteorder, ByteOrder.System), ToUInt32(den, 0, frombyteorder, ByteOrder.System));
+            return new MathEx.UFraction32(ToUInt32(num, 0, frombyteorder, BitConverterEx.SystemByteOrder), ToUInt32(den, 0, frombyteorder, BitConverterEx.SystemByteOrder));
         }
 
         /// <summary>
@@ -100,7 +100,7 @@ namespace ExifLibrary
             byte[] den = new byte[4];
             Array.Copy(data, 0, num, 0, 4);
             Array.Copy(data, 4, den, 0, 4);
-            return new MathEx.Fraction32(ToInt32(num, 0, frombyteorder, ByteOrder.System), ToInt32(den, 0, frombyteorder, ByteOrder.System));
+            return new MathEx.Fraction32(ToInt32(num, 0, frombyteorder, BitConverterEx.SystemByteOrder), ToInt32(den, 0, frombyteorder, BitConverterEx.SystemByteOrder));
         }
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace ExifLibrary
             {
                 byte[] num = new byte[2];
                 Array.Copy(data, i * 2, num, 0, 2);
-                numbers[i] = ToUInt16(num, 0, frombyteorder, ByteOrder.System);
+                numbers[i] = ToUInt16(num, 0, frombyteorder, BitConverterEx.SystemByteOrder);
             }
             return numbers;
         }
@@ -132,7 +132,7 @@ namespace ExifLibrary
             {
                 byte[] num = new byte[4];
                 Array.Copy(data, i * 4, num, 0, 4);
-                numbers[i] = ToUInt32(num, 0, frombyteorder, ByteOrder.System);
+                numbers[i] = ToUInt32(num, 0, frombyteorder, BitConverterEx.SystemByteOrder);
             }
             return numbers;
         }
@@ -149,7 +149,7 @@ namespace ExifLibrary
             {
                 byte[] num = new byte[4];
                 Array.Copy(data, i * 4, num, 0, 4);
-                numbers[i] = ToInt32(num, 0, byteorder, ByteOrder.System);
+                numbers[i] = ToInt32(num, 0, byteorder, BitConverterEx.SystemByteOrder);
             }
             return numbers;
         }
@@ -168,7 +168,7 @@ namespace ExifLibrary
                 byte[] den = new byte[4];
                 Array.Copy(data, i * 8, num, 0, 4);
                 Array.Copy(data, i * 8 + 4, den, 0, 4);
-                numbers[i].Set(ToUInt32(num, 0, frombyteorder, ByteOrder.System), ToUInt32(den, 0, frombyteorder, ByteOrder.System));
+                numbers[i].Set(ToUInt32(num, 0, frombyteorder, BitConverterEx.SystemByteOrder), ToUInt32(den, 0, frombyteorder, BitConverterEx.SystemByteOrder));
             }
             return numbers;
         }
@@ -187,7 +187,7 @@ namespace ExifLibrary
                 byte[] den = new byte[4];
                 Array.Copy(data, i * 8, num, 0, 4);
                 Array.Copy(data, i * 8 + 4, den, 0, 4);
-                numbers[i].Set(ToInt32(num, 0, frombyteorder, ByteOrder.System), ToInt32(den, 0, frombyteorder, ByteOrder.System));
+                numbers[i].Set(ToInt32(num, 0, frombyteorder, BitConverterEx.SystemByteOrder), ToInt32(den, 0, frombyteorder, BitConverterEx.SystemByteOrder));
             }
             return numbers;
         }
@@ -228,8 +228,8 @@ namespace ExifLibrary
         /// </summary>
         public static byte[] GetBytes(MathEx.UFraction32 value, ByteOrder tobyteorder)
         {
-            byte[] num = GetBytes(value.Numerator, ByteOrder.System, tobyteorder);
-            byte[] den = GetBytes(value.Denominator, ByteOrder.System, tobyteorder);
+            byte[] num = GetBytes(value.Numerator, BitConverterEx.SystemByteOrder, tobyteorder);
+            byte[] den = GetBytes(value.Denominator, BitConverterEx.SystemByteOrder, tobyteorder);
             byte[] data = new byte[8];
             Array.Copy(num, 0, data, 0, 4);
             Array.Copy(den, 0, data, 4, 4);
@@ -242,8 +242,8 @@ namespace ExifLibrary
         /// </summary>
         public static byte[] GetBytes(MathEx.Fraction32 value, ByteOrder tobyteorder)
         {
-            byte[] num = GetBytes(value.Numerator, ByteOrder.System, tobyteorder);
-            byte[] den = GetBytes(value.Denominator, ByteOrder.System, tobyteorder);
+            byte[] num = GetBytes(value.Numerator, BitConverterEx.SystemByteOrder, tobyteorder);
+            byte[] den = GetBytes(value.Denominator, BitConverterEx.SystemByteOrder, tobyteorder);
             byte[] data = new byte[8];
             Array.Copy(num, 0, data, 0, 4);
             Array.Copy(den, 0, data, 4, 4);
@@ -259,7 +259,7 @@ namespace ExifLibrary
             byte[] data = new byte[2 * value.Length];
             for (int i = 0; i < value.Length; i++)
             {
-                byte[] num = GetBytes(value[i], ByteOrder.System, tobyteorder);
+                byte[] num = GetBytes(value[i], BitConverterEx.SystemByteOrder, tobyteorder);
                 Array.Copy(num, 0, data, i * 2, 2);
             }
             return data;
@@ -274,7 +274,7 @@ namespace ExifLibrary
             byte[] data = new byte[4 * value.Length];
             for (int i = 0; i < value.Length; i++)
             {
-                byte[] num = GetBytes(value[i], ByteOrder.System, tobyteorder);
+                byte[] num = GetBytes(value[i], BitConverterEx.SystemByteOrder, tobyteorder);
                 Array.Copy(num, 0, data, i * 4, 4);
             }
             return data;
@@ -289,7 +289,7 @@ namespace ExifLibrary
             byte[] data = new byte[4 * value.Length];
             for (int i = 0; i < value.Length; i++)
             {
-                byte[] num = GetBytes(value[i], ByteOrder.System, tobyteorder);
+                byte[] num = GetBytes(value[i], BitConverterEx.SystemByteOrder, tobyteorder);
                 Array.Copy(num, 0, data, i * 4, 4);
             }
             return data;
@@ -304,8 +304,8 @@ namespace ExifLibrary
             byte[] data = new byte[8 * value.Length];
             for (int i = 0; i < value.Length; i++)
             {
-                byte[] num = GetBytes(value[i].Numerator, ByteOrder.System, tobyteorder);
-                byte[] den = GetBytes(value[i].Denominator, ByteOrder.System, tobyteorder);
+                byte[] num = GetBytes(value[i].Numerator, BitConverterEx.SystemByteOrder, tobyteorder);
+                byte[] den = GetBytes(value[i].Denominator, BitConverterEx.SystemByteOrder, tobyteorder);
                 Array.Copy(num, 0, data, i * 8, 4);
                 Array.Copy(den, 0, data, i * 8 + 4, 4);
             }
@@ -321,8 +321,8 @@ namespace ExifLibrary
             byte[] data = new byte[8 * value.Length];
             for (int i = 0; i < value.Length; i++)
             {
-                byte[] num = GetBytes(value[i].Numerator, ByteOrder.System, tobyteorder);
-                byte[] den = GetBytes(value[i].Denominator, ByteOrder.System, tobyteorder);
+                byte[] num = GetBytes(value[i].Numerator, BitConverterEx.SystemByteOrder, tobyteorder);
+                byte[] den = GetBytes(value[i].Denominator, BitConverterEx.SystemByteOrder, tobyteorder);
                 Array.Copy(num, 0, data, i * 8, 4);
                 Array.Copy(den, 0, data, i * 8 + 4, 4);
             }

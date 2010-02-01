@@ -327,10 +327,10 @@ namespace ExifLibrary
                 throw new NotValidExifFileException();
 
             // Offset to 0th IFD
-            int ifd0offset = (int)BitConverterEx.ToUInt32(header, tiffoffset + 4, tiffByteOrder, BitConverterEx.ByteOrder.System);
+            int ifd0offset = (int)BitConverterEx.ToUInt32(header, tiffoffset + 4, tiffByteOrder, BitConverterEx.SystemByteOrder);
             ifdqueue.Add(ifd0offset, IFD.Zeroth);
 
-            BitConverterEx conv = new BitConverterEx(ByteOrder, BitConverterEx.ByteOrder.System);
+            BitConverterEx conv = new BitConverterEx(ByteOrder, BitConverterEx.SystemByteOrder);
             int thumboffset = -1;
             int thumblength = 0;
             int thumbtype = -1;
@@ -520,8 +520,8 @@ namespace ExifLibrary
             }
 
             // We will need these bitconverters to write byte-ordered data
-            BitConverterEx bceJPEG = new BitConverterEx(BitConverterEx.ByteOrder.System, BitConverterEx.ByteOrder.BigEndian);
-            BitConverterEx bceExif = new BitConverterEx(BitConverterEx.ByteOrder.System, ByteOrder);
+            BitConverterEx bceJPEG = new BitConverterEx(BitConverterEx.SystemByteOrder, BitConverterEx.ByteOrder.BigEndian);
+            BitConverterEx bceExif = new BitConverterEx(BitConverterEx.SystemByteOrder, ByteOrder);
 
             // Create a memory stream to write the APP1 section to
             MemoryStream ms = new MemoryStream();
@@ -591,7 +591,7 @@ namespace ExifLibrary
 
         private void WriteIFD(MemoryStream stream, Dictionary<ExifTag, ExifProperty> ifd, IFD ifdtype, long tiffoffset, bool preserveMakerNote)
         {
-            BitConverterEx conv = new BitConverterEx(BitConverterEx.ByteOrder.System, ByteOrder);
+            BitConverterEx conv = new BitConverterEx(BitConverterEx.SystemByteOrder, ByteOrder);
 
             // Create a queue of fields to write
             Queue<ExifProperty> fieldqueue = new Queue<ExifProperty>();
@@ -650,15 +650,16 @@ namespace ExifLibrary
                 stream.Write(conv.GetBytes(interop.Count), 0, 4);
                 // Field data
                 byte[] data = interop.Data;
-                if (ByteOrder != BitConverterEx.SystemByteOrder)
+                if (ByteOrder != BitConverterEx.SystemByteOrder &&
+                    (interop.TypeID == 3 || interop.TypeID == 4 || interop.TypeID == 9 ||
+                    interop.TypeID == 5 || interop.TypeID == 10))
                 {
-                    if (interop.TypeID == 1 || interop.TypeID == 3 || interop.TypeID == 4 || interop.TypeID == 9)
-                        Array.Reverse(data);
-                    else if (interop.TypeID == 5 || interop.TypeID == 10)
-                    {
-                        Array.Reverse(data, 0, 4);
-                        Array.Reverse(data, 4, 4);
-                    }
+                    int vlen = 4;
+                    if (interop.TypeID == 3) vlen = 2;
+                    int n = data.Length / vlen;
+
+                    for (int i = 0; i < n; i++)
+                        Array.Reverse(data, i * vlen, vlen);
                 }
 
                 // Fields containing offsets to other IFDs
@@ -765,17 +766,7 @@ namespace ExifLibrary
 
             // Process the maker note
             exif.makerNoteProcessed = false;
-            /*
-            // Assign the custom type descriptor
-            TypeDescriptor.AddProvider(
-                new ExifFileTypeDescriptionProvider(
-                    TypeDescriptor.GetProvider(typeof(ExifFile))), exif);
-             * */
-            /*
-            PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(exif);
-            foreach (PropertyDescriptor property in properties) 
-                Console.WriteLine("- " + property.Name);
-            */
+
             return exif;
         }
         #endregion

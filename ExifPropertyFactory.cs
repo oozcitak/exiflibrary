@@ -33,8 +33,8 @@ namespace ExifLibrary
         /// <returns>an ExifProperty initialized from the interoperability parameters.</returns>
         public static ExifProperty Get(ushort tag, ushort type, uint count, byte[] value, BitConverterEx.ByteOrder byteOrder, IFD ifd)
         {
-            BitConverterEx conv = new BitConverterEx(byteOrder, BitConverterEx.ByteOrder.System);
-                        // Find the exif tag corresponding to given tag id
+            BitConverterEx conv = new BitConverterEx(byteOrder, BitConverterEx.SystemByteOrder);
+            // Find the exif tag corresponding to given tag id
             ExifTag etag = ExifTagFactory.GetExifTag(ifd, tag);
 
             if (ifd == IFD.Zeroth)

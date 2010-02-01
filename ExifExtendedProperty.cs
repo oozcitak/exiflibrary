@@ -61,7 +61,7 @@ namespace ExifLibrary
                 else if (basetype == typeof(ushort))
                 {
                     // SHORT
-                    return new ExifInterOperability(tagid, 3, 1, ExifBitConverter.GetBytes((ushort)((object)mValue), BitConverterEx.ByteOrder.System, BitConverterEx.ByteOrder.System));
+                    return new ExifInterOperability(tagid, 3, 1, ExifBitConverter.GetBytes((ushort)((object)mValue), BitConverterEx.SystemByteOrder, BitConverterEx.SystemByteOrder));
                 }
                 else
                     throw new UnknownEnumTypeException();

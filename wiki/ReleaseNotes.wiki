@@ -3,7 +3,7 @@
 
 = Release Notes =
 
-== v0.10 Pre-Alpha (02 February2010) ==
+== v0.10 Pre-Alpha (02 February 2010) ==
 
   * Fixed a bug the !SubjectDistance tag tried to overwrite the !SubjectDistanceRange tag (Issue 13)
   * Fixed a bug in tag data conversion for tags with multiple components (Issue 15).

@@ -3,6 +3,11 @@
 
 = Release Notes =
 
+== v0.10 Pre-Alpha (02 February2010) ==
+
+  * Fixed a bug the !SubjectDistance tag tried to overwrite the !SubjectDistanceRange tag (Issue 13)
+  * Fixed a bug in tag data conversion for tags with multiple components (Issue 15).
+
 == v0.9 Pre-Alpha (20 January 2010) ==
 
   * Fixed a bug where user comment fields were trimmed if shorter than 8 bytes. (Issue 12)

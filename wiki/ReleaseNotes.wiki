@@ -3,6 +3,11 @@
 
 = Release Notes =
 
+== v0.11 Pre-Alpha (10 February 2010) ==
+
+  * Fixed an unboxing issue in !ExifProperty Value property setters (Issue 14).
+  * Fixed a bug where the thumbnail could not be written if the image did not already have a thumbnail (Issue 16).
+
 == v0.10 Pre-Alpha (02 February 2010) ==
 
   * Fixed a bug the !SubjectDistance tag tried to overwrite the !SubjectDistanceRange tag (Issue 13)

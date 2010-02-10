@@ -4,7 +4,7 @@ using System.Text;
 namespace ExifLibrary
 {
     /// <summary>
-    /// Represents the base class for an Exif property.
+    /// Represents the abstract base class for an Exif property.
     /// </summary>
     public abstract class ExifProperty
     {
@@ -23,19 +23,19 @@ namespace ExifLibrary
         /// <summary>
         /// Gets or sets the name of this property.
         /// </summary>
-        public string Name 
-        { 
-            get 
+        public string Name
+        {
+            get
             {
                 if (mName == null || mName.Length == 0)
                     return ExifTagFactory.GetTagName(mTag);
                 else
                     return mName;
-            } 
-            set 
-            { 
-                mName = value; 
-            } 
+            }
+            set
+            {
+                mName = value;
+            }
         }
         protected abstract object _Value { get; set; }
         /// <summary>
@@ -60,7 +60,7 @@ namespace ExifLibrary
     public class ExifByte : ExifProperty
     {
         protected byte mValue;
-        protected override object _Value { get { return Value; } set { Value = (byte)value; } }
+        protected override object _Value { get { return Value; } set { Value = Convert.ToByte(value); } }
         public new byte Value { get { return mValue; } set { mValue = value; } }
 
         static public implicit operator byte(ExifByte obj) { return obj.mValue; }
@@ -156,7 +156,7 @@ namespace ExifLibrary
     public class ExifUShort : ExifProperty
     {
         protected ushort mValue;
-        protected override object _Value { get { return Value; } set { Value = (ushort)value; } }
+        protected override object _Value { get { return Value; } set { Value = Convert.ToUInt16(value); } }
         public new ushort Value { get { return mValue; } set { mValue = value; } }
 
         static public implicit operator ushort(ExifUShort obj) { return obj.mValue; }
@@ -225,7 +225,7 @@ namespace ExifLibrary
     public class ExifUInt : ExifProperty
     {
         protected uint mValue;
-        protected override object _Value { get { return Value; } set { Value = (uint)value; } }
+        protected override object _Value { get { return Value; } set { Value = Convert.ToUInt32(value); } }
         public new uint Value { get { return mValue; } set { mValue = value; } }
 
         static public implicit operator uint(ExifUInt obj) { return obj.mValue; }
@@ -422,7 +422,7 @@ namespace ExifLibrary
     public class ExifSInt : ExifProperty
     {
         protected int mValue;
-        protected override object _Value { get { return Value; } set { Value = (int)value; } }
+        protected override object _Value { get { return Value; } set { Value = Convert.ToInt32(value); } }
         public new int Value { get { return mValue; } set { mValue = value; } }
 
         public override string ToString() { return mValue.ToString(); }

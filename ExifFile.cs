@@ -466,6 +466,19 @@ namespace ExifLibrary
             thumbOffsetValue = 0;
             thumbSizeLocation = 0;
             thumbSizeValue = 0;
+            // Write thumbnail tags if they are missing, remove otherwise
+            if (Thumbnail == null)
+            {
+                Properties.Remove(ExifTag.ThumbnailJPEGInterchangeFormat);
+                Properties.Remove(ExifTag.ThumbnailJPEGInterchangeFormatLength);
+            }
+            else
+            {
+                if (!Properties.ContainsKey(ExifTag.ThumbnailJPEGInterchangeFormat))
+                    Properties.Add(new ExifUInt(ExifTag.ThumbnailJPEGInterchangeFormat, 0));
+                if (!Properties.ContainsKey(ExifTag.ThumbnailJPEGInterchangeFormatLength))
+                    Properties.Add(new ExifUInt(ExifTag.ThumbnailJPEGInterchangeFormatLength, 0));
+            }
 
             // Which IFD sections do we have?
             Dictionary<ExifTag, ExifProperty> ifdzeroth = new Dictionary<ExifTag, ExifProperty>();
@@ -513,7 +526,7 @@ namespace ExifLibrary
             if (ifdinterop.Count == 0 && ifdexif.ContainsKey(ExifTag.InteroperabilityIFDPointer))
                 ifdexif.Remove(ExifTag.InteroperabilityIFDPointer);
 
-            if (ifdzeroth.Count == 0 && ifdgps.Count == 0 && ifdinterop.Count == 0 && ifdfirst.Count == 0)
+            if (ifdzeroth.Count == 0 && ifdgps.Count == 0 && ifdinterop.Count == 0 && ifdfirst.Count == 0 && Thumbnail == null)
             {
                 // Nothing to write
                 return false;

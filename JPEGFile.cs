@@ -133,124 +133,122 @@ namespace ExifLibrary
         {
             Sections = new List<JPEGSection>();
 
-            using (stream)
+            stream.Seek(0, SeekOrigin.Begin);
+
+            // Read the Start of Image (SOI) marker. SOI marker is represented
+            // with two bytes: 0xFF, 0xD8.
+            byte[] markerbytes = new byte[2];
+            if (stream.Read(markerbytes, 0, 2) != 2 || markerbytes[0] != 0xFF && markerbytes[1] != 0xD8)
+                throw new NotValidJPEGFileException();
+            stream.Seek(0, SeekOrigin.Begin);
+
+            // Search and read sections until we reach the end of file.
+            while (stream.Position != stream.Length)
             {
-                // Read the Start of Image (SOI) marker. SOI marker is represented
-                // with two bytes: 0xFF, 0xD8.
-                byte[] markerbytes = new byte[2];
-                if (stream.Read(markerbytes, 0, 2) != 2 || markerbytes[0] != 0xFF && markerbytes[1] != 0xD8)
+                // Read the next section marker. Section markers are two bytes 
+                // with values 0xFF, 0x?? where ?? must not be 0x00 or 0xFF.
+                if (stream.Read(markerbytes, 0, 2) != 2 || markerbytes[0] != 0xFF || markerbytes[1] == 0x00 || markerbytes[1] == 0xFF)
                     throw new NotValidJPEGFileException();
-                stream.Seek(0, SeekOrigin.Begin);
 
-                // Search and read sections until we reach the end of file.
-                while (stream.Position != stream.Length)
+                JPEGMarker marker = (JPEGMarker)markerbytes[1];
+
+                byte[] header = new byte[0];
+                // SOI, EOI and RST markers do not contain any header
+                if (marker != JPEGMarker.SOI && marker != JPEGMarker.EOI && !(marker >= JPEGMarker.RST0 && marker <= JPEGMarker.RST7))
                 {
-                    // Read the next section marker. Section markers are two bytes 
-                    // with values 0xFF, 0x?? where ?? must not be 0x00 or 0xFF.
-                    if (stream.Read(markerbytes, 0, 2) != 2 || markerbytes[0] != 0xFF || markerbytes[1] == 0x00 || markerbytes[1] == 0xFF)
+                    // Length of the header including the length bytes.
+                    // This value is a 16-bit unsigned integer 
+                    // in big endian byte-order.
+                    byte[] lengthbytes = new byte[2];
+                    if (stream.Read(lengthbytes, 0, 2) != 2)
                         throw new NotValidJPEGFileException();
+                    long length = (long)BitConverterEx.BigEndian.ToUInt16(lengthbytes, 0);
 
-                    JPEGMarker marker = (JPEGMarker)markerbytes[1];
-
-                    byte[] header = new byte[0];
-                    // SOI, EOI and RST markers do not contain any header
-                    if (marker != JPEGMarker.SOI && marker != JPEGMarker.EOI && !(marker >= JPEGMarker.RST0 && marker <= JPEGMarker.RST7))
+                    // Read section header.
+                    header = new byte[length - 2];
+                    int bytestoread = header.Length;
+                    while (bytestoread > 0)
                     {
-                        // Length of the header including the length bytes.
-                        // This value is a 16-bit unsigned integer 
-                        // in big endian byte-order.
-                        byte[] lengthbytes = new byte[2];
-                        if (stream.Read(lengthbytes, 0, 2) != 2)
+                        int count = Math.Min(bytestoread, 4 * 1024);
+                        int bytesread = stream.Read(header, header.Length - bytestoread, count);
+                        if (bytesread == 0)
                             throw new NotValidJPEGFileException();
-                        long length = (long)BitConverterEx.BigEndian.ToUInt16(lengthbytes, 0);
-
-                        // Read section header.
-                        header = new byte[length - 2];
-                        int bytestoread = header.Length;
-                        while (bytestoread > 0)
-                        {
-                            int count = Math.Min(bytestoread, 4 * 1024);
-                            int bytesread = stream.Read(header, header.Length - bytestoread, count);
-                            if (bytesread == 0)
-                                throw new NotValidJPEGFileException();
-                            bytestoread -= bytesread;
-                        }
+                        bytestoread -= bytesread;
                     }
+                }
 
-                    // Start of Scan (SOS) sections and RST sections are immediately
-                    // followed by entropy coded data. For that, we need to read until
-                    // the next section marker once we reach a SOS or RST.
-                    byte[] entropydata = new byte[0];
-                    if (marker == JPEGMarker.SOS || (marker >= JPEGMarker.RST0 && marker <= JPEGMarker.RST7))
+                // Start of Scan (SOS) sections and RST sections are immediately
+                // followed by entropy coded data. For that, we need to read until
+                // the next section marker once we reach a SOS or RST.
+                byte[] entropydata = new byte[0];
+                if (marker == JPEGMarker.SOS || (marker >= JPEGMarker.RST0 && marker <= JPEGMarker.RST7))
+                {
+                    long position = stream.Position;
+
+                    // Search for the next section marker
+                    while (true)
                     {
-                        long position = stream.Position;
-
-                        // Search for the next section marker
-                        while (true)
+                        // Search for an 0xFF indicating start of a marker
+                        int nextbyte = 0;
+                        do
                         {
-                            // Search for an 0xFF indicating start of a marker
-                            int nextbyte = 0;
-                            do
+                            nextbyte = stream.ReadByte();
+                            if (nextbyte == -1)
+                                throw new NotValidJPEGFileException();
+                        } while ((byte)nextbyte != 0xFF);
+
+                        // Skip filler bytes (0xFF)
+                        do
+                        {
+                            nextbyte = stream.ReadByte();
+                            if (nextbyte == -1)
+                                throw new NotValidJPEGFileException();
+                        } while ((byte)nextbyte == 0xFF);
+
+                        // Looks like a section marker. The next byte must not be 0x00.
+                        if ((byte)nextbyte != 0x00)
+                        {
+                            // We reached a section marker. Calculate the
+                            // length of the entropy coded data.
+                            stream.Seek(-2, SeekOrigin.Current);
+                            long edlength = stream.Position - position;
+                            stream.Seek(-edlength, SeekOrigin.Current);
+
+                            // Read entropy coded data
+                            entropydata = new byte[edlength];
+                            int bytestoread = entropydata.Length;
+                            while (bytestoread > 0)
                             {
-                                nextbyte = stream.ReadByte();
-                                if (nextbyte == -1)
+                                int count = Math.Min(bytestoread, 4 * 1024);
+                                int bytesread = stream.Read(entropydata, entropydata.Length - bytestoread, count);
+                                if (bytesread == 0)
                                     throw new NotValidJPEGFileException();
-                            } while ((byte)nextbyte != 0xFF);
-
-                            // Skip filler bytes (0xFF)
-                            do
-                            {
-                                nextbyte = stream.ReadByte();
-                                if (nextbyte == -1)
-                                    throw new NotValidJPEGFileException();
-                            } while ((byte)nextbyte == 0xFF);
-
-                            // Looks like a section marker. The next byte must not be 0x00.
-                            if ((byte)nextbyte != 0x00)
-                            {
-                                // We reached a section marker. Calculate the
-                                // length of the entropy coded data.
-                                stream.Seek(-2, SeekOrigin.Current);
-                                long edlength = stream.Position - position;
-                                stream.Seek(-edlength, SeekOrigin.Current);
-
-                                // Read entropy coded data
-                                entropydata = new byte[edlength];
-                                int bytestoread = entropydata.Length;
-                                while (bytestoread > 0)
-                                {
-                                    int count = Math.Min(bytestoread, 4 * 1024);
-                                    int bytesread = stream.Read(entropydata, entropydata.Length - bytestoread, count);
-                                    if (bytesread == 0)
-                                        throw new NotValidJPEGFileException();
-                                    bytestoread -= bytesread;
-                                }
-
-                                break;
+                                bytestoread -= bytesread;
                             }
-                        }
-                    }
 
-                    // Store section.
-                    JPEGSection section = new JPEGSection(marker, header, entropydata);
-                    Sections.Add(section);
-
-                    // Some propriety formats store data past the EOI marker
-                    if (marker == JPEGMarker.EOI)
-                    {
-                        int bytestoread = (int)(stream.Length - stream.Position);
-                        TrailingData = new byte[bytestoread];
-                        while (bytestoread > 0)
-                        {
-                            int count = (int)Math.Min(bytestoread, 4 * 1024);
-                            int bytesread = stream.Read(TrailingData, TrailingData.Length - bytestoread, count);
-                            if (bytesread == 0)
-                                throw new NotValidJPEGFileException();
-                            bytestoread -= bytesread;
+                            break;
                         }
                     }
                 }
-                stream.Close();
+
+                // Store section.
+                JPEGSection section = new JPEGSection(marker, header, entropydata);
+                Sections.Add(section);
+
+                // Some propriety formats store data past the EOI marker
+                if (marker == JPEGMarker.EOI)
+                {
+                    int bytestoread = (int)(stream.Length - stream.Position);
+                    TrailingData = new byte[bytestoread];
+                    while (bytestoread > 0)
+                    {
+                        int count = (int)Math.Min(bytestoread, 4 * 1024);
+                        int bytesread = stream.Read(TrailingData, TrailingData.Length - bytestoread, count);
+                        if (bytesread == 0)
+                            throw new NotValidJPEGFileException();
+                        bytestoread -= bytesread;
+                    }
+                }
             }
         }
         #endregion

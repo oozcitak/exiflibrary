@@ -57,7 +57,11 @@ namespace ExifLibrary
         /// <param name="item">The <see cref="ExifLibrary.ExifProperty"/> to add to the collection.</param>
         public void Add(ExifProperty item)
         {
-            items.Add(item.Tag, item);
+            ExifProperty oldItem = null;
+            if (items.TryGetValue(item.Tag, out oldItem))
+                items[item.Tag] = item;
+            else
+                items.Add(item.Tag, item);
         }
         /// <summary>
         /// Removes all items from the collection.

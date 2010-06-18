@@ -752,12 +752,10 @@ namespace ExifLibrary
         /// <returns>An ExifFile class initialized from the specified JPEG/Exif image file.</returns>
         public static ExifFile Read(string filename)
         {
-            ExifFile exif = null;
             using (FileStream stream = new FileStream(filename, FileMode.Open, FileAccess.Read))
             {
-                exif = Read(stream);
+                return Read(stream);
             }
-            return exif;
         }
         /// <summary>
         /// Creates a new ExifFile from the given stream file.

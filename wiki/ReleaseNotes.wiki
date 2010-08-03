@@ -3,6 +3,10 @@
 
 = Release Notes =
 
+== v0.12 Pre-Alpha (03 August 2010) ==
+
+  * Single digit date time values in Exif fields are now read correctly. (Issue 21)
+
 == v0.11 Pre-Alpha (10 February 2010) ==
 
   * Fixed an unboxing issue in !ExifProperty Value property setters (Issue 14).

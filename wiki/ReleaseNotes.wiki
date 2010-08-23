@@ -3,6 +3,10 @@
 
 = Release Notes =
 
+== v0.13 Pre-Alpha (23 August 2010) ==
+
+  * Signed assembly. (Issue 23)
+
 == v0.12 Pre-Alpha (03 August 2010) ==
 
   * Single digit date time values in Exif fields are now read correctly. (Issue 21)

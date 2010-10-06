@@ -5,7 +5,7 @@ using System.Text;
 namespace ExifLibrary
 {
     /// <summary>
-    /// Represents a collection <see cref="ExifLibrary.ExifProperty"/> objects.
+    /// Represents a collection of <see cref="ExifLibrary.ExifProperty"/> objects.
     /// </summary>
     public class ExifPropertyCollection : IDictionary<ExifTag, ExifProperty>
     {
@@ -41,11 +41,9 @@ namespace ExifLibrary
             get { return items[key]; }
             set
             {
-                ExifProperty p = null;
-                if (items.TryGetValue(key, out p))
-                    p = value;
-                else
-                    items.Add(key, value);
+                if (items.ContainsKey(key))
+                    items.Remove(key);
+                items.Add(key, value);
             }
         }
         #endregion

@@ -5,13 +5,24 @@ namespace ExifLibrary
     public enum Compression : ushort
     {
         Uncompressed = 1,
-        JPEGCompression = 6,
+        CCITT1D = 2,
+        Group3Fax = 3,
+        Group4Fax = 4,
+        LZW = 5,
+        JPEG = 6,
+        PackBits = 32773,
     }
 
     public enum PhotometricInterpretation : ushort
     {
+        WhiteIsZero = 0,
+        BlackIsZero = 1,
         RGB = 2,
+        RGBPalette = 3,
+        TransparencyMask = 4,
+        CMYK = 5,
         YCbCr = 6,
+        CIELab = 8,
     }
 
     public enum Orientation : ushort

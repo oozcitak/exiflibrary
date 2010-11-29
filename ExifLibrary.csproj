@@ -43,8 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BitConverterEx.cs" />
+    <Compile Include="ImageFileDirectory.cs" />
+    <Compile Include="ImageFileDirectoryEntry.cs" />
+    <Compile Include="TIFFFile.cs" />
+    <Compile Include="ImageFileFormat.cs" />
     <Compile Include="ExifBitConverter.cs" />
-    <Compile Include="ExifFile.cs" />
+    <Compile Include="JPEGFile.cs" />
     <Compile Include="ExifEnums.cs" />
     <Compile Include="ExifExceptions.cs" />
     <Compile Include="ExifExtendedProperty.cs" />
@@ -57,15 +61,18 @@
     <Compile Include="ExifTag.cs" />
     <Compile Include="ExifTagFactory.cs" />
     <Compile Include="IFD.cs" />
+    <Compile Include="ImageFile.cs" />
     <Compile Include="JFIFEnums.cs" />
     <Compile Include="JFIFExtendedProperty.cs" />
     <Compile Include="JFIFThumbnail.cs" />
     <Compile Include="JPEGExceptions.cs" />
-    <Compile Include="JPEGFile.cs" />
     <Compile Include="JPEGMarker.cs" />
     <Compile Include="JPEGSection.cs" />
     <Compile Include="MathEx.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TIFFHeader.cs" />
+    <Compile Include="TIFFStrip.cs" />
+    <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

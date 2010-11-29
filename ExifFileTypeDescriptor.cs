@@ -11,7 +11,7 @@ namespace ExifLibrary
     internal sealed class ExifFileTypeDescriptionProvider : TypeDescriptionProvider
     {
         public ExifFileTypeDescriptionProvider()
-            : this(TypeDescriptor.GetProvider(typeof(ExifFile)))
+            : this(TypeDescriptor.GetProvider(typeof(ImageFile)))
         {
         }
 
@@ -39,12 +39,12 @@ namespace ExifLibrary
     /// </summary>
     internal sealed class ExifFileTypeDescriptor : CustomTypeDescriptor
     {
-        ExifFile owner;
+        ImageFile owner;
 
         public ExifFileTypeDescriptor(ICustomTypeDescriptor parent, object instance)
             : base(parent)
         {
-            owner = (ExifFile)instance;
+            owner = (ImageFile)instance;
         }
         public override PropertyDescriptorCollection GetProperties(Attribute[] attributes)
         {
@@ -90,7 +90,7 @@ namespace ExifLibrary
 
         public override Type ComponentType
         {
-            get { return typeof(ExifFile); }
+            get { return typeof(JPEGFile); }
         }
 
         public override object GetValue(object component)

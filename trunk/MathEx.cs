@@ -375,8 +375,10 @@ namespace ExifLibrary
                     denominator = -denominator;
                     mIsNegative = !mIsNegative;
                 }
+
                 mNumerator = numerator;
                 mDenominator = denominator;
+
                 if (mDenominator != 0)
                     Reduce(ref mNumerator, ref mDenominator);
             }
@@ -432,9 +434,12 @@ namespace ExifLibrary
                     mIsNegative = !mIsNegative;
                     denominator = -denominator;
                 }
+
                 mNumerator = numerator;
                 mDenominator = denominator;
-                Reduce(ref mNumerator, ref mDenominator);
+
+                if (mDenominator != 0)
+                    Reduce(ref mNumerator, ref mDenominator);
             }
 
             /// <summary>
@@ -1024,7 +1029,9 @@ namespace ExifLibrary
             {
                 mNumerator = numerator;
                 mDenominator = denominator;
-                Reduce(ref mNumerator, ref mDenominator);
+
+                if (mDenominator != 0)
+                    Reduce(ref mNumerator, ref mDenominator);
             }
 
             /// <summary>

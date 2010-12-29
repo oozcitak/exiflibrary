@@ -7,11 +7,11 @@
 
 = Using the Library =
 
-To extract Exif metadata from a JPEG/Exif image, create an instance of the !ExifFile class with the path to the image file. The !ExifFile class reads the APP1 section, and extracts all Exif tags and also the embedded thumbnail (if any). For ease of use, the library converts Exif tags to either .NET native types or custom classes. Date fields are returned as !DateTime structures, GPS coordinates are wrapped with custom !GPSLatitudeLongitude classes, etc.
+To extract Exif metadata from a JPEG/Exif image, create an instance of the !ImageFile class with the path to the image file. The !ImageFile class reads the APP1 section, and extracts all Exif tags and also the embedded thumbnail (if any). For ease of use, the library converts Exif tags to either .NET native types or custom classes. Date fields are returned as !DateTime structures, GPS coordinates are wrapped with custom !GPSLatitudeLongitude classes, etc.
 
 {{{
 // Extract exif metadata
-ExifFile file = ExifFile.Read("path_to_my_image");
+ImageFile file = ImageFile.FromFile("path_to_my_image");
 
 // Read metadata
 foreach (ExifProperty item in file.Properties.Values)
@@ -27,15 +27,12 @@ You can modify the metadata and save your changes.
 
 {{{
 // Extract exif metadata
-ExifFile file = ExifFile.Read("path_to_my_image");
+ImageFile file = ImageFile.FromFile("path_to_my_image");
 
 // Set the date time to now
-file.Properties[ExifTag.DateTime].Value = DateTime.Now;
-// Modify GPS location
-GPSLatitudeLongitude location = 
-    file.Properties[ExifTag.GPSLatitude]
-    as GPSLatitudeLongitude;
-location.Degrees.Set(22, 0);
+file.Properties.Set(ExifTag.DateTime, DateTime.Now);
+// Set GPS location to 22d 0m 0s
+file.Properties.Set(ExifTag.GPSLatitude, 22.0, 0.0, 0.0);
 
 // Save exif metadata with the image
 file.Save("path_to_my_image");
@@ -45,11 +42,10 @@ You can add new metadata.
 
 {{{
 // Extract exif metadata
-ExifFile file = ExifFile.Read("path_to_my_image");
+ImageFile file = ImageFile.FromFile("path_to_my_image");
 
 // Add the Exif Artist tag
-ExifAscii artist = new ExifAscii(ExifTag.Artist, "Me");
-file.Properties.Add(ExifTag.Artist, artist);
+file.Properties.Set(ExifTag.Artist, "Me");
 
 // Save exif metadata with the image
 file.Save("path_to_my_image");
@@ -59,7 +55,7 @@ You can also clear the metadata.
 
 {{{
 // Extract exif metadata
-ExifFile file = ExifFile.Read("path_to_my_image");
+ImageFile file = ImageFile.FromFile("path_to_my_image");
 
 // Clear metadata
 file.Properties.Clear();

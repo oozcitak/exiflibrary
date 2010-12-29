@@ -3,6 +3,12 @@
 
 = Release Notes =
 
+== v0.15 Pre-Alpha (29 December 2010) ==
+
+  * Added convenience setter methods to !ExifPropertyCollection. They try to infer Exif type from the given arguments. Use with care, because they don't stop you (for now) from assigning unrelated values to tags (You can set the GPS longitude to a !DateTime value for example).
+  * Rational values now check for 0 denominators. (Issue 28)
+  * Added support for TIFF Files. (Issue 4) Note that the base class is now named !ImageFile. *This is a breaking change*
+
 == v0.14 Pre-Alpha (07 October 2010) ==
 
   * Setting property items when the collection already has the key had no effect. This is now fixed.

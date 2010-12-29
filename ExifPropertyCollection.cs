@@ -48,6 +48,141 @@ namespace ExifLibrary
         }
         #endregion
 
+        #region ExifProperty Collection Setters
+        /// <summary>
+        /// Sets the <see cref="ExifLibrary.ExifProperty"/> with the specified key.
+        /// </summary>
+        /// <param name="key">The tag to set.</param>
+        /// <param name="value">The value of tag.</param>
+        public void Set(ExifTag key, byte value)
+        {
+            if (items.ContainsKey(key))
+                items.Remove(key);
+            items.Add(key, new ExifByte(key, value));
+        }
+        /// <summary>
+        /// Sets the <see cref="ExifLibrary.ExifProperty"/> with the specified key.
+        /// </summary>
+        /// <param name="key">The tag to set.</param>
+        /// <param name="value">The value of tag.</param>
+        public void Set(ExifTag key, string value)
+        {
+            if (items.ContainsKey(key))
+                items.Remove(key);
+            items.Add(key, new ExifAscii(key, value));
+        }
+        /// <summary>
+        /// Sets the <see cref="ExifLibrary.ExifProperty"/> with the specified key.
+        /// </summary>
+        /// <param name="key">The tag to set.</param>
+        /// <param name="value">The value of tag.</param>
+        public void Set(ExifTag key, ushort value)
+        {
+            if (items.ContainsKey(key))
+                items.Remove(key);
+            items.Add(key, new ExifUShort(key, value));
+        }
+        /// <summary>
+        /// Sets the <see cref="ExifLibrary.ExifProperty"/> with the specified key.
+        /// </summary>
+        /// <param name="key">The tag to set.</param>
+        /// <param name="value">The value of tag.</param>
+        public void Set(ExifTag key, int value)
+        {
+            if (items.ContainsKey(key))
+                items.Remove(key);
+            items.Add(key, new ExifSInt(key, value));
+        }
+        /// <summary>
+        /// Sets the <see cref="ExifLibrary.ExifProperty"/> with the specified key.
+        /// </summary>
+        /// <param name="key">The tag to set.</param>
+        /// <param name="value">The value of tag.</param>
+        public void Set(ExifTag key, uint value)
+        {
+            if (items.ContainsKey(key))
+                items.Remove(key);
+            items.Add(key, new ExifUInt(key, value));
+        }
+        /// <summary>
+        /// Sets the <see cref="ExifLibrary.ExifProperty"/> with the specified key.
+        /// </summary>
+        /// <param name="key">The tag to set.</param>
+        /// <param name="value">The value of tag.</param>
+        public void Set(ExifTag key, float value)
+        {
+            if (items.ContainsKey(key))
+                items.Remove(key);
+            items.Add(key, new ExifURational(key, new MathEx.UFraction32(value)));
+        }
+        /// <summary>
+        /// Sets the <see cref="ExifLibrary.ExifProperty"/> with the specified key.
+        /// </summary>
+        /// <param name="key">The tag to set.</param>
+        /// <param name="value">The value of tag.</param>
+        public void Set(ExifTag key, double value)
+        {
+            if (items.ContainsKey(key))
+                items.Remove(key);
+            items.Add(key, new ExifURational(key, new MathEx.UFraction32(value)));
+        }
+        /// <summary>
+        /// Sets the <see cref="ExifLibrary.ExifProperty"/> with the specified key.
+        /// </summary>
+        /// <param name="key">The tag to set.</param>
+        /// <param name="value">The value of tag.</param>
+        public void Set(ExifTag key, object value)
+        {
+            Type type = value.GetType();
+            if (type.IsEnum)
+            {
+                Type etype = typeof(ExifEnumProperty<>).MakeGenericType(new Type[] { type });
+                object prop = Activator.CreateInstance(etype, new object[] { key, value });
+                if (items.ContainsKey(key))
+                    items.Remove(key);
+                items.Add(key, (ExifProperty)prop);
+            }
+            else
+                throw new ArgumentException("No exif property exists for this tag.", "value");
+        }
+        /// <summary>
+        /// Sets the <see cref="ExifLibrary.ExifProperty"/> with the specified key.
+        /// </summary>
+        /// <param name="key">The tag to set.</param>
+        /// <param name="value">The value of tag.</param>
+        /// <param name="encoding">String encoding.</param>
+        public void Set(ExifTag key, string value, Encoding encoding)
+        {
+            if (items.ContainsKey(key))
+                items.Remove(key);
+            items.Add(key, new ExifEncodedString(key, value, encoding));
+        }
+        /// <summary>
+        /// Sets the <see cref="ExifLibrary.ExifProperty"/> with the specified key.
+        /// </summary>
+        /// <param name="key">The tag to set.</param>
+        /// <param name="value">The value of tag.</param>
+        public void Set(ExifTag key, DateTime value)
+        {
+            if (items.ContainsKey(key))
+                items.Remove(key);
+            items.Add(key, new ExifDateTime(key, value));
+        }
+        /// <summary>
+        /// Sets the <see cref="ExifLibrary.ExifProperty"/> with the specified key.
+        /// </summary>
+        /// <param name="key">The tag to set.</param>
+        /// <param name="d">Angular degrees (or clock hours for a timestamp).</param>
+        /// <param name="m">Angular minutes (or clock minutes for a timestamp).</param>
+        /// <param name="s">Angular seconds (or clock seconds for a timestamp).</param>
+        public void Set(ExifTag key, float d, float m, float s)
+        {
+            if (items.ContainsKey(key))
+                items.Remove(key);
+            items.Add(key, new ExifURationalArray(key, new MathEx.UFraction32[] { new MathEx.UFraction32(d), new MathEx.UFraction32(m), new MathEx.UFraction32(s) }));
+        }
+        #endregion
+
         #region Instance Methods
         /// <summary>
         /// Adds the specified item to the collection.

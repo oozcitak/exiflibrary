@@ -335,7 +335,6 @@ namespace ExifLibrary
                 return false;
             }
 
-            BitConverterEx jfifConv = BitConverterEx.BigEndian;
 
             // Create a memory stream to write the APP0 section to
             MemoryStream ms = new MemoryStream();
@@ -374,7 +373,6 @@ namespace ExifLibrary
                 return;
 
             byte[] header = jfxxApp0.Header;
-            BitConverterEx jfifConv = BitConverterEx.BigEndian;
 
             // Version
             JFIFExtension version = (JFIFExtension)header[5];
@@ -430,8 +428,6 @@ namespace ExifLibrary
                 // Nothing to write
                 return false;
             }
-
-            BitConverterEx jfifConv = BitConverterEx.BigEndian;
 
             // Create a memory stream to write the APP0 section to
             MemoryStream ms = new MemoryStream();
@@ -709,8 +705,7 @@ namespace ExifLibrary
                 return false;
             }
 
-            // We will need these bitconverters to write byte-ordered data
-            BitConverterEx bceJPEG = new BitConverterEx(BitConverterEx.SystemByteOrder, BitConverterEx.ByteOrder.BigEndian);
+            // We will need these bitconverter to write byte-ordered data
             BitConverterEx bceExif = new BitConverterEx(BitConverterEx.SystemByteOrder, ByteOrder);
 
             // Create a memory stream to write the APP1 section to

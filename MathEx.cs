@@ -467,9 +467,6 @@ namespace ExifLibrary
             /// otherwise, false.</returns>
             public bool Equals(Fraction32 obj)
             {
-                if (obj == null)
-                    return false;
-
                 return (mIsNegative == obj.IsNegative) && (mNumerator == obj.Numerator) && (mDenominator == obj.Denominator);
             }
 
@@ -592,8 +589,6 @@ namespace ExifLibrary
             /// </returns>
             public int CompareTo(Fraction32 obj)
             {
-                if (obj == null)
-                    return 1;
                 if (this < obj)
                     return -1;
                 else if (this > obj)
@@ -651,8 +646,6 @@ namespace ExifLibrary
                     num = cnum;
                     den = cden;
                 }
-                int fnum = num * a + lnum;
-                int fden = den * a + lden;
 
                 return new Fraction32((isneg ? -1 : 1) * num, den);
             }
@@ -1069,9 +1062,6 @@ namespace ExifLibrary
             /// otherwise, false.</returns>
             public bool Equals(UFraction32 obj)
             {
-                if (obj == null)
-                    return false;
-
                 return (mNumerator == obj.Numerator) && (mDenominator == obj.Denominator);
             }
 
@@ -1194,8 +1184,6 @@ namespace ExifLibrary
             /// </returns>
             public int CompareTo(UFraction32 obj)
             {
-                if (obj == null)
-                    return 1;
                 if (this < obj)
                     return -1;
                 else if (this > obj)

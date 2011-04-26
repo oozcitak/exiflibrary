@@ -54,7 +54,7 @@ namespace ExifLibrary
             // Read the Start of Image (SOI) marker. SOI marker is represented
             // with two bytes: 0xFF, 0xD8.
             byte[] markerbytes = new byte[2];
-            if (stream.Read(markerbytes, 0, 2) != 2 || markerbytes[0] != 0xFF && markerbytes[1] != 0xD8)
+            if (stream.Read(markerbytes, 0, 2) != 2 || markerbytes[0] != 0xFF || markerbytes[1] != 0xD8)
                 throw new NotValidJPEGFileException();
             stream.Seek(0, SeekOrigin.Begin);
 

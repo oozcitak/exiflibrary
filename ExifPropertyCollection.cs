@@ -310,7 +310,26 @@ namespace ExifLibrary
         /// 	<paramref name="array"/> is multidimensional.-or-<paramref name="arrayIndex"/> is equal to or greater than the length of <paramref name="array"/>.-or-The number of elements in the source <see cref="T:System.Collections.Generic.ICollection`1"/> is greater than the available space from <paramref name="arrayIndex"/> to the end of the destination <paramref name="array"/>.-or-Type <paramref name="T"/> cannot be cast automatically to the type of the destination <paramref name="array"/>.</exception>
         void ICollection<KeyValuePair<ExifTag, ExifProperty>>.CopyTo(KeyValuePair<ExifTag, ExifProperty>[] array, int arrayIndex)
         {
-            throw new NotSupportedException();
+            if (array == null)
+                throw new ArgumentNullException("array");
+            if (arrayIndex < 0)
+                throw new ArgumentOutOfRangeException("arrayIndex");
+            if (array.Rank > 1)
+                throw new ArgumentException("Destination array is multidimensional.", "array");
+            if (arrayIndex >= array.Length)
+                throw new ArgumentException("arrayIndex is equal to or greater than the length of destination array", "array");
+            if (arrayIndex + items.Count > array.Length)
+                throw new ArgumentException("There is not enough space in destination array.", "array");
+
+            int i = 0;
+            foreach (KeyValuePair<ExifTag, ExifProperty> item in items)
+            {
+                if (i >= arrayIndex)
+                {
+                    array[i] = item;
+                }
+                i++;
+            }
         }
         /// <summary>
         /// Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.

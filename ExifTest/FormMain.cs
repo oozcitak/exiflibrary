@@ -20,13 +20,7 @@ namespace ExifLibrary
             lblByteOrder.Text = "";
             lblThumbnail.Text = "";
 
-            lvExif.ListViewItemSorter = new ListViewColumnSorter();
-            
-            string lastfile = Settings.Default.Lastfile;
-            if (File.Exists(lastfile))
-            {
-                ReadFile(lastfile);
-            }
+            lvExif.ListViewItemSorter = new ListViewColumnSorter();            
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
@@ -40,8 +34,6 @@ namespace ExifLibrary
         private void ReadFile(string filename)
         {
             data = ImageFile.FromFile(filename);
-            Settings.Default.Lastfile = filename;
-            Settings.Default.Save();
 
             UpdateView();
 

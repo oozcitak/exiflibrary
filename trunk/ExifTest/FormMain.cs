@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
+using System.ComponentModel;
 using System.IO;
 using System.Text;
-using System.Linq;
-using System.ComponentModel;
-using NetHelpers;
+using System.Windows.Forms;
 
 namespace ExifLibrary
 {

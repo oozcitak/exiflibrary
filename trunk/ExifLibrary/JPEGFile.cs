@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.IO;
 using System.Drawing;
-using System.ComponentModel;
+using System.IO;
+using System.Text;
 
 namespace ExifLibrary
 {

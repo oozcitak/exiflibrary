@@ -3,6 +3,12 @@
 
 = Release Notes =
 
+== v0.16 Pre-Alpha (24 Mat 2011) ==
+
+  * Added Set support for windows strings. (Issue 32)
+
+= Release Notes =
+
 == v0.15 Pre-Alpha (29 December 2010) ==
 
   * Added convenience setter methods to !ExifPropertyCollection. They try to infer Exif type from the given arguments. Use with care, because they don't stop you (for now) from assigning unrelated values to tags (You can set the GPS longitude to a !DateTime value for example).

@@ -157,7 +157,7 @@ namespace ExifLibrary
         SubjectDistanceRange = IFD.EXIF + 41996,
         ImageUniqueID = IFD.EXIF + 42016,
         InteroperabilityIFDPointer = IFD.EXIF + 40965,
-        // Microsoft specifing padding and offset tags
+        // Microsoft specific padding and offset tags
         ExifIFDPadding = IFD.EXIF + 0xea1c,
         OffsetSchema = IFD.EXIF + 0xea1d,
         // ****************************

@@ -28,7 +28,7 @@ namespace ExifLibrary
         /// <item>5 = RATIONAL (2 x uint: numerator, denominator)</item>
         /// <item>6 = BYTE (sbyte)</item>
         /// <item>7 = UNDEFINED (byte array)</item>
-        /// <item>3 = SSHORT (short)</item>
+        /// <item>8 = SSHORT (short)</item>
         /// <item>9 = SLONG (int)</item>
         /// <item>10 = SRATIONAL (2 x int: numerator, denominator)</item>
         /// <item>11 = FLOAT (float)</item>

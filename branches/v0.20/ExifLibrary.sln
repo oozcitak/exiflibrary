@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExifLibrary", "ExifLibrary\ExifLibrary.csproj", "{C29BA585-E27B-4AD0-9AD1-490B5E0E2A5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExifTest", "ExifTest\ExifTest.csproj", "{9F04C806-6BB9-449D-AF51-63E004162C1C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F04C806-6BB9-449D-AF51-63E004162C1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F04C806-6BB9-449D-AF51-63E004162C1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F04C806-6BB9-449D-AF51-63E004162C1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F04C806-6BB9-449D-AF51-63E004162C1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C29BA585-E27B-4AD0-9AD1-490B5E0E2A5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C29BA585-E27B-4AD0-9AD1-490B5E0E2A5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C29BA585-E27B-4AD0-9AD1-490B5E0E2A5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C29BA585-E27B-4AD0-9AD1-490B5E0E2A5E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = ExifTest\ExifTest.csproj
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

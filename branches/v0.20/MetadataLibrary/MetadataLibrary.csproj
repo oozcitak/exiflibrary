@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{018A4A14-0C61-4120-A8C9-EFC19E30AE2C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>MetadataLibrary</RootNamespace>
+    <AssemblyName>MetadataLibrary</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MetaFile.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="FileType.cs" />
+    <Compile Include="Tag.cs" />
+    <Compile Include="MetadataType.cs" />
+    <Compile Include="JPEG\ExifTag.cs" />
+    <Compile Include="JPEG\IFD.cs" />
+    <Compile Include="JPEG\ExifType.cs" />
+    <Compile Include="JPEG\ExifTags.cs" />
+    <Compile Include="JPEG\ExifEnums.cs" />
+    <Compile Include="JPEG\JFIFTags.cs" />
+    <Compile Include="JPEG\JFIFTag.cs" />
+    <Compile Include="JPEG\JFIFEnums.cs" />
+    <Compile Include="JPEG\JFIFType.cs" />
+    <Compile Include="JPEG\JFXXTags.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="JPEG\" />
+  </ItemGroup>
+</Project>

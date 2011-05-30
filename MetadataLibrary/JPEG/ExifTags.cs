@@ -147,7 +147,8 @@ namespace MetadataLibrary.JPEG
 
 		/// <summary>
 		/// Indicates whether pixel components are recorded in chunky or planar format.
-		/// The value of this tag should be cast to a <see cref="MetadataLibrary.PlanarConfiguration"/> enum.
+		/// The value of this tag should be cast to a 
+		/// <see cref="MetadataLibrary.PlanarConfiguration"/> enum.
 		/// </summary>
 		public static ExifTag PlanarConfiguration = new ExifTag (IFD.Zeroth, 284, MetadataType.Enum, ExifType.Short);
 

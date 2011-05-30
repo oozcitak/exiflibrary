@@ -2,6 +2,9 @@ using System;
 
 namespace MetadataLibrary
 {
+	/// <summary>
+	/// Represents a general indication of the kind of data contained in this subfile.
+	/// </summary>
 	[Flags]
 	public enum NewSubfileType : uint
 	{
@@ -23,6 +26,9 @@ namespace MetadataLibrary
 		MRCSpecific = 16
 	}
 
+	/// <summary>
+	/// Represents a general indication of the kind of data contained in this subfile.
+	/// </summary>
 	public enum SubfileType : ushort
 	{
 		/// <summary>
@@ -39,6 +45,9 @@ namespace MetadataLibrary
 		MultiPage = 3
 	}
 
+	/// <summary>
+	/// Represenst the compression scheme used for the image data. 
+	/// </summary>
 	public enum Compression : ushort
 	{
 		/// <summary>
@@ -71,6 +80,9 @@ namespace MetadataLibrary
 		PackBits = 32773
 	}
 
+	/// <summary>
+	/// Represents the pixel composition.
+	/// </summary>
 	public enum PhotometricInterpretation : ushort
 	{
 		/// <summary>
@@ -139,6 +151,9 @@ namespace MetadataLibrary
 		PixarLOGLUV = 32845
 	}
 
+	/// <summary>
+	/// Represents the technique used to convert from gray to black and white pixels.
+	/// </summary>
 	public enum Threshholding : ushort
 	{
 		/// <summary>
@@ -155,6 +170,9 @@ namespace MetadataLibrary
 		ErrorDiffuse = 3
 	}
 
+	/// <summary>
+	/// Represents the logical order of bits within a byte.
+	/// </summary>
 	public enum FillOrder : ushort
 	{
 		/// <summary>
@@ -167,6 +185,9 @@ namespace MetadataLibrary
 		LSB2MSB = 2
 	}
 
+	/// <summary>
+	/// Represents the image orientation.
+	/// </summary>
 	public enum Orientation : ushort
 	{
 		/// <summary>
@@ -211,6 +232,9 @@ namespace MetadataLibrary
 		RotatedRightAndMirroredVertically = 8
 	}
 
+	/// <summary>
+	/// Represents the recording format of pixel components.
+	/// </summary>
 	public enum PlanarConfiguration : ushort
 	{
 		/// <summary>

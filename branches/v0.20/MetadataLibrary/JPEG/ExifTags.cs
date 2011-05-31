@@ -182,7 +182,68 @@ namespace MetadataLibrary.JPEG
 		/// inside TIFF files that did not succeed.
 		/// </summary>
 		public static ExifTag FreeByteCounts = new ExifTag (IFD.Zeroth, 289, MetadataType.UInt, ExifType.Long, true);
-		
+
+		/// <summary>
+		/// The precision of the information contained in the <see cref="GrayResponseCurve"/>.
+		/// The value of this tag should be cast to a 
+		/// <see cref="MetadataLibrary.GrayResponseUnit"/> enum.
+		/// </summary>
+		public static ExifTag GrayResponseUnit = new ExifTag (IFD.Zeroth, 290, MetadataType.Enum, ExifType.Short);
+
+		/// <summary>
+		/// For grayscale data, the optical density of each possible pixel value.
+		/// </summary>
+		public static ExifTag GrayResponseCurve = new ExifTag (IFD.Zeroth, 291, MetadataType.UShort, ExifType.Short, true);
+
+		/// <summary>
+		/// Options for Group 3 Fax compression.
+		/// The value of this tag should be cast to a 
+		/// <see cref="MetadataLibrary.T4Options"/> enum.
+		/// </summary>
+		public static ExifTag T4Options = new ExifTag (IFD.Zeroth, 292, MetadataType.Enum, ExifType.Long);
+
+		/// <summary>
+		/// Options for Group 4 Fax compression.
+		/// The value of this tag should be cast to a 
+		/// <see cref="MetadataLibrary.T6Options"/> enum.
+		/// </summary>
+		public static ExifTag T6Options = new ExifTag (IFD.Zeroth, 293, MetadataType.Enum, ExifType.Long);
+
+		/// <summary>
+		/// The unit for measuring <see cref="XResolution"/> and 
+		/// <see cref="YResolution"/>.
+		/// The value of this tag should be cast to a 
+		/// <see cref="MetadataLibrary.ResolutionUnit"/> enum.	
+		/// </summary>
+		public static ExifTag ResolutionUnit = new ExifTag (IFD.Zeroth, 296, MetadataType.Enum, ExifType.Short);
+
+		/// <summary>
+		/// The page number of the page from which this image was scanned.
+		/// The value of this tag should be cast to a 
+		/// <see cref="MetadataLibrary.PageNumber"/> struct.	
+		/// </summary>
+		public static ExifTag PageNumber = new ExifTag (IFD.Zeroth, 297, MetadataType.UShort, ExifType.Short, 2);
+
+		/// <summary>
+		/// Describes a transfer function for the image in tabular style.
+		/// </summary>
+		public static ExifTag TransferFunction = new ExifTag (IFD.Zeroth, 301, MetadataType.UShort, ExifType.Short, true);
+
+		/// <summary>
+		/// The name and version of the software or firmware of the camera or
+		/// image input device used to generate the image.
+		/// </summary>
+		public static ExifTag Software = new ExifTag (IFD.Zeroth, 305, MetadataType.String, ExifType.ASCII, true);
+
+		/// <summary>
+		/// The date and time of image creation.
+		/// </summary>
+		public static ExifTag DateTime = new ExifTag (IFD.Zeroth, 306, MetadataType.String, ExifType.ASCII, true);
+
+		/// <summary>
+		/// The name of the camera owner, photographer or image creator.
+		/// </summary>
+		public static ExifTag Artist = new ExifTag (IFD.Zeroth, 315, MetadataType.String, ExifType.ASCII, true);
 		
 	}
 }

@@ -49,6 +49,7 @@
     <Compile Include="JPEG\JFIFEnums.cs" />
     <Compile Include="JPEG\JFIFType.cs" />
     <Compile Include="JPEG\JFXXTags.cs" />
+    <Compile Include="JPEG\ExifTypes.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

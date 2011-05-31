@@ -247,17 +247,82 @@ namespace MetadataLibrary
 		PlanarFormat = 2
 	}
 
+	/// <summary>
+	/// Represents the precision of the information contained in the gray response curve.
+	/// </summary>
+	public enum GrayResponseUnit : ushort
+	{
+		/// <summary>
+		/// Number represents tenths of a unit.
+		/// </summary>
+		Tenth = 1,
+		/// <summary>
+		/// Number represents hundredths of a unit.
+		/// </summary>
+		Hundreth = 2,
+		/// <summary>
+		/// Number represents thousandths of a unit.
+		/// </summary>
+		Thousandth = 3,
+		/// <summary>
+		/// Number represents ten-thousandths of a unit.
+		/// </summary>
+		TenThousandth = 4,
+		/// <summary>
+		/// Number represents hundred-thousandths of a unit.
+		/// </summary>
+		HundredThousandth = 5
+	}
+
+	/// <summary>
+	/// Represents the options for Group 3 Fax compression.
+	/// </summary>
+	[Flags]
+	public enum T4Options : uint
+	{
+		/// <summary>
+		/// 2-dimensional coding (otherwise 1-dimensional is assumed).
+		/// </summary>
+		TwoDimensionalEncoding = 1,
+		/// <summary>
+		/// Uncompressed mode is used.
+		/// </summary>
+		Uncompressed = 2,
+		/// <summary>
+		/// Fill bits have been added before EOL codes such that EOL always
+		/// ends on a byte boundary.
+		/// </summary>
+		FillBits = 4
+	}
+
+	/// <summary>
+	/// Represents the options for Group 4 Fax compression.
+	/// </summary>
+	[Flags]
+	public enum T6Options : uint
+	{
+		/// <summary>
+		/// Uncompressed mode is used.
+		/// </summary>
+		Uncompressed = 2
+	}
+
+	/// <summary>
+	/// The unit for measuring XResolution and YResolution.
+	/// </summary>
+	public enum ResolutionUnit : ushort
+	{
+		Inches = 2,
+		Centimeters = 3
+	}
+
 	public enum YCbCrPositioning : ushort
 	{
 		Centered = 1,
 		CoSited = 2
 	}
 
-	public enum ResolutionUnit : ushort
-	{
-		Inches = 2,
-		Centimeters = 3
-	}
+
 
 	public enum ColorSpace : ushort
 	{

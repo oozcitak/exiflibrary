@@ -58,21 +58,32 @@ namespace ExifLibrary
         {
             string str = ToAscii(data);
             string[] parts = str.Split(new char[] { ':', ' ' });
-            if (hastime)
+            try
             {
-                if (parts.Length != 6)
-                    throw new ArgumentException("Unknown date format", "data");
-                // yyyy:MM:dd HH:mm:ss
-                // This is the expected format though some cameras
-                // can use single digits. See Issue 21.
-                return new DateTime(int.Parse(parts[0]), int.Parse(parts[1]), int.Parse(parts[2]), int.Parse(parts[3]), int.Parse(parts[4]), int.Parse(parts[5]));
+                if (hastime && parts.Length == 6)
+                {
+                    // yyyy:MM:dd HH:mm:ss
+                    // This is the expected format though some cameras
+                    // can use single digits. See Issue 21.
+                    return new DateTime(int.Parse(parts[0]), int.Parse(parts[1]), int.Parse(parts[2]), int.Parse(parts[3]), int.Parse(parts[4]), int.Parse(parts[5]));
+                }
+                else if (!hastime && parts.Length == 3)
+                {
+                    // yyyy:MM:dd
+                    return new DateTime(int.Parse(parts[0]), int.Parse(parts[1]), int.Parse(parts[2]));
+                }
+                else
+                {
+                    return DateTime.MinValue;
+                }
             }
-            else
+            catch (ArgumentOutOfRangeException)
             {
-                if (parts.Length != 3)
-                    throw new ArgumentException("Unknown date format", "data");
-                // yyyy:MM:dd
-                return new DateTime(int.Parse(parts[0]), int.Parse(parts[1]), int.Parse(parts[2]));
+                return DateTime.MinValue;
+            }
+            catch (ArgumentException)
+            {
+                return DateTime.MinValue;
             }
         }
 

@@ -163,6 +163,19 @@ namespace ExifLibrary
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (data.Format == ImageFileFormat.JPEG)
+            {
+                fdSave.Filter = "JPEG Images *.jpg|*.jpg";
+            }
+            else if (data.Format == ImageFileFormat.TIFF)
+            {
+                fdSave.Filter = "TIFF Images *.tiff|*.tiff";
+            }
+            else
+            {
+                MessageBox.Show("Unknown image format", "Exif Test", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             if (fdSave.ShowDialog() == DialogResult.OK)
             {
                 data.Save(fdSave.FileName);

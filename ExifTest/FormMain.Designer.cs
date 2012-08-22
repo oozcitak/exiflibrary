@@ -81,7 +81,7 @@
             // 
             // fdOpen
             // 
-            this.fdOpen.Filter = "JPEG Images *.jpg|*.jpg";
+            this.fdOpen.Filter = "Image Files (*.jpg;*.tiff)|*.jpg;*.tiff";
             // 
             // toolStripContainer1
             // 
@@ -120,19 +120,19 @@
             // lblStatus
             // 
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(38, 17);
+            this.lblStatus.Size = new System.Drawing.Size(39, 17);
             this.lblStatus.Text = "Ready";
             // 
             // lblByteOrder
             // 
             this.lblByteOrder.Name = "lblByteOrder";
-            this.lblByteOrder.Size = new System.Drawing.Size(73, 17);
+            this.lblByteOrder.Size = new System.Drawing.Size(74, 17);
             this.lblByteOrder.Text = "#ByteOrder#";
             // 
             // lblThumbnail
             // 
             this.lblThumbnail.Name = "lblThumbnail";
-            this.lblThumbnail.Size = new System.Drawing.Size(71, 17);
+            this.lblThumbnail.Size = new System.Drawing.Size(79, 17);
             this.lblThumbnail.Text = "#Thumbnail#";
             // 
             // splitContainer4

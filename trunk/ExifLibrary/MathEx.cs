@@ -47,10 +47,15 @@ namespace ExifLibrary
         /// </summary>
         public struct Fraction32 : IComparable, IFormattable, IComparable<Fraction32>, IEquatable<Fraction32>
         {
+            #region Constants
+            private const uint MaximumIterations = 10000000;
+            #endregion
+
             #region Member Variables
             private bool mIsNegative;
             private int mNumerator;
             private int mDenominator;
+            private double mError;
             #endregion
 
             #region Properties
@@ -91,6 +96,17 @@ namespace ExifLibrary
                 {
                     mDenominator = System.Math.Abs(value);
                     Reduce(ref mNumerator, ref mDenominator);
+                }
+            }
+
+            /// <summary>
+            /// Gets the error term.
+            /// </summary>
+            public double Error
+            {
+                get
+                {
+                    return mError;
                 }
             }
 
@@ -362,7 +378,7 @@ namespace ExifLibrary
             #endregion
 
             #region Constructors
-            public Fraction32(int numerator, int denominator)
+            private Fraction32(int numerator, int denominator, double error)
             {
                 mIsNegative = false;
                 if (numerator < 0)
@@ -378,9 +394,16 @@ namespace ExifLibrary
 
                 mNumerator = numerator;
                 mDenominator = denominator;
+                mError = error;
 
                 if (mDenominator != 0)
                     Reduce(ref mNumerator, ref mDenominator);
+            }
+
+            public Fraction32(int numerator, int denominator)
+                : this(numerator, denominator, 0)
+            {
+                ;
             }
 
             public Fraction32(int numerator)
@@ -390,7 +413,7 @@ namespace ExifLibrary
             }
 
             public Fraction32(Fraction32 f)
-                : this(f.Numerator, f.Denominator)
+                : this(f.Numerator, f.Denominator, f.Error)
             {
                 ;
             }
@@ -622,9 +645,12 @@ namespace ExifLibrary
                 int num = 1;
                 int den = 0;
                 double lasterr = 1.0;
-                int a;
+                int a = 0;
+                int currIteration = 0;
                 while (true)
                 {
+                    if (++currIteration > MaximumIterations) break;
+
                     a = (int)Math.Floor(f);
                     f = f - (double)a;
                     if (Math.Abs(f) < double.Epsilon)
@@ -647,7 +673,12 @@ namespace ExifLibrary
                     den = cden;
                 }
 
-                return new Fraction32((isneg ? -1 : 1) * num, den);
+                if (den > 0)
+                    lasterr = value - ((double)num / (double)den);
+                else
+                    lasterr = double.PositiveInfinity;
+
+                return new Fraction32((isneg ? -1 : 1) * num, den, lasterr);
             }
 
             /// <summary>Converts the string representation of a fraction to a Fraction type.</summary>
@@ -713,9 +744,14 @@ namespace ExifLibrary
         /// </summary>
         public struct UFraction32 : IComparable, IFormattable, IComparable<UFraction32>, IEquatable<UFraction32>
         {
+            #region Constants
+            private const uint MaximumIterations = 10000000;
+            #endregion
+
             #region Member Variables
             private uint mNumerator;
             private uint mDenominator;
+            private double mError;
             #endregion
 
             #region Properties
@@ -747,6 +783,18 @@ namespace ExifLibrary
                 {
                     mDenominator = value;
                     Reduce(ref mNumerator, ref mDenominator);
+                }
+            }
+
+
+            /// <summary>
+            /// Gets the error term.
+            /// </summary>
+            public double Error
+            {
+                get
+                {
+                    return mError;
                 }
             }
             #endregion
@@ -972,12 +1020,20 @@ namespace ExifLibrary
             #endregion
 
             #region Constructors
-            public UFraction32(uint numerator, uint denominator)
+            public UFraction32(uint numerator, uint denominator, double error)
             {
                 mNumerator = numerator;
                 mDenominator = denominator;
+                mError = error;
+
                 if (mDenominator != 0)
                     Reduce(ref mNumerator, ref mDenominator);
+            }
+
+            public UFraction32(uint numerator, uint denominator)
+                : this(numerator, denominator, 0)
+            {
+                ;
             }
 
             public UFraction32(uint numerator)
@@ -987,7 +1043,7 @@ namespace ExifLibrary
             }
 
             public UFraction32(UFraction32 f)
-                : this(f.Numerator, f.Denominator)
+                : this(f.Numerator, f.Denominator, f.Error)
             {
                 ;
             }
@@ -1215,9 +1271,12 @@ namespace ExifLibrary
                 uint num = 1;
                 uint den = 0;
                 double lasterr = 1.0;
-                uint a;
+                uint a = 0;
+                int currIteration = 0;
                 while (true)
                 {
+                    if (++currIteration > MaximumIterations) break;
+
                     a = (uint)Math.Floor(f);
                     f = f - (double)a;
                     if (Math.Abs(f) < double.Epsilon)
@@ -1242,7 +1301,12 @@ namespace ExifLibrary
                 uint fnum = num * a + lnum;
                 uint fden = den * a + lden;
 
-                return new UFraction32(fnum, fden);
+                if (fden > 0)
+                    lasterr = value - ((double)fnum / (double)fden);
+                else
+                    lasterr = double.PositiveInfinity;
+
+                return new UFraction32(fnum, fden, lasterr);
             }
 
             /// <summary>Converts the string representation of a fraction to a Fraction type.</summary>
@@ -1301,6 +1365,5 @@ namespace ExifLibrary
             }
             #endregion
         }
-
     }
 }

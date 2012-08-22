@@ -820,7 +820,7 @@ namespace ExifLibrary
                 {
                     makernotewritten = true;
                     // We may need to write filler bytes to preserve maker note offset
-                    if (preserveMakerNote && !makerNoteProcessed)
+                    if (preserveMakerNote && !makerNoteProcessed && (makerNoteOffset > currentdataoffset))
                         fillerbytecount = makerNoteOffset - currentdataoffset;
                     else
                         fillerbytecount = 0;

@@ -17,7 +17,7 @@ namespace ExifLibrary
             lblByteOrder.Text = "";
             lblThumbnail.Text = "";
 
-            lvExif.ListViewItemSorter = new ListViewColumnSorter();            
+            lvExif.ListViewItemSorter = new ListViewColumnSorter();
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
@@ -54,7 +54,7 @@ namespace ExifLibrary
             else
                 pbThumb.Image = data.Thumbnail.ToImage();
             pbOrigin.Image = data.ToImage();
-            
+
             lblThumbnail.Text = "Thumbnail: " + (data.Thumbnail == null ? "None" : data.Thumbnail.ToImage().Width.ToString() + "x" + data.Thumbnail.ToImage().Height.ToString());
             pgExif.SelectedObject = data;
 

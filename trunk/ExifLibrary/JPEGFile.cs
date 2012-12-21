@@ -263,11 +263,9 @@ namespace ExifLibrary
         /// </summary>
         public override Image ToImage()
         {
-            using (MemoryStream stream = new MemoryStream())
-            {
-                Save(stream);
-                return Image.FromStream(stream);
-            }
+            MemoryStream stream = new MemoryStream();
+            Save(stream);
+            return Image.FromStream(stream);
         }
         #endregion
 

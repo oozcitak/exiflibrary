@@ -168,11 +168,9 @@ namespace ExifLibrary
         /// <returns>Returns a <see cref="System.Drawing.Image"/> containing image data.</returns>
         public override Image ToImage()
         {
-            using (MemoryStream stream = new MemoryStream())
-            {
-                Save(stream);
-                return Image.FromStream(stream);
-            }
+            MemoryStream stream = new MemoryStream();
+            Save(stream);
+            return Image.FromStream(stream);
         }
         #endregion
     }

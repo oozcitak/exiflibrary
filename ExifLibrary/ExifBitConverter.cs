@@ -20,7 +20,7 @@ namespace ExifLibrary
         /// <summary>
         /// Returns an ASCII string converted from the given byte array.
         /// </summary>
-        public static string ToAscii(byte[] data, bool endatfirstnull)
+        public static string ToAscii(byte[] data, bool endatfirstnull, Encoding encoding)
         {
             int len = data.Length;
             if (endatfirstnull)
@@ -28,15 +28,15 @@ namespace ExifLibrary
                 len = Array.IndexOf(data, (byte)0);
                 if (len == -1) len = data.Length;
             }
-            return Encoding.ASCII.GetString(data, 0, len);
+            return encoding.GetString(data, 0, len);
         }
 
         /// <summary>
         /// Returns an ASCII string converted from the given byte array.
         /// </summary>
-        public static string ToAscii(byte[] data)
+        public static string ToAscii(byte[] data, Encoding encoding)
         {
-            return ToAscii(data, true);
+            return ToAscii(data, true, encoding);
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace ExifLibrary
         /// </summary>
         public static DateTime ToDateTime(byte[] data, bool hastime)
         {
-            string str = ToAscii(data);
+            string str = ToAscii(data, Encoding.ASCII);
             string[] parts = str.Split(new char[] { ':', ' ' });
             try
             {
@@ -219,18 +219,18 @@ namespace ExifLibrary
         /// <summary>
         /// Converts the given ascii string to an array of bytes optionally adding a null terminator.
         /// </summary>
-        public static byte[] GetBytes(string value, bool addnull)
+        public static byte[] GetBytes(string value, bool addnull, Encoding encoding)
         {
             if (addnull) value += '\0';
-            return Encoding.ASCII.GetBytes(value);
+            return encoding.GetBytes(value);
         }
 
         /// <summary>
         /// Converts the given ascii string to an array of bytes without adding a null terminator.
         /// </summary>
-        public static byte[] GetBytes(string value)
+        public static byte[] GetBytes(string value, Encoding encoding)
         {
-            return GetBytes(value, false);
+            return GetBytes(value, false, encoding);
         }
 
         /// <summary>
@@ -243,7 +243,7 @@ namespace ExifLibrary
                 str = value.ToString("yyyy:MM:dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
             else
                 str = value.ToString("yyyy:MM:dd", System.Globalization.CultureInfo.InvariantCulture);
-            return GetBytes(str, true);
+            return GetBytes(str, true, Encoding.ASCII);
         }
 
         /// <summary>

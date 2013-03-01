@@ -130,22 +130,25 @@ namespace ExifLibrary
         protected string mValue;
         protected override object _Value { get { return Value; } set { Value = (string)value; } }
         public new string Value { get { return mValue; } set { mValue = value; } }
+        
+        public Encoding Encoding { get; private set; }
 
         static public implicit operator string(ExifAscii obj) { return obj.mValue; }
 
         public override string ToString() { return mValue; }
 
-        public ExifAscii(ExifTag tag, string value)
+        public ExifAscii(ExifTag tag, string value, Encoding encoding)
             : base(tag)
         {
             mValue = value;
+            Encoding = encoding;
         }
 
         public override ExifInterOperability Interoperability
         {
             get
             {
-                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), 2, (uint)mValue.Length + 1, ExifBitConverter.GetBytes(mValue, true));
+                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), 2, (uint)mValue.Length + 1, ExifBitConverter.GetBytes(mValue, true, Encoding));
             }
         }
     }

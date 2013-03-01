@@ -3,7 +3,20 @@
 
 = Release Notes =
 
-== v0.16 Pre-Alpha (24 Mat 2011) ==
+== v0.18 Pre-Alpha (1 March 2013) ==
+
+  * Converting to System.Drawing.Image does not try to dispose the source stream. (Issue 40)
+  * Provide an optional text encoding paramater to be used with metadata fields with unknown encoding. (Issue 41)
+  * Disable "Embed Thumbnail" button on demo project when there is no source image. (Issue 33)
+
+== v0.17 Pre-Alpha (22 August 2012) ==
+
+  * DateTime parser is now more forgiving. (Issue 36)
+  * Do not try to preserve the maker note offset if we are already past it. (Issue 39)
+  * Fixed IFD offsets while writing TIFF files.
+  * Added a maximum iteration limit to fraction classes. (Issue 37)
+
+== v0.16 Pre-Alpha (24 March 2011) ==
 
   * Added Set support for windows strings. (Issue 32)
 

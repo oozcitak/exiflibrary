@@ -10,12 +10,14 @@ namespace ExifLibrary
 	public class ExifPropertyCollection : IDictionary<ExifTag, ExifProperty>
 	{
 		#region Member Variables
+        private ImageFile parent;
 		private Dictionary<ExifTag, ExifProperty> items;
 		#endregion
 
 		#region Constructor
-		public ExifPropertyCollection ()
+		internal ExifPropertyCollection (ImageFile parentFile)
 		{
+            parent = parentFile;
 			items = new Dictionary<ExifTag, ExifProperty> ();
 		}
 		#endregion
@@ -76,7 +78,7 @@ namespace ExifLibrary
 			if (key == ExifTag.WindowsTitle || key == ExifTag.WindowsTitle || key == ExifTag.WindowsComment || key == ExifTag.WindowsAuthor || key == ExifTag.WindowsKeywords || key == ExifTag.WindowsSubject) {
 				items.Add (key, new WindowsByteString (key, value));
 			} else {
-				items.Add (key, new ExifAscii (key, value));
+				items.Add (key, new ExifAscii (key, value, parent.Encoding));
 			}
 		}
 		/// <summary>

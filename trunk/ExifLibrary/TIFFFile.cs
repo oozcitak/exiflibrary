@@ -29,10 +29,12 @@ namespace ExifLibrary
         /// specified data stream.
         /// </summary>
         /// <param name="stream">A <see cref="Sytem.IO.Stream"/> that contains image data.</param>
-        protected internal TIFFFile(Stream stream)
+        /// <param name="encoding">The encoding to be used for text metadata when the source encoding is unknown.</param>
+        protected internal TIFFFile(Stream stream, System.Text.Encoding encoding)
         {
             Format = ImageFileFormat.TIFF;
             IFDs = new List<ImageFileDirectory>();
+            Encoding = encoding;
 
             // Read the entire stream
             byte[] data = Utility.GetStreamBytes(stream);
@@ -55,7 +57,7 @@ namespace ExifLibrary
             // TODO: Add support for multiple frames
             foreach (ImageFileDirectoryEntry field in IFDs[0].Fields)
             {
-                Properties.Add(ExifPropertyFactory.Get(field.Tag, field.Type, field.Count, field.Data, BitConverterEx.SystemByteOrder, IFD.Zeroth));
+                Properties.Add(ExifPropertyFactory.Get(field.Tag, field.Type, field.Count, field.Data, BitConverterEx.SystemByteOrder, IFD.Zeroth, Encoding));
             }
         }
         #endregion

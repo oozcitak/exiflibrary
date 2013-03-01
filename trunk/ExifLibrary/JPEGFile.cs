@@ -42,11 +42,13 @@ namespace ExifLibrary
         /// Initializes a new instance of the <see cref="ExifFile"/> class.
         /// </summary>
         /// <param name="stream">A <see cref="Sytem.IO.Stream"/> that contains image data.</param>
-        protected internal JPEGFile(Stream stream)
+        /// <param name="encoding">The encoding to be used for text metadata when the source encoding is unknown.</param>
+        protected internal JPEGFile(Stream stream, Encoding encoding)
         {
             Format = ImageFileFormat.JPEG;
             Sections = new List<JPEGSection>();
             TrailingData = new byte[0];
+            Encoding = encoding;
 
             stream.Seek(0, SeekOrigin.Begin);
 
@@ -599,7 +601,7 @@ namespace ExifLibrary
                     }
 
                     // Create the exif property from the interop data
-                    ExifProperty prop = ExifPropertyFactory.Get(tag, type, count, value, ByteOrder, currentifd);
+                    ExifProperty prop = ExifPropertyFactory.Get(tag, type, count, value, ByteOrder, currentifd, Encoding);
                     Properties.Add(prop);
                 }
 

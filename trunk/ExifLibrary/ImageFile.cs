@@ -20,7 +20,8 @@ namespace ExifLibrary
 		protected ImageFile ()
 		{
 			Format = ImageFileFormat.Unknown;
-			Properties = new ExifPropertyCollection ();
+			Properties = new ExifPropertyCollection (this);
+            Encoding = Encoding.Default;
 		}
 		#endregion
 
@@ -45,6 +46,10 @@ namespace ExifLibrary
 			get { return Properties[key]; }
 			set { Properties[key] = value; }
 		}
+        /// <summary>
+        /// Gets the encoding used for text metadata when the source encoding is unknown.
+        /// </summary>
+        public Encoding Encoding { get; protected set; }
 		#endregion
 
 		#region Instance Methods
@@ -80,17 +85,40 @@ namespace ExifLibrary
 		/// <returns>The <see cref="ImageFile"/> created from the file.</returns>
 		public static ImageFile FromFile (string filename)
 		{
-			using (FileStream stream = new FileStream (filename, FileMode.Open, FileAccess.Read, FileShare.Read)) {
-				return FromStream (stream);
-			}
+            return FromFile(filename, Encoding.Default);
 		}
+
+        /// <summary>
+        /// Creates an <see cref="ImageFile"/> from the specified file.
+        /// </summary>
+        /// <param name="filename">A string that contains the name of the file.</param>
+        /// <param name="encoding">The encoding to be used for text metadata when the source encoding is unknown.</param>
+        /// <returns>The <see cref="ImageFile"/> created from the file.</returns>
+        public static ImageFile FromFile(string filename, Encoding encoding)
+        {
+            using (FileStream stream = new FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.Read))
+            {
+                return FromStream(stream, encoding);
+            }
+        }
+
+        /// <summary>
+		/// Creates an <see cref="ImageFile"/> from the specified data stream.
+		/// </summary>
+		/// <param name="stream">A <see cref="Sytem.IO.Stream"/> that contains image data.</param>
+		/// <returns>The <see cref="ImageFile"/> created from the file.</returns>
+        public static ImageFile FromStream(Stream stream)
+        {
+            return FromStream(stream, Encoding.Default);
+        }
 
 		/// <summary>
 		/// Creates an <see cref="ImageFile"/> from the specified data stream.
 		/// </summary>
 		/// <param name="stream">A <see cref="Sytem.IO.Stream"/> that contains image data.</param>
+        /// <param name="encoding">The encoding to be used for text metadata when the source encoding is unknown.</param>
 		/// <returns>The <see cref="ImageFile"/> created from the file.</returns>
-		public static ImageFile FromStream (Stream stream)
+        public static ImageFile FromStream(Stream stream, Encoding encoding)
 		{
 			stream.Seek (0, SeekOrigin.Begin);
 			byte[] header = new byte[8];
@@ -100,12 +128,12 @@ namespace ExifLibrary
 			
 			// JPEG
 			if (header[0] == 0xFF && header[1] == 0xD8)
-				return new JPEGFile (stream);
+				return new JPEGFile (stream, encoding);
 			
 			// TIFF
 			string tiffHeader = Encoding.ASCII.GetString (header, 0, 4);
 			if (tiffHeader == "MM\x00\x2a" || tiffHeader == "II\x2a\x00")
-				return new TIFFFile (stream);
+				return new TIFFFile (stream, encoding);
 			
 			throw new NotValidImageFileException ();
 		}

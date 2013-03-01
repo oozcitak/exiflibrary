@@ -40,6 +40,7 @@ namespace ExifLibrary
 
         private void UpdateView()
         {
+            btnEmbed.Enabled = (data != null) && (data.Format != ImageFileFormat.Unknown);
             lvExif.Items.Clear();
             foreach (ExifProperty item in data.Properties.Values)
             {

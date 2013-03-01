@@ -361,6 +361,7 @@
             // btnEmbed
             // 
             this.btnEmbed.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnEmbed.Enabled = false;
             this.btnEmbed.Image = global::ExifLibrary.Properties.Resources.favorites_24;
             this.btnEmbed.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnEmbed.ImageTransparentColor = System.Drawing.Color.Magenta;

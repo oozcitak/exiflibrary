@@ -75,7 +75,7 @@ namespace ExifLibrary
         /// <summary>
         /// Decreases file size by removing all ancillary chunks.
         /// </summary>
-        public override void  Crush()
+        public override void Crush()
         {
             Properties.Clear();
 
@@ -88,6 +88,15 @@ namespace ExifLibrary
         /// <param name="stream">The data stream used to save the image.</param>
         public override void Save(Stream stream)
         {
+            // Add end chunk if it does not exist
+            if (Chunks[Chunks.Count - 1].Type != "IEND")
+            {
+                Chunks.Add(new PNGChunk("IEND", new byte[0]));
+            }
+
+            // Save metadata
+            WritePNGMetadata();
+
             BitConverterEx conv = BitConverterEx.BigEndian;
 
             // Write header
@@ -137,7 +146,7 @@ namespace ExifLibrary
             // Find the [ISO-8859-1] encoding (codepage: 28591)
             Encoding latin1 = Encoding.GetEncoding(28591);
 
-            // tEXt
+            // tEXt and zTXt
             foreach (PNGChunk textChunk in Chunks.FindAll(c => c.Type == "tEXt" || c.Type == "zTXt"))
             {
                 for (long i = 0; i < textChunk.Data.Length; i++)
@@ -263,6 +272,37 @@ namespace ExifLibrary
                 return ExifTag.PNGComment;
             else
                 return ExifTag.PNGText;
+        }
+        /// <summary>
+        /// Writes metadata back into PNG chunks.
+        /// </summary>
+        private void WritePNGMetadata()
+        {
+            // Remove old chunks
+            Chunks.RemoveAll(c => c.Type == "tEXt" || c.Type == "zTXt" || c.Type == "iTXt" || c.Type == "tIME");
+
+            // Add chunks
+            foreach (ExifProperty prop in Properties)
+            {
+                if (prop is PNGText)
+                {
+                    PNGText exprop = prop as PNGText;
+                    if (!exprop.Compressed)
+                        Chunks.Insert(Chunks.Count - 1, new PNGChunk("tEXt", prop.Interoperability.Data));
+                    else
+                        Chunks.Insert(Chunks.Count - 1, new PNGChunk("zTXt", prop.Interoperability.Data));
+                }
+                else if (prop is PNGInternationalText)
+                {
+                    PNGInternationalText exprop = prop as PNGInternationalText;
+                    Chunks.Insert(Chunks.Count - 1, new PNGChunk("iTXt", prop.Interoperability.Data));
+                }
+                else if (prop is PNGTimeStamp)
+                {
+                    PNGTimeStamp exprop = prop as PNGTimeStamp;
+                    Chunks.Insert(Chunks.Count - 1, new PNGChunk("tIME", prop.Interoperability.Data));
+                }
+            }
         }
         #endregion
     }

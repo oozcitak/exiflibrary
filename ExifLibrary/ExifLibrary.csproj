@@ -60,7 +60,6 @@
     <Compile Include="ExifEnums.cs" />
     <Compile Include="ExifExceptions.cs" />
     <Compile Include="ExifExtendedProperty.cs" />
-    <Compile Include="ExifExtensionMethods.cs" />
     <Compile Include="ExifFileTypeDescriptor.cs" />
     <Compile Include="ExifInterOperability.cs" />
     <Compile Include="ExifProperty.cs" />

@@ -12,6 +12,77 @@ namespace ExifLibrary
     /// </summary>
     public class TIFFFile : ImageFile
     {
+        #region White List
+        /// <summary>
+        /// The whitelist of tags to keep.
+        /// </summary>
+        private static Dictionary<ExifTag, bool> WhiteList = new Dictionary<ExifTag, bool>()
+        {
+            { ExifTag.BitsPerSample, false },
+            { ExifTag.CellLength, false },
+            { ExifTag.CellWidth, false },
+            { ExifTag.ColorMap, false },
+            { ExifTag.Compression, false },
+            { ExifTag.DotRange, false },
+            { ExifTag.ExtraSamples, false },
+            { ExifTag.FillOrder, false },
+            { ExifTag.FreeByteCounts, false },
+            { ExifTag.FreeOffsets, false },
+            { ExifTag.GrayResponseCurve, false },
+            { ExifTag.GrayResponseUnit, false },
+            { ExifTag.HalftoneHints, false },
+            { ExifTag.ImageLength, false },
+            { ExifTag.ImageWidth, false },
+            { ExifTag.InkNames, false },
+            { ExifTag.InkSet, false },
+            { ExifTag.JPEGACTables, false },
+            { ExifTag.JPEGDCTables, false },
+            { ExifTag.JPEGInterchangeFormat, false },
+            { ExifTag.JPEGInterchangeFormatLength, false },
+            { ExifTag.JPEGLosslessPredictors, false },
+            { ExifTag.JPEGPointTransforms, false },
+            { ExifTag.JPEGProc, false },
+            { ExifTag.JPEGQTables, false },
+            { ExifTag.JPEGRestartInterval, false },
+            { ExifTag.MaxSampleValue, false },
+            { ExifTag.MinSampleValue, false },
+            { ExifTag.NewSubfileType, false },
+            { ExifTag.NumberOfInks, false },
+            { ExifTag.Orientation, false },
+            { ExifTag.PhotometricInterpretation, false },
+            { ExifTag.PlanarConfiguration, false },
+            { ExifTag.Predictor, false },
+            { ExifTag.PrimaryChromaticities, false },
+            { ExifTag.ReferenceBlackWhite, false },
+            { ExifTag.ResolutionUnit, false },
+            { ExifTag.RowsPerStrip, false },
+            { ExifTag.SampleFormat, false },
+            { ExifTag.SamplesPerPixel, false },
+            { ExifTag.SMaxSampleValue, false },
+            { ExifTag.SMinSampleValue, false },
+            { ExifTag.StripByteCounts, false },
+            { ExifTag.StripOffsets, false },
+            { ExifTag.SubfileType, false },
+            { ExifTag.T4Options, false },
+            { ExifTag.T6Options, false },
+            { ExifTag.Threshholding, false },
+            { ExifTag.TileByteCounts, false },
+            { ExifTag.TileLength, false },
+            { ExifTag.TileOffsets, false },
+            { ExifTag.TileWidth, false },
+            { ExifTag.TransferFunction, false },
+            { ExifTag.TransferRange, false },
+            { ExifTag.WhitePoint, false },
+            { ExifTag.XPosition, false },
+            { ExifTag.XResolution, false },
+            { ExifTag.YCbCrCoefficients, false },
+            { ExifTag.YCbCrPositioning, false },
+            { ExifTag.YCbCrSubSampling, false },
+            { ExifTag.YPosition, false },
+            { ExifTag.YResolution, false },
+        };
+        #endregion
+
         #region Properties
         /// <summary>
         /// Gets the TIFF header.
@@ -63,6 +134,23 @@ namespace ExifLibrary
         #endregion
 
         #region Instance Methods
+        /// <summary>
+        /// Decreases file size by removing all metadata.
+        /// </summary>
+        public override void Crush()
+        {
+            Properties.Clear();
+
+            // Remove tags.
+            foreach (ImageFileDirectory ifd in IFDs)
+            {
+                ifd.Fields.RemoveAll((field) =>
+                {
+                    return (!WhiteList.ContainsKey((ExifTag)field.Tag));
+                });
+            }
+        }
+
         /// <summary>
         /// Saves the <see cref="ImageFile"/> to the given stream.
         /// </summary>
@@ -162,17 +250,6 @@ namespace ExifLibrary
                 ifdoffset = dataOffset;
                 stream.Write(conv.GetBytes(i == IFDs.Count - 1 ? 0 : ifdoffset), 0, 4);
             }
-        }
-
-        /// <summary>
-        /// Converts the <see cref="ImageFile"/> to a <see cref="System.Drawing.Image"/>.
-        /// </summary>
-        /// <returns>Returns a <see cref="System.Drawing.Image"/> containing image data.</returns>
-        public override Image ToImage()
-        {
-            MemoryStream stream = new MemoryStream();
-            Save(stream);
-            return Image.FromStream(stream);
         }
         #endregion
     }

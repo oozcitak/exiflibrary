@@ -180,6 +180,47 @@ namespace ExifLibrary
 
         #region Instance Methods
         /// <summary>
+        /// Decreases file size by removing all metadata.
+        /// </summary>
+        public override void Crush()
+        {
+            // Keep JFIF Tags
+            List<ExifProperty> jfifProperties = new List<ExifProperty>();
+            foreach (ExifProperty prop in Properties)
+            {
+                if (prop.IFD == IFD.JFIF)
+                {
+                    if (prop.Tag == ExifTag.JFIFXThumbnail)
+                        prop.Value = 0;
+                    if (prop.Tag == ExifTag.JFIFYThumbnail)
+                        prop.Value = 0;
+                    if (prop.Tag == ExifTag.JFIFThumbnail)
+                        prop.Value = new JFIFThumbnail(JFIFThumbnail.ImageFormat.JPEG, new byte[0]);
+                }
+            }
+            Properties.Clear();
+            foreach (ExifProperty prop in jfifProperties)
+                Properties.Add(prop);
+
+            // Remove metadata sections.
+            // Keep the sections in this whitelist only:
+            //   SOF0 - SOF15
+            //   DHT
+            //   DAC
+            //   RST0 - RST7
+            //   SOI, EOI
+            //   DQT
+            //	 DNL
+            //	 DRI
+            //	 DHP
+            //	 EXP
+            Sections.RemoveAll((section) =>
+            {
+                return (section.Marker < JPEGMarker.SOF0 || section.Marker > JPEGMarker.EXP);
+            });
+        }
+
+        /// <summary>
         /// Saves the JPEG/Exif image to the given stream.
         /// </summary>
         /// <param name="filename">The path to the JPEG/Exif file.</param>
@@ -258,16 +299,6 @@ namespace ExifLibrary
         public override void Save(Stream stream)
         {
             Save(stream, true);
-        }
-
-        /// <summary>
-        /// Returns a System.Drawing.Image created with image data.
-        /// </summary>
-        public override Image ToImage()
-        {
-            MemoryStream stream = new MemoryStream();
-            Save(stream);
-            return Image.FromStream(stream);
         }
         #endregion
 
@@ -639,16 +670,27 @@ namespace ExifLibrary
             thumbSizeLocation = 0;
             thumbSizeValue = 0;
             // Write thumbnail tags if they are missing, remove otherwise
+            int indexf = -1;
+            int indexl = -1;
+            for (int i = 0; i < Properties.Count; i++)
+            {
+                ExifProperty prop = Properties[i];
+                if (prop.Tag == ExifTag.ThumbnailJPEGInterchangeFormat) indexf = i;
+                if (prop.Tag == ExifTag.ThumbnailJPEGInterchangeFormatLength) indexl = i;
+                if (indexf != -1 && indexl != -1) break;
+            }
             if (Thumbnail == null)
             {
-                Properties.Remove(ExifTag.ThumbnailJPEGInterchangeFormat);
-                Properties.Remove(ExifTag.ThumbnailJPEGInterchangeFormatLength);
+                if (indexf != -1)
+                    Properties.RemoveAt(indexf);
+                if (indexl != -1)
+                    Properties.RemoveAt(indexl);
             }
             else
             {
-                if (!Properties.ContainsKey(ExifTag.ThumbnailJPEGInterchangeFormat))
+                if (indexf == -1)
                     Properties.Add(new ExifUInt(ExifTag.ThumbnailJPEGInterchangeFormat, 0));
-                if (!Properties.ContainsKey(ExifTag.ThumbnailJPEGInterchangeFormatLength))
+                if (indexl == -1)
                     Properties.Add(new ExifUInt(ExifTag.ThumbnailJPEGInterchangeFormatLength, 0));
             }
 

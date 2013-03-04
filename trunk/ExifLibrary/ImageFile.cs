@@ -20,7 +20,7 @@ namespace ExifLibrary
 		protected ImageFile ()
 		{
 			Format = ImageFileFormat.Unknown;
-			Properties = new ExifPropertyCollection (this);
+			Properties = new ExifPropertyCollection ();
             Encoding = Encoding.Default;
 		}
 		#endregion
@@ -42,9 +42,9 @@ namespace ExifLibrary
 		/// Gets or sets the Exif property with the given key.
 		/// </summary>
 		/// <param name="key">The Exif tag associated with the Exif property.</param>
-		public ExifProperty this[ExifTag key] {
-			get { return Properties[key]; }
-			set { Properties[key] = value; }
+		public ExifProperty this[int index] {
+			get { return Properties[index]; }
+			set { Properties[index] = value; }
 		}
         /// <summary>
         /// Gets the encoding used for text metadata when the source encoding is unknown.
@@ -57,7 +57,12 @@ namespace ExifLibrary
 		/// Converts the <see cref="ImageFile"/> to a <see cref="System.Drawing.Image"/>.
 		/// </summary>
 		/// <returns>Returns a <see cref="System.Drawing.Image"/> containing image data.</returns>
-		public abstract Image ToImage ();
+        public virtual Image ToImage()
+        {
+            MemoryStream stream = new MemoryStream();
+            Save(stream);
+            return Image.FromStream(stream);
+        }
 
 		/// <summary>
 		/// Saves the <see cref="ImageFile"/> to the specified file.
@@ -75,6 +80,11 @@ namespace ExifLibrary
 		/// </summary>
 		/// <param name="stream">A <see cref="Sytem.IO.Stream"/> to save image data to.</param>
 		public abstract void Save (Stream stream);
+
+        /// <summary>
+        /// Decreases file size by removing all metadata.
+        /// </summary>
+        public abstract void Crush();
 		#endregion
 
 		#region Static Methods
@@ -134,6 +144,11 @@ namespace ExifLibrary
 			string tiffHeader = Encoding.ASCII.GetString (header, 0, 4);
 			if (tiffHeader == "MM\x00\x2a" || tiffHeader == "II\x2a\x00")
 				return new TIFFFile (stream, encoding);
+
+            // PNG
+            if (header[0] == 0x89 && header[1] == 0x50 && header[2] == 0x4E && header[3] == 0x47 &&
+                header[4] == 0x0D && header[5] == 0x0A && header[6] == 0x1A && header[7] == 0x0A)
+                return new PNGFile(stream, encoding);
 			
 			throw new NotValidImageFileException ();
 		}

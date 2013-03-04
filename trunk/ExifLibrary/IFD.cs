@@ -18,5 +18,6 @@ namespace ExifLibrary
         MakerNote = 600000,
         JFIF = 700000,
         JFXX = 800000,
+        PNG = 900000,
     }
 }

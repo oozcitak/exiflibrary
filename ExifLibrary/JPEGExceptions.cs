@@ -81,6 +81,25 @@ namespace ExifLibrary
     }
 
     /// <summary>
+    /// The exception that is thrown when the format of the PNG file
+    /// could not be understood.
+    /// </summary>
+    public class NotValidPNGFileException : Exception
+    {
+        public NotValidPNGFileException()
+            : base("Not a valid PNG file.")
+        {
+            ;
+        }
+
+        public NotValidPNGFileException(string message)
+            : base(message)
+        {
+            ;
+        }
+    }
+
+    /// <summary>
     /// The exception that is thrown when the format of the TIFF header
     /// could not be understood.
     /// </summary>

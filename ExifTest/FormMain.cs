@@ -41,8 +41,9 @@ namespace ExifLibrary
         private void UpdateView()
         {
             btnEmbed.Enabled = (data != null) && (data.Format != ImageFileFormat.Unknown);
+            btnSave.Enabled = (data != null) && (data.Format != ImageFileFormat.Unknown);
             lvExif.Items.Clear();
-            foreach (ExifProperty item in data.Properties.Values)
+            foreach (ExifProperty item in data.Properties)
             {
                 ListViewItem lvitem = new ListViewItem(item.Name);
                 lvitem.SubItems.Add(item.ToString());
@@ -171,6 +172,10 @@ namespace ExifLibrary
             else if (data.Format == ImageFileFormat.TIFF)
             {
                 fdSave.Filter = "TIFF Images *.tiff|*.tiff";
+            }
+            else if (data.Format == ImageFileFormat.PNG)
+            {
+                fdSave.Filter = "PNG Images *.png|*.png";
             }
             else
             {

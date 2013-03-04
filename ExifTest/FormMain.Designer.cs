@@ -81,7 +81,7 @@
             // 
             // fdOpen
             // 
-            this.fdOpen.Filter = "Image Files (*.jpg;*.tiff)|*.jpg;*.tiff";
+            this.fdOpen.Filter = "Image Files (*.jpg;*.tiff;*.png)|*.jpg;*.tiff;*.png";
             // 
             // toolStripContainer1
             // 
@@ -345,6 +345,7 @@
             // btnSave
             // 
             this.btnSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnSave.Enabled = false;
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;

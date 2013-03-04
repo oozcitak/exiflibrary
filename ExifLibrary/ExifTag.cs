@@ -286,5 +286,56 @@ namespace ExifLibrary
         /// a 256 color palette bitmap, or a 24-bit RGB bitmap.
         /// </summary>
         JFXXThumbnail = IFD.JFXX + 202,
+        // ****************************
+        // PNG Tags
+        // ****************************
+        /// <summary>
+        /// Short (one line) title or caption for image
+        /// </summary>
+        PNGTitle = IFD.PNG + 0,
+        /// <summary>
+        /// Name of image's creator
+        /// </summary>
+        PNGAuthor = IFD.PNG + 1,
+        /// <summary>
+        /// Description of image (possibly long)
+        /// </summary>
+        PNGDescription = IFD.PNG + 2,
+        /// <summary>
+        /// Copyright notice
+        /// </summary>
+        PNGCopyright = IFD.PNG + 3,
+        /// <summary>
+        /// Time of original image creation
+        /// </summary>
+        PNGCreationTime = IFD.PNG + 4,
+        /// <summary>
+        /// Software used to create the image
+        /// </summary>
+        PNGSoftware = IFD.PNG + 5,
+        /// <summary>
+        /// Legal disclaimer
+        /// </summary>
+        PNGDisclaimer = IFD.PNG + 6,
+        /// <summary>
+        /// Warning of nature of content
+        /// </summary>
+        PNGWarning = IFD.PNG + 7,
+        /// <summary>
+        /// Device used to create the image
+        /// </summary>
+        PNGSource = IFD.PNG + 8,
+        /// <summary>
+        /// Miscellaneous comment
+        /// </summary>
+        PNGComment = IFD.PNG + 9,
+        /// <summary>
+        /// Generic text metadata
+        /// </summary>
+        PNGText = IFD.PNG + 100,
+        /// <summary>
+        /// The time of the last image modification
+        /// </summary>
+        PNGTimeStamp = IFD.PNG + 200,
     }
 }

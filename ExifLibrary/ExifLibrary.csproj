@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -48,6 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BitConverterEx.cs" />
+    <Compile Include="PNGProperty.cs" />
+    <Compile Include="PNGChunk.cs" />
+    <Compile Include="PNGFile.cs" />
     <Compile Include="ImageFileDirectory.cs" />
     <Compile Include="ImageFileDirectoryEntry.cs" />
     <Compile Include="TIFFFile.cs" />
@@ -84,7 +87,6 @@
     <None Include="Manina.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

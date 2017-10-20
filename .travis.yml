@@ -9,24 +9,24 @@ branches:
 
 matrix:
   include:
-    - dotnet: 2.0.0
+    - dotnet: 1.0.4
       mono: none
       os: linux
       dist: trusty # Ubuntu 14.04
       sudo: required
       env: CONFIGURATION=Release
-    - dotnet: 2.0.0
+    - dotnet: 1.0.4
       mono: none
       os: linux
       dist: trusty
       sudo: required
       env: CONFIGURATION=Debug
-    - dotnet: 2.0.0
+    - dotnet: 1.0.4
       mono: none
       os: osx
       osx_image: xcode8.3
       env: CONFIGURATION=Release
-    - dotnet: 2.0.0
+    - dotnet: 1.0.4
       mono: none
       os: osx
       osx_image: xcode8.3
@@ -41,7 +41,7 @@ before_script:
   - dotnet restore
 
 script:
-  - dotnet build -c Release ExifLibrary\
+  - dotnet build -c $CONFIGURATION ExifLibrary\
 
 notifications:
   email: false

@@ -1,4 +1,4 @@
-﻿namespace ExifLibrary
+﻿namespace ExifTest
 {
     partial class FormEditTag
     {

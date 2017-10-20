@@ -387,7 +387,7 @@ namespace ExifLibrary
         private static byte[] CheckData(byte[] value, long startIndex, long length, ByteOrder from, ByteOrder to)
         {
             byte[] data = new byte[length];
-            Array.Copy(value, startIndex, data, 0, length);
+            Array.Copy(value, (int)startIndex, data, 0, (int)length);
             if (from != to)
                 Array.Reverse(data);
             return data;

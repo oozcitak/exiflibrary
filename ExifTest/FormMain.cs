@@ -1,10 +1,11 @@
-﻿using System;
+﻿using ExifLibrary;
+using System;
 using System.ComponentModel;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ExifLibrary
+namespace ExifTest
 {
     public partial class FormMain : Form
     {

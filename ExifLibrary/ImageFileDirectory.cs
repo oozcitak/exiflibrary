@@ -60,7 +60,7 @@ namespace ExifLibrary
                 if (field.Tag == 273)
                 {
                     int baselen = field.Data.Length / (int)field.Count;
-                    for (uint j = 0; j < field.Count; j++)
+                    for (int j = 0; j < field.Count; j++)
                     {
                         byte[] val = new byte[baselen];
                         Array.Copy(field.Data, j * baselen, val, 0, baselen);
@@ -73,7 +73,7 @@ namespace ExifLibrary
                 if (field.Tag == 279)
                 {
                     int baselen = field.Data.Length / (int)field.Count;
-                    for (uint j = 0; j < field.Count; j++)
+                    for (int j = 0; j < field.Count; j++)
                     {
                         byte[] val = new byte[baselen];
                         Array.Copy(field.Data, j * baselen, val, 0, baselen);

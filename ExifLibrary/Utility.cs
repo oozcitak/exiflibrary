@@ -45,7 +45,7 @@ namespace ExifLibrary
             {
                 byte[] b = new byte[32768];
                 int r;
-                while (rem > 0 && (r = stream.Read(b, 0, (int)Math.Min(rem, b.LongLength))) > 0)
+                while (rem > 0 && (r = stream.Read(b, 0, (int)Math.Min(rem, b.Length))) > 0)
                 {
                     mem.Write(b, 0, r);
                     rem = rem - r;
@@ -180,24 +180,24 @@ namespace ExifLibrary
         public static List<byte[]> SplitByteArray(byte[] data, byte seperator)
         {
             List<byte[]> output = new List<byte[]>();
-            long lastSepIndex = -1;
-            long sepIndex = -1;
-            for (long i = 0; i < data.LongLength; i++)
+            int lastSepIndex = -1;
+            int sepIndex = -1;
+            for (int i = 0; i < data.Length; i++)
             {
                 if (data[i] == seperator)
                 {
                     sepIndex = i;
                     byte[] subArray = new byte[sepIndex - (lastSepIndex + 1)];
-                    Array.Copy(data, lastSepIndex + 1, subArray, 0, subArray.LongLength);
+                    Array.Copy(data, lastSepIndex + 1, subArray, 0, subArray.Length);
                     lastSepIndex = sepIndex;
                     output.Add(subArray);
                 }
             }
-            if (lastSepIndex < data.LongLength - 1)
+            if (lastSepIndex < data.Length - 1)
             {
-                sepIndex = data.LongLength - 1;
+                sepIndex = data.Length - 1;
                 byte[] subArray = new byte[sepIndex - (lastSepIndex + 1)];
-                Array.Copy(data, lastSepIndex + 1, subArray, 0, subArray.LongLength);
+                Array.Copy(data, lastSepIndex + 1, subArray, 0, subArray.Length);
                 lastSepIndex = sepIndex;
                 output.Add(subArray);
             }

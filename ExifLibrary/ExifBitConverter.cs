@@ -135,7 +135,7 @@ namespace ExifLibrary
         public static ushort[] ToUShortArray(byte[] data, int count, ByteOrder frombyteorder)
         {
             ushort[] numbers = new ushort[count];
-            for (uint i = 0; i < count; i++)
+            for (int i = 0; i < count; i++)
             {
                 byte[] num = new byte[2];
                 Array.Copy(data, i * 2, num, 0, 2);
@@ -152,7 +152,7 @@ namespace ExifLibrary
         public static uint[] ToUIntArray(byte[] data, int count, ByteOrder frombyteorder)
         {
             uint[] numbers = new uint[count];
-            for (uint i = 0; i < count; i++)
+            for (int i = 0; i < count; i++)
             {
                 byte[] num = new byte[4];
                 Array.Copy(data, i * 4, num, 0, 4);
@@ -169,7 +169,7 @@ namespace ExifLibrary
         public static int[] ToSIntArray(byte[] data, int count, ByteOrder byteorder)
         {
             int[] numbers = new int[count];
-            for (uint i = 0; i < count; i++)
+            for (int i = 0; i < count; i++)
             {
                 byte[] num = new byte[4];
                 Array.Copy(data, i * 4, num, 0, 4);
@@ -186,7 +186,7 @@ namespace ExifLibrary
         public static MathEx.UFraction32[] ToURationalArray(byte[] data, int count, ByteOrder frombyteorder)
         {
             MathEx.UFraction32[] numbers = new MathEx.UFraction32[count];
-            for (uint i = 0; i < count; i++)
+            for (int i = 0; i < count; i++)
             {
                 byte[] num = new byte[4];
                 byte[] den = new byte[4];
@@ -205,7 +205,7 @@ namespace ExifLibrary
         public static MathEx.Fraction32[] ToSRationalArray(byte[] data, int count, ByteOrder frombyteorder)
         {
             MathEx.Fraction32[] numbers = new MathEx.Fraction32[count];
-            for (uint i = 0; i < count; i++)
+            for (int i = 0; i < count; i++)
             {
                 byte[] num = new byte[4];
                 byte[] den = new byte[4];

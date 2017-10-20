@@ -9,24 +9,24 @@ branches:
 
 matrix:
   include:
-    - dotnet: 1.0.4
+    - dotnet: 2.0.0
       mono: none
       os: linux
       dist: trusty # Ubuntu 14.04
       sudo: required
       env: CONFIGURATION=Release
-    - dotnet: 1.0.4
+    - dotnet: 2.0.0
       mono: none
       os: linux
       dist: trusty
       sudo: required
       env: CONFIGURATION=Debug
-    - dotnet: 1.0.4
+    - dotnet: 2.0.0
       mono: none
       os: osx
       osx_image: xcode8.3
       env: CONFIGURATION=Release
-    - dotnet: 1.0.4
+    - dotnet: 2.0.0
       mono: none
       os: osx
       osx_image: xcode8.3

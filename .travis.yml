@@ -15,8 +15,6 @@ matrix:
       dist: trusty # Ubuntu 14.04
       sudo: required
       env: CONFIGURATION=Release
-      services:
-        - docker
     - dotnet: 2.0.0
       mono: none
       os: linux
@@ -43,7 +41,7 @@ before_script:
   - dotnet restore
 
 script:
-  - dotnet build -c $CONFIGURATION ExifLibrary\
+  - dotnet build -c Release ExifLibrary\
 
 notifications:
   email: false

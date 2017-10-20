@@ -41,7 +41,7 @@ before_script:
   - dotnet restore
 
 script:
-  - dotnet build -c $CONFIGURATION ExifLibrary\
+  - dotnet build -c $CONFIGURATION ExifLibrary\ExifLibrary.csproj
 
 notifications:
   email: false

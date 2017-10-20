@@ -12,7 +12,7 @@ before_build:
   - cmd: dotnet restore --verbosity n
 
 build_script:
-  - cmd: dotnet build -c Release
+  - cmd: dotnet build -c Release ExifLibrary\
 
 after_test:
   - cmd: dotnet pack -c Release ExifLibrary\

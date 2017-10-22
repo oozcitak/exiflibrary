@@ -41,8 +41,6 @@ before_script:
   - dotnet restore
 
 script:
-  - ls
-  - dir
   - dotnet build -c $CONFIGURATION ExifLibrary/ExifLibrary.csproj
 
 notifications:

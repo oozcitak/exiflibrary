@@ -156,6 +156,36 @@ namespace ExifLibrary
         DeviceSettingDescription = IFD.EXIF + 41995,
         SubjectDistanceRange = IFD.EXIF + 41996,
         ImageUniqueID = IFD.EXIF + 42016,
+        /// <summary>
+        /// The owner of a camera used in photography as an ASCII string.
+        /// </summary>
+        CameraOwnerName = IFD.EXIF + 42032,
+        /// <summary>
+        /// The serial number of the body of the camera that was used in
+        /// photography as an ASCII string.
+        /// </summary>
+        BodySerialNumber = IFD.EXIF + 42033,
+        /// <summary>
+        /// Minimum focal length, maximum focal length, 
+        /// minimum F number in the minimum focal length, and 
+        /// minimum F number in the maximum focal length, which are 
+        /// specification information for the lens that was used in photography.
+        /// When the minimum F number is unknown, the notation is 0/0.
+        /// </summary>
+        LensSpecification = IFD.EXIF + 42034,
+        /// <summary>
+        /// The lens manufactor as an ASCII string.
+        /// </summary>
+        LensMake = IFD.EXIF + 42035,
+        /// <summary>
+        /// The lens's model name and model number as an ASCII string.
+        /// </summary>
+        LensModel = IFD.EXIF + 42036,
+        /// <summary>
+        /// The serial number of the interchangeable lens that was used in 
+        /// photography as an ASCII string.
+        /// </summary>
+        LensSerialNumber = IFD.EXIF + 42037,
         InteroperabilityIFDPointer = IFD.EXIF + 40965,
         // Microsoft specifing padding and offset tags
         ExifIFDPadding = IFD.EXIF + 0xea1c,

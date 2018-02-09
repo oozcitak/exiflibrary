@@ -370,4 +370,34 @@ namespace ExifLibrary
             }
         }
     }
+
+    /// <summary>
+    /// Represents GPS latitudes and longitudes (EXIF Specification: 4xRATIONAL)
+    /// </summary>
+    public class LensSpecification : ExifURationalArray
+    {
+        protected new MathEx.UFraction32[] Value { get { return mValue; } set { mValue = value; } }
+        public MathEx.UFraction32 MinFocalLength { get { return mValue[0]; } set { mValue[0] = value; } }
+        public MathEx.UFraction32 MaxFocalLength { get { return mValue[1]; } set { mValue[1] = value; } }
+        public MathEx.UFraction32 MinFocalLengthFNumber { get { return mValue[2]; } set { mValue[2] = value; } }
+        public MathEx.UFraction32 MaxFocalLengthFNumber { get { return mValue[3]; } set { mValue[3] = value; } }
+
+        public override string ToString()
+        {
+            return string.Format("{0} F{1}, {2} F{3}", MinFocalLength, MinFocalLengthFNumber, MaxFocalLength, MaxFocalLengthFNumber);
+        }
+
+        public LensSpecification(ExifTag tag, MathEx.UFraction32[] value)
+            : base(tag, value)
+        {
+            ;
+        }
+
+        public LensSpecification(ExifTag tag, float minFocal, float maxFocal, float minFocalF, float maxFocalF)
+            : base(tag, new MathEx.UFraction32[] { new MathEx.UFraction32(minFocal), new MathEx.UFraction32(maxFocal),
+                new MathEx.UFraction32(minFocalF), new MathEx.UFraction32(maxFocalF) })
+        {
+            ;
+        }
+    }
 }

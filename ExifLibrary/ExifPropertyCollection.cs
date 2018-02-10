@@ -36,6 +36,30 @@ namespace ExifLibrary
             get { return items[index]; }
             set { items[index] = value; }
         }
+
+        /// <summary>
+        /// Gets the <see cref="ExifLibrary.ExifProperty"/> with the specified <see cref="ExifLibrary.ExifTag"/>.
+        /// </summary>
+        /// <remarks>Courtesy of Greg Bell</remarks>
+        public ExifProperty this[ExifTag exifTag]
+        {
+            get
+            {
+                foreach (ExifProperty prop in items)
+                {
+                    if(prop.Tag == exifTag)
+                    {
+                        return prop;
+                    }
+                }
+                
+                //Note: Another option here is to create the property if it doesn't exist rather than throwing an exception.
+                //However the exception fits in with how the library used to work and makes porting existing application
+                //code simpler.
+
+                throw new KeyNotFoundException(exifTag.ToString() + " tag not present in the collection.");
+            }
+        }
         #endregion
 
         #region ExifProperty Collection Setters

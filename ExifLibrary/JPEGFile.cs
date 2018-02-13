@@ -645,6 +645,8 @@ namespace ExifLibrary
                 {
                     if (thumbtype == 0)
                     {
+                        // Ensure that the thumbnail length does not exceed header length
+                        thumblength = Math.Min(thumblength, header.Length - tiffoffset - thumboffset);
                         using (MemoryStream ts = new MemoryStream(header, tiffoffset + thumboffset, thumblength))
                         {
                             Thumbnail = ImageFile.FromStream(ts);

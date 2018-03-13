@@ -3,12 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.3</TargetFramework>
 	<AssemblyName>ExifLibrary</AssemblyName>
-    <PackageId>ExifLibrary</PackageId>
+    <PackageId>ExifLibNet</PackageId>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <Version>1.0.0.0</Version>
-	<Title>ExifLibrary</Title>
+	<Title>ExifLibNet</Title>
 	<Authors>oozcitak;Devedse</Authors>
 	<Description>Exif metadata modification library.</Description>
 	<PackageProjectUrl>https://github.com/oozcitak/exiflibrary</PackageProjectUrl>

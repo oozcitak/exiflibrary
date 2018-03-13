@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Drawing;
 using System.IO;
-using System.ComponentModel;
 
 namespace ExifLibrary
 {
@@ -113,18 +111,18 @@ namespace ExifLibrary
             foreach (PNGChunk chunk in Chunks)
             {
                 // Length of chunk data
-                stream.Write(conv.GetBytes((uint)chunk.Data.LongLength), 0, 4);
+                stream.Write(conv.GetBytes((uint)chunk.Data.Length), 0, 4);
 
                 // Chunk type
                 stream.Write(Encoding.ASCII.GetBytes(chunk.Type), 0, 4);
 
                 // Chunk data
-                long rem = chunk.Data.LongLength;
-                long offset = 0;
+                int rem = chunk.Data.Length;
+                int offset = 0;
                 byte[] b = new byte[32768];
                 while (rem > 0)
                 {
-                    int len = (int)Math.Min(rem, b.LongLength);
+                    int len = (int)Math.Min(rem, b.Length);
                     Array.Copy(chunk.Data, offset, b, 0, len);
                     stream.Write(b, 0, len);
                     rem -= len;
@@ -149,11 +147,11 @@ namespace ExifLibrary
             // tEXt and zTXt
             foreach (PNGChunk textChunk in Chunks.FindAll(c => c.Type == "tEXt" || c.Type == "zTXt"))
             {
-                for (long i = 0; i < textChunk.Data.Length; i++)
+                for (int i = 0; i < textChunk.Data.Length; i++)
                 {
                     if (textChunk.Data[i] == 0)
                     {
-                        long sepIndex = i;
+                        int sepIndex = i;
 
                         byte[] keywordBytes = new byte[sepIndex];
                         Array.Copy(textChunk.Data, 0, keywordBytes, 0, keywordBytes.Length);
@@ -182,11 +180,11 @@ namespace ExifLibrary
             // iTXt
             foreach (PNGChunk textChunk in Chunks.FindAll(c => c.Type == "iTXt"))
             {
-                for (long i = 0; i < textChunk.Data.Length; i++)
+                for (int i = 0; i < textChunk.Data.Length; i++)
                 {
                     if (textChunk.Data[i] == 0)
                     {
-                        long sepIndex = i;
+                        int sepIndex = i;
 
                         byte[] keywordBytes = new byte[sepIndex];
                         Array.Copy(textChunk.Data, 0, keywordBytes, 0, keywordBytes.Length);
@@ -194,20 +192,20 @@ namespace ExifLibrary
 
                         bool compressed = (textChunk.Data[sepIndex + 1] == 1);
 
-                        for (long j = sepIndex + 3; j < textChunk.Data.Length; j++)
+                        for (int j = sepIndex + 3; j < textChunk.Data.Length; j++)
                         {
                             if (textChunk.Data[j] == 0)
                             {
-                                long sepLangIndex = j;
+                                int sepLangIndex = j;
                                 byte[] langBytes = new byte[sepLangIndex - (sepIndex + 3)];
                                 Array.Copy(textChunk.Data, sepIndex + 3, langBytes, 0, langBytes.Length);
                                 string lang = latin1.GetString(langBytes);
 
-                                for (long k = sepLangIndex + 1; k < textChunk.Data.Length; k++)
+                                for (int k = sepLangIndex + 1; k < textChunk.Data.Length; k++)
                                 {
                                     if (textChunk.Data[k] == 0)
                                     {
-                                        long sepTransIndex = k;
+                                        int sepTransIndex = k;
                                         byte[] transBytes = new byte[sepTransIndex - (sepLangIndex + 1)];
                                         Array.Copy(textChunk.Data, sepLangIndex + 1, transBytes, 0, transBytes.Length);
                                         string trans = Encoding.UTF8.GetString(transBytes);
@@ -250,25 +248,25 @@ namespace ExifLibrary
         /// <param name="keyword">The keyword to match.</param>
         private ExifTag TagFromKeyword(string keyword)
         {
-            if (string.Compare(keyword, "Title", StringComparison.InvariantCultureIgnoreCase) == 0)
+            if (string.Compare(keyword, "Title", StringComparison.OrdinalIgnoreCase) == 0)
                 return ExifTag.PNGTitle;
-            else if (string.Compare(keyword, "Author", StringComparison.InvariantCultureIgnoreCase) == 0)
+            else if (string.Compare(keyword, "Author", StringComparison.OrdinalIgnoreCase) == 0)
                 return ExifTag.PNGAuthor;
-            else if (string.Compare(keyword, "Description", StringComparison.InvariantCultureIgnoreCase) == 0)
+            else if (string.Compare(keyword, "Description", StringComparison.OrdinalIgnoreCase) == 0)
                 return ExifTag.PNGDescription;
-            else if (string.Compare(keyword, "Copyright", StringComparison.InvariantCultureIgnoreCase) == 0)
+            else if (string.Compare(keyword, "Copyright", StringComparison.OrdinalIgnoreCase) == 0)
                 return ExifTag.PNGCopyright;
-            else if (string.Compare(keyword, "Creation Time", StringComparison.InvariantCultureIgnoreCase) == 0)
+            else if (string.Compare(keyword, "Creation Time", StringComparison.OrdinalIgnoreCase) == 0)
                 return ExifTag.PNGCreationTime;
-            else if (string.Compare(keyword, "Software", StringComparison.InvariantCultureIgnoreCase) == 0)
+            else if (string.Compare(keyword, "Software", StringComparison.OrdinalIgnoreCase) == 0)
                 return ExifTag.PNGSoftware;
-            else if (string.Compare(keyword, "Disclaimer", StringComparison.InvariantCultureIgnoreCase) == 0)
+            else if (string.Compare(keyword, "Disclaimer", StringComparison.OrdinalIgnoreCase) == 0)
                 return ExifTag.PNGDisclaimer;
-            else if (string.Compare(keyword, "Warning", StringComparison.InvariantCultureIgnoreCase) == 0)
+            else if (string.Compare(keyword, "Warning", StringComparison.OrdinalIgnoreCase) == 0)
                 return ExifTag.PNGWarning;
-            else if (string.Compare(keyword, "Source", StringComparison.InvariantCultureIgnoreCase) == 0)
+            else if (string.Compare(keyword, "Source", StringComparison.OrdinalIgnoreCase) == 0)
                 return ExifTag.PNGSource;
-            else if (string.Compare(keyword, "Comment", StringComparison.InvariantCultureIgnoreCase) == 0)
+            else if (string.Compare(keyword, "Comment", StringComparison.OrdinalIgnoreCase) == 0)
                 return ExifTag.PNGComment;
             else
                 return ExifTag.PNGText;

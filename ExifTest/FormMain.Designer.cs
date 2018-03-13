@@ -1,4 +1,4 @@
-﻿namespace ExifLibrary
+﻿namespace ExifTest
 {
     partial class FormMain
     {
@@ -334,7 +334,7 @@
             // btnOpen
             // 
             this.btnOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnOpen.Image = global::ExifLibrary.Properties.Resources.open_document_24;
+            this.btnOpen.Image = global::ExifTest.Properties.Resources.open_document_24;
             this.btnOpen.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnOpen.Name = "btnOpen";
@@ -363,7 +363,7 @@
             // 
             this.btnEmbed.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnEmbed.Enabled = false;
-            this.btnEmbed.Image = global::ExifLibrary.Properties.Resources.favorites_24;
+            this.btnEmbed.Image = global::ExifTest.Properties.Resources.favorites_24;
             this.btnEmbed.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnEmbed.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEmbed.Name = "btnEmbed";

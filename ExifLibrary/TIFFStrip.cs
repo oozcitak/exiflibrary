@@ -23,7 +23,7 @@ namespace ExifLibrary
         public TIFFStrip(byte[] data, uint offset, uint length)
         {
             Data = new byte[length];
-            Array.Copy(data, offset, Data, 0, length);
+            Array.Copy(data, (int)offset, Data, 0, (int)length);
         }
     }
 }

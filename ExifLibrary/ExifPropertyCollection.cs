@@ -75,7 +75,7 @@ namespace ExifLibrary
         /// <param name="value">The value of tag.</param>
         public void Add(ExifTag key, string value)
         {
-            Add(key, value, Encoding.Default);
+            Add(key, value, Encoding.UTF8);
         }
         /// <summary>
         /// Sets the <see cref="ExifLibrary.ExifProperty"/> with the specified key.
@@ -130,14 +130,14 @@ namespace ExifLibrary
         public void Add(ExifTag key, object value)
         {
             Type type = value.GetType();
-            if (type.IsEnum)
-            {
-                Type etype = typeof(ExifEnumProperty<>).MakeGenericType(new Type[] { type });
-                object prop = Activator.CreateInstance(etype, new object[] { key, value });
-                items.Add((ExifProperty)prop);
-            }
-            else
-                throw new ArgumentException("No exif property exists for this tag.", "value");
+            //if (type.IsEnum)
+            //{
+            Type etype = typeof(ExifEnumProperty<>).MakeGenericType(new Type[] { type });
+            object prop = Activator.CreateInstance(etype, new object[] { key, value });
+            items.Add((ExifProperty)prop);
+            //}
+            //else
+            //    throw new ArgumentException("No exif property exists for this tag.", "value");
         }
         /// <summary>
         /// Sets the <see cref="ExifLibrary.ExifProperty"/> with the specified key.

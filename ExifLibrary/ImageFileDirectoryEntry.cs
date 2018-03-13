@@ -61,7 +61,7 @@ namespace ExifLibrary
 
             // Field value or offset to field data
             byte[] value = new byte[4];
-            Array.Copy(data, offset + 8, value, 0, 4);
+            Array.Copy(data, (int)offset + 8, value, 0, 4);
 
             // Calculate the bytes we need to read
             uint baselength = GetBaseLength(type);
@@ -74,18 +74,18 @@ namespace ExifLibrary
             {
                 uint dataoffset = BitConverterEx.ToUInt32(value, 0, byteOrder, BitConverterEx.SystemByteOrder);
                 value = new byte[totallength];
-                Array.Copy(data, dataoffset, value, 0, totallength);
+                Array.Copy(data, (int)dataoffset, value, 0, (int)totallength);
             }
 
             // Reverse array order if byte orders are different
             if (byteOrder != BitConverterEx.SystemByteOrder)
             {
-                for (uint i = 0; i < count; i++)
+                for (int i = 0; i < count; i++)
                 {
                     byte[] val = new byte[baselength];
-                    Array.Copy(value, i * baselength, val, 0, baselength);
+                    Array.Copy(value, i * (int)baselength, val, 0, (int)baselength);
                     Array.Reverse(val);
-                    Array.Copy(val, 0, value, i * baselength, baselength);
+                    Array.Copy(val, 0, value, i * (int)baselength, (int)baselength);
                 }
             }
 

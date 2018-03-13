@@ -1,102 +1,100 @@
-﻿using System;
-using System.Drawing;
-using System.IO;
-using System.Collections.Generic;
+﻿using System.IO;
 using System.Text;
-using System.ComponentModel;
 
 namespace ExifLibrary
 {
-	/// <summary>
-	/// Represents the base class for image files.
-	/// </summary>
-	[TypeDescriptionProvider(typeof(ExifFileTypeDescriptionProvider))]
-	public abstract class ImageFile
-	{
-		#region Constructor
-		/// <summary>
-		/// Initializes a new instance of the <see cref="ImageFile"/> class.
-		/// </summary>
-		protected ImageFile ()
-		{
-			Format = ImageFileFormat.Unknown;
-			Properties = new ExifPropertyCollection ();
-            Encoding = Encoding.Default;
-		}
-		#endregion
+    /// <summary>
+    /// Represents the base class for image files.
+    /// </summary>
+    //[TypeDescriptionProvider(typeof(ExifFileTypeDescriptionProvider))]
+    public abstract class ImageFile
+    {
+        #region Constructor
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ImageFile"/> class.
+        /// </summary>
+        protected ImageFile()
+        {
+            Format = ImageFileFormat.Unknown;
+            Properties = new ExifPropertyCollection();
+            Encoding = Encoding.UTF8;
+        }
+        #endregion
 
-		#region Properties
-		/// <summary>
-		/// Returns the format of the <see cref="ImageFile"/>.
-		/// </summary>
-		public ImageFileFormat Format { get; protected set; }
-		/// <summary>
-		/// Gets the collection of Exif properties contained in the <see cref="ImageFile"/>.
-		/// </summary>
-		public ExifPropertyCollection Properties { get; private set; }
-		/// <summary>
-		/// Gets or sets the embedded thumbnail image.
-		/// </summary>
-		public ImageFile Thumbnail { get; set; }
-		/// <summary>
-		/// Gets or sets the Exif property with the given key.
-		/// </summary>
-		/// <param name="key">The Exif tag associated with the Exif property.</param>
-		public ExifProperty this[int index] {
-			get { return Properties[index]; }
-			set { Properties[index] = value; }
-		}
+        #region Properties
+        /// <summary>
+        /// Returns the format of the <see cref="ImageFile"/>.
+        /// </summary>
+        public ImageFileFormat Format { get; protected set; }
+        /// <summary>
+        /// Gets the collection of Exif properties contained in the <see cref="ImageFile"/>.
+        /// </summary>
+        public ExifPropertyCollection Properties { get; private set; }
+        /// <summary>
+        /// Gets or sets the embedded thumbnail image.
+        /// </summary>
+        public ImageFile Thumbnail { get; set; }
+        /// <summary>
+        /// Gets or sets the Exif property with the given key.
+        /// </summary>
+        /// <param name="key">The Exif tag associated with the Exif property.</param>
+        public ExifProperty this[int index]
+        {
+            get { return Properties[index]; }
+            set { Properties[index] = value; }
+        }
         /// <summary>
         /// Gets the encoding used for text metadata when the source encoding is unknown.
         /// </summary>
         public Encoding Encoding { get; protected set; }
-		#endregion
+        #endregion
 
-		#region Instance Methods
-		/// <summary>
-		/// Converts the <see cref="ImageFile"/> to a <see cref="System.Drawing.Image"/>.
-		/// </summary>
-		/// <returns>Returns a <see cref="System.Drawing.Image"/> containing image data.</returns>
-        public virtual Image ToImage()
+        #region Instance Methods
+        ///// <summary>
+        ///// Converts the <see cref="ImageFile"/> to a <see cref="System.Drawing.Image"/>.
+        ///// </summary>
+        ///// <returns>Returns a <see cref="System.Drawing.Image"/> containing image data.</returns>
+        //public virtual Image ToImage()
+        //{
+        //    MemoryStream stream = new MemoryStream();
+        //    Save(stream);
+        //    return Image.FromStream(stream);
+        //}
+
+        /// <summary>
+        /// Saves the <see cref="ImageFile"/> to the specified file.
+        /// </summary>
+        /// <param name="filename">A string that contains the name of the file.</param>
+        public virtual void Save(string filename)
         {
-            MemoryStream stream = new MemoryStream();
-            Save(stream);
-            return Image.FromStream(stream);
+            using (FileStream stream = new FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+                Save(stream);
+            }
         }
 
-		/// <summary>
-		/// Saves the <see cref="ImageFile"/> to the specified file.
-		/// </summary>
-		/// <param name="filename">A string that contains the name of the file.</param>
-		public virtual void Save (string filename)
-		{
-			using (FileStream stream = new FileStream (filename, FileMode.Create, FileAccess.Write, FileShare.None)) {
-				Save (stream);
-			}
-		}
-
-		/// <summary>
-		/// Saves the <see cref="ImageFile"/> to the specified stream.
-		/// </summary>
-		/// <param name="stream">A <see cref="Sytem.IO.Stream"/> to save image data to.</param>
-		public abstract void Save (Stream stream);
+        /// <summary>
+        /// Saves the <see cref="ImageFile"/> to the specified stream.
+        /// </summary>
+        /// <param name="stream">A <see cref="Sytem.IO.Stream"/> to save image data to.</param>
+        public abstract void Save(Stream stream);
 
         /// <summary>
         /// Decreases file size by removing all metadata.
         /// </summary>
         public abstract void Crush();
-		#endregion
+        #endregion
 
-		#region Static Methods
-		/// <summary>
-		/// Creates an <see cref="ImageFile"/> from the specified file.
-		/// </summary>
-		/// <param name="filename">A string that contains the name of the file.</param>
-		/// <returns>The <see cref="ImageFile"/> created from the file.</returns>
-		public static ImageFile FromFile (string filename)
-		{
-            return FromFile(filename, Encoding.Default);
-		}
+        #region Static Methods
+        /// <summary>
+        /// Creates an <see cref="ImageFile"/> from the specified file.
+        /// </summary>
+        /// <param name="filename">A string that contains the name of the file.</param>
+        /// <returns>The <see cref="ImageFile"/> created from the file.</returns>
+        public static ImageFile FromFile(string filename)
+        {
+            return FromFile(filename, Encoding.UTF8);
+        }
 
         /// <summary>
         /// Creates an <see cref="ImageFile"/> from the specified file.
@@ -119,39 +117,39 @@ namespace ExifLibrary
 		/// <returns>The <see cref="ImageFile"/> created from the file.</returns>
         public static ImageFile FromStream(Stream stream)
         {
-            return FromStream(stream, Encoding.Default);
+            return FromStream(stream, Encoding.UTF8);
         }
 
-		/// <summary>
-		/// Creates an <see cref="ImageFile"/> from the specified data stream.
-		/// </summary>
-		/// <param name="stream">A <see cref="Sytem.IO.Stream"/> that contains image data.</param>
+        /// <summary>
+        /// Creates an <see cref="ImageFile"/> from the specified data stream.
+        /// </summary>
+        /// <param name="stream">A <see cref="Sytem.IO.Stream"/> that contains image data.</param>
         /// <param name="encoding">The encoding to be used for text metadata when the source encoding is unknown.</param>
-		/// <returns>The <see cref="ImageFile"/> created from the file.</returns>
+        /// <returns>The <see cref="ImageFile"/> created from the file.</returns>
         public static ImageFile FromStream(Stream stream, Encoding encoding)
-		{
-			stream.Seek (0, SeekOrigin.Begin);
-			byte[] header = new byte[8];
-			stream.Seek (0, SeekOrigin.Begin);
-			if (stream.Read (header, 0, header.Length) != header.Length)
-				throw new NotValidImageFileException ();
-			
-			// JPEG
-			if (header[0] == 0xFF && header[1] == 0xD8)
-				return new JPEGFile (stream, encoding);
-			
-			// TIFF
-			string tiffHeader = Encoding.ASCII.GetString (header, 0, 4);
-			if (tiffHeader == "MM\x00\x2a" || tiffHeader == "II\x2a\x00")
-				return new TIFFFile (stream, encoding);
+        {
+            stream.Seek(0, SeekOrigin.Begin);
+            byte[] header = new byte[8];
+            stream.Seek(0, SeekOrigin.Begin);
+            if (stream.Read(header, 0, header.Length) != header.Length)
+                throw new NotValidImageFileException();
+
+            // JPEG
+            if (header[0] == 0xFF && header[1] == 0xD8)
+                return new JPEGFile(stream, encoding);
+
+            // TIFF
+            string tiffHeader = Encoding.ASCII.GetString(header, 0, 4);
+            if (tiffHeader == "MM\x00\x2a" || tiffHeader == "II\x2a\x00")
+                return new TIFFFile(stream, encoding);
 
             // PNG
             if (header[0] == 0x89 && header[1] == 0x50 && header[2] == 0x4E && header[3] == 0x47 &&
                 header[4] == 0x0D && header[5] == 0x0A && header[6] == 0x1A && header[7] == 0x0A)
                 return new PNGFile(stream, encoding);
-			
-			throw new NotValidImageFileException ();
-		}
-		#endregion
-	}
+
+            throw new NotValidImageFileException();
+        }
+        #endregion
+    }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.Text;
 
@@ -367,25 +366,25 @@ namespace ExifLibrary
 
 
             // Create a memory stream to write the APP0 section to
-            MemoryStream ms = new MemoryStream();
-
-            // JFIF identifer
-            ms.Write(Encoding.ASCII.GetBytes("JFIF\0"), 0, 5);
-
-            // Write tags
-            foreach (ExifProperty prop in ifdjfef)
+            using (MemoryStream ms = new MemoryStream())
             {
-                ExifInterOperability interop = prop.Interoperability;
-                byte[] data = interop.Data;
-                if (BitConverterEx.SystemByteOrder != BitConverterEx.ByteOrder.BigEndian && interop.TypeID == 3)
-                    Array.Reverse(data);
-                ms.Write(data, 0, data.Length);
+
+                // JFIF identifer
+                ms.Write(Encoding.ASCII.GetBytes("JFIF\0"), 0, 5);
+
+                // Write tags
+                foreach (ExifProperty prop in ifdjfef)
+                {
+                    ExifInterOperability interop = prop.Interoperability;
+                    byte[] data = interop.Data;
+                    if (BitConverterEx.SystemByteOrder != BitConverterEx.ByteOrder.BigEndian && interop.TypeID == 3)
+                        Array.Reverse(data);
+                    ms.Write(data, 0, data.Length);
+                }
+
+                // Return APP0 header
+                jfifApp0.Header = ms.ToArray();
             }
-
-            ms.Close();
-
-            // Return APP0 header
-            jfifApp0.Header = ms.ToArray();
             return true;
         }
         /// <summary>
@@ -460,25 +459,25 @@ namespace ExifLibrary
             }
 
             // Create a memory stream to write the APP0 section to
-            MemoryStream ms = new MemoryStream();
-
-            // JFIF identifer
-            ms.Write(Encoding.ASCII.GetBytes("JFXX\0"), 0, 5);
-
-            // Write tags
-            foreach (ExifProperty prop in ifdjfef)
+            using (MemoryStream ms = new MemoryStream())
             {
-                ExifInterOperability interop = prop.Interoperability;
-                byte[] data = interop.Data;
-                if (BitConverterEx.SystemByteOrder != BitConverterEx.ByteOrder.BigEndian && interop.TypeID == 3)
-                    Array.Reverse(data);
-                ms.Write(data, 0, data.Length);
+
+                // JFIF identifer
+                ms.Write(Encoding.ASCII.GetBytes("JFXX\0"), 0, 5);
+
+                // Write tags
+                foreach (ExifProperty prop in ifdjfef)
+                {
+                    ExifInterOperability interop = prop.Interoperability;
+                    byte[] data = interop.Data;
+                    if (BitConverterEx.SystemByteOrder != BitConverterEx.ByteOrder.BigEndian && interop.TypeID == 3)
+                        Array.Reverse(data);
+                    ms.Write(data, 0, data.Length);
+                }
+
+                // Return APP0 header
+                jfxxApp0.Header = ms.ToArray();
             }
-
-            ms.Close();
-
-            // Return APP0 header
-            jfxxApp0.Header = ms.ToArray();
             return true;
         }
 
@@ -597,7 +596,7 @@ namespace ExifLibrary
                     {
                         fieldposition = tiffoffset + (int)conv.ToUInt32(value, 0);
                         value = new byte[totallength];
-                        Array.Copy(header, fieldposition, value, 0, totallength);
+                        Array.Copy(header, fieldposition, value, 0, (int)totallength);
                     }
 
                     // Compressed thumbnail data
@@ -752,68 +751,68 @@ namespace ExifLibrary
             BitConverterEx bceExif = new BitConverterEx(BitConverterEx.SystemByteOrder, ByteOrder);
 
             // Create a memory stream to write the APP1 section to
-            MemoryStream ms = new MemoryStream();
-
-            // Exif identifer
-            ms.Write(Encoding.ASCII.GetBytes("Exif\0\0"), 0, 6);
-
-            // TIFF header
-            // Byte order
-            long tiffoffset = ms.Position;
-            ms.Write((ByteOrder == BitConverterEx.ByteOrder.LittleEndian ? new byte[] { 0x49, 0x49 } : new byte[] { 0x4D, 0x4D }), 0, 2);
-            // TIFF ID
-            ms.Write(bceExif.GetBytes((ushort)42), 0, 2);
-            // Offset to 0th IFD
-            ms.Write(bceExif.GetBytes((uint)8), 0, 4);
-
-            // Write IFDs
-            WriteIFD(ms, ifdzeroth, IFD.Zeroth, tiffoffset, preserveMakerNote);
-            uint exififdrelativeoffset = (uint)(ms.Position - tiffoffset);
-            WriteIFD(ms, ifdexif, IFD.EXIF, tiffoffset, preserveMakerNote);
-            uint gpsifdrelativeoffset = (uint)(ms.Position - tiffoffset);
-            WriteIFD(ms, ifdgps, IFD.GPS, tiffoffset, preserveMakerNote);
-            uint interopifdrelativeoffset = (uint)(ms.Position - tiffoffset);
-            WriteIFD(ms, ifdinterop, IFD.Interop, tiffoffset, preserveMakerNote);
-            uint firstifdrelativeoffset = (uint)(ms.Position - tiffoffset);
-            WriteIFD(ms, ifdfirst, IFD.First, tiffoffset, preserveMakerNote);
-
-            // Now that we now the location of IFDs we can go back and write IFD offsets
-            if (exifIFDFieldOffset != 0)
+            using (MemoryStream ms = new MemoryStream())
             {
-                ms.Seek(exifIFDFieldOffset, SeekOrigin.Begin);
-                ms.Write(bceExif.GetBytes(exififdrelativeoffset), 0, 4);
-            }
-            if (gpsIFDFieldOffset != 0)
-            {
-                ms.Seek(gpsIFDFieldOffset, SeekOrigin.Begin);
-                ms.Write(bceExif.GetBytes(gpsifdrelativeoffset), 0, 4);
-            }
-            if (interopIFDFieldOffset != 0)
-            {
-                ms.Seek(interopIFDFieldOffset, SeekOrigin.Begin);
-                ms.Write(bceExif.GetBytes(interopifdrelativeoffset), 0, 4);
-            }
-            if (firstIFDFieldOffset != 0)
-            {
-                ms.Seek(firstIFDFieldOffset, SeekOrigin.Begin);
-                ms.Write(bceExif.GetBytes(firstifdrelativeoffset), 0, 4);
-            }
-            // We can write thumbnail location now
-            if (thumbOffsetLocation != 0)
-            {
-                ms.Seek(thumbOffsetLocation, SeekOrigin.Begin);
-                ms.Write(bceExif.GetBytes(thumbOffsetValue), 0, 4);
-            }
-            if (thumbSizeLocation != 0)
-            {
-                ms.Seek(thumbSizeLocation, SeekOrigin.Begin);
-                ms.Write(bceExif.GetBytes(thumbSizeValue), 0, 4);
-            }
 
-            ms.Close();
+                // Exif identifer
+                ms.Write(Encoding.ASCII.GetBytes("Exif\0\0"), 0, 6);
 
-            // Return APP1 header
-            exifApp1.Header = ms.ToArray();
+                // TIFF header
+                // Byte order
+                long tiffoffset = ms.Position;
+                ms.Write((ByteOrder == BitConverterEx.ByteOrder.LittleEndian ? new byte[] { 0x49, 0x49 } : new byte[] { 0x4D, 0x4D }), 0, 2);
+                // TIFF ID
+                ms.Write(bceExif.GetBytes((ushort)42), 0, 2);
+                // Offset to 0th IFD
+                ms.Write(bceExif.GetBytes((uint)8), 0, 4);
+
+                // Write IFDs
+                WriteIFD(ms, ifdzeroth, IFD.Zeroth, tiffoffset, preserveMakerNote);
+                uint exififdrelativeoffset = (uint)(ms.Position - tiffoffset);
+                WriteIFD(ms, ifdexif, IFD.EXIF, tiffoffset, preserveMakerNote);
+                uint gpsifdrelativeoffset = (uint)(ms.Position - tiffoffset);
+                WriteIFD(ms, ifdgps, IFD.GPS, tiffoffset, preserveMakerNote);
+                uint interopifdrelativeoffset = (uint)(ms.Position - tiffoffset);
+                WriteIFD(ms, ifdinterop, IFD.Interop, tiffoffset, preserveMakerNote);
+                uint firstifdrelativeoffset = (uint)(ms.Position - tiffoffset);
+                WriteIFD(ms, ifdfirst, IFD.First, tiffoffset, preserveMakerNote);
+
+                // Now that we now the location of IFDs we can go back and write IFD offsets
+                if (exifIFDFieldOffset != 0)
+                {
+                    ms.Seek(exifIFDFieldOffset, SeekOrigin.Begin);
+                    ms.Write(bceExif.GetBytes(exififdrelativeoffset), 0, 4);
+                }
+                if (gpsIFDFieldOffset != 0)
+                {
+                    ms.Seek(gpsIFDFieldOffset, SeekOrigin.Begin);
+                    ms.Write(bceExif.GetBytes(gpsifdrelativeoffset), 0, 4);
+                }
+                if (interopIFDFieldOffset != 0)
+                {
+                    ms.Seek(interopIFDFieldOffset, SeekOrigin.Begin);
+                    ms.Write(bceExif.GetBytes(interopifdrelativeoffset), 0, 4);
+                }
+                if (firstIFDFieldOffset != 0)
+                {
+                    ms.Seek(firstIFDFieldOffset, SeekOrigin.Begin);
+                    ms.Write(bceExif.GetBytes(firstifdrelativeoffset), 0, 4);
+                }
+                // We can write thumbnail location now
+                if (thumbOffsetLocation != 0)
+                {
+                    ms.Seek(thumbOffsetLocation, SeekOrigin.Begin);
+                    ms.Write(bceExif.GetBytes(thumbOffsetValue), 0, 4);
+                }
+                if (thumbSizeLocation != 0)
+                {
+                    ms.Seek(thumbSizeLocation, SeekOrigin.Begin);
+                    ms.Write(bceExif.GetBytes(thumbSizeValue), 0, 4);
+                }
+
+                // Return APP1 header
+                exifApp1.Header = ms.ToArray();
+            }
             return true;
         }
 
@@ -941,14 +940,14 @@ namespace ExifLibrary
             {
                 if (Thumbnail != null)
                 {
-                    MemoryStream ts = new MemoryStream();
-                    Thumbnail.Save(ts);
-                    ts.Close();
-                    byte[] thumb = ts.ToArray();
-                    thumbOffsetValue = (uint)(stream.Position - tiffoffset);
-                    thumbSizeValue = (uint)thumb.Length;
-                    stream.Write(thumb, 0, thumb.Length);
-                    ts.Dispose();
+                    using (MemoryStream ts = new MemoryStream())
+                    {
+                        Thumbnail.Save(ts);
+                        byte[] thumb = ts.ToArray();
+                        thumbOffsetValue = (uint)(stream.Position - tiffoffset);
+                        thumbSizeValue = (uint)thumb.Length;
+                        stream.Write(thumb, 0, thumb.Length);
+                    }
                 }
                 else
                 {

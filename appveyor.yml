@@ -1,0 +1,33 @@
+version: 1.0.{build}
+os: Visual Studio 2017
+skip_tags: true
+configuration: Release
+
+install:
+  - cmd: git submodule update --init --recursive
+
+before_build:
+  - ps: .\scripts\set-version.ps1
+  - cmd: dotnet --info
+  - cmd: dotnet restore --verbosity n
+
+build_script:
+  - cmd: dotnet build -c Release ExifLibrary\
+
+after_test:
+  - cmd: dotnet pack -c Release ExifLibrary\
+
+artifacts:
+- path: 'ExifLibrary\bin\Release\*.nupkg'
+  name: nugetPackages
+
+deploy:
+- provider: GitHub
+  auth_token:
+    secure: do7S++r1rE5E3IZujCoMONsWYJNF7eoRoPyJbxSD851I850OlEq0gsHH/Tji7o00
+  artifact: nugetPackages,droppackage
+- provider: NuGet
+  api_key:
+    secure: pVOzQthQbu7P9SUQwjG43ZEMcwAp7dVbe4BkDVEwJFu1gWK+L11L9mdfGLC5iO5Z
+  skip_symbols: true
+  artifact: /.*\.nupkg/

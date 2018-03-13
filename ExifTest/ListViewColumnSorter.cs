@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Windows.Forms;
 
-namespace ExifLibrary
+namespace ExifTest
 {
     /// <summary>
     /// Sorts the columns of a listview.

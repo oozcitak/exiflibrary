@@ -10,13 +10,15 @@
     <Version>1.0.0.0</Version>
 	<Title>ExifLibrary</Title>
 	<Authors>oozcitak;Devedse</Authors>
-	<Description>Exif modification library. Written by oozcitak and converted to DotNet Core by Devedse.</Description>
-	<PackageProjectUrl>https://github.com/devedse/exiflibrary</PackageProjectUrl>
+	<Description>Exif metadata modification library.</Description>
+	<PackageProjectUrl>https://github.com/oozcitak/exiflibrary</PackageProjectUrl>
 	<PackageTags>exif;jpeg;image</PackageTags>
+	<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
+    <WarningLevel>0</WarningLevel>
   </PropertyGroup>
 
 </Project>

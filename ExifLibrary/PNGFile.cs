@@ -19,7 +19,7 @@ namespace ExifLibrary
 
         #region Constructor
         /// <summary>
-        /// Initializes a new instance of the <see cref="JPEGFile"/> class from the
+        /// Initializes a new instance of the <see cref="PNGFile"/> class from the
         /// specified data stream.
         /// </summary>
         /// <param name="stream">A <see cref="Sytem.IO.Stream"/> that contains image data.</param>

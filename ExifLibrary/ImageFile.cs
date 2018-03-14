@@ -6,7 +6,6 @@ namespace ExifLibrary
     /// <summary>
     /// Represents the base class for image files.
     /// </summary>
-    //[TypeDescriptionProvider(typeof(ExifFileTypeDescriptionProvider))]
     public abstract class ImageFile
     {
         #region Constructor

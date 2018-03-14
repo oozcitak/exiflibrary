@@ -17,20 +17,9 @@ matrix:
       env: CONFIGURATION=Release
     - dotnet: 2.0.0
       mono: none
-      os: linux
-      dist: trusty
-      sudo: required
-      env: CONFIGURATION=Debug
-    - dotnet: 2.0.0
-      mono: none
       os: osx
       osx_image: xcode8.3
       env: CONFIGURATION=Release
-    - dotnet: 2.0.0
-      mono: none
-      os: osx
-      osx_image: xcode8.3
-      env: CONFIGURATION=Debug
 
 before_script:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then

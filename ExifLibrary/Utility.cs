@@ -37,18 +37,18 @@ namespace ExifLibrary
         /// Reads the stream into the given byte array.
         /// </summary>
         /// <param name="stream">The <see cref="System.IO.Stream"/> to read.</param>
-        /// <param name="rem">The number of bytes to read.</param>
+        /// <param name="length">The number of bytes to read.</param>
         /// <returns>Contents of the <paramref name="stream"/> as a byte array.</returns>
-        public static byte[] GetStreamBytes(Stream stream, long rem)
+        public static byte[] GetStreamBytes(Stream stream, long length)
         {
             using (MemoryStream mem = new MemoryStream())
             {
                 byte[] b = new byte[32768];
                 int r;
-                while (rem > 0 && (r = stream.Read(b, 0, (int)Math.Min(rem, b.Length))) > 0)
+                while (length > 0 && (r = stream.Read(b, 0, (int)Math.Min(length, b.Length))) > 0)
                 {
                     mem.Write(b, 0, r);
-                    rem = rem - r;
+                    length = length - r;
                 }
 
                 return mem.ToArray();

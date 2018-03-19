@@ -81,7 +81,7 @@ namespace ExifLibrary
                     long length = (long)BitConverterEx.BigEndian.ToUInt16(lengthbytes, 0);
 
                     // Read section header.
-                    header = ReadBuffer(stream, length - 2);
+                    header = Utility.GetStreamBytes(stream, length - 2);
                 }
 
                 // Start of Scan (SOS) sections and RST sections are immediately
@@ -126,7 +126,7 @@ namespace ExifLibrary
                             stream.Seek(position, SeekOrigin.Begin);
 
                             // Read entropy coded data
-                            entropydata = ReadBuffer(stream, edlength);
+                            entropydata = Utility.GetStreamBytes(stream, edlength);
 
                             break;
                         }
@@ -141,7 +141,7 @@ namespace ExifLibrary
                 if (marker == JPEGMarker.EOI)
                 {
                     long eoflength = stream.Length - stream.Position;
-                    TrailingData = ReadBuffer(stream, eoflength);
+                    TrailingData = Utility.GetStreamBytes(stream, eoflength);
                 }
             }
 
@@ -933,22 +933,6 @@ namespace ExifLibrary
                     thumbSizeValue = 0;
                 }
             }
-        }
-
-        private byte[] ReadBuffer(Stream stream, long length)
-        {
-            byte[] buffer = new byte[length];
-            long bytestoread = length;
-            while (bytestoread > 0)
-            {
-                // Read in chunks of 4K bytes
-                int count = (int)Math.Min(bytestoread, 4 * 1024);
-                int bytesread = stream.Read(buffer, (int)(length - bytestoread), count);
-                if (bytesread == 0)
-                    throw new NotValidJPEGFileException();
-                bytestoread -= bytesread;
-            }
-            return buffer;
         }
         #endregion
     }

@@ -81,16 +81,7 @@ namespace ExifLibrary
                     long length = (long)BitConverterEx.BigEndian.ToUInt16(lengthbytes, 0);
 
                     // Read section header.
-                    header = new byte[length - 2];
-                    int bytestoread = header.Length;
-                    while (bytestoread > 0)
-                    {
-                        int count = Math.Min(bytestoread, 4 * 1024);
-                        int bytesread = stream.Read(header, header.Length - bytestoread, count);
-                        if (bytesread == 0)
-                            throw new NotValidJPEGFileException();
-                        bytestoread -= bytesread;
-                    }
+                    header = ReadBuffer(stream, length - 2);
                 }
 
                 // Start of Scan (SOS) sections and RST sections are immediately
@@ -110,7 +101,7 @@ namespace ExifLibrary
                         {
                             nextbyte = stream.ReadByte();
                             if (nextbyte == -1)
-                                throw new NotValidJPEGFileException();
+                                break;
                         } while ((byte)nextbyte != 0xFF);
 
                         // Skip filler bytes (0xFF)
@@ -118,29 +109,24 @@ namespace ExifLibrary
                         {
                             nextbyte = stream.ReadByte();
                             if (nextbyte == -1)
-                                throw new NotValidJPEGFileException();
+                                break;
                         } while ((byte)nextbyte == 0xFF);
 
-                        // Looks like a section marker. The next byte must not be 0x00.
-                        if ((byte)nextbyte != 0x00)
+                        // We either reached the end of file before a new marker(this would indicate 
+                        // a corrupt image file) or we are at a section marker. In that case the 
+                        // next byte must not be 0x00.
+                        if (nextbyte != 0)
                         {
-                            // We reached a section marker. Calculate the
-                            // length of the entropy coded data.
-                            stream.Seek(-2, SeekOrigin.Current);
+                            // If we reached a section marker seek back to just before the marker.
+                            if (nextbyte != -1)
+                                stream.Seek(-2, SeekOrigin.Current);
+
+                            // Calculate the length of the entropy coded data.
                             long edlength = stream.Position - position;
-                            stream.Seek(-edlength, SeekOrigin.Current);
+                            stream.Seek(position, SeekOrigin.Begin);
 
                             // Read entropy coded data
-                            entropydata = new byte[edlength];
-                            int bytestoread = entropydata.Length;
-                            while (bytestoread > 0)
-                            {
-                                int count = Math.Min(bytestoread, 4 * 1024);
-                                int bytesread = stream.Read(entropydata, entropydata.Length - bytestoread, count);
-                                if (bytesread == 0)
-                                    throw new NotValidJPEGFileException();
-                                bytestoread -= bytesread;
-                            }
+                            entropydata = ReadBuffer(stream, edlength);
 
                             break;
                         }
@@ -154,16 +140,8 @@ namespace ExifLibrary
                 // Some propriety formats store data past the EOI marker
                 if (marker == JPEGMarker.EOI)
                 {
-                    int bytestoread = (int)(stream.Length - stream.Position);
-                    TrailingData = new byte[bytestoread];
-                    while (bytestoread > 0)
-                    {
-                        int count = (int)Math.Min(bytestoread, 4 * 1024);
-                        int bytesread = stream.Read(TrailingData, TrailingData.Length - bytestoread, count);
-                        if (bytesread == 0)
-                            throw new NotValidJPEGFileException();
-                        bytestoread -= bytesread;
-                    }
+                    long eoflength = stream.Length - stream.Position;
+                    TrailingData = ReadBuffer(stream, eoflength);
                 }
             }
 
@@ -955,6 +933,22 @@ namespace ExifLibrary
                     thumbSizeValue = 0;
                 }
             }
+        }
+
+        private byte[] ReadBuffer(Stream stream, long length)
+        {
+            byte[] buffer = new byte[length];
+            long bytestoread = length;
+            while (bytestoread > 0)
+            {
+                // Read in chunks of 4K bytes
+                int count = (int)Math.Min(bytestoread, 4 * 1024);
+                int bytesread = stream.Read(buffer, (int)(length - bytestoread), count);
+                if (bytesread == 0)
+                    throw new NotValidJPEGFileException();
+                bytestoread -= bytesread;
+            }
+            return buffer;
         }
         #endregion
     }

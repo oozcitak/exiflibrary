@@ -187,10 +187,10 @@ namespace ExifLibrary
             //   RST0 - RST7
             //   SOI, EOI
             //   DQT
-            //	 DNL
-            //	 DRI
-            //	 DHP
-            //	 EXP
+            //   DNL
+            //   DRI
+            //   DHP
+            //   EXP
             Sections.RemoveAll((section) =>
             {
                 return (section.Marker < JPEGMarker.SOF0 || section.Marker > JPEGMarker.EXP);

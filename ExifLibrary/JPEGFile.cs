@@ -161,23 +161,7 @@ namespace ExifLibrary
         /// </summary>
         public override void Crush()
         {
-            // Keep JFIF Tags
-            List<ExifProperty> jfifProperties = new List<ExifProperty>();
-            foreach (ExifProperty prop in Properties)
-            {
-                if (prop.IFD == IFD.JFIF)
-                {
-                    if (prop.Tag == ExifTag.JFIFXThumbnail)
-                        prop.Value = 0;
-                    if (prop.Tag == ExifTag.JFIFYThumbnail)
-                        prop.Value = 0;
-                    if (prop.Tag == ExifTag.JFIFThumbnail)
-                        prop.Value = new JFIFThumbnail(JFIFThumbnail.ImageFormat.JPEG, new byte[0]);
-                }
-            }
             Properties.Clear();
-            foreach (ExifProperty prop in jfifProperties)
-                Properties.Add(prop);
 
             // Remove metadata sections.
             // Keep the sections in this whitelist only:
@@ -191,10 +175,7 @@ namespace ExifLibrary
             //	 DRI
             //	 DHP
             //	 EXP
-            Sections.RemoveAll((section) =>
-            {
-                return (section.Marker < JPEGMarker.SOF0 || section.Marker > JPEGMarker.EXP);
-            });
+            Sections.RemoveAll(section => section.Marker < JPEGMarker.SOF0 || section.Marker > JPEGMarker.EXP);
         }
 
         /// <summary>

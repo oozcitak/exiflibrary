@@ -134,7 +134,7 @@ namespace ExifLibrary
             else if (ifd == IFD.GPS)
             {
                 if (tag == 0) // GPSVersionID
-                    return new ExifVersion(ExifTag.GPSVersionID, ExifBitConverter.ToString(value));
+                    return new VersionID(ExifTag.GPSVersionID, value);
                 else if (tag == 1) // GPSLatitudeRef
                     return new ExifEnumProperty<GPSLatitudeRef>(ExifTag.GPSLatitudeRef, (GPSLatitudeRef)value[0]);
                 else if (tag == 2) // GPSLatitude

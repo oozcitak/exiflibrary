@@ -161,23 +161,7 @@ namespace ExifLibrary
         /// </summary>
         public override void Crush()
         {
-            // Keep JFIF Tags
-            List<ExifProperty> jfifProperties = new List<ExifProperty>();
-            foreach (ExifProperty prop in Properties)
-            {
-                if (prop.IFD == IFD.JFIF)
-                {
-                    if (prop.Tag == ExifTag.JFIFXThumbnail)
-                        prop.Value = 0;
-                    if (prop.Tag == ExifTag.JFIFYThumbnail)
-                        prop.Value = 0;
-                    if (prop.Tag == ExifTag.JFIFThumbnail)
-                        prop.Value = new JFIFThumbnail(JFIFThumbnail.ImageFormat.JPEG, new byte[0]);
-                }
-            }
             Properties.Clear();
-            foreach (ExifProperty prop in jfifProperties)
-                Properties.Add(prop);
 
             // Remove metadata sections.
             // Keep the sections in this whitelist only:
@@ -191,10 +175,7 @@ namespace ExifLibrary
             //	 DRI
             //	 DHP
             //	 EXP
-            Sections.RemoveAll((section) =>
-            {
-                return (section.Marker < JPEGMarker.SOF0 || section.Marker > JPEGMarker.EXP);
-            });
+            Sections.RemoveAll(section => section.Marker < JPEGMarker.SOF0 || section.Marker > JPEGMarker.EXP);
         }
 
         /// <summary>
@@ -653,27 +634,26 @@ namespace ExifLibrary
             thumbSizeLocation = 0;
             thumbSizeValue = 0;
             // Write thumbnail tags if they are missing, remove otherwise
-            int indexf = -1;
-            int indexl = -1;
-            for (int i = 0; i < Properties.Count; i++)
+            ExifProperty thumbnailFormatProperty = null;
+            ExifProperty thumbnailLengthProperty = null;
+            foreach (var prop in Properties)
             {
-                ExifProperty prop = Properties[i];
-                if (prop.Tag == ExifTag.ThumbnailJPEGInterchangeFormat) indexf = i;
-                if (prop.Tag == ExifTag.ThumbnailJPEGInterchangeFormatLength) indexl = i;
-                if (indexf != -1 && indexl != -1) break;
+                if (prop.Tag == ExifTag.ThumbnailJPEGInterchangeFormat) thumbnailFormatProperty = prop;
+                if (prop.Tag == ExifTag.ThumbnailJPEGInterchangeFormatLength) thumbnailLengthProperty = prop;
+                if (thumbnailFormatProperty != null && thumbnailLengthProperty != null) break;
             }
             if (Thumbnail == null)
             {
-                if (indexf != -1)
-                    Properties.RemoveAt(indexf);
-                if (indexl != -1)
-                    Properties.RemoveAt(indexl);
+                if (thumbnailFormatProperty != null)
+                    Properties.Remove(thumbnailFormatProperty);
+                if (thumbnailLengthProperty != null)
+                    Properties.Remove(thumbnailLengthProperty);
             }
             else
             {
-                if (indexf == -1)
+                if (thumbnailFormatProperty == null)
                     Properties.Add(new ExifUInt(ExifTag.ThumbnailJPEGInterchangeFormat, 0));
-                if (indexl == -1)
+                if (thumbnailLengthProperty == null)
                     Properties.Add(new ExifUInt(ExifTag.ThumbnailJPEGInterchangeFormatLength, 0));
             }
 

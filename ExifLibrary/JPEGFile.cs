@@ -705,7 +705,8 @@ namespace ExifLibrary
 
             if (ifdzeroth.Count == 0 && ifdgps.Count == 0 && ifdinterop.Count == 0 && ifdfirst.Count == 0 && Thumbnail == null)
             {
-                // Nothing to write
+                // Nothing to write to App1 section
+                exifApp1.Header = new byte[0];
                 return false;
             }
 

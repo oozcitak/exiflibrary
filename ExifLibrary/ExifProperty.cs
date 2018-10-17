@@ -77,7 +77,7 @@ namespace ExifLibrary
         {
             get
             {
-                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), 1, 1, new byte[] { mValue });
+                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), InterOpType.BYTE, 1, new byte[] { mValue });
             }
         }
     }
@@ -91,7 +91,7 @@ namespace ExifLibrary
         protected override object _Value { get { return Value; } set { Value = (byte[])value; } }
         public new byte[] Value { get { return mValue; } set { mValue = value; } }
 
-        static public implicit operator byte[](ExifByteArray obj) { return obj.mValue; }
+        static public implicit operator byte[] (ExifByteArray obj) { return obj.mValue; }
 
         public override string ToString()
         {
@@ -117,7 +117,7 @@ namespace ExifLibrary
         {
             get
             {
-                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), 1, (uint)mValue.Length, mValue);
+                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), InterOpType.BYTE, (uint)mValue.Length, mValue);
             }
         }
     }
@@ -130,7 +130,7 @@ namespace ExifLibrary
         protected string mValue;
         protected override object _Value { get { return Value; } set { Value = (string)value; } }
         public new string Value { get { return mValue; } set { mValue = value; } }
-        
+
         public Encoding Encoding { get; private set; }
 
         static public implicit operator string(ExifAscii obj) { return obj.mValue; }
@@ -148,7 +148,7 @@ namespace ExifLibrary
         {
             get
             {
-                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), 2, (uint)mValue.Length + 1, ExifBitConverter.GetBytes(mValue, true, Encoding));
+                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), InterOpType.ASCII, (uint)mValue.Length + 1, ExifBitConverter.GetBytes(mValue, true, Encoding));
             }
         }
     }
@@ -176,7 +176,7 @@ namespace ExifLibrary
         {
             get
             {
-                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), 3, 1, ExifBitConverter.GetBytes(mValue, BitConverterEx.SystemByteOrder, BitConverterEx.SystemByteOrder));
+                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), InterOpType.SHORT, 1, ExifBitConverter.GetBytes(mValue, BitConverterEx.SystemByteOrder, BitConverterEx.SystemByteOrder));
             }
         }
     }
@@ -191,7 +191,7 @@ namespace ExifLibrary
         protected override object _Value { get { return Value; } set { Value = (ushort[])value; } }
         public new ushort[] Value { get { return mValue; } set { mValue = value; } }
 
-        static public implicit operator ushort[](ExifUShortArray obj) { return obj.mValue; }
+        static public implicit operator ushort[] (ExifUShortArray obj) { return obj.mValue; }
 
         public override string ToString()
         {
@@ -217,7 +217,7 @@ namespace ExifLibrary
         {
             get
             {
-                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), 3, (uint)mValue.Length, ExifBitConverter.GetBytes(mValue, BitConverterEx.SystemByteOrder));
+                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), InterOpType.SHORT, (uint)mValue.Length, ExifBitConverter.GetBytes(mValue, BitConverterEx.SystemByteOrder));
             }
         }
     }
@@ -245,13 +245,13 @@ namespace ExifLibrary
         {
             get
             {
-                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), 4, 1, ExifBitConverter.GetBytes(mValue, BitConverterEx.SystemByteOrder, BitConverterEx.SystemByteOrder));
+                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), InterOpType.LONG, 1, ExifBitConverter.GetBytes(mValue, BitConverterEx.SystemByteOrder, BitConverterEx.SystemByteOrder));
             }
         }
     }
 
     /// <summary>
-    /// Represents an array of 16-bit unsigned integers. 
+    /// Represents an array of 32-bit unsigned integers. 
     /// (EXIF Specification: LONG with count > 1)
     /// </summary>
     public class ExifUIntArray : ExifProperty
@@ -260,7 +260,7 @@ namespace ExifLibrary
         protected override object _Value { get { return Value; } set { Value = (uint[])value; } }
         public new uint[] Value { get { return mValue; } set { mValue = value; } }
 
-        static public implicit operator uint[](ExifUIntArray obj) { return obj.mValue; }
+        static public implicit operator uint[] (ExifUIntArray obj) { return obj.mValue; }
 
         public override string ToString()
         {
@@ -286,7 +286,7 @@ namespace ExifLibrary
         {
             get
             {
-                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), 3, (uint)mValue.Length, ExifBitConverter.GetBytes(mValue, BitConverterEx.SystemByteOrder));
+                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), InterOpType.LONG, (uint)mValue.Length, ExifBitConverter.GetBytes(mValue, BitConverterEx.SystemByteOrder));
             }
         }
     }
@@ -327,7 +327,7 @@ namespace ExifLibrary
         {
             get
             {
-                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), 5, 1, ExifBitConverter.GetBytes(mValue, BitConverterEx.SystemByteOrder));
+                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), InterOpType.RATIONAL, 1, ExifBitConverter.GetBytes(mValue, BitConverterEx.SystemByteOrder));
             }
         }
     }
@@ -342,7 +342,7 @@ namespace ExifLibrary
         protected override object _Value { get { return Value; } set { Value = (MathEx.UFraction32[])value; } }
         public new MathEx.UFraction32[] Value { get { return mValue; } set { mValue = value; } }
 
-        static public explicit operator float[](ExifURationalArray obj)
+        static public explicit operator float[] (ExifURationalArray obj)
         {
             float[] result = new float[obj.mValue.Length];
             for (int i = 0; i < obj.mValue.Length; i++)
@@ -374,7 +374,7 @@ namespace ExifLibrary
         {
             get
             {
-                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), 5, (uint)mValue.Length, ExifBitConverter.GetBytes(mValue, BitConverterEx.SystemByteOrder));
+                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), InterOpType.RATIONAL, (uint)mValue.Length, ExifBitConverter.GetBytes(mValue, BitConverterEx.SystemByteOrder));
             }
         }
     }
@@ -388,7 +388,7 @@ namespace ExifLibrary
         protected override object _Value { get { return Value; } set { Value = (byte[])value; } }
         public new byte[] Value { get { return mValue; } set { mValue = value; } }
 
-        static public implicit operator byte[](ExifUndefined obj) { return obj.mValue; }
+        static public implicit operator byte[] (ExifUndefined obj) { return obj.mValue; }
 
         public override string ToString()
         {
@@ -414,7 +414,7 @@ namespace ExifLibrary
         {
             get
             {
-                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), 7, (uint)mValue.Length, mValue);
+                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), InterOpType.UNDEFINED, (uint)mValue.Length, mValue);
             }
         }
     }
@@ -442,7 +442,7 @@ namespace ExifLibrary
         {
             get
             {
-                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), 9, 1, ExifBitConverter.GetBytes(mValue, BitConverterEx.SystemByteOrder, BitConverterEx.SystemByteOrder));
+                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), InterOpType.SLONG, 1, ExifBitConverter.GetBytes(mValue, BitConverterEx.SystemByteOrder, BitConverterEx.SystemByteOrder));
             }
         }
     }
@@ -471,7 +471,7 @@ namespace ExifLibrary
             return sb.ToString();
         }
 
-        static public implicit operator int[](ExifSIntArray obj) { return obj.mValue; }
+        static public implicit operator int[] (ExifSIntArray obj) { return obj.mValue; }
 
         public ExifSIntArray(ExifTag tag, int[] value)
             : base(tag)
@@ -483,7 +483,7 @@ namespace ExifLibrary
         {
             get
             {
-                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), 9, (uint)mValue.Length, ExifBitConverter.GetBytes(mValue, BitConverterEx.SystemByteOrder));
+                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), InterOpType.SLONG, (uint)mValue.Length, ExifBitConverter.GetBytes(mValue, BitConverterEx.SystemByteOrder));
             }
         }
     }
@@ -524,7 +524,7 @@ namespace ExifLibrary
         {
             get
             {
-                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), 10, 1, ExifBitConverter.GetBytes(mValue, BitConverterEx.SystemByteOrder));
+                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), InterOpType.SRATIONAL, 1, ExifBitConverter.GetBytes(mValue, BitConverterEx.SystemByteOrder));
             }
         }
     }
@@ -539,7 +539,7 @@ namespace ExifLibrary
         protected override object _Value { get { return Value; } set { Value = (MathEx.Fraction32[])value; } }
         public new MathEx.Fraction32[] Value { get { return mValue; } set { mValue = value; } }
 
-        static public explicit operator float[](ExifSRationalArray obj)
+        static public explicit operator float[] (ExifSRationalArray obj)
         {
             float[] result = new float[obj.mValue.Length];
             for (int i = 0; i < obj.mValue.Length; i++)
@@ -571,7 +571,7 @@ namespace ExifLibrary
         {
             get
             {
-                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), 10, (uint)mValue.Length, ExifBitConverter.GetBytes(mValue, BitConverterEx.SystemByteOrder));
+                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), InterOpType.SRATIONAL, (uint)mValue.Length, ExifBitConverter.GetBytes(mValue, BitConverterEx.SystemByteOrder));
             }
         }
     }

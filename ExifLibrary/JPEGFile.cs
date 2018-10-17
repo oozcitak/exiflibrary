@@ -336,7 +336,7 @@ namespace ExifLibrary
                 {
                     ExifInterOperability interop = prop.Interoperability;
                     byte[] data = interop.Data;
-                    if (BitConverterEx.SystemByteOrder != BitConverterEx.ByteOrder.BigEndian && interop.TypeID == 3)
+                    if (BitConverterEx.SystemByteOrder != BitConverterEx.ByteOrder.BigEndian && interop.TypeID == InterOpType.SHORT)
                         Array.Reverse(data);
                     ms.Write(data, 0, data.Length);
                 }
@@ -429,7 +429,7 @@ namespace ExifLibrary
                 {
                     ExifInterOperability interop = prop.Interoperability;
                     byte[] data = interop.Data;
-                    if (BitConverterEx.SystemByteOrder != BitConverterEx.ByteOrder.BigEndian && interop.TypeID == 3)
+                    if (BitConverterEx.SystemByteOrder != BitConverterEx.ByteOrder.BigEndian && interop.TypeID == InterOpType.SHORT)
                         Array.Reverse(data);
                     ms.Write(data, 0, data.Length);
                 }
@@ -835,17 +835,17 @@ namespace ExifLibrary
                 // Tag
                 stream.Write(conv.GetBytes(interop.TagID), 0, 2);
                 // Type
-                stream.Write(conv.GetBytes(interop.TypeID), 0, 2);
+                stream.Write(conv.GetBytes((ushort)interop.TypeID), 0, 2);
                 // Count
                 stream.Write(conv.GetBytes(interop.Count), 0, 4);
                 // Field data
                 byte[] data = interop.Data;
                 if (ByteOrder != BitConverterEx.SystemByteOrder &&
-                    (interop.TypeID == 3 || interop.TypeID == 4 || interop.TypeID == 9 ||
-                    interop.TypeID == 5 || interop.TypeID == 10))
+                    (interop.TypeID == InterOpType.SHORT || interop.TypeID == InterOpType.LONG || interop.TypeID == InterOpType.SLONG ||
+                    interop.TypeID == InterOpType.RATIONAL || interop.TypeID == InterOpType.SRATIONAL))
                 {
                     int vlen = 4;
-                    if (interop.TypeID == 3) vlen = 2;
+                    if (interop.TypeID == InterOpType.SHORT) vlen = 2;
                     int n = data.Length / vlen;
 
                     for (int i = 0; i < n; i++)

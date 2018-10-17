@@ -147,6 +147,34 @@ namespace ExifLibrary
     }
 
     /// <summary>
+    /// Represents an ASCII string formatted as Date. (EXIF Specification: ASCII) Used for the date fields.
+    /// </summary>
+    public class ExifDate : ExifProperty
+    {
+        protected DateTime mValue;
+        protected override object _Value { get { return Value; } set { Value = (DateTime)value; } }
+        public new DateTime Value { get { return mValue; } set { mValue = value; } }
+
+        static public implicit operator DateTime(ExifDate obj) { return obj.mValue; }
+
+        public override string ToString() { return mValue.ToString("yyyy.MM.dd"); }
+
+        public ExifDate(ExifTag tag, DateTime value)
+            : base(tag)
+        {
+            mValue = value;
+        }
+
+        public override ExifInterOperability Interoperability
+        {
+            get
+            {
+                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), 2, (uint)11, ExifBitConverter.GetBytes(mValue, false));
+            }
+        }
+    }
+
+    /// <summary>
     /// Represents the exif version as a 4 byte ASCII string. (EXIF Specification: UNDEFINED) 
     /// Used for the ExifVersion, FlashpixVersion and InteroperabilityVersion fields.
     /// </summary>

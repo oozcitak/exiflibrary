@@ -169,8 +169,8 @@ namespace ExifLibrary
                     return new ExifEnumProperty<GPSDirectionRef>(ExifTag.GPSDestBearingRef, (GPSDirectionRef)value[0]);
                 else if (tag == 25) // GPSDestDistanceRef
                     return new ExifEnumProperty<GPSDistanceRef>(ExifTag.GPSDestDistanceRef, (GPSDistanceRef)value[0]);
-                else if (tag == 29) // GPSDate
-                    return new ExifDateTime(ExifTag.GPSDateStamp, ExifBitConverter.ToDateTime(value, false));
+                else if (tag == 29) // GPSDateStamp
+                    return new ExifDate(ExifTag.GPSDateStamp, ExifBitConverter.ToDateTime(value, false));
                 else if (tag == 30) // GPSDifferential
                     return new ExifEnumProperty<GPSDifferential>(ExifTag.GPSDifferential, (GPSDifferential)conv.ToUInt16(value, 0));
             }

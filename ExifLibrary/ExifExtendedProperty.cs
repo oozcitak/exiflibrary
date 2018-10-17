@@ -148,7 +148,7 @@ namespace ExifLibrary
 
     /// <summary>
     /// Represents the exif version as a 4 byte ASCII string. (EXIF Specification: UNDEFINED) 
-    /// Used for the ExifVersion, FlashpixVersion, InteroperabilityVersion and GPSVersionID fields.
+    /// Used for the ExifVersion, FlashpixVersion and InteroperabilityVersion fields.
     /// </summary>
     public class ExifVersion : ExifProperty
     {
@@ -186,6 +186,28 @@ namespace ExifLibrary
                     return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), 7, 4, data);
                 }
             }
+        }
+    }
+
+    /// <summary>
+    /// Represents a version as a 4 byte byte array. (Specification: int8u[4]) 
+    /// Used for the GPSVersionID field.
+    /// </summary>
+    public class VersionID : ExifByteArray
+    {
+        public VersionID(ExifTag tag, byte [] value)
+            : base(tag, value)
+        {
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var b in Value)
+            {
+                sb.Append(b).Append('.');
+            }
+            return sb.ToString().TrimEnd('.');
         }
     }
 

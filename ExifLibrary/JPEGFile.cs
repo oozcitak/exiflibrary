@@ -495,6 +495,9 @@ namespace ExifLibrary
             int thumboffset = -1;
             int thumblength = 0;
             int thumbtype = -1;
+
+            bool hasFound1stIFDpointer = false;
+
             // Read IFDs
             while (ifdqueue.Count != 0)
             {
@@ -596,11 +599,14 @@ namespace ExifLibrary
 
                 // 1st IFD pointer
                 int firstifdoffset = ifdoffset + 2 + 12 * fieldcount;
-                if (firstifdoffset + 4 <= header.Length)
+                if (firstifdoffset + 4 <= header.Length && hasFound1stIFDpointer == false)
                 {
                     int firstifdpointer = (int)conv.ToUInt32(header, firstifdoffset);
                     if (firstifdpointer != 0 && firstifdpointer + 2 <= header.Length)
+                    {
                         ifdqueue.Add(firstifdpointer, IFD.First);
+                        hasFound1stIFDpointer = true;
+                    }
                 }
                 // Read thumbnail
                 if (thumboffset != -1 && thumblength != 0 && Thumbnail == null)

@@ -51,16 +51,16 @@ namespace ExifLibrary
             get
             {
                 if (mValue.Format == JFIFThumbnail.ImageFormat.BMP24Bit)
-                    return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), 1, (uint)mValue.PixelData.Length, mValue.PixelData);
+                    return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), InterOpType.BYTE, (uint)mValue.PixelData.Length, mValue.PixelData);
                 else if (mValue.Format == JFIFThumbnail.ImageFormat.BMPPalette)
                 {
                     byte[] data = new byte[mValue.Palette.Length + mValue.PixelData.Length];
                     Array.Copy(mValue.Palette, data, mValue.Palette.Length);
                     Array.Copy(mValue.PixelData, 0, data, mValue.Palette.Length, mValue.PixelData.Length);
-                    return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), 1, (uint)data.Length, data);
+                    return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), InterOpType.BYTE, (uint)data.Length, data);
                 }
                 else if (mValue.Format == JFIFThumbnail.ImageFormat.JPEG)
-                    return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), 1, (uint)mValue.PixelData.Length, mValue.PixelData);
+                    return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), InterOpType.BYTE, (uint)mValue.PixelData.Length, mValue.PixelData);
                 else
                     throw new InvalidOperationException("Unknown thumbnail type.");
             }

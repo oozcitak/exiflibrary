@@ -81,16 +81,7 @@ namespace ExifLibrary
                     long length = (long)BitConverterEx.BigEndian.ToUInt16(lengthbytes, 0);
 
                     // Read section header.
-                    header = new byte[length - 2];
-                    int bytestoread = header.Length;
-                    while (bytestoread > 0)
-                    {
-                        int count = Math.Min(bytestoread, 4 * 1024);
-                        int bytesread = stream.Read(header, header.Length - bytestoread, count);
-                        if (bytesread == 0)
-                            throw new NotValidJPEGFileException();
-                        bytestoread -= bytesread;
-                    }
+                    header = Utility.GetStreamBytes(stream, length - 2);
                 }
 
                 // Start of Scan (SOS) sections and RST sections are immediately
@@ -110,7 +101,7 @@ namespace ExifLibrary
                         {
                             nextbyte = stream.ReadByte();
                             if (nextbyte == -1)
-                                throw new NotValidJPEGFileException();
+                                break;
                         } while ((byte)nextbyte != 0xFF);
 
                         // Skip filler bytes (0xFF)
@@ -118,29 +109,24 @@ namespace ExifLibrary
                         {
                             nextbyte = stream.ReadByte();
                             if (nextbyte == -1)
-                                throw new NotValidJPEGFileException();
+                                break;
                         } while ((byte)nextbyte == 0xFF);
 
-                        // Looks like a section marker. The next byte must not be 0x00.
-                        if ((byte)nextbyte != 0x00)
+                        // We either reached the end of file before a new marker(this would indicate 
+                        // a corrupt image file) or we are at a section marker. In that case the 
+                        // next byte must not be 0x00.
+                        if (nextbyte != 0)
                         {
-                            // We reached a section marker. Calculate the
-                            // length of the entropy coded data.
-                            stream.Seek(-2, SeekOrigin.Current);
+                            // If we reached a section marker seek back to just before the marker.
+                            if (nextbyte != -1)
+                                stream.Seek(-2, SeekOrigin.Current);
+
+                            // Calculate the length of the entropy coded data.
                             long edlength = stream.Position - position;
-                            stream.Seek(-edlength, SeekOrigin.Current);
+                            stream.Seek(position, SeekOrigin.Begin);
 
                             // Read entropy coded data
-                            entropydata = new byte[edlength];
-                            int bytestoread = entropydata.Length;
-                            while (bytestoread > 0)
-                            {
-                                int count = Math.Min(bytestoread, 4 * 1024);
-                                int bytesread = stream.Read(entropydata, entropydata.Length - bytestoread, count);
-                                if (bytesread == 0)
-                                    throw new NotValidJPEGFileException();
-                                bytestoread -= bytesread;
-                            }
+                            entropydata = Utility.GetStreamBytes(stream, edlength);
 
                             break;
                         }
@@ -154,16 +140,8 @@ namespace ExifLibrary
                 // Some propriety formats store data past the EOI marker
                 if (marker == JPEGMarker.EOI)
                 {
-                    int bytestoread = (int)(stream.Length - stream.Position);
-                    TrailingData = new byte[bytestoread];
-                    while (bytestoread > 0)
-                    {
-                        int count = (int)Math.Min(bytestoread, 4 * 1024);
-                        int bytesread = stream.Read(TrailingData, TrailingData.Length - bytestoread, count);
-                        if (bytesread == 0)
-                            throw new NotValidJPEGFileException();
-                        bytestoread -= bytesread;
-                    }
+                    long eoflength = stream.Length - stream.Position;
+                    TrailingData = Utility.GetStreamBytes(stream, eoflength);
                 }
             }
 
@@ -183,23 +161,7 @@ namespace ExifLibrary
         /// </summary>
         public override void Crush()
         {
-            // Keep JFIF Tags
-            List<ExifProperty> jfifProperties = new List<ExifProperty>();
-            foreach (ExifProperty prop in Properties)
-            {
-                if (prop.IFD == IFD.JFIF)
-                {
-                    if (prop.Tag == ExifTag.JFIFXThumbnail)
-                        prop.Value = 0;
-                    if (prop.Tag == ExifTag.JFIFYThumbnail)
-                        prop.Value = 0;
-                    if (prop.Tag == ExifTag.JFIFThumbnail)
-                        prop.Value = new JFIFThumbnail(JFIFThumbnail.ImageFormat.JPEG, new byte[0]);
-                }
-            }
             Properties.Clear();
-            foreach (ExifProperty prop in jfifProperties)
-                Properties.Add(prop);
 
             // Remove metadata sections.
             // Keep the sections in this whitelist only:
@@ -213,10 +175,7 @@ namespace ExifLibrary
             //	 DRI
             //	 DHP
             //	 EXP
-            Sections.RemoveAll((section) =>
-            {
-                return (section.Marker < JPEGMarker.SOF0 || section.Marker > JPEGMarker.EXP);
-            });
+            Sections.RemoveAll(section => section.Marker < JPEGMarker.SOF0 || section.Marker > JPEGMarker.EXP);
         }
 
         /// <summary>
@@ -377,7 +336,7 @@ namespace ExifLibrary
                 {
                     ExifInterOperability interop = prop.Interoperability;
                     byte[] data = interop.Data;
-                    if (BitConverterEx.SystemByteOrder != BitConverterEx.ByteOrder.BigEndian && interop.TypeID == 3)
+                    if (BitConverterEx.SystemByteOrder != BitConverterEx.ByteOrder.BigEndian && interop.TypeID == InterOpType.SHORT)
                         Array.Reverse(data);
                     ms.Write(data, 0, data.Length);
                 }
@@ -470,7 +429,7 @@ namespace ExifLibrary
                 {
                     ExifInterOperability interop = prop.Interoperability;
                     byte[] data = interop.Data;
-                    if (BitConverterEx.SystemByteOrder != BitConverterEx.ByteOrder.BigEndian && interop.TypeID == 3)
+                    if (BitConverterEx.SystemByteOrder != BitConverterEx.ByteOrder.BigEndian && interop.TypeID == InterOpType.SHORT)
                         Array.Reverse(data);
                     ms.Write(data, 0, data.Length);
                 }
@@ -636,14 +595,20 @@ namespace ExifLibrary
                 }
 
                 // 1st IFD pointer
-                int firstifdpointer = (int)conv.ToUInt32(header, ifdoffset + 2 + 12 * fieldcount);
-                if (firstifdpointer != 0)
-                    ifdqueue.Add(firstifdpointer, IFD.First);
+                int firstifdoffset = ifdoffset + 2 + 12 * fieldcount;
+                if (firstifdoffset + 4 <= header.Length)
+                {
+                    int firstifdpointer = (int)conv.ToUInt32(header, firstifdoffset);
+                    if (firstifdpointer != 0 && firstifdpointer + 2 <= header.Length)
+                        ifdqueue.Add(firstifdpointer, IFD.First);
+                }
                 // Read thumbnail
                 if (thumboffset != -1 && thumblength != 0 && Thumbnail == null)
                 {
                     if (thumbtype == 0)
                     {
+                        // Ensure that the thumbnail length does not exceed header length
+                        thumblength = Math.Min(thumblength, header.Length - tiffoffset - thumboffset);
                         using (MemoryStream ts = new MemoryStream(header, tiffoffset + thumboffset, thumblength))
                         {
                             Thumbnail = ImageFile.FromStream(ts);
@@ -669,27 +634,26 @@ namespace ExifLibrary
             thumbSizeLocation = 0;
             thumbSizeValue = 0;
             // Write thumbnail tags if they are missing, remove otherwise
-            int indexf = -1;
-            int indexl = -1;
-            for (int i = 0; i < Properties.Count; i++)
+            ExifProperty thumbnailFormatProperty = null;
+            ExifProperty thumbnailLengthProperty = null;
+            foreach (var prop in Properties)
             {
-                ExifProperty prop = Properties[i];
-                if (prop.Tag == ExifTag.ThumbnailJPEGInterchangeFormat) indexf = i;
-                if (prop.Tag == ExifTag.ThumbnailJPEGInterchangeFormatLength) indexl = i;
-                if (indexf != -1 && indexl != -1) break;
+                if (prop.Tag == ExifTag.ThumbnailJPEGInterchangeFormat) thumbnailFormatProperty = prop;
+                if (prop.Tag == ExifTag.ThumbnailJPEGInterchangeFormatLength) thumbnailLengthProperty = prop;
+                if (thumbnailFormatProperty != null && thumbnailLengthProperty != null) break;
             }
             if (Thumbnail == null)
             {
-                if (indexf != -1)
-                    Properties.RemoveAt(indexf);
-                if (indexl != -1)
-                    Properties.RemoveAt(indexl);
+                if (thumbnailFormatProperty != null)
+                    Properties.Remove(thumbnailFormatProperty);
+                if (thumbnailLengthProperty != null)
+                    Properties.Remove(thumbnailLengthProperty);
             }
             else
             {
-                if (indexf == -1)
+                if (thumbnailFormatProperty == null)
                     Properties.Add(new ExifUInt(ExifTag.ThumbnailJPEGInterchangeFormat, 0));
-                if (indexl == -1)
+                if (thumbnailLengthProperty == null)
                     Properties.Add(new ExifUInt(ExifTag.ThumbnailJPEGInterchangeFormatLength, 0));
             }
 
@@ -741,7 +705,8 @@ namespace ExifLibrary
 
             if (ifdzeroth.Count == 0 && ifdgps.Count == 0 && ifdinterop.Count == 0 && ifdfirst.Count == 0 && Thumbnail == null)
             {
-                // Nothing to write
+                // Nothing to write to App1 section
+                exifApp1.Header = new byte[0];
                 return false;
             }
 
@@ -870,17 +835,17 @@ namespace ExifLibrary
                 // Tag
                 stream.Write(conv.GetBytes(interop.TagID), 0, 2);
                 // Type
-                stream.Write(conv.GetBytes(interop.TypeID), 0, 2);
+                stream.Write(conv.GetBytes((ushort)interop.TypeID), 0, 2);
                 // Count
                 stream.Write(conv.GetBytes(interop.Count), 0, 4);
                 // Field data
                 byte[] data = interop.Data;
                 if (ByteOrder != BitConverterEx.SystemByteOrder &&
-                    (interop.TypeID == 3 || interop.TypeID == 4 || interop.TypeID == 9 ||
-                    interop.TypeID == 5 || interop.TypeID == 10))
+                    (interop.TypeID == InterOpType.SHORT || interop.TypeID == InterOpType.LONG || interop.TypeID == InterOpType.SLONG ||
+                    interop.TypeID == InterOpType.RATIONAL || interop.TypeID == InterOpType.SRATIONAL))
                 {
                     int vlen = 4;
-                    if (interop.TypeID == 3) vlen = 2;
+                    if (interop.TypeID == InterOpType.SHORT) vlen = 2;
                     int n = data.Length / vlen;
 
                     for (int i = 0; i < n; i++)

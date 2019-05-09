@@ -1,13 +1,7 @@
-# ExifLibrary
+[![License](http://img.shields.io/npm/l/xmlbuilder.svg?style=flat-square)](http://opensource.org/licenses/MIT)
+[![Nuget](https://img.shields.io/nuget/v/ExifLibNet.svg?style=flat-square)](https://www.nuget.org/packages/ExifLibNet)
 
-This library is created by oozcitak and forked by Devedse to be upgraded to DotNet Core
+[![Travis](https://img.shields.io/travis/oozcitak/exiflibrary.svg?style=flat-square)](https://travis-ci.org/oozcitak/exiflibrary)
+[![AppVeyor](https://img.shields.io/appveyor/ci/oozcitak/exiflibrary.svg?style=flat-square)](https://ci.appveyor.com/project/oozcitak/exiflibrary)
 
-## Build status
-
-| Travis (Linux/Osx build) | AppVeyor (Windows build) |
-|:------------------------:|:------------------------:|
-| [![Build Status](https://travis-ci.org/devedse/exiflibrary.svg?branch=master)](https://travis-ci.org/devedse/exiflibrary) | [![Build status](https://ci.appveyor.com/api/projects/status/chhukc40q0wcxegu?svg=true)](https://ci.appveyor.com/project/devedse/exiflibrary) |
-
-## Description
-
-This project can modify the Exif data of Image files without using System.Drawing and without modifying the Pixel data. This way you can for example rotate an image without quality loss.
+ExifLibrary is a .Net Standard library for editing Exif metadata contained in image files.

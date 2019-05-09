@@ -1,9 +1,9 @@
-﻿using ExifLibrary;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using ExifLibrary;
 
 namespace ExifTest
 {
@@ -79,8 +79,8 @@ namespace ExifTest
                 s.AppendFormat("Value: {0}{1}", val, Environment.NewLine);
                 s.AppendFormat("IFD: {0}{1}", item.IFD, Environment.NewLine);
                 s.AppendFormat("Interop. TagID: {0} (0x{0:X2}){1}", item.Interoperability.TagID, Environment.NewLine);
-                s.AppendFormat("Interop. Type: {0} (0x{0:X2}){1}", item.Interoperability.TypeID, Environment.NewLine);
-                s.AppendFormat("Interop. Count: {0} (0x{0:X4}){1}", item.Interoperability.Count, Environment.NewLine);
+                s.AppendFormat("Interop. Type: {0} ({1}){2}", (ushort)item.Interoperability.TypeID, item.Interoperability.TypeID, Environment.NewLine);
+                s.AppendFormat("Interop. Count: {0} {1}", item.Interoperability.Count, Environment.NewLine);
                 s.AppendFormat("Interop. Data Length: {0}{1}", item.Interoperability.Data.Length, Environment.NewLine);
                 s.AppendFormat("Interop. Data: {0}", ByteArrayToString(item.Interoperability.Data), Environment.NewLine);
                 tbField.Text = s.ToString();

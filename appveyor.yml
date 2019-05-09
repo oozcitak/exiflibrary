@@ -1,4 +1,4 @@
-version: 1.0.{build}
+version: 1.2.{build}
 os: Visual Studio 2017
 skip_tags: true
 configuration: Release
@@ -24,10 +24,10 @@ artifacts:
 deploy:
 - provider: GitHub
   auth_token:
-    secure: do7S++r1rE5E3IZujCoMONsWYJNF7eoRoPyJbxSD851I850OlEq0gsHH/Tji7o00
+    secure: lpPk0unmEnneamw7kQNZlak6wkZ2t3pkb8hLUHoD6RJRXQrVS4ezYhdukOsBP5Uf
   artifact: nugetPackages,droppackage
 - provider: NuGet
   api_key:
-    secure: pVOzQthQbu7P9SUQwjG43ZEMcwAp7dVbe4BkDVEwJFu1gWK+L11L9mdfGLC5iO5Z
+    secure: 91LNePoPjTAPW0I/JzLal3NC8AhqNIVXHisALasV/lktddHKvo+/IJRx+mwZa3FL
   skip_symbols: true
   artifact: /.*\.nupkg/

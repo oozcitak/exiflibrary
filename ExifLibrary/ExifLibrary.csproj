@@ -3,20 +3,25 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.3</TargetFramework>
 	<AssemblyName>ExifLibrary</AssemblyName>
-    <PackageId>ExifLibrary</PackageId>
+    <PackageId>ExifLibNet</PackageId>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <Version>1.0.0.0</Version>
-	<Title>ExifLibrary</Title>
+	<Title>ExifLibNet</Title>
 	<Authors>oozcitak;Devedse</Authors>
-	<Description>Exif modification library. Written by oozcitak and converted to DotNet Core by Devedse.</Description>
-	<PackageProjectUrl>https://github.com/devedse/exiflibrary</PackageProjectUrl>
+	<Description>Exif metadata modification library.</Description>
+	<PackageProjectUrl>https://github.com/oozcitak/exiflibrary</PackageProjectUrl>
 	<PackageTags>exif;jpeg;image</PackageTags>
+	<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+	<PackageIconUrl>https://github.com/oozcitak/exiflibrary/raw/master/ExifLibrary/exiflibrary_64.png</PackageIconUrl>
+	<RepositoryUrl>https://github.com/oozcitak/exiflibrary</RepositoryUrl>
+	<PackageLicenseUrl>https://raw.githubusercontent.com/oozcitak/exiflibrary/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
+    <WarningLevel>0</WarningLevel>
   </PropertyGroup>
 
 </Project>

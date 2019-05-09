@@ -128,11 +128,13 @@ namespace ExifLibrary
                     return new ExifEnumProperty<Sharpness>(ExifTag.Sharpness, (Sharpness)conv.ToUInt16(value, 0), true);
                 else if (tag == 0xa40c) // SubjectDistanceRange
                     return new ExifEnumProperty<SubjectDistanceRange>(ExifTag.SubjectDistanceRange, (SubjectDistanceRange)conv.ToUInt16(value, 0), true);
+                else if (tag == 0xa432) // LensSpecification
+                    return new LensSpecification(ExifTag.LensSpecification, ExifBitConverter.ToURationalArray(value, (int)count, byteOrder));
             }
             else if (ifd == IFD.GPS)
             {
                 if (tag == 0) // GPSVersionID
-                    return new ExifVersion(ExifTag.GPSVersionID, ExifBitConverter.ToString(value));
+                    return new VersionID(ExifTag.GPSVersionID, value);
                 else if (tag == 1) // GPSLatitudeRef
                     return new ExifEnumProperty<GPSLatitudeRef>(ExifTag.GPSLatitudeRef, (GPSLatitudeRef)value[0]);
                 else if (tag == 2) // GPSLatitude
@@ -167,8 +169,8 @@ namespace ExifLibrary
                     return new ExifEnumProperty<GPSDirectionRef>(ExifTag.GPSDestBearingRef, (GPSDirectionRef)value[0]);
                 else if (tag == 25) // GPSDestDistanceRef
                     return new ExifEnumProperty<GPSDistanceRef>(ExifTag.GPSDestDistanceRef, (GPSDistanceRef)value[0]);
-                else if (tag == 29) // GPSDate
-                    return new ExifDateTime(ExifTag.GPSDateStamp, ExifBitConverter.ToDateTime(value, false));
+                else if (tag == 29) // GPSDateStamp
+                    return new ExifDate(ExifTag.GPSDateStamp, ExifBitConverter.ToDateTime(value, false));
                 else if (tag == 30) // GPSDifferential
                     return new ExifEnumProperty<GPSDifferential>(ExifTag.GPSDifferential, (GPSDifferential)conv.ToUInt16(value, 0));
             }

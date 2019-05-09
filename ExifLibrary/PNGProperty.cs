@@ -43,7 +43,7 @@ namespace ExifLibrary
                     data[keyword.Length + 1] = 0; // Compression method, 0 for zlib
                     Array.Copy(value, 0, data, keyword.Length + 2, value.Length);
 
-                    return new ExifInterOperability((ushort)mTag, 2, (uint)data.Length, data);
+                    return new ExifInterOperability((ushort)mTag, InterOpType.ASCII, (uint)data.Length, data);
                 }
                 else
                 {
@@ -55,7 +55,7 @@ namespace ExifLibrary
                     data[keyword.Length] = 0; // Null separator
                     Array.Copy(value, 0, data, keyword.Length + 1, value.Length);
 
-                    return new ExifInterOperability((ushort)mTag, 2, (uint)data.Length, data);
+                    return new ExifInterOperability((ushort)mTag, InterOpType.ASCII, (uint)data.Length, data);
                 }
             }
         }
@@ -114,7 +114,7 @@ namespace ExifLibrary
                 data[keyword.Length + 3 + language.Length + 1 + translatedKeyword.Length] = 0; // Null separator
                 Array.Copy(value, 0, data, keyword.Length + 3 + language.Length + 1 + translatedKeyword.Length + 1, value.Length);
 
-                return new ExifInterOperability((ushort)mTag, 2, (uint)data.Length, data);
+                return new ExifInterOperability((ushort)mTag, InterOpType.ASCII, (uint)data.Length, data);
             }
         }
     }
@@ -150,7 +150,7 @@ namespace ExifLibrary
                 valueBytes[4] = (byte)mValue.Hour;
                 valueBytes[5] = (byte)mValue.Minute;
                 valueBytes[6] = (byte)mValue.Second;
-                return new ExifInterOperability((ushort)mTag, 2, (uint)7, valueBytes);
+                return new ExifInterOperability((ushort)mTag, InterOpType.ASCII, (uint)7, valueBytes);
             }
         }
     }

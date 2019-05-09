@@ -6,7 +6,6 @@ namespace ExifLibrary
     /// <summary>
     /// Represents the base class for image files.
     /// </summary>
-    //[TypeDescriptionProvider(typeof(ExifFileTypeDescriptionProvider))]
     public abstract class ImageFile
     {
         #region Constructor
@@ -111,10 +110,10 @@ namespace ExifLibrary
         }
 
         /// <summary>
-		/// Creates an <see cref="ImageFile"/> from the specified data stream.
-		/// </summary>
-		/// <param name="stream">A <see cref="Sytem.IO.Stream"/> that contains image data.</param>
-		/// <returns>The <see cref="ImageFile"/> created from the file.</returns>
+        /// Creates an <see cref="ImageFile"/> from the specified data stream.
+        /// </summary>
+        /// <param name="stream">A <see cref="Sytem.IO.Stream"/> that contains image data.</param>
+        /// <returns>The <see cref="ImageFile"/> created from the file.</returns>
         public static ImageFile FromStream(Stream stream)
         {
             return FromStream(stream, Encoding.UTF8);

@@ -542,12 +542,14 @@ namespace ExifLibrary
                     uint baselength = 0;
                     if (type == 1 || type == 2 || type == 7)
                         baselength = 1;
-                    else if (type == 3)
+                    else if (type == 3 || type == 8)
                         baselength = 2;
                     else if (type == 4 || type == 9)
                         baselength = 4;
                     else if (type == 5 || type == 10)
                         baselength = 8;
+                    else // Unknown or invalid type
+                        continue; // Skip and keep going
                     uint totallength = count * baselength;
 
                     // If field value does not fit in 4 bytes

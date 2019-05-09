@@ -216,6 +216,24 @@ namespace ExifLibrary
             return numbers;
         }
 
+
+        /// <summary>
+        /// Returns an array of 16-bit signed integers converted from 
+        /// the given byte array.
+        /// Numbers are converted from the given byte-order to platform byte-order.
+        /// </summary>
+        public static short[] ToSShortArray(byte[] data, int count, ByteOrder frombyteorder)
+        {
+            short[] numbers = new short[count];
+            for (int i = 0; i < count; i++)
+            {
+                byte[] num = new byte[2];
+                Array.Copy(data, i * 2, num, 0, 2);
+                numbers[i] = ToInt16(num, 0, frombyteorder, BitConverterEx.SystemByteOrder);
+            }
+            return numbers;
+        }
+
         /// <summary>
         /// Converts the given ascii string to an array of bytes optionally adding a null terminator.
         /// </summary>
@@ -349,6 +367,21 @@ namespace ExifLibrary
                 byte[] den = GetBytes(value[i].Denominator, BitConverterEx.SystemByteOrder, tobyteorder);
                 Array.Copy(num, 0, data, i * 8, 4);
                 Array.Copy(den, 0, data, i * 8 + 4, 4);
+            }
+            return data;
+        }
+
+        /// <summary>
+        /// Converts the given array of 16-bit unsigned integers to an array of bytes.
+        /// Numbers are converted from the platform byte-order to the given byte-order.
+        /// </summary>
+        public static byte[] GetBytes(short[] value, ByteOrder tobyteorder)
+        {
+            byte[] data = new byte[2 * value.Length];
+            for (int i = 0; i < value.Length; i++)
+            {
+                byte[] num = GetBytes(value[i], BitConverterEx.SystemByteOrder, tobyteorder);
+                Array.Copy(num, 0, data, i * 2, 2);
             }
             return data;
         }

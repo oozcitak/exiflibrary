@@ -496,7 +496,6 @@ namespace ExifLibrary
             int thumblength = 0;
             int thumbtype = -1;
 
-            bool hasFound1stIFDpointer = false;
 
             // Read IFDs
             while (ifdqueue.Count != 0)

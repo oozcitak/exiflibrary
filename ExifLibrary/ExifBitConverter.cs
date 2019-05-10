@@ -372,7 +372,7 @@ namespace ExifLibrary
         }
 
         /// <summary>
-        /// Converts the given array of 16-bit unsigned integers to an array of bytes.
+        /// Converts the given array of 16-bit signed integers to an array of bytes.
         /// Numbers are converted from the platform byte-order to the given byte-order.
         /// </summary>
         public static byte[] GetBytes(short[] value, ByteOrder tobyteorder)

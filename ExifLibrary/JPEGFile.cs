@@ -606,7 +606,6 @@ namespace ExifLibrary
                     if (firstifdpointer != 0 && firstifdpointer + 2 <= header.Length)
                     {
                         ifdqueue.Add(firstifdpointer, IFD.First);
-                        hasFound1stIFDpointer = true;
                     }
                 }
                 // Read thumbnail

@@ -134,7 +134,7 @@ namespace ExifLibrary
             else if (ifd == IFD.GPS)
             {
                 if (tag == 0) // GPSVersionID
-                    return new VersionID(ExifTag.GPSVersionID, value);
+                    return new ExifVersion(ExifTag.GPSVersionID, ExifBitConverter.ToString(value));
                 else if (tag == 1) // GPSLatitudeRef
                     return new ExifEnumProperty<GPSLatitudeRef>(ExifTag.GPSLatitudeRef, (GPSLatitudeRef)value[0]);
                 else if (tag == 2) // GPSLatitude
@@ -233,6 +233,13 @@ namespace ExifLibrary
             }
             else if (type == 7) // 7 = UNDEFINED An 8-bit byte that can take any value depending on the field definition.
                 return new ExifUndefined(etag, value);
+            else if (type == 8) // 8 = SSHORT A 16-bit (2-byte) signed integer.
+            {
+                if (count == 1)
+                    return new ExifSShort(etag, conv.ToInt16(value, 0));
+                else
+                    return new ExifSShortArray(etag, ExifBitConverter.ToSShortArray(value, (int)count, byteOrder));
+            }
             else if (type == 9) // 9 = SLONG A 32-bit (4-byte) signed integer (2's complement notation).
             {
                 if (count == 1)

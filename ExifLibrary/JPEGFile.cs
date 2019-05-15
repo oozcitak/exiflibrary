@@ -495,6 +495,8 @@ namespace ExifLibrary
             int thumboffset = -1;
             int thumblength = 0;
             int thumbtype = -1;
+
+
             // Read IFDs
             while (ifdqueue.Count != 0)
             {
@@ -539,12 +541,14 @@ namespace ExifLibrary
                     uint baselength = 0;
                     if (type == 1 || type == 2 || type == 7)
                         baselength = 1;
-                    else if (type == 3)
+                    else if (type == 3 || type == 8)
                         baselength = 2;
                     else if (type == 4 || type == 9)
                         baselength = 4;
                     else if (type == 5 || type == 10)
                         baselength = 8;
+                    else // Unknown or invalid type
+                        continue; // Skip and keep going
                     uint totallength = count * baselength;
 
                     // If field value does not fit in 4 bytes
@@ -596,11 +600,13 @@ namespace ExifLibrary
 
                 // 1st IFD pointer
                 int firstifdoffset = ifdoffset + 2 + 12 * fieldcount;
-                if (firstifdoffset + 4 <= header.Length)
+                if (firstifdoffset + 4 <= header.Length && currentifd == IFD.Zeroth)
                 {
                     int firstifdpointer = (int)conv.ToUInt32(header, firstifdoffset);
                     if (firstifdpointer != 0 && firstifdpointer + 2 <= header.Length)
+                    {
                         ifdqueue.Add(firstifdpointer, IFD.First);
+                    }
                 }
                 // Read thumbnail
                 if (thumboffset != -1 && thumblength != 0 && Thumbnail == null)

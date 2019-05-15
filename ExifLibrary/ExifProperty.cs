@@ -130,7 +130,7 @@ namespace ExifLibrary
         protected string mValue;
         protected override object _Value { get { return Value; } set { Value = (string)value; } }
         public new string Value { get { return mValue; } set { mValue = value; } }
-
+        
         public Encoding Encoding { get; private set; }
 
         static public implicit operator string(ExifAscii obj) { return obj.mValue; }
@@ -260,7 +260,7 @@ namespace ExifLibrary
         protected override object _Value { get { return Value; } set { Value = (uint[])value; } }
         public new uint[] Value { get { return mValue; } set { mValue = value; } }
 
-        static public implicit operator uint[] (ExifUIntArray obj) { return obj.mValue; }
+        static public implicit operator uint[](ExifUIntArray obj) { return obj.mValue; }
 
         public override string ToString()
         {
@@ -572,6 +572,75 @@ namespace ExifLibrary
             get
             {
                 return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), InterOpType.SRATIONAL, (uint)mValue.Length, ExifBitConverter.GetBytes(mValue, BitConverterEx.SystemByteOrder));
+            }
+        }
+    }
+
+    /// <summary>
+    /// Represents a 16-bit signed integer. (EXIF Specification: SHORT)
+    /// </summary>
+    public class ExifSShort : ExifProperty
+    {
+        protected short mValue;
+        protected override object _Value { get { return Value; } set { Value = Convert.ToInt16(value); } }
+        public new short Value { get { return mValue; } set { mValue = value; } }
+
+        static public implicit operator short(ExifSShort obj) { return obj.mValue; }
+
+        public override string ToString() { return mValue.ToString(); }
+
+        public ExifSShort(ExifTag tag, short value)
+            : base(tag)
+        {
+            mValue = value;
+        }
+
+        public override ExifInterOperability Interoperability
+        {
+            get
+            {
+                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), InterOpType.SSHORT, 1, ExifBitConverter.GetBytes(mValue, BitConverterEx.SystemByteOrder, BitConverterEx.SystemByteOrder));
+            }
+        }
+    }
+
+    /// <summary>
+    /// Represents an array of 16-bit signed integers. 
+    /// (EXIF Specification: SHORT with count > 1)
+    /// </summary>
+    public class ExifSShortArray : ExifProperty
+    {
+        protected short[] mValue;
+        protected override object _Value { get { return Value; } set { Value = (short[])value; } }
+        public new short[] Value { get { return mValue; } set { mValue = value; } }
+
+        static public implicit operator short[] (ExifSShortArray obj) { return obj.mValue; }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append('[');
+            foreach (ushort b in mValue)
+            {
+                sb.Append(b);
+                sb.Append(' ');
+            }
+            sb.Remove(sb.Length - 1, 1);
+            sb.Append(']');
+            return sb.ToString();
+        }
+
+        public ExifSShortArray(ExifTag tag, short[] value)
+            : base(tag)
+        {
+            mValue = value;
+        }
+
+        public override ExifInterOperability Interoperability
+        {
+            get
+            {
+                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), InterOpType.SSHORT, (uint)mValue.Length, ExifBitConverter.GetBytes(mValue, BitConverterEx.SystemByteOrder));
             }
         }
     }

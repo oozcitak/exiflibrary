@@ -235,6 +235,40 @@ namespace ExifLibrary
         }
 
         /// <summary>
+        /// Returns an array of 32-bit floating numbers converted from 
+        /// the given byte array.
+        /// Numbers are converted from the given byte-order to platform byte-order.
+        /// </summary>
+        public static float[] ToSingleArray(byte[] data, int count, ByteOrder frombyteorder)
+        {
+            float[] numbers = new float[count];
+            for (int i = 0; i < count; i++)
+            {
+                byte[] num = new byte[4];
+                Array.Copy(data, i * 4, num, 0, 4);
+                numbers[i] = ToSingle(num, 0, frombyteorder, BitConverterEx.SystemByteOrder);
+            }
+            return numbers;
+        }
+
+        /// <summary>
+        /// Returns an array of 64-bit floating numbers converted from 
+        /// the given byte array.
+        /// Numbers are converted from the given byte-order to platform byte-order.
+        /// </summary>
+        public static double[] ToDoubleArray(byte[] data, int count, ByteOrder frombyteorder)
+        {
+            double[] numbers = new double[count];
+            for (int i = 0; i < count; i++)
+            {
+                byte[] num = new byte[8];
+                Array.Copy(data, i * 8, num, 0, 8);
+                numbers[i] = ToDouble(num, 0, frombyteorder, BitConverterEx.SystemByteOrder);
+            }
+            return numbers;
+        }
+
+        /// <summary>
         /// Converts the given ascii string to an array of bytes optionally adding a null terminator.
         /// </summary>
         public static byte[] GetBytes(string value, bool addnull, Encoding encoding)
@@ -382,6 +416,36 @@ namespace ExifLibrary
             {
                 byte[] num = GetBytes(value[i], BitConverterEx.SystemByteOrder, tobyteorder);
                 Array.Copy(num, 0, data, i * 2, 2);
+            }
+            return data;
+        }
+
+        /// <summary>
+        /// Converts the given array of 32-bit floating numbers to an array of bytes.
+        /// Numbers are converted from the platform byte-order to the given byte-order.
+        /// </summary>
+        public static byte[] GetBytes(float[] value, ByteOrder tobyteorder)
+        {
+            byte[] data = new byte[4 * value.Length];
+            for (int i = 0; i < value.Length; i++)
+            {
+                byte[] num = GetBytes(value[i], BitConverterEx.SystemByteOrder, tobyteorder);
+                Array.Copy(num, 0, data, i * 4, 4);
+            }
+            return data;
+        }
+
+        /// <summary>
+        /// Converts the given array of 64-bit floating numbers to an array of bytes.
+        /// Numbers are converted from the platform byte-order to the given byte-order.
+        /// </summary>
+        public static byte[] GetBytes(double[] value, ByteOrder tobyteorder)
+        {
+            byte[] data = new byte[8 * value.Length];
+            for (int i = 0; i < value.Length; i++)
+            {
+                byte[] num = GetBytes(value[i], BitConverterEx.SystemByteOrder, tobyteorder);
+                Array.Copy(num, 0, data, i * 8, 8);
             }
             return data;
         }

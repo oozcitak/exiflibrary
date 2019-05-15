@@ -123,6 +123,76 @@ namespace ExifLibrary
     }
 
     /// <summary>
+    /// Represents an 8-bit signed integer. (EXIF Specification: SBYTE)
+    /// </summary>
+    public class ExifSByte : ExifProperty
+    {
+        protected sbyte mValue;
+        protected override object _Value { get { return Value; } set { Value = Convert.ToSByte(value); } }
+        public new sbyte Value { get { return mValue; } set { mValue = value; } }
+
+        static public implicit operator sbyte(ExifSByte obj) { return obj.mValue; }
+
+        public override string ToString() { return mValue.ToString(); }
+
+        public ExifSByte(ExifTag tag, sbyte value)
+            : base(tag)
+        {
+            mValue = value;
+        }
+
+        public override ExifInterOperability Interoperability
+        {
+            get
+            {
+                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), InterOpType.SBYTE, 1, new byte[] { (byte)mValue });
+            }
+        }
+    }
+
+    /// <summary>
+    /// Represents an array of 8-bit signed integers. (EXIF Specification: SBYTE with count > 1)
+    /// </summary>
+    public class ExifSByteArray : ExifProperty
+    {
+        protected sbyte[] mValue;
+        protected override object _Value { get { return Value; } set { Value = (sbyte[])value; } }
+        public new sbyte[] Value { get { return mValue; } set { mValue = value; } }
+
+        static public implicit operator sbyte[] (ExifSByteArray obj) { return obj.mValue; }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append('[');
+            foreach (sbyte b in mValue)
+            {
+                sb.Append(b);
+                sb.Append(' ');
+            }
+            sb.Remove(sb.Length - 1, 1);
+            sb.Append(']');
+            return sb.ToString();
+        }
+
+        public ExifSByteArray(ExifTag tag, sbyte[] value)
+            : base(tag)
+        {
+            mValue = value;
+        }
+
+        public override ExifInterOperability Interoperability
+        {
+            get
+            {
+                byte[] data = new byte[mValue.Length];
+                Buffer.BlockCopy(mValue, 0, data, 0, mValue.Length);
+                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), InterOpType.SBYTE, data.Length, data);
+            }
+        }
+    }
+
+    /// <summary>
     /// Represents an ASCII string. (EXIF Specification: ASCII)
     /// </summary>
     public class ExifAscii : ExifProperty
@@ -641,6 +711,144 @@ namespace ExifLibrary
             get
             {
                 return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), InterOpType.SSHORT, (uint)mValue.Length, ExifBitConverter.GetBytes(mValue, BitConverterEx.SystemByteOrder));
+            }
+        }
+    }
+
+    /// <summary>
+    /// Represents a 32-bit floating number. (EXIF Specification: FLOAT)
+    /// </summary>
+    public class ExifFloat : ExifProperty
+    {
+        protected float mValue;
+        protected override object _Value { get { return Value; } set { Value = Convert.ToSingle(value); } }
+        public new float Value { get { return mValue; } set { mValue = value; } }
+
+        static public implicit operator float(ExifFloat obj) { return obj.mValue; }
+
+        public override string ToString() { return mValue.ToString(); }
+
+        public ExifFloat(ExifTag tag, float value)
+            : base(tag)
+        {
+            mValue = value;
+        }
+
+        public override ExifInterOperability Interoperability
+        {
+            get
+            {
+                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), InterOpType.FLOAT, 1, ExifBitConverter.GetBytes(mValue, BitConverterEx.SystemByteOrder, BitConverterEx.SystemByteOrder));
+            }
+        }
+    }
+
+    /// <summary>
+    /// Represents an array of 32-bit floating numbers. 
+    /// (EXIF Specification: FLOAT with count > 1)
+    /// </summary>
+    public class ExifFloatArray : ExifProperty
+    {
+        protected float[] mValue;
+        protected override object _Value { get { return Value; } set { Value = (float[])value; } }
+        public new float[] Value { get { return mValue; } set { mValue = value; } }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append('[');
+            foreach (float b in mValue)
+            {
+                sb.Append(b);
+                sb.Append(' ');
+            }
+            sb.Remove(sb.Length - 1, 1);
+            sb.Append(']');
+            return sb.ToString();
+        }
+
+        static public implicit operator float[] (ExifFloatArray obj) { return obj.mValue; }
+
+        public ExifFloatArray(ExifTag tag, float[] value)
+            : base(tag)
+        {
+            mValue = value;
+        }
+
+        public override ExifInterOperability Interoperability
+        {
+            get
+            {
+                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), InterOpType.FLOAT, (uint)mValue.Length, ExifBitConverter.GetBytes(mValue, BitConverterEx.SystemByteOrder));
+            }
+        }
+    }
+
+    /// <summary>
+    /// Represents a 64-bit floating number. (EXIF Specification: DOUBLE)
+    /// </summary>
+    public class ExifDouble : ExifProperty
+    {
+        protected double mValue;
+        protected override object _Value { get { return Value; } set { Value = Convert.ToDouble(value); } }
+        public new double Value { get { return mValue; } set { mValue = value; } }
+
+        static public implicit operator double(ExifDouble obj) { return obj.mValue; }
+
+        public override string ToString() { return mValue.ToString(); }
+
+        public ExifDouble(ExifTag tag, double value)
+            : base(tag)
+        {
+            mValue = value;
+        }
+
+        public override ExifInterOperability Interoperability
+        {
+            get
+            {
+                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), InterOpType.DOUBLE, 1, ExifBitConverter.GetBytes(mValue, BitConverterEx.SystemByteOrder, BitConverterEx.SystemByteOrder));
+            }
+        }
+    }
+
+    /// <summary>
+    /// Represents an array of 64-bit floating numbers. 
+    /// (EXIF Specification: DOUBLE with count > 1)
+    /// </summary>
+    public class ExifDoubleArray : ExifProperty
+    {
+        protected double[] mValue;
+        protected override object _Value { get { return Value; } set { Value = (double[])value; } }
+        public new double[] Value { get { return mValue; } set { mValue = value; } }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append('[');
+            foreach (float b in mValue)
+            {
+                sb.Append(b);
+                sb.Append(' ');
+            }
+            sb.Remove(sb.Length - 1, 1);
+            sb.Append(']');
+            return sb.ToString();
+        }
+
+        static public implicit operator double[](ExifDoubleArray obj) { return obj.mValue; }
+
+        public ExifDoubleArray(ExifTag tag, double[] value)
+            : base(tag)
+        {
+            mValue = value;
+        }
+
+        public override ExifInterOperability Interoperability
+        {
+            get
+            {
+                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), InterOpType.DOUBLE, (uint)mValue.Length, ExifBitConverter.GetBytes(mValue, BitConverterEx.SystemByteOrder));
             }
         }
     }

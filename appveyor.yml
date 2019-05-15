@@ -28,6 +28,6 @@ deploy:
   artifact: nugetPackages,droppackage
 - provider: NuGet
   api_key:
-    secure: 91LNePoPjTAPW0I/JzLal3NC8AhqNIVXHisALasV/lktddHKvo+/IJRx+mwZa3FL
+    secure: DcgM8IJEkan5KWNQzAGJAJBPRkkNiyCxlUtKgWhzoh2eI9RWXjmy0GWF5RnlWVWc
   skip_symbols: true
   artifact: /.*\.nupkg/

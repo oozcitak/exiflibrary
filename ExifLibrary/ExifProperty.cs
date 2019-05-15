@@ -187,7 +187,7 @@ namespace ExifLibrary
             {
                 byte[] data = new byte[mValue.Length];
                 Buffer.BlockCopy(mValue, 0, data, 0, mValue.Length);
-                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), InterOpType.SBYTE, data.Length, data);
+                return new ExifInterOperability(ExifTagFactory.GetTagID(mTag), InterOpType.SBYTE, (uint)data.Length, data);
             }
         }
     }

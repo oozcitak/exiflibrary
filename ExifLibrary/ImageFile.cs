@@ -1,5 +1,7 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ExifLibrary
 {
@@ -73,10 +75,31 @@ namespace ExifLibrary
         }
 
         /// <summary>
-        /// Saves the <see cref="ImageFile"/> to the specified stream.
+        /// Asynchronously saves the <see cref="ImageFile"/> to the specified stream.
         /// </summary>
         /// <param name="stream">A <see cref="Sytem.IO.Stream"/> to save image data to.</param>
         public abstract void Save(Stream stream);
+
+        /// <summary>
+        /// Asynchronously saves the <see cref="ImageFile"/> to the specified file.
+        /// </summary>
+        /// <param name="filename">A string that contains the name of the file.</param>
+        public virtual async Task SaveAsync(string filename)
+        {
+            using (FileStream stream = new FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.None, 4096, true))
+            {
+                await SaveAsync(stream);
+            }
+        }
+
+        /// <summary>
+        /// Asynchronously saves the <see cref="ImageFile"/> to the specified stream.
+        /// </summary>
+        /// <param name="stream">A <see cref="Sytem.IO.Stream"/> to save image data to.</param>
+        public virtual async Task SaveAsync(Stream stream)
+        {
+            throw new NotImplementedException();
+        }
 
         /// <summary>
         /// Decreases file size by removing all metadata.
@@ -103,9 +126,11 @@ namespace ExifLibrary
         /// <returns>The <see cref="ImageFile"/> created from the file.</returns>
         public static ImageFile FromFile(string filename, Encoding encoding)
         {
-            using (FileStream stream = new FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.Read))
+            using (var stream = new FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.Read))
+            using (var memStream = new MemoryStream())
             {
-                return FromStream(stream, encoding);
+                stream.CopyTo(memStream);
+                return FromStream(memStream, encoding);
             }
         }
 
@@ -148,6 +173,55 @@ namespace ExifLibrary
                 return new PNGFile(stream, encoding);
 
             throw new NotValidImageFileException();
+        }
+        #endregion
+
+        #region Static Async Methods
+        /// <summary>
+        /// Creates an <see cref="ImageFile"/> from the specified file by asynchronously reading image data.
+        /// </summary>
+        /// <param name="filename">A string that contains the name of the file.</param>
+        /// <returns>The <see cref="ImageFile"/> created from the file.</returns>
+        public static async Task<ImageFile> FromFileAsync(string filename)
+        {
+            return await FromFileAsync(filename, Encoding.UTF8);
+        }
+
+        /// <summary>
+        /// Creates an <see cref="ImageFile"/> from the specified file while while asynchronously reading image data.
+        /// </summary>
+        /// <param name="filename">A string that contains the name of the file.</param>
+        /// <param name="encoding">The encoding to be used for text metadata when the source encoding is unknown.</param>
+        /// <returns>The <see cref="ImageFile"/> created from the file.</returns>
+        public static async Task<ImageFile> FromFileAsync(string filename, Encoding encoding)
+        {
+            using (FileStream stream = new FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.Read, 4096, true))
+            using (var memStream = new MemoryStream())
+            {
+                await stream.CopyToAsync(memStream);
+                return await FromStreamAsync(memStream, encoding);
+            }
+        }
+
+        /// <summary>
+        /// Creates an <see cref="ImageFile"/> from the specified data stream by asynchronously reading image data.
+        /// </summary>
+        /// <param name="stream">A <see cref="Sytem.IO.Stream"/> that contains image data.</param>
+        /// <returns>The <see cref="ImageFile"/> created from the file.</returns>
+        public static async Task<ImageFile> FromStreamAsync(Stream stream)
+        {
+            return await FromStreamAsync(stream, Encoding.UTF8);
+        }
+
+        /// <summary>
+        /// Creates an <see cref="ImageFile"/> from the specified data stream by asynchronously reading image data.
+        /// </summary>
+        /// <param name="stream">A <see cref="Sytem.IO.Stream"/> that contains image data.</param>
+        /// <param name="encoding">The encoding to be used for text metadata when the source encoding is unknown.</param>
+        /// <returns>The <see cref="ImageFile"/> created from the file.</returns>
+        public static async Task<ImageFile> FromStreamAsync(Stream stream, Encoding encoding)
+        {
+            return FromStream(stream, encoding);
         }
         #endregion
     }

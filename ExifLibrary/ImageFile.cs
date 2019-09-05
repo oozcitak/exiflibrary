@@ -141,7 +141,7 @@ namespace ExifLibrary
         /// Creates an <see cref="ImageFile"/> from the specified data stream.
         /// </summary>
         /// <param name="stream">A <see cref="Sytem.IO.Stream"/> that contains image data.</param>
-        /// <returns>The <see cref="ImageFile"/> created from the file.</returns>
+        /// <returns>The <see cref="ImageFile"/> created from the stream.</returns>
         public static ImageFile FromStream(Stream stream)
         {
             return FromStream(stream, Encoding.UTF8);
@@ -152,7 +152,7 @@ namespace ExifLibrary
         /// </summary>
         /// <param name="stream">A <see cref="Sytem.IO.Stream"/> that contains image data.</param>
         /// <param name="encoding">The encoding to be used for text metadata when the source encoding is unknown.</param>
-        /// <returns>The <see cref="ImageFile"/> created from the file.</returns>
+        /// <returns>The <see cref="ImageFile"/> created from the stream.</returns>
         protected static ImageFile FromStream(Stream stream, Encoding encoding)
         {
             var memStream = stream as MemoryStream;
@@ -168,6 +168,31 @@ namespace ExifLibrary
                     memStream.Seek(0, SeekOrigin.Begin);
                     return FromStreamInternal(memStream, encoding);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Creates an <see cref="ImageFile"/> from the specified data.
+        /// </summary>
+        /// <param name="imageData">A buffer containing image data.</param>
+        /// <returns>The <see cref="ImageFile"/> created from the buffer.</returns>
+        public static ImageFile FromBuffer(byte[] imageData)
+        {
+            return FromBuffer(imageData, Encoding.UTF8);
+        }
+
+        /// <summary>
+        /// Creates an <see cref="ImageFile"/> from the specified data.
+        /// </summary>
+        /// <param name="imageData">A buffer containing image data.</param>
+        /// <param name="encoding">The encoding to be used for text metadata when the source encoding is unknown.</param>
+        /// <returns>The <see cref="ImageFile"/> created from the buffer.</returns>
+        protected static ImageFile FromBuffer(byte[] imageData, Encoding encoding)
+        {
+            using (var memStream = new MemoryStream(imageData))
+            {
+                memStream.Seek(0, SeekOrigin.Begin);
+                return FromStreamInternal(memStream, encoding);
             }
         }
         #endregion
@@ -204,7 +229,7 @@ namespace ExifLibrary
         /// Creates an <see cref="ImageFile"/> from the specified data stream by asynchronously reading image data.
         /// </summary>
         /// <param name="stream">A <see cref="Sytem.IO.Stream"/> that contains image data.</param>
-        /// <returns>The <see cref="ImageFile"/> created from the file.</returns>
+        /// <returns>The <see cref="ImageFile"/> created from the stream.</returns>
         public static async Task<ImageFile> FromStreamAsync(Stream stream)
         {
             return await FromStreamAsync(stream, Encoding.UTF8);
@@ -215,7 +240,7 @@ namespace ExifLibrary
         /// </summary>
         /// <param name="stream">A <see cref="Sytem.IO.Stream"/> that contains image data.</param>
         /// <param name="encoding">The encoding to be used for text metadata when the source encoding is unknown.</param>
-        /// <returns>The <see cref="ImageFile"/> created from the file.</returns>
+        /// <returns>The <see cref="ImageFile"/> created from the stream.</returns>
         public static async Task<ImageFile> FromStreamAsync(Stream stream, Encoding encoding)
         {
             return FromStream(stream, encoding);

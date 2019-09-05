@@ -645,19 +645,19 @@ namespace ExifLibrary
                 switch (prop.IFD)
                 {
                     case IFD.Zeroth:
-                        ifdzeroth.Add(prop.Tag, prop);
+                        ifdzeroth[prop.Tag] = prop;
                         break;
                     case IFD.EXIF:
-                        ifdexif.Add(prop.Tag, prop);
+                        ifdexif[prop.Tag] = prop;
                         break;
                     case IFD.GPS:
-                        ifdgps.Add(prop.Tag, prop);
+                        ifdgps[prop.Tag] = prop;
                         break;
                     case IFD.Interop:
-                        ifdinterop.Add(prop.Tag, prop);
+                        ifdinterop[prop.Tag] = prop;
                         break;
                     case IFD.First:
-                        ifdfirst.Add(prop.Tag, prop);
+                        ifdfirst[prop.Tag] = prop;
                         break;
                 }
             }
@@ -665,11 +665,11 @@ namespace ExifLibrary
             // Add IFD pointers if they are missing
             // We will write the pointer values later on
             if (ifdexif.Count != 0 && !ifdzeroth.ContainsKey(ExifTag.EXIFIFDPointer))
-                ifdzeroth.Add(ExifTag.EXIFIFDPointer, new ExifUInt(ExifTag.EXIFIFDPointer, 0));
+                ifdzeroth[ExifTag.EXIFIFDPointer] = new ExifUInt(ExifTag.EXIFIFDPointer, 0);
             if (ifdgps.Count != 0 && !ifdzeroth.ContainsKey(ExifTag.GPSIFDPointer))
-                ifdzeroth.Add(ExifTag.GPSIFDPointer, new ExifUInt(ExifTag.GPSIFDPointer, 0));
+                ifdzeroth[ExifTag.GPSIFDPointer] = new ExifUInt(ExifTag.GPSIFDPointer, 0);
             if (ifdinterop.Count != 0 && !ifdexif.ContainsKey(ExifTag.InteroperabilityIFDPointer))
-                ifdexif.Add(ExifTag.InteroperabilityIFDPointer, new ExifUInt(ExifTag.InteroperabilityIFDPointer, 0));
+                ifdexif[ExifTag.InteroperabilityIFDPointer] = new ExifUInt(ExifTag.InteroperabilityIFDPointer, 0);
 
             // Remove IFD pointers if IFD sections are missing
             if (ifdexif.Count == 0 && ifdzeroth.ContainsKey(ExifTag.EXIFIFDPointer))

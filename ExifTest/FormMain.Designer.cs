@@ -40,9 +40,9 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.lvExif = new System.Windows.Forms.ListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tbField = new System.Windows.Forms.TextBox();
             this.cmsInterop = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -57,26 +57,36 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnEmbed = new System.Windows.Forms.ToolStripButton();
             this.fdSave = new System.Windows.Forms.SaveFileDialog();
+            this.splitContainer5 = new System.Windows.Forms.SplitContainer();
+            this.txtErrors = new System.Windows.Forms.TextBox();
             this.toolStripContainer1.BottomToolStripPanel.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.ssExif.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
             this.splitContainer4.Panel1.SuspendLayout();
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbThumb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbOrigin)).BeginInit();
             this.tsExif.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
+            this.splitContainer5.Panel1.SuspendLayout();
+            this.splitContainer5.Panel2.SuspendLayout();
+            this.splitContainer5.SuspendLayout();
             this.SuspendLayout();
             // 
             // fdOpen
@@ -132,7 +142,7 @@
             // lblThumbnail
             // 
             this.lblThumbnail.Name = "lblThumbnail";
-            this.lblThumbnail.Size = new System.Drawing.Size(79, 17);
+            this.lblThumbnail.Size = new System.Drawing.Size(78, 17);
             this.lblThumbnail.Text = "#Thumbnail#";
             // 
             // splitContainer4
@@ -147,8 +157,8 @@
             // 
             // splitContainer4.Panel2
             // 
+            this.splitContainer4.Panel2.Controls.Add(this.splitContainer5);
             this.splitContainer4.Panel2.Controls.Add(this.label2);
-            this.splitContainer4.Panel2.Controls.Add(this.pbOrigin);
             this.splitContainer4.Size = new System.Drawing.Size(893, 472);
             this.splitContainer4.SplitterDistance = 607;
             this.splitContainer4.TabIndex = 6;
@@ -204,8 +214,8 @@
             this.lvExif.TabIndex = 2;
             this.lvExif.UseCompatibleStateImageBehavior = false;
             this.lvExif.View = System.Windows.Forms.View.Details;
-            this.lvExif.SelectedIndexChanged += new System.EventHandler(this.lvExif_SelectedIndexChanged);
             this.lvExif.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvExif_ColumnClick);
+            this.lvExif.SelectedIndexChanged += new System.EventHandler(this.lvExif_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -280,9 +290,9 @@
             // 
             // pbThumb
             // 
-            this.pbThumb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbThumb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pbThumb.BackColor = System.Drawing.Color.Black;
             this.pbThumb.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pbThumb.Location = new System.Drawing.Point(0, 22);
@@ -304,14 +314,12 @@
             // 
             // pbOrigin
             // 
-            this.pbOrigin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
             this.pbOrigin.BackColor = System.Drawing.Color.Black;
             this.pbOrigin.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pbOrigin.Location = new System.Drawing.Point(0, 22);
+            this.pbOrigin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbOrigin.Location = new System.Drawing.Point(0, 0);
             this.pbOrigin.Name = "pbOrigin";
-            this.pbOrigin.Size = new System.Drawing.Size(282, 450);
+            this.pbOrigin.Size = new System.Drawing.Size(277, 301);
             this.pbOrigin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbOrigin.TabIndex = 3;
             this.pbOrigin.TabStop = false;
@@ -375,6 +383,38 @@
             // 
             this.fdSave.Filter = "JPEG Images *.jpg|*.jpg";
             // 
+            // splitContainer5
+            // 
+            this.splitContainer5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer5.Location = new System.Drawing.Point(2, 20);
+            this.splitContainer5.Name = "splitContainer5";
+            this.splitContainer5.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer5.Panel1
+            // 
+            this.splitContainer5.Panel1.Controls.Add(this.pbOrigin);
+            // 
+            // splitContainer5.Panel2
+            // 
+            this.splitContainer5.Panel2.Controls.Add(this.txtErrors);
+            this.splitContainer5.Size = new System.Drawing.Size(277, 449);
+            this.splitContainer5.SplitterDistance = 301;
+            this.splitContainer5.TabIndex = 5;
+            // 
+            // txtErrors
+            // 
+            this.txtErrors.BackColor = System.Drawing.SystemColors.Window;
+            this.txtErrors.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtErrors.Location = new System.Drawing.Point(0, 0);
+            this.txtErrors.Multiline = true;
+            this.txtErrors.Name = "txtErrors";
+            this.txtErrors.ReadOnly = true;
+            this.txtErrors.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtErrors.Size = new System.Drawing.Size(277, 144);
+            this.txtErrors.TabIndex = 0;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -395,22 +435,31 @@
             this.splitContainer4.Panel1.ResumeLayout(false);
             this.splitContainer4.Panel2.ResumeLayout(false);
             this.splitContainer4.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
             this.splitContainer4.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
             this.splitContainer3.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             this.splitContainer2.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbThumb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbOrigin)).EndInit();
             this.tsExif.ResumeLayout(false);
             this.tsExif.PerformLayout();
+            this.splitContainer5.Panel1.ResumeLayout(false);
+            this.splitContainer5.Panel2.ResumeLayout(false);
+            this.splitContainer5.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
+            this.splitContainer5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -444,6 +493,8 @@
         private System.Windows.Forms.PictureBox pbOrigin;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.SplitContainer splitContainer5;
+        private System.Windows.Forms.TextBox txtErrors;
     }
 }
 

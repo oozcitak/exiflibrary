@@ -85,6 +85,12 @@ namespace ExifTest
             pgExif.SelectedObject = data;
 
             lvExif.Sort();
+
+            txtErrors.Text = "";
+            foreach(var err in data.Errors)
+            {
+                txtErrors.Text += err.Message + Environment.NewLine;
+            }
         }
 
         private void lvExif_SelectedIndexChanged(object sender, EventArgs e)

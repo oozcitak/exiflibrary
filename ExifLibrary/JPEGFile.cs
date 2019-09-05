@@ -587,10 +587,8 @@ namespace ExifLibrary
                     {
                         // Ensure that the thumbnail length does not exceed header length
                         thumblength = Math.Min(thumblength, header.Length - tiffoffset - thumboffset);
-                        using (MemoryStream ts = new MemoryStream(header, tiffoffset + thumboffset, thumblength))
-                        {
-                            Thumbnail = ImageFile.FromStream(ts);
-                        }
+                        Thumbnail = new byte[thumblength];
+                        Array.Copy(header, tiffoffset + thumboffset, Thumbnail, 0, thumblength);
                     }
                 }
             }
@@ -881,14 +879,9 @@ namespace ExifLibrary
             {
                 if (Thumbnail != null)
                 {
-                    using (MemoryStream ts = new MemoryStream())
-                    {
-                        Thumbnail.Save(ts);
-                        byte[] thumb = ts.ToArray();
-                        thumbOffsetValue = (uint)(stream.Position - tiffoffset);
-                        thumbSizeValue = (uint)thumb.Length;
-                        stream.Write(thumb, 0, thumb.Length);
-                    }
+                    thumbOffsetValue = (uint)(stream.Position - tiffoffset);
+                    thumbSizeValue = (uint)Thumbnail.Length;
+                    stream.Write(Thumbnail, 0, Thumbnail.Length);
                 }
                 else
                 {

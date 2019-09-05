@@ -34,7 +34,7 @@ namespace ExifLibrary
         /// <summary>
         /// Gets or sets the embedded thumbnail image.
         /// </summary>
-        public ImageFile Thumbnail { get; set; }
+        public byte[] Thumbnail { get; set; }
         /// <summary>
         /// Gets or sets the Exif property with the given key.
         /// </summary>

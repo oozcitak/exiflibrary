@@ -42,7 +42,8 @@ namespace ExifLibrary
         /// </summary>
         /// <param name="stream">A <see cref="Sytem.IO.MemoryStream"/> that contains image data.</param>
         /// <param name="encoding">The encoding to be used for text metadata when the source encoding is unknown.</param>
-        protected internal JPEGFile(MemoryStream stream, Encoding encoding)
+        /// <param name="readTrailingData">Whether to read data beyond the EOI (end of image) marker.</param>
+        protected internal JPEGFile(MemoryStream stream, Encoding encoding, bool readTrailingData = false)
         {
             Format = ImageFileFormat.JPEG;
             Sections = new List<JPEGSection>();
@@ -140,8 +141,13 @@ namespace ExifLibrary
                 // Some propriety formats store data past the EOI marker
                 if (marker == JPEGMarker.EOI)
                 {
-                    long eoflength = stream.Length - stream.Position;
-                    TrailingData = Utility.GetStreamBytes(stream, eoflength);
+                    if (readTrailingData)
+                    {
+                        long eoflength = stream.Length - stream.Position;
+                        TrailingData = Utility.GetStreamBytes(stream, eoflength);
+                    }
+                    // stop reading once we are past the EOI marker
+                    break;
                 }
             }
 

@@ -51,17 +51,6 @@ namespace ExifLibrary
         #endregion
 
         #region Instance Methods
-        ///// <summary>
-        ///// Converts the <see cref="ImageFile"/> to a <see cref="System.Drawing.Image"/>.
-        ///// </summary>
-        ///// <returns>Returns a <see cref="System.Drawing.Image"/> containing image data.</returns>
-        //public virtual Image ToImage()
-        //{
-        //    MemoryStream stream = new MemoryStream();
-        //    Save(stream);
-        //    return Image.FromStream(stream);
-        //}
-
         /// <summary>
         /// Saves the <see cref="ImageFile"/> to the specified file.
         /// </summary>
@@ -78,7 +67,23 @@ namespace ExifLibrary
         /// Asynchronously saves the <see cref="ImageFile"/> to the specified stream.
         /// </summary>
         /// <param name="stream">A <see cref="Sytem.IO.Stream"/> to save image data to.</param>
-        public abstract void Save(Stream stream);
+        public void Save(Stream stream)
+        {
+            var memStream = stream as MemoryStream;
+            if (memStream != null)
+            {
+                SaveInternal(memStream);
+            }
+            else
+            {
+                using (memStream = new MemoryStream())
+                {
+                    SaveInternal(memStream);
+                    memStream.Seek(0, SeekOrigin.Begin);
+                    memStream.CopyTo(stream);
+                }
+            }
+        }
 
         /// <summary>
         /// Asynchronously saves the <see cref="ImageFile"/> to the specified file.
@@ -98,7 +103,7 @@ namespace ExifLibrary
         /// <param name="stream">A <see cref="Sytem.IO.Stream"/> to save image data to.</param>
         public virtual async Task SaveAsync(Stream stream)
         {
-            throw new NotImplementedException();
+            Save(stream);
         }
 
         /// <summary>
@@ -127,10 +132,8 @@ namespace ExifLibrary
         public static ImageFile FromFile(string filename, Encoding encoding)
         {
             using (var stream = new FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.Read))
-            using (var memStream = new MemoryStream())
             {
-                stream.CopyTo(memStream);
-                return FromStream(memStream, encoding);
+                return FromStream(stream, encoding);
             }
         }
 
@@ -150,29 +153,22 @@ namespace ExifLibrary
         /// <param name="stream">A <see cref="Sytem.IO.Stream"/> that contains image data.</param>
         /// <param name="encoding">The encoding to be used for text metadata when the source encoding is unknown.</param>
         /// <returns>The <see cref="ImageFile"/> created from the file.</returns>
-        public static ImageFile FromStream(Stream stream, Encoding encoding)
+        protected static ImageFile FromStream(Stream stream, Encoding encoding)
         {
-            stream.Seek(0, SeekOrigin.Begin);
-            byte[] header = new byte[8];
-            stream.Seek(0, SeekOrigin.Begin);
-            if (stream.Read(header, 0, header.Length) != header.Length)
-                throw new NotValidImageFileException();
-
-            // JPEG
-            if (header[0] == 0xFF && header[1] == 0xD8)
-                return new JPEGFile(stream, encoding);
-
-            // TIFF
-            string tiffHeader = Encoding.ASCII.GetString(header, 0, 4);
-            if (tiffHeader == "MM\x00\x2a" || tiffHeader == "II\x2a\x00")
-                return new TIFFFile(stream, encoding);
-
-            // PNG
-            if (header[0] == 0x89 && header[1] == 0x50 && header[2] == 0x4E && header[3] == 0x47 &&
-                header[4] == 0x0D && header[5] == 0x0A && header[6] == 0x1A && header[7] == 0x0A)
-                return new PNGFile(stream, encoding);
-
-            throw new NotValidImageFileException();
+            var memStream = stream as MemoryStream;
+            if (memStream != null)
+            {
+                return FromStreamInternal(memStream, encoding);
+            }
+            else
+            {
+                using (memStream = new MemoryStream())
+                {
+                    stream.CopyTo(memStream);
+                    memStream.Seek(0, SeekOrigin.Begin);
+                    return FromStreamInternal(memStream, encoding);
+                }
+            }
         }
         #endregion
 
@@ -199,6 +195,7 @@ namespace ExifLibrary
             using (var memStream = new MemoryStream())
             {
                 await stream.CopyToAsync(memStream);
+                memStream.Seek(0, SeekOrigin.Begin);
                 return await FromStreamAsync(memStream, encoding);
             }
         }
@@ -222,6 +219,44 @@ namespace ExifLibrary
         public static async Task<ImageFile> FromStreamAsync(Stream stream, Encoding encoding)
         {
             return FromStream(stream, encoding);
+        }
+        #endregion
+
+        #region Internal Methods
+        /// <summary>
+        /// Saves the <see cref="ImageFile"/> to the specified stream.
+        /// </summary>
+        /// <param name="stream">A <see cref="Sytem.IO.MemoryStream"/> to save image data to.</param>
+        protected abstract void SaveInternal(MemoryStream stream);
+
+        /// <summary>
+        /// Creates an <see cref="ImageFile"/> from the specified data stream.
+        /// </summary>
+        /// <param name="stream">A <see cref="Sytem.IO.Stream"/> that contains image data.</param>
+        /// <param name="encoding">The encoding to be used for text metadata when the source encoding is unknown.</param>
+        /// <returns>The <see cref="ImageFile"/> created from the file.</returns>
+        protected static ImageFile FromStreamInternal(MemoryStream stream, Encoding encoding)
+        {
+            byte[] header = new byte[8];
+            stream.Seek(0, SeekOrigin.Begin);
+            if (stream.Read(header, 0, header.Length) != header.Length)
+                throw new NotValidImageFileException();
+
+            // JPEG
+            if (header[0] == 0xFF && header[1] == 0xD8)
+                return new JPEGFile(stream, encoding);
+
+            // TIFF
+            string tiffHeader = Encoding.ASCII.GetString(header, 0, 4);
+            if (tiffHeader == "MM\x00\x2a" || tiffHeader == "II\x2a\x00")
+                return new TIFFFile(stream, encoding);
+
+            // PNG
+            if (header[0] == 0x89 && header[1] == 0x50 && header[2] == 0x4E && header[3] == 0x47 &&
+                header[4] == 0x0D && header[5] == 0x0A && header[6] == 0x1A && header[7] == 0x0A)
+                return new PNGFile(stream, encoding);
+
+            throw new NotValidImageFileException();
         }
         #endregion
     }

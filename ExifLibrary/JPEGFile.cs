@@ -38,11 +38,11 @@ namespace ExifLibrary
 
         #region Constructor
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExifFile"/> class.
+        /// Initializes a new instance of the <see cref="JPEGFile"/> class.
         /// </summary>
-        /// <param name="stream">A <see cref="Sytem.IO.Stream"/> that contains image data.</param>
+        /// <param name="stream">A <see cref="Sytem.IO.MemoryStream"/> that contains image data.</param>
         /// <param name="encoding">The encoding to be used for text metadata when the source encoding is unknown.</param>
-        protected internal JPEGFile(Stream stream, Encoding encoding)
+        protected internal JPEGFile(MemoryStream stream, Encoding encoding)
         {
             Format = ImageFileFormat.JPEG;
             Sections = new List<JPEGSection>();
@@ -182,13 +182,11 @@ namespace ExifLibrary
         /// Saves the JPEG/Exif image to the given stream.
         /// </summary>
         /// <param name="filename">The path to the JPEG/Exif file.</param>
-        /// <param name="preserveMakerNote">Determines whether the maker note offset of
-        /// the original file will be preserved.</param>
-        public void Save(Stream stream, bool preserveMakerNote)
+        protected override void SaveInternal(MemoryStream stream)
         {
             WriteJFIFApp0();
             WriteJFXXApp0();
-            WriteExifApp1(preserveMakerNote);
+            WriteExifApp1(true);
 
             // Write sections
             foreach (JPEGSection section in Sections)
@@ -225,38 +223,6 @@ namespace ExifLibrary
             // Write trailing data, if any
             if (TrailingData.Length != 0)
                 stream.Write(TrailingData, 0, TrailingData.Length);
-        }
-
-        /// <summary>
-        /// Saves the JPEG/Exif image with the given filename.
-        /// </summary>
-        /// <param name="filename">The path to the JPEG/Exif file.</param>
-        /// <param name="preserveMakerNote">Determines whether the maker note offset of
-        /// the original file will be preserved.</param>
-        public void Save(string filename, bool preserveMakerNote)
-        {
-            using (FileStream stream = new FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.None))
-            {
-                Save(stream, preserveMakerNote);
-            }
-        }
-
-        /// <summary>
-        /// Saves the JPEG/Exif image with the given filename.
-        /// </summary>
-        /// <param name="filename">The path to the JPEG/Exif file.</param>
-        public override void Save(string filename)
-        {
-            Save(filename, true);
-        }
-
-        /// <summary>
-        /// Saves the JPEG/Exif image to the given stream.
-        /// </summary>
-        /// <param name="filename">The path to the JPEG/Exif file.</param>
-        public override void Save(Stream stream)
-        {
-            Save(stream, true);
         }
         #endregion
 

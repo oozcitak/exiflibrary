@@ -96,9 +96,9 @@ namespace ExifLibrary
         /// Initializes a new instance of the <see cref="TIFFFile"/> class from the
         /// specified data stream.
         /// </summary>
-        /// <param name="stream">A <see cref="Sytem.IO.Stream"/> that contains image data.</param>
+        /// <param name="stream">A <see cref="Sytem.IO.MemoryStream"/> that contains image data.</param>
         /// <param name="encoding">The encoding to be used for text metadata when the source encoding is unknown.</param>
-        protected internal TIFFFile(Stream stream, System.Text.Encoding encoding)
+        protected internal TIFFFile(MemoryStream stream, System.Text.Encoding encoding)
         {
             Format = ImageFileFormat.TIFF;
             IFDs = new List<ImageFileDirectory>();
@@ -152,7 +152,7 @@ namespace ExifLibrary
         /// Saves the <see cref="ImageFile"/> to the given stream.
         /// </summary>
         /// <param name="stream">The data stream used to save the image.</param>
-        public override void Save(Stream stream)
+        protected override void SaveInternal(MemoryStream stream)
         {
             BitConverterEx conv = BitConverterEx.SystemEndian;
 

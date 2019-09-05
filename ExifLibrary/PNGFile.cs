@@ -22,9 +22,9 @@ namespace ExifLibrary
         /// Initializes a new instance of the <see cref="PNGFile"/> class from the
         /// specified data stream.
         /// </summary>
-        /// <param name="stream">A <see cref="Sytem.IO.Stream"/> that contains image data.</param>
+        /// <param name="stream">A <see cref="Sytem.IO.MemoryStream"/> that contains image data.</param>
         /// <param name="encoding">The encoding to be used for text metadata when the source encoding is unknown.</param>
-        protected internal PNGFile(Stream stream, System.Text.Encoding encoding)
+        protected internal PNGFile(MemoryStream stream, System.Text.Encoding encoding)
         {
             Format = ImageFileFormat.PNG;
             Chunks = new List<PNGChunk>();
@@ -84,7 +84,7 @@ namespace ExifLibrary
         /// Saves the <see cref="ImageFile"/> to the given stream.
         /// </summary>
         /// <param name="stream">The data stream used to save the image.</param>
-        public override void Save(Stream stream)
+        protected override void SaveInternal(MemoryStream stream)
         {
             // Add end chunk if it does not exist
             if (Chunks[Chunks.Count - 1].Type != "IEND")

@@ -478,6 +478,11 @@ namespace ExifLibrary
 
                 // Field count
                 ushort fieldcount = conv.ToUInt16(header, ifdoffset);
+                if (ifdoffset > header.Length - 1 || ifdoffset + 2 > header.Length)
+                {
+                    Errors.Add(new ImageError(Severity.Warning, $"IFD field count overflow for IFD {currentifd}."));
+                    continue;
+                }
                 for (short i = 0; i < fieldcount; i++)
                 {
                     // Read field info
@@ -606,15 +611,26 @@ namespace ExifLibrary
                         ifdqueue.Add(firstifdpointer, IFD.First);
                     }
                 }
+                else
+                {
+                    Errors.Add(new ImageError(Severity.Warning, $"Invalid first IFD pointer."));
+                }
                 // Read thumbnail
                 if (thumboffset != -1 && thumblength != 0 && Thumbnail == null)
                 {
                     if (thumbtype == 0)
                     {
                         // Ensure that the thumbnail length does not exceed header length
-                        thumblength = Math.Min(thumblength, header.Length - tiffoffset - thumboffset);
-                        Thumbnail = new byte[thumblength];
-                        Array.Copy(header, tiffoffset + thumboffset, Thumbnail, 0, thumblength);
+                        if (thumblength > header.Length - tiffoffset - thumboffset)
+                        {
+                            Errors.Add(new ImageError(Severity.Warning, $"Thumbnail size exceeds header length."));
+                            Thumbnail = null;
+                        }
+                        else
+                        {
+                            Thumbnail = new byte[thumblength];
+                            Array.Copy(header, tiffoffset + thumboffset, Thumbnail, 0, thumblength);
+                        }
                     }
                 }
             }

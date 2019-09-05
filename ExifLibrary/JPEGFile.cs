@@ -602,18 +602,28 @@ namespace ExifLibrary
                 }
 
                 // 1st IFD pointer
-                int firstifdoffset = ifdoffset + 2 + 12 * fieldcount;
-                if (firstifdoffset + 4 <= header.Length && currentifd == IFD.Zeroth)
+                if (currentifd == IFD.Zeroth)
                 {
-                    int firstifdpointer = (int)conv.ToUInt32(header, firstifdoffset);
-                    if (firstifdpointer != 0 && firstifdpointer + 2 <= header.Length)
+                    int firstifdoffset = ifdoffset + 2 + 12 * fieldcount;
+                    if (firstifdoffset + 4 <= header.Length)
                     {
-                        ifdqueue.Add(firstifdpointer, IFD.First);
+                        int firstifdpointer = (int)conv.ToUInt32(header, firstifdoffset);
+                        if (firstifdpointer != 0)
+                        {
+                            if (firstifdpointer + 2 <= header.Length)
+                            {
+                                ifdqueue.Add(firstifdpointer, IFD.First);
+                            }
+                            else
+                            {
+                                Errors.Add(new ImageError(Severity.Warning, $"Invalid first IFD pointer."));
+                            }
+                        }
                     }
-                }
-                else
-                {
-                    Errors.Add(new ImageError(Severity.Warning, $"Invalid first IFD pointer."));
+                    else
+                    {
+                        Errors.Add(new ImageError(Severity.Warning, $"Invalid first IFD offset."));
+                    }
                 }
                 // Read thumbnail
                 if (thumboffset != -1 && thumblength != 0 && Thumbnail == null)

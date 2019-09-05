@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace ExifLibrary
             Format = ImageFileFormat.Unknown;
             Properties = new ExifPropertyCollection();
             Encoding = Encoding.UTF8;
+            Errors = new List<ImageError>();
         }
         #endregion
 
@@ -48,6 +50,10 @@ namespace ExifLibrary
         /// Gets the encoding used for text metadata when the source encoding is unknown.
         /// </summary>
         public Encoding Encoding { get; protected set; }
+        /// <summary>
+        /// Gets the errors encountered while reading/writing the image file.
+        /// </summary>
+        public List<ImageError> Errors { get; protected set; }
         #endregion
 
         #region Instance Methods

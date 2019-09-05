@@ -521,7 +521,12 @@ namespace ExifLibrary
                         baselength = 8;
                     else // Unknown or invalid type
                         continue; // Skip and keep going
-                    uint totallength = count * baselength;
+                    int totallength = (int)(count * baselength);
+                    if (totallength < 0)
+                    {
+                        Errors.Add(new ImageError(Severity.Warning, $"Field length overflow for tag {tag}."));
+                        continue;
+                    }
 
                     // If field value does not fit in 4 bytes
                     // the value field is an offset to the actual
@@ -530,8 +535,29 @@ namespace ExifLibrary
                     if (totallength > 4)
                     {
                         fieldposition = tiffoffset + (int)conv.ToUInt32(value, 0);
+                        if (fieldposition < 0)
+                        {
+                            Errors.Add(new ImageError(Severity.Warning, $"Field offset overflow for tag {tag}."));
+                            continue;
+                        }
+                        else if (fieldposition > header.Length - 1)
+                        {
+                            Errors.Add(new ImageError(Severity.Warning, $"Field offset for tag {tag} exceeds header length."));
+                            continue;
+                        }
+                        else if (fieldposition + totallength > header.Length)
+                        {
+                            Errors.Add(new ImageError(Severity.Warning, $"Field length for tag {tag} exceeds header length."));
+                            continue;
+                        }
+                        else if (totallength > int.MaxValue)
+                        {
+                            Errors.Add(new ImageError(Severity.Warning, $"Field length for tag {tag} exceeds maximum allowed length."));
+                            continue;
+                        }
+
                         value = new byte[totallength];
-                        Array.Copy(header, fieldposition, value, 0, (int)totallength);
+                        Array.Copy(header, fieldposition, value, 0, totallength);
                     }
 
                     // Compressed thumbnail data

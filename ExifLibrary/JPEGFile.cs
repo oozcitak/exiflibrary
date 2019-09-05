@@ -511,7 +511,7 @@ namespace ExifLibrary
 
                     // Calculate the bytes we need to read
                     uint baselength = 0;
-                    if (type == 1 || type == 2 || type == 7)
+                    if (type == 1 || type == 2 || type == 6 || type == 7)
                         baselength = 1;
                     else if (type == 3 || type == 8)
                         baselength = 2;

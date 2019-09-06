@@ -17,8 +17,7 @@ If you are using [NuGet](https://nuget.org/) you can install the assembly with:
 To read an image file and extract metadata:
 
 ```cs
-var file = ImageFile.FromFile('path_to_image');
-// metadata.Properties is a collection of image metadata
+var file = ImageFile.FromFile("path_to_image");
 foreach (var item in file.Properties)
 {
     if (item.Tag == ExifTag.ISOSpeedRatings)
@@ -48,7 +47,7 @@ foreach (var item in file.Properties)
 To add metadata:
 
 ```cs
-var file = ImageFile.FromFile('path_to_image');
+var file = ImageFile.FromFile("path_to_image");
 file.Properties.Add(ExifTag.ISOSpeedRatings, 200);
 
 ```
@@ -57,5 +56,5 @@ To save the image with metadata:
 
 ```cs
 
-file.Save('path_to_image');
+file.Save("path_to_image");
 ```

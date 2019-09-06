@@ -647,7 +647,7 @@ namespace ExifLibrary
     }
 
     /// <summary>
-    /// Represents a 16-bit signed integer. (EXIF Specification: SHORT)
+    /// Represents a 16-bit signed integer. (EXIF Specification: SSHORT)
     /// </summary>
     public class ExifSShort : ExifProperty
     {
@@ -676,7 +676,7 @@ namespace ExifLibrary
 
     /// <summary>
     /// Represents an array of 16-bit signed integers. 
-    /// (EXIF Specification: SHORT with count > 1)
+    /// (EXIF Specification: SSHORT with count > 1)
     /// </summary>
     public class ExifSShortArray : ExifProperty
     {

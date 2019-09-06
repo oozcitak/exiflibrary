@@ -19,12 +19,14 @@ namespace ExifLibrary
     {
         #region Member Variables
         private List<T> items;
+        private Dictionary<ExifTag, List<T>> lookup;
         #endregion
 
         #region Constructor
         internal GenericPropertyCollection()
         {
             items = new List<T>();
+            lookup = new Dictionary<ExifTag, List<T>>();
         }
         #endregion
 
@@ -58,13 +60,21 @@ namespace ExifLibrary
 
         #region ExifProperty Collection Adders
         /// <summary>
+        /// Adds an <see cref="ExifLibrary.ExifProperty"/>.
+        /// </summary>
+        /// <param name="item">The item to add.</param>
+        public void Add(T item)
+        {
+            AddItem(item);
+        }
+        /// <summary>
         /// Adds an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// </summary>
         /// <param name="key">The tag to set.</param>
         /// <param name="value">The value of tag.</param>
         public void Add(ExifTag key, byte value)
         {
-            items.Add(new ExifByte(key, value) as T);
+            AddItem(new ExifByte(key, value));
         }
         /// <summary>
         /// Adds an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
@@ -75,15 +85,15 @@ namespace ExifLibrary
         {
             if (key == ExifTag.WindowsTitle || key == ExifTag.WindowsTitle || key == ExifTag.WindowsComment || key == ExifTag.WindowsAuthor || key == ExifTag.WindowsKeywords || key == ExifTag.WindowsSubject)
             {
-                items.Add(new WindowsByteString(key, value) as T);
+                AddItem(new WindowsByteString(key, value));
             }
             else if (key == ExifTag.UserComment)
             {
-                items.Add(new ExifEncodedString(key, value, encoding) as T);
+                AddItem(new ExifEncodedString(key, value, encoding));
             }
             else
             {
-                items.Add(new ExifAscii(key, value, encoding) as T);
+                AddItem(new ExifAscii(key, value, encoding));
             }
         }
         /// <summary>
@@ -96,13 +106,13 @@ namespace ExifLibrary
             Add(key, value, Encoding.UTF8);
         }
         /// <summary>
-        ///Adds an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
+        /// Adds an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// </summary>
         /// <param name="key">The tag to set.</param>
         /// <param name="value">The value of tag.</param>
         public void Add(ExifTag key, ushort value)
         {
-            items.Add(new ExifUShort(key, value) as T);
+            AddItem(new ExifUShort(key, value));
         }
         /// <summary>
         /// Adds an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
@@ -111,7 +121,7 @@ namespace ExifLibrary
         /// <param name="value">The value of tag.</param>
         public void Add(ExifTag key, int value)
         {
-            items.Add(new ExifSInt(key, value) as T);
+            AddItem(new ExifSInt(key, value));
         }
         /// <summary>
         /// Adds an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
@@ -120,7 +130,7 @@ namespace ExifLibrary
         /// <param name="value">The value of tag.</param>
         public void Add(ExifTag key, uint value)
         {
-            items.Add(new ExifUInt(key, value) as T);
+            AddItem(new ExifUInt(key, value));
         }
         /// <summary>
         /// Adds an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
@@ -129,7 +139,7 @@ namespace ExifLibrary
         /// <param name="value">The value of tag.</param>
         public void Add(ExifTag key, float value)
         {
-            items.Add(new ExifURational(key, new MathEx.UFraction32(value)) as T);
+            AddItem(new ExifURational(key, new MathEx.UFraction32(value)));
         }
         /// <summary>
         /// Adds an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
@@ -138,7 +148,7 @@ namespace ExifLibrary
         /// <param name="value">The value of tag.</param>
         public void Add(ExifTag key, double value)
         {
-            items.Add(new ExifURational(key, new MathEx.UFraction32(value)) as T);
+            AddItem(new ExifURational(key, new MathEx.UFraction32(value)));
         }
         /// <summary>
         /// Adds an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
@@ -148,14 +158,9 @@ namespace ExifLibrary
         public void Add(ExifTag key, object value)
         {
             Type type = value.GetType();
-            //if (type.IsEnum)
-            //{
             Type etype = typeof(ExifEnumProperty<>).MakeGenericType(new Type[] { type });
             object prop = Activator.CreateInstance(etype, new object[] { key, value });
-            items.Add((ExifProperty)prop as T);
-            //}
-            //else
-            //    throw new ArgumentException("No exif property exists for this tag.", "value");
+            AddItem((ExifProperty)prop);
         }
         /// <summary>
         /// Adds an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
@@ -164,7 +169,7 @@ namespace ExifLibrary
         /// <param name="value">The value of tag.</param>
         public void Add(ExifTag key, DateTime value)
         {
-            items.Add(new ExifDateTime(key, value) as T);
+            AddItem(new ExifDateTime(key, value));
         }
         /// <summary>
         /// Adds an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
@@ -175,15 +180,13 @@ namespace ExifLibrary
         /// <param name="s">Angular seconds (or clock seconds for a timestamp).</param>
         public void Add(ExifTag key, float d, float m, float s)
         {
-            items.Add(new ExifURationalArray(key, new MathEx.UFraction32[] { new MathEx.UFraction32(d), new MathEx.UFraction32(m), new MathEx.UFraction32(s) }) as T);
+            AddItem(new ExifURationalArray(key, new MathEx.UFraction32[] { new MathEx.UFraction32(d), new MathEx.UFraction32(m), new MathEx.UFraction32(s) }));
         }
         #endregion
 
         #region ExifProperty Collection Getters
         /// <summary>
         /// Gets the <see cref="ExifLibrary.ExifProperty"/> with the specified key.
-        /// Note that this method iterates through the entire collection to find
-        /// and item with the given tag.
         /// </summary>
         /// <param name="key">The tag to get.</param>
         /// <returns>The item with the given tag cast to the specified 
@@ -191,20 +194,34 @@ namespace ExifLibrary
         /// given type it returns null.</returns>
         public T Get<T>(ExifTag key) where T : ExifProperty
         {
-            foreach (var item in items)
-            {
-                if (item.Tag == key)
-                {
-                    return item as T;
-                }
-            }
-            return null;
+            return GetItem(key) as T;
+        }
+        /// <summary>
+        /// Gets the <see cref="ExifLibrary.ExifProperty"/> with the specified key.
+        /// </summary>
+        /// <param name="key">The tag to get.</param>
+        /// <returns>The item with the given tag cast to the specified 
+        /// type. If the tag does not exist, or it cannot be cast to the
+        /// given type it returns null.</returns>
+        public ExifProperty Get(ExifTag key)
+        {
+            return GetItem(key);
         }
         #endregion
 
         #region ExifProperty Collection Setters
         /// <summary>
-        /// Sets the <see cref="ExifLibrary.ExifProperty"/> with the specified key.
+        /// Sets an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
+        /// Note that if there are multiple items with the same key, all of them will be
+        /// replaced by the given item.
+        /// </summary>
+        /// <param name="item">The item to set.</param>
+        public void Set(T item)
+        {
+            SetItem(item);
+        }
+        /// <summary>
+        /// Sets an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// Note that if there are multiple items with the same key, all of them will be
         /// replaced by the given item.
         /// </summary>
@@ -212,11 +229,10 @@ namespace ExifLibrary
         /// <param name="value">The value of tag.</param>
         public void Set(ExifTag key, byte value)
         {
-            Remove(key);
-            Add(key, value);
+            SetItem(new ExifByte(key, value));
         }
         /// <summary>
-        /// Sets the <see cref="ExifLibrary.ExifProperty"/> with the specified key.
+        /// Sets an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// Note that if there are multiple items with the same key, all of them will be
         /// replaced by the given item.
         /// </summary>
@@ -224,11 +240,21 @@ namespace ExifLibrary
         /// <param name="value">The value of tag.</param>
         public void Set(ExifTag key, string value, Encoding encoding)
         {
-            Remove(key);
-            Add(key, value);
+            if (key == ExifTag.WindowsTitle || key == ExifTag.WindowsTitle || key == ExifTag.WindowsComment || key == ExifTag.WindowsAuthor || key == ExifTag.WindowsKeywords || key == ExifTag.WindowsSubject)
+            {
+                SetItem(new WindowsByteString(key, value));
+            }
+            else if (key == ExifTag.UserComment)
+            {
+                SetItem(new ExifEncodedString(key, value, encoding));
+            }
+            else
+            {
+                SetItem(new ExifAscii(key, value, encoding));
+            }
         }
         /// <summary>
-        /// Sets the <see cref="ExifLibrary.ExifProperty"/> with the specified key.
+        /// Sets an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// Note that if there are multiple items with the same key, all of them will be
         /// replaced by the given item.
         /// </summary>
@@ -236,11 +262,10 @@ namespace ExifLibrary
         /// <param name="value">The value of tag.</param>
         public void Set(ExifTag key, string value)
         {
-            Remove(key);
-            Add(key, value);
+            Add(key, value, Encoding.UTF8);
         }
         /// <summary>
-        /// Sets the <see cref="ExifLibrary.ExifProperty"/> with the specified key.
+        /// Sets an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// Note that if there are multiple items with the same key, all of them will be
         /// replaced by the given item.
         /// </summary>
@@ -248,11 +273,10 @@ namespace ExifLibrary
         /// <param name="value">The value of tag.</param>
         public void Set(ExifTag key, ushort value)
         {
-            Remove(key);
-            Add(key, value);
+            SetItem(new ExifUShort(key, value));
         }
         /// <summary>
-        /// Sets the <see cref="ExifLibrary.ExifProperty"/> with the specified key.
+        /// Sets an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// Note that if there are multiple items with the same key, all of them will be
         /// replaced by the given item.
         /// </summary>
@@ -260,11 +284,10 @@ namespace ExifLibrary
         /// <param name="value">The value of tag.</param>
         public void Set(ExifTag key, int value)
         {
-            Remove(key);
-            Add(key, value);
+            SetItem(new ExifSInt(key, value));
         }
         /// <summary>
-        /// Sets the <see cref="ExifLibrary.ExifProperty"/> with the specified key.
+        /// Sets an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// Note that if there are multiple items with the same key, all of them will be
         /// replaced by the given item.
         /// </summary>
@@ -272,11 +295,10 @@ namespace ExifLibrary
         /// <param name="value">The value of tag.</param>
         public void Set(ExifTag key, uint value)
         {
-            Remove(key);
-            Add(key, value);
+            SetItem(new ExifUInt(key, value));
         }
         /// <summary>
-        /// Sets the <see cref="ExifLibrary.ExifProperty"/> with the specified key.
+        /// Sets an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// Note that if there are multiple items with the same key, all of them will be
         /// replaced by the given item.
         /// </summary>
@@ -284,11 +306,10 @@ namespace ExifLibrary
         /// <param name="value">The value of tag.</param>
         public void Set(ExifTag key, float value)
         {
-            Remove(key);
-            Add(key, value);
+            SetItem(new ExifURational(key, new MathEx.UFraction32(value)));
         }
         /// <summary>
-        /// Sets the <see cref="ExifLibrary.ExifProperty"/> with the specified key.
+        /// Sets an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// Note that if there are multiple items with the same key, all of them will be
         /// replaced by the given item.
         /// </summary>
@@ -296,11 +317,10 @@ namespace ExifLibrary
         /// <param name="value">The value of tag.</param>
         public void Set(ExifTag key, double value)
         {
-            Remove(key);
-            Add(key, value);
+            SetItem(new ExifURational(key, new MathEx.UFraction32(value)));
         }
         /// <summary>
-        /// Sets the <see cref="ExifLibrary.ExifProperty"/> with the specified key.
+        /// Sets an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// Note that if there are multiple items with the same key, all of them will be
         /// replaced by the given item.
         /// </summary>
@@ -308,11 +328,13 @@ namespace ExifLibrary
         /// <param name="value">The value of tag.</param>
         public void Set(ExifTag key, object value)
         {
-            Remove(key);
-            Add(key, value);
+            Type type = value.GetType();
+            Type etype = typeof(ExifEnumProperty<>).MakeGenericType(new Type[] { type });
+            object prop = Activator.CreateInstance(etype, new object[] { key, value });
+            SetItem((ExifProperty)prop);
         }
         /// <summary>
-        /// Sets the <see cref="ExifLibrary.ExifProperty"/> with the specified key.
+        /// Sets an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// Note that if there are multiple items with the same key, all of them will be
         /// replaced by the given item.
         /// </summary>
@@ -320,11 +342,10 @@ namespace ExifLibrary
         /// <param name="value">The value of tag.</param>
         public void Set(ExifTag key, DateTime value)
         {
-            Remove(key);
-            Add(key, value);
+            SetItem(new ExifDateTime(key, value));
         }
         /// <summary>
-        /// Sets the <see cref="ExifLibrary.ExifProperty"/> with the specified key.
+        /// Sets an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// Note that if there are multiple items with the same key, all of them will be
         /// replaced by the given item.
         /// </summary>
@@ -334,26 +355,18 @@ namespace ExifLibrary
         /// <param name="s">Angular seconds (or clock seconds for a timestamp).</param>
         public void Set(ExifTag key, float d, float m, float s)
         {
-            Remove(key);
-            Add(key, d, m, s);
+            SetItem(new ExifURationalArray(key, new MathEx.UFraction32[] { new MathEx.UFraction32(d), new MathEx.UFraction32(m), new MathEx.UFraction32(s) }));
         }
         #endregion
 
         #region Instance Methods
-        /// <summary>
-        /// Adds the specified item to the collection.
-        /// </summary>
-        /// <param name="item">The <see cref="ExifLibrary.ExifProperty"/> to add to the collection.</param>
-        public void Add(T item)
-        {
-            items.Add(item);
-        }
         /// <summary>
         /// Removes all items from the collection.
         /// </summary>
         public void Clear()
         {
             items.Clear();
+            lookup.Clear();
         }
         /// <summary>
         /// Determines whether the collection contains the given element.
@@ -366,12 +379,15 @@ namespace ExifLibrary
         /// <paramref name="item"/> is null.</exception>
         public bool Contains(T item)
         {
-            return items.Contains(item);
+            List<T> foundItems;
+            if (lookup.TryGetValue(item.Tag, out foundItems))
+            {
+                return foundItems.Contains(item);
+            }
+            return false;
         }
         /// <summary>
         /// Determines whether the collection contains an element with the specified tag.
-        /// Note that this method iterated through the entire collection to find an item
-        /// with the given tag.
         /// </summary>
         /// <param name="tag">The tag to locate in the collection.</param>
         /// <returns>
@@ -379,16 +395,12 @@ namespace ExifLibrary
         /// </returns>
         public bool Contains(ExifTag tag)
         {
-            foreach (var item in items)
-            {
-                if (item.Tag == tag) return true;
-            }
-            return false;
+            return lookup.ContainsKey(tag);
         }
         /// <summary>
         /// Removes the given element from the collection.
         /// </summary>
-        /// <param name="ite">The element to remove.</param>
+        /// <param name="item">The element to remove.</param>
         /// <returns>
         /// true if the element is successfully removed; otherwise, false.  
         /// </returns>
@@ -396,7 +408,13 @@ namespace ExifLibrary
         /// <paramref name="item"/> is null.</exception>
         public bool Remove(T item)
         {
-            return items.Remove(item);
+            bool contains = items.Remove(item);
+            List<T> foundItems;
+            if (lookup.TryGetValue(item.Tag, out foundItems))
+            {
+                foundItems.Remove(item);
+            }
+            return contains;
         }
         /// <summary>
         /// Removes the item at the given index.
@@ -404,7 +422,29 @@ namespace ExifLibrary
         /// <param name="index">The index of the item to remove.</param>
         public void RemoveAt(int index)
         {
+            var item = items[index];
             items.RemoveAt(index);
+            List<T> foundItems;
+            if (lookup.TryGetValue(item.Tag, out foundItems))
+            {
+                foundItems.Remove(item);
+            }
+        }
+        /// <summary>
+        /// Removes the given elements from the collection.
+        /// </summary>
+        /// <param name="itemsToRemove">The list of elements to remove.</param>
+        public void Remove(IEnumerable<T> itemsToRemove)
+        {
+            foreach (var item in itemsToRemove)
+            {
+                items.Remove(item);
+                List<T> foundItems;
+                if (lookup.TryGetValue(item.Tag, out foundItems))
+                {
+                    foundItems.Remove(item);
+                }
+            }
         }
         /// <summary>
         /// Removes all items with the given IFD from the collection.
@@ -418,43 +458,34 @@ namespace ExifLibrary
                 if (item.IFD == ifd)
                     toRemove.Add(item);
             }
-            foreach (T tag in toRemove)
-                items.Remove(tag);
+            Remove(toRemove);
         }
         /// <summary>
         /// Removes all items with the given tag from the collection.
-        /// Note that this iterates through the entire collection to
-        /// find the item with the given tag.
         /// </summary>
         /// <param name="ifd">The IFD section to remove.</param>
         public void Remove(ExifTag tag)
         {
-            List<T> toRemove = new List<T>();
-            foreach (T item in items)
+            List<T> toRemove;
+            if (lookup.TryGetValue(tag, out toRemove))
             {
-                if (item.Tag == tag)
-                    toRemove.Add(item);
+                foreach (var item in toRemove)
+                {
+                    items.Remove(item);
+                }
+                lookup[tag] = new List<T>();
             }
-            foreach (T item in toRemove)
-                items.Remove(item);
         }
         /// <summary>
         /// Removes all items with the given tags from the collection.
-        /// Note that this iterates through the entire collection to
-        /// find the items with the given tags.
         /// </summary>
         /// <param name="ifd">The IFD section to remove.</param>
         public void Remove(IEnumerable<ExifTag> tags)
         {
-            HashSet<ExifTag> tagSet = new HashSet<ExifTag>(tags);
-            List<T> toRemove = new List<T>();
-            foreach (T item in items)
+            foreach (var tag in tags)
             {
-                if (tagSet.Contains(item.Tag))
-                    toRemove.Add(item);
+                Remove(tag);
             }
-            foreach (T item in toRemove)
-                items.Remove(item);
         }
         /// <summary>
         /// Removes all tags from the collection except those in the 
@@ -465,15 +496,9 @@ namespace ExifLibrary
         /// <param name="ifd">The IFD section to remove.</param>
         public void Keep(IEnumerable<ExifTag> whiteList)
         {
-            HashSet<ExifTag> tagSet = new HashSet<ExifTag>(whiteList);
-            List<T> toRemove = new List<T>();
-            foreach (T item in items)
-            {
-                if (!tagSet.Contains(item.Tag))
-                    toRemove.Add(item);
-            }
-            foreach (T item in toRemove)
-                items.Remove(item);
+            HashSet<ExifTag> toRemove = new HashSet<ExifTag>(lookup.Keys);
+            toRemove.ExceptWith(whiteList);
+            Remove(toRemove);
         }
         /// <summary>
         /// Returns the index of the given item.
@@ -497,6 +522,15 @@ namespace ExifLibrary
         void IList<T>.Insert(int index, T item)
         {
             items.Insert(index, item);
+            List<T> lookupitems;
+            if (lookup.TryGetValue(item.Tag, out lookupitems))
+            {
+                lookupitems.Add(item);
+            }
+            else
+            {
+                lookup[item.Tag] = new List<T>() { item };
+            }
         }
 
         void ICollection<T>.CopyTo(T[] array, int arrayIndex)
@@ -512,6 +546,78 @@ namespace ExifLibrary
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
+        }
+        #endregion
+
+        #region Internal Methods
+        /// <summary>
+        /// Adds an item to the collection.
+        /// </summary>
+        /// <param name="item">an item to add to the collection</param>
+        protected void AddItem(ExifProperty item)
+        {
+            var genericItem = item as T;
+            items.Add(genericItem);
+            List<T> lookupitems;
+            if (lookup.TryGetValue(item.Tag, out lookupitems))
+            {
+                lookupitems.Add(genericItem);
+            }
+            else
+            {
+                lookup[item.Tag] = new List<T>() { genericItem };
+            }
+        }
+        /// <summary>
+        /// Gets an item with the given tag from the collection.
+        /// If there are multiple items with the same tag, returns the first
+        /// item with the given tag.
+        /// </summary>
+        /// <param name="tag">the tag ıf an item to get from the collection</param>
+        protected ExifProperty GetItem(ExifTag tag)
+        {
+            List<T> lookupitems;
+            if (lookup.TryGetValue(tag, out lookupitems))
+            {
+                if (lookupitems.Count != 0)
+                    return lookupitems[0];
+                else
+                    return null;
+            }
+            return null;
+        }
+        /// <summary>
+        /// Gets a list of items with the given tag from the collection.
+        /// </summary>
+        /// <param name="tag">the tag ıf an item to get from the collection</param>
+        protected List<ExifProperty> GetItems(ExifTag tag)
+        {
+            List<T> lookupitems;
+            if (lookup.TryGetValue(tag, out lookupitems))
+            {
+                return lookupitems as List<ExifProperty>;
+            }
+            return new List<ExifProperty>();
+        }
+        /// <summary>
+        /// Sets an item in the collection.
+        /// If there are multiple items with the same tag, replaces all items 
+        /// with the given item.
+        /// </summary>
+        /// <param name="item">an item to set in the collection</param>
+        protected void SetItem(ExifProperty item)
+        {
+            List<T> lookupitems;
+            if (lookup.TryGetValue(item.Tag, out lookupitems))
+            {
+                foreach (var existingItem in lookupitems)
+                {
+                    items.Remove(existingItem);
+                }
+            }
+            var genericItem = item as T;
+            items.Add(genericItem);
+            lookup[item.Tag] = new List<T>() { genericItem };
         }
         #endregion
     }

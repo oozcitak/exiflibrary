@@ -22,7 +22,7 @@ namespace ExifLibrary
         /// Initializes a new instance of the <see cref="PNGFile"/> class from the
         /// specified data stream.
         /// </summary>
-        /// <param name="stream">A <see cref="Sytem.IO.MemoryStream"/> that contains image data.</param>
+        /// <param name="stream">A stream that contains image data.</param>
         /// <param name="encoding">The encoding to be used for text metadata when the source encoding is unknown.</param>
         protected internal PNGFile(MemoryStream stream, System.Text.Encoding encoding)
         {

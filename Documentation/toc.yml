@@ -1,5 +1,3 @@
-- name: Articles
-  href: articles/
 - name: Documentation
   href: combinedtoc/
 - name: Download

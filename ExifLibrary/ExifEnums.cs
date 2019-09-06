@@ -378,19 +378,19 @@ namespace ExifLibrary
         CloudyWeather = 10,
         Shade = 11,
         /// <summary>
-        /// D 5700 â€“ 7100K
+        /// Daylight fluorescent (D 5700 - 7100K)
         /// </summary>
         DaylightFluorescent = 12,
         /// <summary>
-        /// N 4600 â€“ 5400K
+        /// Day white fluorescent (N 4600 - 5400K)
         /// </summary>
         DayWhiteFluorescent = 13,
         /// <summary>
-        /// W 3900 â€“ 4500K
+        /// Cool white fluorescent (W 3900 - 4500K)
         /// </summary>
         CoolWhiteFluorescent = 14,
         /// <summary>
-        /// WW 3200 â€“ 3700K
+        /// White fluorescent (WW 3200 - 3700K)
         /// </summary>
         WhiteFluorescent = 15,
         StandardLightA = 17,
@@ -507,20 +507,14 @@ namespace ExifLibrary
 
     public enum GPSLatitudeRef : byte
     {
-        // ASCII
         North = 78,
-        // 'N'
         South = 83
-        // 'S'
     }
 
     public enum GPSLongitudeRef : byte
     {
-        // ASCII
         West = 87,
-        // 'W'
         East = 69
-        // 'E'
     }
 
     public enum GPSAltitudeRef : byte
@@ -531,51 +525,34 @@ namespace ExifLibrary
 
     public enum GPSStatus : byte
     {
-        // ASCII
         MeasurementInProgress = 65,
-        // 'A'
         MeasurementInteroperability = 86
-        // 'V'
     }
 
     public enum GPSMeasureMode : byte
     {
-        // ASCII
         TwoDimensional = 50,
-        // '2'
         ThreeDimensional = 51
-        // '3'
     }
 
     public enum GPSSpeedRef : byte
     {
-        // ASCII
         KilometersPerHour = 75,
-        // 'K'
         MilesPerHour = 77,
-        // 'M'
         Knots = 78
-        // 'N'
     }
 
     public enum GPSDirectionRef : byte
     {
-        // ASCII
         TrueDirection = 84,
-        // 'T'
         MagneticDirection = 77
-        // 'M'
     }
 
     public enum GPSDistanceRef : byte
     {
-        // ASCII
         Kilometers = 75,
-        // 'K'
         Miles = 77,
-        // 'M'
         Knots = 78
-        // 'N'
     }
 
     public enum GPSDifferential : ushort

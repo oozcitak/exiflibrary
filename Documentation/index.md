@@ -1,23 +1,45 @@
 ---
 uid: Home
 title: Home
-documentType: index
 ---
-<div id="hero">
-  <div class="header">
-    <div class="title">
-      <strong>ExifLibrary</strong>
-    </div>
-    <div class="info">a .Net standard library for extracting image metadata</div>
-    <div class="buttons">
-      [![npm](https://img.shields.io/npm/v/npm.svg?logo=npm&style=for-the-badge&colorA=7c7&colorB=4a4)](https://www.nuget.org/packages/ExifLibNet)
-      &nbsp;&nbsp;&nbsp;
-      [![GitHub](https://img.shields.io/badge/GitHub-Source%20Code-green.svg?logo=github&style=for-the-badge&colorA=7c7&colorB=4a4)](https://github.com/oozcitak/exiflibrary)
-    </div>
-    <div class="doclinks">
-      @Articles.Introduction | @Api.Home
-    </div>
-  </div>
-  <div class="content">
-  </div>
-</div>
+# Introduction #
+
+ExifLibrary is a .NET Standard library for extracting image metadata.
+
+# Installation #
+
+If you are using [NuGet](https://nuget.org/) search for `ExifLibNet` in the NuGet Package Manager or install the assembly from the package manager console with:
+
+`PM> Install-Package ExifLibNet`
+
+# Quick Start #
+
+To read an image file and extract metadata:
+
+```cs
+var file = ImageFile.FromFile("path_to_image");
+
+// the type of the ISO speed rating tag value is unsigned short
+// see documentation for tag data types
+var isoTag = file.Properties.Get<ExifUShort>(ExifTag.ISOSpeedRatings);
+
+// the flash tag's value is an enum
+var flashTag = data.Properties.Get<ExifEnumProperty<Flash>>(ExifTag.Flash);
+
+// GPS latitude is a custom type with three rational values
+// representing degrees/minutes/seconds of the latitude 
+var latTag = data.Properties.Get<GPSLatitudeLongitude>(ExifTag.GPSLatitude);
+```
+
+To add metadata:
+
+```cs
+var file = ImageFile.FromFile("path_to_image");
+// note the explicit cast to ushort
+file.Properties.Set(ExifTag.ISOSpeedRatings, <ushort>200);
+```
+
+To save the image with metadata:
+```cs
+file.Save("path_to_image");
+```

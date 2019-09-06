@@ -40,7 +40,7 @@ namespace ExifLibrary
         /// <summary>
         /// Initializes a new instance of the <see cref="JPEGFile"/> class.
         /// </summary>
-        /// <param name="stream">A <see cref="Sytem.IO.MemoryStream"/> that contains image data.</param>
+        /// <param name="stream">A stream that contains image data.</param>
         /// <param name="encoding">The encoding to be used for text metadata when the source encoding is unknown.</param>
         /// <param name="readTrailingData">Whether to read data beyond the EOI (end of image) marker.</param>
         protected internal JPEGFile(MemoryStream stream, Encoding encoding, bool readTrailingData = false)

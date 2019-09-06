@@ -72,7 +72,7 @@ namespace ExifLibrary
         /// <summary>
         /// Asynchronously saves the <see cref="ImageFile"/> to the specified stream.
         /// </summary>
-        /// <param name="stream">A <see cref="Sytem.IO.Stream"/> to save image data to.</param>
+        /// <param name="stream">A stream to save image data to.</param>
         public void Save(Stream stream)
         {
             var memStream = stream as MemoryStream;
@@ -106,7 +106,7 @@ namespace ExifLibrary
         /// <summary>
         /// Asynchronously saves the <see cref="ImageFile"/> to the specified stream.
         /// </summary>
-        /// <param name="stream">A <see cref="Sytem.IO.Stream"/> to save image data to.</param>
+        /// <param name="stream">A stream to save image data to.</param>
         public virtual async Task SaveAsync(Stream stream)
         {
             Save(stream);
@@ -146,7 +146,7 @@ namespace ExifLibrary
         /// <summary>
         /// Creates an <see cref="ImageFile"/> from the specified data stream.
         /// </summary>
-        /// <param name="stream">A <see cref="Sytem.IO.Stream"/> that contains image data.</param>
+        /// <param name="stream">A stream that contains image data.</param>
         /// <returns>The <see cref="ImageFile"/> created from the stream.</returns>
         public static ImageFile FromStream(Stream stream)
         {
@@ -156,7 +156,7 @@ namespace ExifLibrary
         /// <summary>
         /// Creates an <see cref="ImageFile"/> from the specified data stream.
         /// </summary>
-        /// <param name="stream">A <see cref="Sytem.IO.Stream"/> that contains image data.</param>
+        /// <param name="stream">A stream that contains image data.</param>
         /// <param name="encoding">The encoding to be used for text metadata when the source encoding is unknown.</param>
         /// <returns>The <see cref="ImageFile"/> created from the stream.</returns>
         protected static ImageFile FromStream(Stream stream, Encoding encoding)
@@ -234,7 +234,7 @@ namespace ExifLibrary
         /// <summary>
         /// Creates an <see cref="ImageFile"/> from the specified data stream by asynchronously reading image data.
         /// </summary>
-        /// <param name="stream">A <see cref="Sytem.IO.Stream"/> that contains image data.</param>
+        /// <param name="stream">A stream that contains image data.</param>
         /// <returns>The <see cref="ImageFile"/> created from the stream.</returns>
         public static async Task<ImageFile> FromStreamAsync(Stream stream)
         {
@@ -244,7 +244,7 @@ namespace ExifLibrary
         /// <summary>
         /// Creates an <see cref="ImageFile"/> from the specified data stream by asynchronously reading image data.
         /// </summary>
-        /// <param name="stream">A <see cref="Sytem.IO.Stream"/> that contains image data.</param>
+        /// <param name="stream">A stream that contains image data.</param>
         /// <param name="encoding">The encoding to be used for text metadata when the source encoding is unknown.</param>
         /// <returns>The <see cref="ImageFile"/> created from the stream.</returns>
         public static async Task<ImageFile> FromStreamAsync(Stream stream, Encoding encoding)
@@ -257,13 +257,13 @@ namespace ExifLibrary
         /// <summary>
         /// Saves the <see cref="ImageFile"/> to the specified stream.
         /// </summary>
-        /// <param name="stream">A <see cref="Sytem.IO.MemoryStream"/> to save image data to.</param>
+        /// <param name="stream">A stream to save image data to.</param>
         protected abstract void SaveInternal(MemoryStream stream);
 
         /// <summary>
         /// Creates an <see cref="ImageFile"/> from the specified data stream.
         /// </summary>
-        /// <param name="stream">A <see cref="Sytem.IO.Stream"/> that contains image data.</param>
+        /// <param name="stream">A stream that contains image data.</param>
         /// <param name="encoding">The encoding to be used for text metadata when the source encoding is unknown.</param>
         /// <returns>The <see cref="ImageFile"/> created from the file.</returns>
         protected static ImageFile FromStreamInternal(MemoryStream stream, Encoding encoding)

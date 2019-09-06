@@ -7,27 +7,9 @@ install:
   - cmd: git submodule update --init --recursive
 
 before_build:
-  - ps: .\scripts\set-version.ps1
   - cmd: dotnet --info
   - cmd: dotnet restore --verbosity n
 
 build_script:
   - cmd: dotnet build -c Release ExifLibrary\
 
-after_test:
-  - cmd: dotnet pack -c Release ExifLibrary\
-
-artifacts:
-- path: 'ExifLibrary\bin\Release\*.nupkg'
-  name: nugetPackages
-
-deploy:
-- provider: GitHub
-  auth_token:
-    secure: lpPk0unmEnneamw7kQNZlak6wkZ2t3pkb8hLUHoD6RJRXQrVS4ezYhdukOsBP5Uf
-  artifact: nugetPackages,droppackage
-- provider: NuGet
-  api_key:
-    secure: DcgM8IJEkan5KWNQzAGJAJBPRkkNiyCxlUtKgWhzoh2eI9RWXjmy0GWF5RnlWVWc
-  skip_symbols: true
-  artifact: /.*\.nupkg/

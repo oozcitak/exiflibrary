@@ -1,0 +1,29 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": "**.csproj",
+          "src": "../ExifLibrary"
+        }
+      ],
+      "filter": "filterConfig.yml",
+      "dest": "obj/api"
+    }
+  ],
+  "build": {
+    "content": [ "index.md", "combinedtoc/**", "toc.yml", "articles/**.yml", "articles/**.md", "api/**.md", "obj/api/**.yml" ],
+    "resource": [ "resources/icons/**", "resources/slick/**" ],
+    "overwrite": [ "overwrites/**.md" ],
+    "globalMetadata": {
+      "_appTitle": "ExifLibrary",
+      "_appFooter": "Copyright © 2019 Özgür Özçýtak",
+      "_appLogoPath": "resources/icons/logo.png",
+      "_appFaviconPath": "resources/icons/favicon.ico",
+      "_disableBreadcrumb": true,
+      "_disableAffix": true
+    },
+    "dest": "_site",
+    "template": [ "default", "templates/hero" ]
+  }
+}

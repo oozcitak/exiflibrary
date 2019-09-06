@@ -1,6 +1,0 @@
-- name: Documentation
-  href: combinedtoc/
-- name: Download
-  href: https://www.nuget.org/packages/ExifLibNet
-- name: Source Code
-  href: https://github.com/oozcitak/exiflibrary

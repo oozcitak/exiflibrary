@@ -1,0 +1,447 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ExifProperty
+   | ExifLibrary </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ExifProperty
+   | ExifLibrary ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../resources/icons/favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../combinedtoc/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../resources/icons/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-12">
+            <article class="content wrap" id="_content" data-uid="ExifLibrary.ExifProperty">
+  
+  
+  <h1 id="ExifLibrary_ExifProperty" data-uid="ExifLibrary.ExifProperty" class="text-break">Class ExifProperty
+  </h1>
+  <div class="markdown level0 summary"><p>Represents the abstract base class for an Exif property.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">ExifProperty</span></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.ExifAscii.html">ExifAscii</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.ExifByte.html">ExifByte</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.ExifByteArray.html">ExifByteArray</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.ExifDate.html">ExifDate</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.ExifDateTime.html">ExifDateTime</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.ExifDouble.html">ExifDouble</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.ExifDoubleArray.html">ExifDoubleArray</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.ExifEncodedString.html">ExifEncodedString</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.ExifEnumProperty-1.html">ExifEnumProperty&lt;T&gt;</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.ExifFloat.html">ExifFloat</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.ExifFloatArray.html">ExifFloatArray</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.ExifSByte.html">ExifSByte</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.ExifSByteArray.html">ExifSByteArray</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.ExifSInt.html">ExifSInt</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.ExifSIntArray.html">ExifSIntArray</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.ExifSRational.html">ExifSRational</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.ExifSRationalArray.html">ExifSRationalArray</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.ExifSShort.html">ExifSShort</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.ExifSShortArray.html">ExifSShortArray</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.ExifUInt.html">ExifUInt</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.ExifUIntArray.html">ExifUIntArray</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.ExifUndefined.html">ExifUndefined</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.ExifURational.html">ExifURational</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.ExifURationalArray.html">ExifURationalArray</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.ExifUShort.html">ExifUShort</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.ExifUShortArray.html">ExifUShortArray</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.ExifVersion.html">ExifVersion</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.JFIFThumbnailProperty.html">JFIFThumbnailProperty</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.PNGInternationalText.html">PNGInternationalText</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.PNGText.html">PNGText</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.PNGTimeStamp.html">PNGTimeStamp</a></div>
+      <div class="level2"><a class="xref" href="ExifLibrary.WindowsByteString.html">WindowsByteString</a></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="ExifLibrary.html">ExifLibrary</a></h6>
+  <h6><strong>Assembly</strong>: ExifLibrary.dll</h6>
+  <h5 id="ExifLibrary_ExifProperty_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class ExifProperty</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifProperty__ctor_ExifLibrary_ExifTag_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifProperty.%23ctor(ExifLibrary.ExifTag)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifProperty.cs/#L50">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifProperty__ctor_" data-uid="ExifLibrary.ExifProperty.#ctor*"></a>
+  <h4 id="ExifLibrary_ExifProperty__ctor_ExifLibrary_ExifTag_" data-uid="ExifLibrary.ExifProperty.#ctor(ExifLibrary.ExifTag)">ExifProperty(ExifTag)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExifProperty(ExifTag tag)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">tag</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifProperty_mIFD.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifProperty.mIFD%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifProperty.cs/#L12">View Source</a>
+  </span>
+  <h4 id="ExifLibrary_ExifProperty_mIFD" data-uid="ExifLibrary.ExifProperty.mIFD">mIFD</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected IFD mIFD</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.IFD.html">IFD</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifProperty_mName.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifProperty.mName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifProperty.cs/#L13">View Source</a>
+  </span>
+  <h4 id="ExifLibrary_ExifProperty_mName" data-uid="ExifLibrary.ExifProperty.mName">mName</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected string mName</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifProperty_mTag.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifProperty.mTag%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifProperty.cs/#L11">View Source</a>
+  </span>
+  <h4 id="ExifLibrary_ExifProperty_mTag" data-uid="ExifLibrary.ExifProperty.mTag">mTag</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ExifTag mTag</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifProperty__Value.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifProperty._Value%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifProperty.cs/#L40">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifProperty__Value_" data-uid="ExifLibrary.ExifProperty._Value*"></a>
+  <h4 id="ExifLibrary_ExifProperty__Value" data-uid="ExifLibrary.ExifProperty._Value">_Value</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract object _Value { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifProperty_IFD.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifProperty.IFD%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifProperty.cs/#L22">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifProperty_IFD_" data-uid="ExifLibrary.ExifProperty.IFD*"></a>
+  <h4 id="ExifLibrary_ExifProperty_IFD" data-uid="ExifLibrary.ExifProperty.IFD">IFD</h4>
+  <div class="markdown level1 summary"><p>Gets the IFD section contaning this property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFD IFD { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.IFD.html">IFD</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifProperty_Interoperability.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifProperty.Interoperability%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifProperty.cs/#L48">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifProperty_Interoperability_" data-uid="ExifLibrary.ExifProperty.Interoperability*"></a>
+  <h4 id="ExifLibrary_ExifProperty_Interoperability" data-uid="ExifLibrary.ExifProperty.Interoperability">Interoperability</h4>
+  <div class="markdown level1 summary"><p>Gets interoperability data for this property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ExifInterOperability Interoperability { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifInterOperability.html">ExifInterOperability</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifProperty_Name.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifProperty.Name%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifProperty.cs/#L26">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifProperty_Name_" data-uid="ExifLibrary.ExifProperty.Name*"></a>
+  <h4 id="ExifLibrary_ExifProperty_Name" data-uid="ExifLibrary.ExifProperty.Name">Name</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the name of this property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifProperty_Tag.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifProperty.Tag%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifProperty.cs/#L18">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifProperty_Tag_" data-uid="ExifLibrary.ExifProperty.Tag*"></a>
+  <h4 id="ExifLibrary_ExifProperty_Tag" data-uid="ExifLibrary.ExifProperty.Tag">Tag</h4>
+  <div class="markdown level1 summary"><p>Gets the Exif tag associated with this property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExifTag Tag { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifProperty_Value.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifProperty.Value%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifProperty.cs/#L44">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifProperty_Value_" data-uid="ExifLibrary.ExifProperty.Value*"></a>
+  <h4 id="ExifLibrary_ExifProperty_Value" data-uid="ExifLibrary.ExifProperty.Value">Value</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the value of this property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object Value { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2019 Özgür Özçıtak
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

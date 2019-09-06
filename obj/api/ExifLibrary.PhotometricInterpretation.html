@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Enum PhotometricInterpretation
+   | ExifLibrary </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Enum PhotometricInterpretation
+   | ExifLibrary ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../resources/icons/favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../combinedtoc/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../resources/icons/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-12">
+            <article class="content wrap" id="_content" data-uid="ExifLibrary.PhotometricInterpretation">
+  
+  
+  <h1 id="ExifLibrary_PhotometricInterpretation" data-uid="ExifLibrary.PhotometricInterpretation" class="text-break">Enum PhotometricInterpretation
+  </h1>
+  <div class="markdown level0 summary"><p>Represents the pixel composition.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="ExifLibrary.html">ExifLibrary</a></h6>
+  <h6><strong>Assembly</strong>: ExifLibrary.dll</h6>
+  <h5 id="ExifLibrary_PhotometricInterpretation_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public enum PhotometricInterpretation : ushort</code></pre>
+  </div>
+  <h3 id="fields">Fields
+  </h3>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    <thead>
+    <tbody>
+      <tr>
+        <td id="ExifLibrary_PhotometricInterpretation_BlackIsZero">BlackIsZero</td>
+        <td><p>For bilevel and grayscale images: 0 is imaged as black.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ExifLibrary_PhotometricInterpretation_CFA">CFA</td>
+        <td><p>Color Filter Array color space.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ExifLibrary_PhotometricInterpretation_CIELab">CIELab</td>
+        <td><p>CIE (L<em>, a</em>, b*) color space.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ExifLibrary_PhotometricInterpretation_ICCLab">ICCLab</td>
+        <td><p>ICC (L<em>, a</em>, b*) color space.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ExifLibrary_PhotometricInterpretation_ITULab">ITULab</td>
+        <td><p>ITU (L<em>, a</em>, b*) color space.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ExifLibrary_PhotometricInterpretation_LinearRaw">LinearRaw</td>
+        <td><p>Linear Raw color space.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ExifLibrary_PhotometricInterpretation_Pixar_LOGL">Pixar_LOGL</td>
+        <td><p>Pixar LogL color space.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ExifLibrary_PhotometricInterpretation_PixarLOGLUV">PixarLOGLUV</td>
+        <td><p>Pixar LogLUV color space.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ExifLibrary_PhotometricInterpretation_RGB">RGB</td>
+        <td><p>RGB value of (0,0,0) represents black, and (255,255,255) represents white, 
+assuming 8-bit components. The components are stored in the indicated order: 
+first Red, then Green, then Blue.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ExifLibrary_PhotometricInterpretation_RGBPalette">RGBPalette</td>
+        <td><p>Palette color. In this model, a color is described with a single component. 
+The value of the component is used as an index into the red, green and blue 
+curves in the ColorMap field to retrieve an RGB triplet that defines the color. 
+With a palette, ColorMap must be present and SamplesPerPixel must be 1.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ExifLibrary_PhotometricInterpretation_Seperated">Seperated</td>
+        <td><p>Seperated, usually CMYK.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ExifLibrary_PhotometricInterpretation_TransparencyMask">TransparencyMask</td>
+        <td><p>The image is used to define an irregularly shaped region of another image 
+in the same file. SamplesPerPixel and BitsPerSample must be 1. 
+PackBits compression is recommended. The 1-bits define the interior
+of the region; the 0-bits define the exterior of the region.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ExifLibrary_PhotometricInterpretation_WhiteIsZero">WhiteIsZero</td>
+        <td><p>For bilevel and grayscale images: 0 is imaged as white.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ExifLibrary_PhotometricInterpretation_YCbCr">YCbCr</td>
+        <td><p>YCbCr color space.</p>
+</td>
+      </tr>
+    </tbody>
+  </thead></thead></table>
+</article>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2019 Özgür Özçıtak
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

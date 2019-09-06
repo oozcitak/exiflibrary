@@ -1,0 +1,335 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class TIFFFile
+   | ExifLibrary </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class TIFFFile
+   | ExifLibrary ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../resources/icons/favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../combinedtoc/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../resources/icons/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-12">
+            <article class="content wrap" id="_content" data-uid="ExifLibrary.TIFFFile">
+  
+  
+  <h1 id="ExifLibrary_TIFFFile" data-uid="ExifLibrary.TIFFFile" class="text-break">Class TIFFFile
+  </h1>
+  <div class="markdown level0 summary"><p>Represents the binary view of a TIFF file.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="ExifLibrary.ImageFile.html">ImageFile</a></div>
+    <div class="level2"><span class="xref">TIFFFile</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_Format">ImageFile.Format</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_Properties">ImageFile.Properties</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_Thumbnail">ImageFile.Thumbnail</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_Item_System_Int32_">ImageFile.Item[Int32]</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_Encoding">ImageFile.Encoding</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_Errors">ImageFile.Errors</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_Save_System_String_">ImageFile.Save(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_Save_System_IO_Stream_">ImageFile.Save(Stream)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_SaveAsync_System_String_">ImageFile.SaveAsync(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_SaveAsync_System_IO_Stream_">ImageFile.SaveAsync(Stream)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_FromFile_System_String_">ImageFile.FromFile(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_FromFile_System_String_System_Text_Encoding_">ImageFile.FromFile(String, Encoding)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_FromStream_System_IO_Stream_">ImageFile.FromStream(Stream)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_FromStream_System_IO_Stream_System_Text_Encoding_">ImageFile.FromStream(Stream, Encoding)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_FromBuffer_System_Byte___">ImageFile.FromBuffer(Byte[])</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_FromBuffer_System_Byte___System_Text_Encoding_">ImageFile.FromBuffer(Byte[], Encoding)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_FromFileAsync_System_String_">ImageFile.FromFileAsync(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_FromFileAsync_System_String_System_Text_Encoding_">ImageFile.FromFileAsync(String, Encoding)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_FromStreamAsync_System_IO_Stream_">ImageFile.FromStreamAsync(Stream)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_FromStreamAsync_System_IO_Stream_System_Text_Encoding_">ImageFile.FromStreamAsync(Stream, Encoding)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_FromStreamInternal_System_IO_MemoryStream_System_Text_Encoding_">ImageFile.FromStreamInternal(MemoryStream, Encoding)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="ExifLibrary.html">ExifLibrary</a></h6>
+  <h6><strong>Assembly</strong>: ExifLibrary.dll</h6>
+  <h5 id="ExifLibrary_TIFFFile_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class TIFFFile : ImageFile</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_TIFFFile__ctor_System_IO_MemoryStream_System_Text_Encoding_.md&amp;value=---%0Auid%3A%20ExifLibrary.TIFFFile.%23ctor(System.IO.MemoryStream%2CSystem.Text.Encoding)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/TIFFFile.cs/#L101">View Source</a>
+  </span>
+  <a id="ExifLibrary_TIFFFile__ctor_" data-uid="ExifLibrary.TIFFFile.#ctor*"></a>
+  <h4 id="ExifLibrary_TIFFFile__ctor_System_IO_MemoryStream_System_Text_Encoding_" data-uid="ExifLibrary.TIFFFile.#ctor(System.IO.MemoryStream,System.Text.Encoding)">TIFFFile(MemoryStream, Encoding)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="ExifLibrary.TIFFFile.html">TIFFFile</a> class from the
+specified data stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected TIFFFile(MemoryStream stream, Encoding encoding)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IO.MemoryStream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td><p>A stream that contains image data.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Text.Encoding</span></td>
+        <td><span class="parametername">encoding</span></td>
+        <td><p>The encoding to be used for text metadata when the source encoding is unknown.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_TIFFFile_IFDs.md&amp;value=---%0Auid%3A%20ExifLibrary.TIFFFile.IFDs%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/TIFFFile.cs/#L91">View Source</a>
+  </span>
+  <a id="ExifLibrary_TIFFFile_IFDs_" data-uid="ExifLibrary.TIFFFile.IFDs*"></a>
+  <h4 id="ExifLibrary_TIFFFile_IFDs" data-uid="ExifLibrary.TIFFFile.IFDs">IFDs</h4>
+  <div class="markdown level1 summary"><p>Gets the image file directories.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;ImageFileDirectory&gt; IFDs { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="ExifLibrary.ImageFileDirectory.html">ImageFileDirectory</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_TIFFFile_TIFFHeader.md&amp;value=---%0Auid%3A%20ExifLibrary.TIFFFile.TIFFHeader%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/TIFFFile.cs/#L87">View Source</a>
+  </span>
+  <a id="ExifLibrary_TIFFFile_TIFFHeader_" data-uid="ExifLibrary.TIFFFile.TIFFHeader*"></a>
+  <h4 id="ExifLibrary_TIFFFile_TIFFHeader" data-uid="ExifLibrary.TIFFFile.TIFFHeader">TIFFHeader</h4>
+  <div class="markdown level1 summary"><p>Gets the TIFF header.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TIFFHeader TIFFHeader { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.TIFFHeader.html">TIFFHeader</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_TIFFFile_Crush.md&amp;value=---%0Auid%3A%20ExifLibrary.TIFFFile.Crush%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/TIFFFile.cs/#L137">View Source</a>
+  </span>
+  <a id="ExifLibrary_TIFFFile_Crush_" data-uid="ExifLibrary.TIFFFile.Crush*"></a>
+  <h4 id="ExifLibrary_TIFFFile_Crush" data-uid="ExifLibrary.TIFFFile.Crush">Crush()</h4>
+  <div class="markdown level1 summary"><p>Decreases file size by removing all metadata.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Crush()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_Crush">ImageFile.Crush()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_TIFFFile_SaveInternal_System_IO_MemoryStream_.md&amp;value=---%0Auid%3A%20ExifLibrary.TIFFFile.SaveInternal(System.IO.MemoryStream)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/TIFFFile.cs/#L155">View Source</a>
+  </span>
+  <a id="ExifLibrary_TIFFFile_SaveInternal_" data-uid="ExifLibrary.TIFFFile.SaveInternal*"></a>
+  <h4 id="ExifLibrary_TIFFFile_SaveInternal_System_IO_MemoryStream_" data-uid="ExifLibrary.TIFFFile.SaveInternal(System.IO.MemoryStream)">SaveInternal(MemoryStream)</h4>
+  <div class="markdown level1 summary"><p>Saves the <a class="xref" href="ExifLibrary.ImageFile.html">ImageFile</a> to the given stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void SaveInternal(MemoryStream stream)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IO.MemoryStream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td><p>The data stream used to save the image.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_SaveInternal_System_IO_MemoryStream_">ImageFile.SaveInternal(MemoryStream)</a></div>
+</article>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2019 Özgür Özçıtak
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

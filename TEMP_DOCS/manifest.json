@@ -1,0 +1,1619 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/Users/PC/Source/Repos/exiflibrary/Documentation",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Toc",
+      "source_relative_path": "combinedtoc/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "combinedtoc/toc.html",
+          "hash": "1p9MiUW/I+dmi4gt1JSveQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "fB246oSOcSm7N2C1qZK9AQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.BitConverterEx.ByteOrder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.BitConverterEx.ByteOrder.html",
+          "hash": "8nUlnAAdnkumgddM2mc6CA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.BitConverterEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.BitConverterEx.html",
+          "hash": "hKo2epkIgRGNy4FZXbUlYg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ColorSpace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ColorSpace.html",
+          "hash": "ihWxEgFb0yEh4096r8LArQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.Compression.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.Compression.html",
+          "hash": "igqE/2bLzM4N5cpFdHTTTQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.Contrast.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.Contrast.html",
+          "hash": "dEs1nAt3pyzzKY+sHLW1MQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.CustomRendered.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.CustomRendered.html",
+          "hash": "A4J+K8CpDeEfxpoD8KNmlQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifAscii.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifAscii.html",
+          "hash": "d7eA/nTMEM9Mmmr3Zsg97Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifBitConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifBitConverter.html",
+          "hash": "W+kkl64pwb/VW26qMWvArw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifByte.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifByte.html",
+          "hash": "va8r3HujcqZFLsFPSScYyQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifByteArray.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifByteArray.html",
+          "hash": "1kAQvf/S7YUAJDgqOH294g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifCircularSubjectArea.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifCircularSubjectArea.html",
+          "hash": "h7S5jn12Ehv/IbLkGQyIhw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifDate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifDate.html",
+          "hash": "uefGf3A4reB0I5qFojNrGw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifDateTime.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifDateTime.html",
+          "hash": "IppMCjxn4fdAD7hxzBpZPg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifDouble.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifDouble.html",
+          "hash": "p4nYDBtUSX290ggIzm4Kag=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifDoubleArray.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifDoubleArray.html",
+          "hash": "liBByaQeB40H3lHPvA8caw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifEncodedString.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifEncodedString.html",
+          "hash": "U5GLN5q/rELxsOhFcSSjWQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifEnumProperty-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifEnumProperty-1.html",
+          "hash": "vnnIdjBpfy8LuLNLqgCsNA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifFloat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifFloat.html",
+          "hash": "pk0FbeOoFUoMWDp/PE9/Vg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifFloatArray.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifFloatArray.html",
+          "hash": "HjOoax/a93sYD13dpPwo9g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifInterOperability.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifInterOperability.html",
+          "hash": "fzYOjT9MDqbfjox75OPmyg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifPointSubjectArea.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifPointSubjectArea.html",
+          "hash": "jRtwj2QZkTrzM77FX4SJrg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifProperty.html",
+          "hash": "0g9v+0x6p13KSvKbldZH0Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifPropertyCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifPropertyCollection.html",
+          "hash": "h3CWZDkczb2k4BO6aXE/Gw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifPropertyFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifPropertyFactory.html",
+          "hash": "s62OtoN7FckOOmYOWWRLWA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifRectangularSubjectArea.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifRectangularSubjectArea.html",
+          "hash": "TK6ogGbILGssCvx7FwrPtA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifSByte.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifSByte.html",
+          "hash": "yPwTIhHH/hv5OGBCPqvW3A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifSByteArray.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifSByteArray.html",
+          "hash": "3XJ7mJguIDqzbGT9uN0pqw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifSInt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifSInt.html",
+          "hash": "B5izGHvlk67jgTJyBa43GQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifSIntArray.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifSIntArray.html",
+          "hash": "E4bgw9uUcHJBJqXsmMZEZw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifSRational.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifSRational.html",
+          "hash": "M4zUNjaWLKlj8u7uqA24bw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifSRationalArray.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifSRationalArray.html",
+          "hash": "A10DRSfoHRNm9AvWJuEDpA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifSShort.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifSShort.html",
+          "hash": "LQGpc4VZKE8gTQpqF+Udfw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifSShortArray.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifSShortArray.html",
+          "hash": "7eSDdk6ZbukQUZQL6EXymw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifTag.html",
+          "hash": "ZrUgXNnEPaWqcocyn0TSaw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifTagFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifTagFactory.html",
+          "hash": "Xw6b8pUqqAuYTDVFHsnayw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifUInt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifUInt.html",
+          "hash": "SI5XnKdvx0l5RJiQAKpUvw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifUIntArray.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifUIntArray.html",
+          "hash": "mIgaOntR8xxA+nwnJjf/Ew=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifURational.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifURational.html",
+          "hash": "U5qBgZq2xko8eLNM+XE/Ow=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifURationalArray.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifURationalArray.html",
+          "hash": "QqmBtn6FLww2k0I1JngADw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifUShort.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifUShort.html",
+          "hash": "P9AQXXv+KT5AytVH+hr/BA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifUShortArray.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifUShortArray.html",
+          "hash": "afsKmIXWLgotoOBSo8QPPA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifUndefined.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifUndefined.html",
+          "hash": "WAttIm1ypr8E3OTBhIj9xg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExifVersion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExifVersion.html",
+          "hash": "1kq0TJqaAhlH/n9+NCnH+Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExposureMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExposureMode.html",
+          "hash": "crRYsaeAOjRE4aHtqYYoGw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ExposureProgram.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ExposureProgram.html",
+          "hash": "+Nmi1hEAvteSBEJkvKZIdA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.FileSource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.FileSource.html",
+          "hash": "UF6fsaVhynswXzrvJYD0DQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.FillOrder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.FillOrder.html",
+          "hash": "4FfHZki3vkIH88Zrj/w/fg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.Flash.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.Flash.html",
+          "hash": "LooR96r56NPjUDH9zbOTCg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.GPSAltitudeRef.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.GPSAltitudeRef.html",
+          "hash": "KPcBTv7oYCN1/3D6GcTABQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.GPSDifferential.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.GPSDifferential.html",
+          "hash": "NpVaTjL84uzSBVg5MAPHug=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.GPSDirectionRef.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.GPSDirectionRef.html",
+          "hash": "LdGSKkSPKVywtKEN5aTOjQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.GPSDistanceRef.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.GPSDistanceRef.html",
+          "hash": "yGwP2SQGcN8nDl5KwzNvsw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.GPSLatitudeLongitude.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.GPSLatitudeLongitude.html",
+          "hash": "yw5AJnkNvBFhd/gUuUwufA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.GPSLatitudeRef.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.GPSLatitudeRef.html",
+          "hash": "rtNIXS9gVjXrEOq+eGXTNw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.GPSLongitudeRef.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.GPSLongitudeRef.html",
+          "hash": "PV8ZvGCEiDJLWpYbE6gzcw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.GPSMeasureMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.GPSMeasureMode.html",
+          "hash": "t74G96ea4YN3lU/skrO1ew=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.GPSSpeedRef.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.GPSSpeedRef.html",
+          "hash": "1F5ixbD5duCG0RWesJWXfg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.GPSStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.GPSStatus.html",
+          "hash": "8/63sEiUfewPniJBRGtKrA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.GPSTimeStamp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.GPSTimeStamp.html",
+          "hash": "mAKPHREFGgw6blVhXKES5Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.GainControl.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.GainControl.html",
+          "hash": "ggD9MAmosJsz+5cMpDQwww=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.GenericPropertyCollection-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.GenericPropertyCollection-1.html",
+          "hash": "zJAQVDq0z/9hSXjf1ON/Hg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.GrayResponseUnit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.GrayResponseUnit.html",
+          "hash": "xkUvBFuP44JIEV3RrPAt4w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.IFD.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.IFD.html",
+          "hash": "PrlJFg7DkICdRnxg11dU2A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.IFD0IsEmptyException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.IFD0IsEmptyException.html",
+          "hash": "o2eLHQHKmEujMBVHHoSsBA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ImageError.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ImageError.html",
+          "hash": "uQUFI4cVzi8Tvgl22MlKMg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ImageFile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ImageFile.html",
+          "hash": "5qGYq0gZ48YvYkJHgCnxug=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ImageFileDirectory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ImageFileDirectory.html",
+          "hash": "kZAC2qHoOAItyg6s2JTb2w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ImageFileDirectoryEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ImageFileDirectoryEntry.html",
+          "hash": "5p6N2JRv6YoludbhNcbD0w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ImageFileFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ImageFileFormat.html",
+          "hash": "AhNN1FouxYS7R1HRagXsDw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.InterOpType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.InterOpType.html",
+          "hash": "E6Mr6UycsuFVal1+FUmDPQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.JFIFDensityUnit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.JFIFDensityUnit.html",
+          "hash": "02bVlrMItTqwtCJ+hThrDA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.JFIFExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.JFIFExtension.html",
+          "hash": "hzE5jFuapzgalYF3H2lliA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.JFIFThumbnail.ImageFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.JFIFThumbnail.ImageFormat.html",
+          "hash": "4UV8tgjs3M/dIRHRamkNXQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.JFIFThumbnail.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.JFIFThumbnail.html",
+          "hash": "wJ3UKlGDxKYY91EGbWkiKA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.JFIFThumbnailProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.JFIFThumbnailProperty.html",
+          "hash": "e6kleSoW2WvvnkMD0Z0ceg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.JFIFVersion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.JFIFVersion.html",
+          "hash": "p9rjZmA1J4a4uliytN2rkQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.JPEGFile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.JPEGFile.html",
+          "hash": "09VLQMBL3DQkRjq0kLCjGQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.JPEGMarker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.JPEGMarker.html",
+          "hash": "Z2jsPVlhgVs2QZfNUH/iWw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.JPEGSection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.JPEGSection.html",
+          "hash": "PRqbus7JaNiVIkjM4WjvbQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.LensSpecification.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.LensSpecification.html",
+          "hash": "ukBisMCVZM/kroLb50E3kQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.LightSource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.LightSource.html",
+          "hash": "0FXUemj1Ab1tKPn+hoUmvQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.MathEx.Fraction32.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.MathEx.Fraction32.html",
+          "hash": "Nq0A499XNf2rl015omugHA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.MathEx.UFraction32.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.MathEx.UFraction32.html",
+          "hash": "IgZT+qF8CUGeolXj6Ebv/Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.MathEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.MathEx.html",
+          "hash": "b8gpn1Inwfj98gD3WsTrZg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.MeteringMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.MeteringMode.html",
+          "hash": "eXTgU0EkSSWa2d6Nr/hd1Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.NewSubfileType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.NewSubfileType.html",
+          "hash": "iUYsdAr5WGeSd1wu87mEWQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.NotValidExifFileException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.NotValidExifFileException.html",
+          "hash": "7B0bL6YustNfikMTNQZ/rA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.NotValidImageFileException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.NotValidImageFileException.html",
+          "hash": "B9Kthrx7QLOjp0ymyv+sMg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.NotValidJPEGFileException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.NotValidJPEGFileException.html",
+          "hash": "m4a0BxSqddpV6LJydnDorQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.NotValidPNGFileException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.NotValidPNGFileException.html",
+          "hash": "CDMTc6lCGBaMVneBLUbCWQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.NotValidTIFFHeader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.NotValidTIFFHeader.html",
+          "hash": "8CFj9Zml51WIy2yF7kUidA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.NotValidTIFFileException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.NotValidTIFFileException.html",
+          "hash": "dKs98v6doVymRtiWWAxkog=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.Orientation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.Orientation.html",
+          "hash": "I3B8ASv9n87jaX1oOKlLkw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.PNGChunk.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.PNGChunk.html",
+          "hash": "17QhQ79YwkKcOnyQQfLkGg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.PNGFile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.PNGFile.html",
+          "hash": "VWhibSSeAmhMIq0X5Aw0Ag=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.PNGInternationalText.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.PNGInternationalText.html",
+          "hash": "z4tMtr+Hcz2Ev3G30YV3NA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.PNGText.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.PNGText.html",
+          "hash": "B5Ewl/QRmkMV6to4sz1zrA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.PNGTimeStamp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.PNGTimeStamp.html",
+          "hash": "8YK6Om1ohdqlclbgKv4OaA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.PhotometricInterpretation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.PhotometricInterpretation.html",
+          "hash": "PwE8IgLQkAsY25ZMkAzcXQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.PlanarConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.PlanarConfiguration.html",
+          "hash": "aC1Z//ozo2pWjcQxiYYwJA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.ResolutionUnit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.ResolutionUnit.html",
+          "hash": "TGWWTmSKi92vUf0px4/hLw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.Saturation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.Saturation.html",
+          "hash": "c3fdBDi7cMb9+CRFATvTdg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.SceneCaptureType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.SceneCaptureType.html",
+          "hash": "W29o1WNuLcBY1q4lw2XBVQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.SceneType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.SceneType.html",
+          "hash": "1DJOHgZhr144fC6SBkP1EQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.SectionExceeds64KBException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.SectionExceeds64KBException.html",
+          "hash": "weQdTXkyY3zhwwIGFffnoA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.SensingMethod.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.SensingMethod.html",
+          "hash": "mqupjf+SwhodmiRffTB5tw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.Severity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.Severity.html",
+          "hash": "3caySXh5Kuzy+YmwyeVcJw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.Sharpness.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.Sharpness.html",
+          "hash": "m2d3mnemEJGNkTaAInENLA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.SubfileType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.SubfileType.html",
+          "hash": "L9HqMTCbjpakT+CSIbww/g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.SubjectDistanceRange.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.SubjectDistanceRange.html",
+          "hash": "iDfE/6MK9AtWVxx5nnlzGQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.T4Options.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.T4Options.html",
+          "hash": "zXmmnhI68k//um6wdsFeSQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.T6Options.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.T6Options.html",
+          "hash": "LjM09rYhT1mRpYHQz4paFQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.TIFFFile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.TIFFFile.html",
+          "hash": "VstbzWyy5VAruFhzw9ceVg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.TIFFHeader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.TIFFHeader.html",
+          "hash": "3Kgc8Ann/fapU3fotxNFxw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.TIFFStrip.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.TIFFStrip.html",
+          "hash": "LsM0n94ZdLee0fjVxa7pHA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.Threshholding.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.Threshholding.html",
+          "hash": "fZ3y0BaE3MfA7G1FsZLtDg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.UnknownEnumTypeException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.UnknownEnumTypeException.html",
+          "hash": "oL5oB7+h/ayYYiSu2g3gZQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.UnknownIFDSectionException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.UnknownIFDSectionException.html",
+          "hash": "qF05ce6siGJAfjEX0ufyyg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.UnknownImageFormatException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.UnknownImageFormatException.html",
+          "hash": "/8ZRxEphD6DcA0d1e6f8Gg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.Utility.CRC32.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.Utility.CRC32.html",
+          "hash": "8nh4AUCwXo0OOlZwW2mVZA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.Utility.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.Utility.html",
+          "hash": "UzVXRm7iYc2+J6Yi83LJEg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.VersionID.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.VersionID.html",
+          "hash": "P7SGwJ5iDSU++HgJQ5csrw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.WhiteBalance.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.WhiteBalance.html",
+          "hash": "lGa8fpjAcextaxgPX7mafg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.WindowsByteString.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.WindowsByteString.html",
+          "hash": "IEmRs2BWgCgBNbcTkaPe5A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.YCbCrPositioning.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.YCbCrPositioning.html",
+          "hash": "1XFBq4ZIm8f7K9Hv84Zejw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/ExifLibrary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/ExifLibrary.html",
+          "hash": "k7MxdMxOmhwUSP0EG3ieDg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/icons/favicon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "resources/icons/favicon.ico"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/icons/logo.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/icons/logo.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "2wr2sFeTyjtJdBch3SVcZw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build"
+      },
+      "processors": {
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build"
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build"
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing"
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

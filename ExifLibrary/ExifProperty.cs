@@ -47,6 +47,10 @@ namespace ExifLibrary
         /// </summary>
         public abstract ExifInterOperability Interoperability { get; }
 
+        /// <summary>
+        /// Initializes a new instanceof the <see cref="ExifProperty"/> class.
+        /// </summary>
+        /// <param name="tag">The Exif tag.</param>
         public ExifProperty(ExifTag tag)
         {
             mTag = tag;

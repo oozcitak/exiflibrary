@@ -187,7 +187,7 @@ namespace ExifLibrary
         /// </summary>
         LensSerialNumber = IFD.EXIF + 42037,
         InteroperabilityIFDPointer = IFD.EXIF + 40965,
-        // Microsoft specifing padding and offset tags
+        // Microsoft specific padding and offset tags.
         ExifIFDPadding = IFD.EXIF + 0xea1c,
         OffsetSchema = IFD.EXIF + 0xea1d,
         // ****************************

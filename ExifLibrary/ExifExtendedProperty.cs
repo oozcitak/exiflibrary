@@ -70,7 +70,8 @@ namespace ExifLibrary
     }
 
     /// <summary>
-    /// Represents an ASCII string. (EXIF Specification: UNDEFINED) Used for the UserComment field.
+    /// Represents an ASCII string. (EXIF Specification: UNDEFINED)
+    /// Used for the UserComment field.
     /// </summary>
     public class ExifEncodedString : ExifProperty
     {
@@ -119,7 +120,8 @@ namespace ExifLibrary
     }
 
     /// <summary>
-    /// Represents an ASCII string formatted as DateTime. (EXIF Specification: ASCII) Used for the date time fields.
+    /// Represents an ASCII string formatted as DateTime. (EXIF Specification: ASCII)
+    /// Used for date time fields.
     /// </summary>
     public class ExifDateTime : ExifProperty
     {
@@ -147,7 +149,8 @@ namespace ExifLibrary
     }
 
     /// <summary>
-    /// Represents an ASCII string formatted as Date. (EXIF Specification: ASCII) Used for the date fields.
+    /// Represents an ASCII string formatted as Date. (EXIF Specification: ASCII)
+    /// Used for date fields.
     /// </summary>
     public class ExifDate : ExifProperty
     {
@@ -422,7 +425,7 @@ namespace ExifLibrary
     }
 
     /// <summary>
-    /// Represents GPS latitudes and longitudes (EXIF Specification: 4xRATIONAL)
+    /// Represents lens specification (EXIF Specification: 4xRATIONAL)
     /// </summary>
     public class LensSpecification : ExifURationalArray
     {

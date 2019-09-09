@@ -14,7 +14,13 @@ namespace ExifLibrary
         /// </summary>
         public enum ByteOrder
         {
+            /// <summary>
+            /// The least significant value is stored first.
+            /// </summary>
             LittleEndian = 1,
+            /// <summary>
+            /// The most significant value is stored first.
+            /// </summary>
             BigEndian = 2,
         }
         #endregion
@@ -24,6 +30,11 @@ namespace ExifLibrary
         #endregion
 
         #region Constructors
+        /// <summary>
+        /// Intializes a new instance of the <see cref="BitConverterEx"/> class.
+        /// </summary>
+        /// <param name="from">The byte order to convert from.</param>
+        /// <param name="to">The byte order to convert to.</param>
         public BitConverterEx(ByteOrder from, ByteOrder to)
         {
             mFrom = from;

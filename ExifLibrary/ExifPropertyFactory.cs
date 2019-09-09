@@ -6,7 +6,7 @@ namespace ExifLibrary
     /// <summary>
     /// Creates exif properties from interoperability parameters.
     /// </summary>
-    public static class ExifPropertyFactory
+    internal static class ExifPropertyFactory
     {
         #region Static Methods
         /// <summary>

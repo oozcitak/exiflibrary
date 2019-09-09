@@ -9,6 +9,11 @@ namespace ExifLibrary
     public class ExifBitConverter : BitConverterEx
     {
         #region Constructors
+        /// <summary>
+        /// Intializes a new instance of the <see cref="ExifBitConverter"/> class.
+        /// </summary>
+        /// <param name="from">The byte order to convert from.</param>
+        /// <param name="to">The byte order to convert to.</param>
         public ExifBitConverter(ByteOrder from, ByteOrder to)
             : base(from, to)
         {

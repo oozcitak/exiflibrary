@@ -93,6 +93,13 @@ namespace ExifLibrary
             return string.Format("Tag: {0}, Type: {1}, Count: {2}, Data Length: {3}", mTagID, (ushort)mTypeID, mCount, mData.Length);
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ExifInterOperability"/> class.
+        /// </summary>
+        /// <param name="tagid">The Exif tag ID.</param>
+        /// <param name="typeid">The Exif data type.</param>
+        /// <param name="count">Count of data.</param>
+        /// <param name="data">Field data as a byte array.</param>
         public ExifInterOperability(ushort tagid, InterOpType typeid, uint count, byte[] data)
         {
             mTagID = tagid;

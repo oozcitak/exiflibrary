@@ -280,7 +280,7 @@ namespace ExifLibrary
     /// </summary>
     public class ExifCircularSubjectArea : ExifPointSubjectArea
     {
-        public ushort Diamater { get { return mValue[2]; } set { mValue[2] = value; } }
+        public ushort Diameter { get { return mValue[2]; } set { mValue[2] = value; } }
 
         public override string ToString()
         {

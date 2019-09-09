@@ -47,6 +47,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="articles\PropertyTypes.md" />
+    <None Include="articles\toc.yml" />
     <None Include="filterConfig.yml" />
     <None Include="packages.config" />
     <None Include="index.md" />
@@ -60,6 +62,7 @@
     <Content Include="resources\icons\favicon.ico" />
     <Content Include="resources\icons\logo.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\docfx.console.2.40.4\build\docfx.console.targets" Condition="Exists('..\packages\docfx.console.2.40.4\build\docfx.console.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

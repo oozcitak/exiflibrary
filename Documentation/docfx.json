@@ -12,7 +12,7 @@
     }
   ],
   "build": {
-    "content": [ "index.md", "combinedtoc/**", "toc.yml", "obj/api/**.yml" ],
+    "content": [ "index.md", "combinedtoc/**", "toc.yml", "articles/**.yml", "articles/**.md", "obj/api/**.yml" ],
     "resource": [ "resources/icons/**" ],
     "overwrite": [ "overwrites/**.md" ],
     "globalMetadata": {

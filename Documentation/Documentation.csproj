@@ -47,7 +47,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="articles\PropertyTypes.md" />
+    <None Include="articles\SaveFile.md" />
+    <None Include="articles\ReadFile.md" />
+    <None Include="articles\TIFFMetadata.md" />
+    <None Include="articles\PNGMetadata.md" />
+    <None Include="articles\JPEGMetadata.md" />
+    <None Include="articles\Properties.md" />
     <None Include="articles\toc.yml" />
     <None Include="filterConfig.yml" />
     <None Include="packages.config" />

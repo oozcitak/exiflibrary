@@ -1,38 +1,20 @@
 ---
-uid: Articles.PropertyTypes
-title: Property Types
+uid: Articles.JPEGMetadata
+title: JPEG Metadata
 ---
-# Property Types #
 
-To read a metadata property you need to tell the library the type of property data. For example, to get the value of ISO speed rating, which is unsigned short:
-```cs
-var file = ImageFile.FromFile("path_to_image");
+# JPEG Metadata #
 
-var isoTag = file.Properties.Get<ExifUShort>(ExifTag.ISOSpeedRatings);
-```
+## Exif Metadata ##
 
-Similarly, to get the flash property which is an enum:
-```cs
-var flashTag = data.Properties.Get<ExifEnumProperty<Flash>>(ExifTag.Flash);
-```
-
-Or the GPS latitude which is a custom type:
-```cs
-var latTag = data.Properties.Get<GPSLatitudeLongitude>(ExifTag.GPSLatitude);
-```
-
-## Known Types ##
-
-Metadata properties understood by the library are listed below:
-
-### JPEG/Exif Metadata ###
-
-Exif Tag | Tag ID | Tag ID (Hex) | Property Type | Value Type
+Tag Name | Tag ID | Tag ID (Hex) | Property Type | Value Type
 ---------|--------|--------------|---------------|-----------
 [ApertureValue](xref:ExifLibrary.ExifTag.ApertureValue) | 37378 | 0x9202 | [ExifURational](xref:ExifLibrary.ExifURational) | [MathEx.UFraction32](xref:ExifLibrary.MathEx.UFraction32)
-[Artist](xref:ExifLibrary.ExifTag.Artist) | 315 | 0x013B | [ExifAscii](xref:ExifLibrary.ExifAscii) | string[]
+[Artist](xref:ExifLibrary.ExifTag.Artist) | 315 | 0x013B | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
 [BitsPerSample](xref:ExifLibrary.ExifTag.BitsPerSample) | 258 | 0x0102 | [ExifUShortArray](xref:ExifLibrary.ExifUShortArray) | ushort[3]
+[BodySerialNumber](xref:ExifLibrary.ExifTag.BodySerialNumber) | 42033 | 0xA431 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
 [BrightnessValue](xref:ExifLibrary.ExifTag.BrightnessValue) | 37379 | 0x9203 | [ExifSRational](xref:ExifLibrary.ExifSRational) | [MathEx.Fraction32](xref:ExifLibrary.MathEx.Fraction32)
+[CameraOwnerName](xref:ExifLibrary.ExifTag.CameraOwnerName) | 42032 | 0xA430 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
 [CellLength](xref:ExifLibrary.ExifTag.CellLength) | 265 | 0x0109 | [ExifUShort](xref:ExifLibrary.ExifUShort) | ushort
 [CellWidth](xref:ExifLibrary.ExifTag.CellWidth) | 264 | 0x0108 | [ExifUShort](xref:ExifLibrary.ExifUShort) | ushort
 [CFAPattern](xref:ExifLibrary.ExifTag.CFAPattern) | 41730 | 0xA302 | [ExifUndefined](xref:ExifLibrary.ExifUndefined) | byte[]
@@ -42,15 +24,17 @@ Exif Tag | Tag ID | Tag ID (Hex) | Property Type | Value Type
 [CompressedBitsPerPixel](xref:ExifLibrary.ExifTag.CompressedBitsPerPixel) | 37122 | 0x9102 | [ExifURational](xref:ExifLibrary.ExifURational) | [MathEx.UFraction32](xref:ExifLibrary.MathEx.UFraction32)
 [Compression](xref:ExifLibrary.ExifTag.Compression) | 259 | 0x0103 | [ExifEnumProperty\<Compression>](xref:ExifLibrary.ExifEnumProperty`1) | enum [(Compression)](xref:ExifLibrary.Compression)
 [Contrast](xref:ExifLibrary.ExifTag.Contrast) | 41992 | 0xA408 | [ExifEnumProperty\<Contrast>](xref:ExifLibrary.ExifEnumProperty`1) | enum [(Contrast)](xref:ExifLibrary.Contrast)
-[Copyright](xref:ExifLibrary.ExifTag.Copyright) | 33432 | 0x8298 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string[]
+[Copyright](xref:ExifLibrary.ExifTag.Copyright) | 33432 | 0x8298 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
 [CustomRendered](xref:ExifLibrary.ExifTag.CustomRendered) | 41985 | 0xA401 | [ExifEnumProperty\<CustomRendered>](xref:ExifLibrary.ExifEnumProperty`1) | enum [(CustomRendered)](xref:ExifLibrary.CustomRendered)
 [DateTime](xref:ExifLibrary.ExifTag.DateTime) | 306 | 0x0132 | [ExifDateTime](xref:ExifLibrary.ExifDateTime) | DateTime
 [DateTimeDigitized](xref:ExifLibrary.ExifTag.DateTimeDigitized) | 36868 | 0x9004 | [ExifDateTime](xref:ExifLibrary.ExifDateTime) | DateTime
 [DateTimeOriginal](xref:ExifLibrary.ExifTag.DateTimeOriginal) | 36867 | 0x9003 | [ExifDateTime](xref:ExifLibrary.ExifDateTime) | DateTime
 [DeviceSettingDescription](xref:ExifLibrary.ExifTag.DeviceSettingDescription) | 41995 | 0xA40B | [ExifUndefined](xref:ExifLibrary.ExifUndefined) | byte[]
 [DigitalZoomRatio](xref:ExifLibrary.ExifTag.DigitalZoomRatio) | 41988 | 0xA404 | [ExifURational](xref:ExifLibrary.ExifURational) | [MathEx.UFraction32](xref:ExifLibrary.MathEx.UFraction32)
-[DocumentName](xref:ExifLibrary.ExifTag.DocumentName) | 269 | 0x010D | [ExifAscii](xref:ExifLibrary.ExifAscii) | string[]
+[DocumentName](xref:ExifLibrary.ExifTag.DocumentName) | 269 | 0x010D | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
 [DotRange](xref:ExifLibrary.ExifTag.DotRange) | 336 | 0x0150 | [ExifByteArray](xref:ExifLibrary.ExifByteArray) or [ExifUShortArray](xref:ExifLibrary.ExifUShortArray) | byte[2 or 2\*NumberOfInks] or ushort[2 or 2\*NumberOfInks]
+[EXIFIFDPointer](xref:ExifLibrary.ExifTag.EXIFIFDPointer) | 34665 | 0x8769 | [ExifUShort](xref:ExifLibrary.ExifUShort) | ushort
+[ExifIFDPadding](xref:ExifLibrary.ExifTag.ExifIFDPadding) | 59932 | 0xEA1C | [ExifUndefined](xref:ExifLibrary.ExifUndefined) | byte[]
 [ExifVersion](xref:ExifLibrary.ExifTag.ExifVersion) | 36864 | 0x9000 | [ExifVersion](xref:ExifLibrary.ExifVersion) | string
 [ExposureBiasValue](xref:ExifLibrary.ExifTag.ExposureBiasValue) | 37380 | 0x9204 | [ExifSRational](xref:ExifLibrary.ExifSRational) | [MathEx.Fraction32](xref:ExifLibrary.MathEx.Fraction32)
 [ExposureIndex](xref:ExifLibrary.ExifTag.ExposureIndex) | 41493 | 0xA215 | [ExifURational](xref:ExifLibrary.ExifURational) | [MathEx.UFraction32](xref:ExifLibrary.MathEx.UFraction32)
@@ -86,16 +70,17 @@ Exif Tag | Tag ID | Tag ID (Hex) | Property Type | Value Type
 [GPSDestLongitudeRef](xref:ExifLibrary.ExifTag.GPSDestLongitudeRef) | 21 | 0x0015 | [ExifEnumProperty\<GPSLongitudeRef>](xref:ExifLibrary.ExifEnumProperty`1) | enum [(GPSLongitudeRef)](xref:ExifLibrary.GPSLongitudeRef)
 [GPSDifferential](xref:ExifLibrary.ExifTag.GPSDifferential) | 30 | 0x001E | [ExifEnumProperty\<GPSDifferential>](xref:ExifLibrary.ExifEnumProperty`1) | enum [(GPSDifferential)](xref:ExifLibrary.GPSDifferential)
 [GPSDOP](xref:ExifLibrary.ExifTag.GPSDOP) | 11 | 0x000B | [ExifURational](xref:ExifLibrary.ExifURational) | [MathEx.UFraction32](xref:ExifLibrary.MathEx.UFraction32)
+[GPSIFDPointer](xref:ExifLibrary.ExifTag.GPSIFDPointer) | 34853 | 0x8825 | [ExifUShort](xref:ExifLibrary.ExifUShort) | ushort
 [GPSImgDirection](xref:ExifLibrary.ExifTag.GPSImgDirection) | 17 | 0x0011 | [ExifURational](xref:ExifLibrary.ExifURational) | [MathEx.UFraction32](xref:ExifLibrary.MathEx.UFraction32)
 [GPSImgDirectionRef](xref:ExifLibrary.ExifTag.GPSImgDirectionRef) | 16 | 0x0010 | [ExifEnumProperty\<GPSDirectionRef>](xref:ExifLibrary.ExifEnumProperty`1) | enum [(GPSDirectionRef)](xref:ExifLibrary.GPSDirectionRef)
 [GPSLatitude](xref:ExifLibrary.ExifTag.GPSLatitude) | 2 | 0x0002 | [GPSLatitudeLongitude](xref:ExifLibrary.GPSLatitudeLongitude) | [MathEx.UFraction32[3](Degrees, Minutes, Seconds)](xref:ExifLibrary.MathEx.UFraction32)
 [GPSLatitudeRef](xref:ExifLibrary.ExifTag.GPSLatitudeRef) | 1 | 0x0001 | [ExifEnumProperty\<GPSLatitudeRef>](xref:ExifLibrary.ExifEnumProperty`1) | enum [(GPSLatitudeRef)](xref:ExifLibrary.GPSLatitudeRef)
 [GPSLongitude](xref:ExifLibrary.ExifTag.GPSLongitude) | 4 | 0x0004 | [GPSLatitudeLongitude](xref:ExifLibrary.GPSLatitudeLongitude) | [MathEx.UFraction32[3](Degrees, Minutes, Seconds)](xref:ExifLibrary.MathEx.UFraction32)
 [GPSLongitudeRef](xref:ExifLibrary.ExifTag.GPSLongitudeRef) | 3 | 0x0003 | [ExifEnumProperty\<GPSLongitudeRef>](xref:ExifLibrary.ExifEnumProperty`1) | enum [(GPSLongitudeRef)](xref:ExifLibrary.GPSLongitudeRef)
-[GPSMapDatum](xref:ExifLibrary.ExifTag.GPSMapDatum) | 18 | 0x0012 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string[]
+[GPSMapDatum](xref:ExifLibrary.ExifTag.GPSMapDatum) | 18 | 0x0012 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
 [GPSMeasureMode](xref:ExifLibrary.ExifTag.GPSMeasureMode) | 10 | 0x000A | [ExifEnumProperty\<GPSMeasureMode>](xref:ExifLibrary.ExifEnumProperty`1) | enum [(GPSMeasureMode)](xref:ExifLibrary.GPSMeasureMode)
 [GPSProcessingMethod](xref:ExifLibrary.ExifTag.GPSProcessingMethod) | 27 | 0x001B | [ExifUndefined](xref:ExifLibrary.ExifUndefined) | byte[]
-[GPSSatellites](xref:ExifLibrary.ExifTag.GPSSatellites) | 8 | 0x0008 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string[]
+[GPSSatellites](xref:ExifLibrary.ExifTag.GPSSatellites) | 8 | 0x0008 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
 [GPSSpeed](xref:ExifLibrary.ExifTag.GPSSpeed) | 13 | 0x000D | [ExifURational](xref:ExifLibrary.ExifURational) | [MathEx.UFraction32](xref:ExifLibrary.MathEx.UFraction32)
 [GPSSpeedRef](xref:ExifLibrary.ExifTag.GPSSpeedRef) | 12 | 0x000C | [ExifEnumProperty\<GPSSpeedRef>](xref:ExifLibrary.ExifEnumProperty`1) | enum [(GPSSpeedRef)](xref:ExifLibrary.GPSSpeedRef)
 [GPSStatus](xref:ExifLibrary.ExifTag.GPSStatus) | 9 | 0x0009 | [ExifEnumProperty\<GPSStatus>](xref:ExifLibrary.ExifEnumProperty`1) | enum [(GPSStatus)](xref:ExifLibrary.GPSStatus)
@@ -106,13 +91,16 @@ Exif Tag | Tag ID | Tag ID (Hex) | Property Type | Value Type
 [GrayResponseCurve](xref:ExifLibrary.ExifTag.GrayResponseCurve) | 291 | 0x0123 | [ExifUShortArray](xref:ExifLibrary.ExifUShortArray) | ushort[2^BitsPerSample]
 [GrayResponseUnit](xref:ExifLibrary.ExifTag.GrayResponseUnit) | 290 | 0x0122 | [ExifUShort](xref:ExifLibrary.ExifUShort) | ushort
 [HalftoneHints](xref:ExifLibrary.ExifTag.HalftoneHints) | 321 | 0x0141 | [ExifUShortArray](xref:ExifLibrary.ExifUShortArray) | ushort[2]
-[HostComputer](xref:ExifLibrary.ExifTag.HostComputer) | 316 | 0x013C | [ExifAscii](xref:ExifLibrary.ExifAscii) | string[]
-[ImageDescription](xref:ExifLibrary.ExifTag.ImageDescription) | 270 | 0x010E | [ExifAscii](xref:ExifLibrary.ExifAscii) | string[]
+[HostComputer](xref:ExifLibrary.ExifTag.HostComputer) | 316 | 0x013C | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
+[ImageDescription](xref:ExifLibrary.ExifTag.ImageDescription) | 270 | 0x010E | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
 [ImageLength](xref:ExifLibrary.ExifTag.ImageLength) | 257 | 0x0101 | [ExifUShort](xref:ExifLibrary.ExifUShort) or [ExifUInt](xref:ExifLibrary.ExifUInt) | ushort or uint
-[ImageUniqueID](xref:ExifLibrary.ExifTag.ImageUniqueID) | 42016 | 0xA420 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string[33]
+[ImageUniqueID](xref:ExifLibrary.ExifTag.ImageUniqueID) | 42016 | 0xA420 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
 [ImageWidth](xref:ExifLibrary.ExifTag.ImageWidth) | 256 | 0x0100 | [ExifUShort](xref:ExifLibrary.ExifUShort) or [ExifUInt](xref:ExifLibrary.ExifUInt) | ushort or uint
-[InkNames](xref:ExifLibrary.ExifTag.InkNames) | 333 | 0x014D | [ExifAscii](xref:ExifLibrary.ExifAscii) | string[]
+[InkNames](xref:ExifLibrary.ExifTag.InkNames) | 333 | 0x014D | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
 [InkSet](xref:ExifLibrary.ExifTag.InkSet) | 332 | 0x014C | [ExifUShort](xref:ExifLibrary.ExifUShort) | ushort
+[InteroperabilityIFDPointer](xref:ExifLibrary.ExifTag.InteroperabilityIFDPointer) | 40965 | 0xA005 | [ExifUShort](xref:ExifLibrary.ExifUShort) | ushort
+[InteroperabilityIndex](xref:ExifLibrary.ExifTag.InteroperabilityIndex) | 1 | 0x0001 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
+[InteroperabilityVersion](xref:ExifLibrary.ExifTag.InteroperabilityVersion) | 2 | 0x0002 | [ExifVersion](xref:ExifLibrary.ExifVersion) | string
 [ISOSpeedRatings](xref:ExifLibrary.ExifTag.ISOSpeedRatings) | 34855 | 0x8827 | [ExifUShortArray](xref:ExifLibrary.ExifUShortArray) | ushort[]
 [JPEGACTables](xref:ExifLibrary.ExifTag.JPEGACTables) | 521 | 0x0209 | [ExifUIntArray](xref:ExifLibrary.ExifUIntArray) | uint[SamplesPerPixel]
 [JPEGDCTables](xref:ExifLibrary.ExifTag.JPEGDCTables) | 520 | 0x0208 | [ExifUIntArray](xref:ExifLibrary.ExifUIntArray) | uint[SamplesPerPixel]
@@ -123,19 +111,24 @@ Exif Tag | Tag ID | Tag ID (Hex) | Property Type | Value Type
 [JPEGProc](xref:ExifLibrary.ExifTag.JPEGProc) | 512 | 0x0200 | [ExifUShort](xref:ExifLibrary.ExifUShort) | ushort
 [JPEGQTables](xref:ExifLibrary.ExifTag.JPEGQTables) | 519 | 0x0207 | [ExifUIntArray](xref:ExifLibrary.ExifUIntArray) | uint[SamplesPerPixel]
 [JPEGRestartInterval](xref:ExifLibrary.ExifTag.JPEGRestartInterval) | 515 | 0x0203 | [ExifUShort](xref:ExifLibrary.ExifUShort) | ushort
+[LensMake](xref:ExifLibrary.ExifTag.LensMake) | 42035 | 0xA433 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
+[LensModel](xref:ExifLibrary.ExifTag.LensModel) | 42036 | 0xA434 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
+[LensSerialNumber](xref:ExifLibrary.ExifTag.LensSerialNumber) | 42037 | 0xA435 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
+[LensSpecification](xref:ExifLibrary.ExifTag.LensSpecification) | 42034 | 0xA432 | [LensSpecification](xref:ExifLibrary.LensSpecification) | [MathEx.UFraction32[4](MinFocalLength, MaxFocalLength, MinFocalLengthFNumber, MaxFocalLengthFNumber)](xref:ExifLibrary.MathEx.UFraction32)
 [LightSource](xref:ExifLibrary.ExifTag.LightSource) | 37384 | 0x9208 | [ExifEnumProperty\<LightSource>](xref:ExifLibrary.ExifEnumProperty`1) | enum [(LightSource)](xref:ExifLibrary.LightSource)
-[Make](xref:ExifLibrary.ExifTag.Make) | 271 | 0x010F | [ExifAscii](xref:ExifLibrary.ExifAscii) | string[]
+[Make](xref:ExifLibrary.ExifTag.Make) | 271 | 0x010F | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
 [MakerNote](xref:ExifLibrary.ExifTag.MakerNote) | 37500 | 0x927C | [ExifUndefined](xref:ExifLibrary.ExifUndefined) | byte[]
 [MaxApertureValue](xref:ExifLibrary.ExifTag.MaxApertureValue) | 37381 | 0x9205 | [ExifURational](xref:ExifLibrary.ExifURational) | [MathEx.UFraction32](xref:ExifLibrary.MathEx.UFraction32)
 [MaxSampleValue](xref:ExifLibrary.ExifTag.MaxSampleValue) | 281 | 0x0119 | [ExifUShortArray](xref:ExifLibrary.ExifUShortArray) | ushort[SamplesPerPixel]
 [MeteringMode](xref:ExifLibrary.ExifTag.MeteringMode) | 37383 | 0x9207 | [ExifEnumProperty\<MeteringMode>](xref:ExifLibrary.ExifEnumProperty`1) | enum [(MeteringMode)](xref:ExifLibrary.MeteringMode)
 [MinSampleValue](xref:ExifLibrary.ExifTag.MinSampleValue) | 280 | 0x0118 | [ExifUShortArray](xref:ExifLibrary.ExifUShortArray) | ushort[SamplesPerPixel]
-[Model](xref:ExifLibrary.ExifTag.Model) | 272 | 0x0110 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string[]
+[Model](xref:ExifLibrary.ExifTag.Model) | 272 | 0x0110 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
 [NewSubfileType](xref:ExifLibrary.ExifTag.NewSubfileType) | 254 | 0x00FE | [ExifUInt](xref:ExifLibrary.ExifUInt) | uint
 [NumberOfInks](xref:ExifLibrary.ExifTag.NumberOfInks) | 334 | 0x014E | [ExifUShort](xref:ExifLibrary.ExifUShort) | ushort
 [OECF](xref:ExifLibrary.ExifTag.OECF) | 34856 | 0x8828 | [ExifUndefined](xref:ExifLibrary.ExifUndefined) | byte[]
+[OffsetSchema](xref:ExifLibrary.ExifTag.OffsetSchema) | 59933 | 0xEA1D | [ExifSInt](xref:ExifLibrary.ExifSInt) | int
 [Orientation](xref:ExifLibrary.ExifTag.Orientation) | 274 | 0x0112 | [ExifEnumProperty\<Orientation>](xref:ExifLibrary.ExifEnumProperty`1) | enum [(Orientation)](xref:ExifLibrary.Orientation)
-[PageName](xref:ExifLibrary.ExifTag.PageName) | 285 | 0x011D | [ExifAscii](xref:ExifLibrary.ExifAscii) | string[]
+[PageName](xref:ExifLibrary.ExifTag.PageName) | 285 | 0x011D | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
 [PageNumber](xref:ExifLibrary.ExifTag.PageNumber) | 297 | 0x0129 | [ExifUShortArray](xref:ExifLibrary.ExifUShortArray) | ushort[2]
 [PhotometricInterpretation](xref:ExifLibrary.ExifTag.PhotometricInterpretation) | 262 | 0x0106 | [ExifEnumProperty\<PhotometricInterpretation>](xref:ExifLibrary.ExifEnumProperty`1) | enum [(PhotometricInterpretation)](xref:ExifLibrary.PhotometricInterpretation)
 [PixelXDimension](xref:ExifLibrary.ExifTag.PixelXDimension) | 40962 | 0xA002 | [ExifUShort](xref:ExifLibrary.ExifUShort) or [ExifUInt](xref:ExifLibrary.ExifUInt) | ushort or uint
@@ -143,8 +136,12 @@ Exif Tag | Tag ID | Tag ID (Hex) | Property Type | Value Type
 [PlanarConfiguration](xref:ExifLibrary.ExifTag.PlanarConfiguration) | 284 | 0x011C | [ExifEnumProperty\<PlanarConfiguration>](xref:ExifLibrary.ExifEnumProperty`1) | enum [(PlanarConfiguration)](xref:ExifLibrary.PlanarConfiguration)
 [Predictor](xref:ExifLibrary.ExifTag.Predictor) | 317 | 0x013D | [ExifUShort](xref:ExifLibrary.ExifUShort) | ushort
 [PrimaryChromaticities](xref:ExifLibrary.ExifTag.PrimaryChromaticities) | 319 | 0x013F | [ExifURationalArray](xref:ExifLibrary.ExifURationalArray) | [MathEx.UFraction32[6]](xref:ExifLibrary.MathEx.UFraction32)
+[Rating](xref:ExifLibrary.ExifTag.Rating) | 18246 | 0x4746 | [ExifUShort](xref:ExifLibrary.ExifUShort) | ushort
+[RatingPercent](xref:ExifLibrary.ExifTag.RatingPercent) | 18249 | 0x4749 | [ExifUShort](xref:ExifLibrary.ExifUShort) | ushort
 [ReferenceBlackWhite](xref:ExifLibrary.ExifTag.ReferenceBlackWhite) | 532 | 0x0214 | [ExifURationalArray](xref:ExifLibrary.ExifURationalArray) | [MathEx.UFraction32[6]](xref:ExifLibrary.MathEx.UFraction32)
-[RelatedSoundFile](xref:ExifLibrary.ExifTag.RelatedSoundFile) | 40964 | 0xA004 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string[13]
+[RelatedImageHeight](xref:ExifLibrary.ExifTag.RelatedImageHeight) | 4098 | 0x1002 | [ExifUShort](xref:ExifLibrary.ExifUShort) | ushort
+[RelatedImageWidth](xref:ExifLibrary.ExifTag.RelatedImageWidth) | 4097 | 0x1001 | [ExifUShort](xref:ExifLibrary.ExifUShort) | ushort
+[RelatedSoundFile](xref:ExifLibrary.ExifTag.RelatedSoundFile) | 40964 | 0xA004 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
 [ResolutionUnit](xref:ExifLibrary.ExifTag.ResolutionUnit) | 296 | 0x0128 | [ExifEnumProperty\<ResolutionUnit>](xref:ExifLibrary.ExifEnumProperty`1) | enum [(ResolutionUnit)](xref:ExifLibrary.ResolutionUnit)
 [RowsPerStrip](xref:ExifLibrary.ExifTag.RowsPerStrip) | 278 | 0x0116 | [ExifUShort](xref:ExifLibrary.ExifUShort) or [ExifUInt](xref:ExifLibrary.ExifUInt) | ushort or uint
 [SampleFormat](xref:ExifLibrary.ExifTag.SampleFormat) | 339 | 0x0153 | [ExifUShortArray](xref:ExifLibrary.ExifUShortArray) | ushort[SamplesPerPixel]
@@ -157,9 +154,9 @@ Exif Tag | Tag ID | Tag ID (Hex) | Property Type | Value Type
 [ShutterSpeedValue](xref:ExifLibrary.ExifTag.ShutterSpeedValue) | 37377 | 0x9201 | [ExifSRational](xref:ExifLibrary.ExifSRational) | [MathEx.Fraction32](xref:ExifLibrary.MathEx.Fraction32)
 [SMaxSampleValue](xref:ExifLibrary.ExifTag.SMaxSampleValue) | 341 | 0x0155 | [Any] | Any[SamplesPerPixel]
 [SMinSampleValue](xref:ExifLibrary.ExifTag.SMinSampleValue) | 340 | 0x0154 | [Any] | Any[SamplesPerPixel]
-[Software](xref:ExifLibrary.ExifTag.Software) | 305 | 0x0131 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string[]
+[Software](xref:ExifLibrary.ExifTag.Software) | 305 | 0x0131 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
 [SpatialFrequencyResponse](xref:ExifLibrary.ExifTag.SpatialFrequencyResponse) | 41484 | 0xA20C | [ExifUndefined](xref:ExifLibrary.ExifUndefined) | byte[]
-[SpectralSensitivity](xref:ExifLibrary.ExifTag.SpectralSensitivity) | 34852 | 0x8824 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string[]
+[SpectralSensitivity](xref:ExifLibrary.ExifTag.SpectralSensitivity) | 34852 | 0x8824 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
 [StripByteCounts](xref:ExifLibrary.ExifTag.StripByteCounts) | 279 | 0x0117 | [ExifUShortArray](xref:ExifLibrary.ExifUShortArray) or [ExifUIntArray](xref:ExifLibrary.ExifUIntArray) | ushort[] or uint[]
 [StripOffsets](xref:ExifLibrary.ExifTag.StripOffsets) | 273 | 0x0111 | [ExifUShortArray](xref:ExifLibrary.ExifUShortArray) or [ExifUIntArray](xref:ExifLibrary.ExifUIntArray) | ushort[] or uint[]
 [SubfileType](xref:ExifLibrary.ExifTag.SubfileType) | 255 | 0x00FF | [ExifUShort](xref:ExifLibrary.ExifUShort) | ushort
@@ -167,13 +164,43 @@ Exif Tag | Tag ID | Tag ID (Hex) | Property Type | Value Type
 [SubjectDistance](xref:ExifLibrary.ExifTag.SubjectDistance) | 37382 | 0x9206 | [ExifURational](xref:ExifLibrary.ExifURational) | [MathEx.UFraction32](xref:ExifLibrary.MathEx.UFraction32)
 [SubjectDistanceRange](xref:ExifLibrary.ExifTag.SubjectDistanceRange) | 41996 | 0xA40C | [ExifEnumProperty\<SubjectDistanceRange>](xref:ExifLibrary.ExifEnumProperty`1) | enum [(SubjectDistanceRange)](xref:ExifLibrary.SubjectDistanceRange)
 [SubjectLocation](xref:ExifLibrary.ExifTag.SubjectLocation) | 41492 | 0xA214 | [ExifPointSubjectArea](xref:ExifLibrary.ExifPointSubjectArea) | ushort[2] \(X, Y)
-[SubSecTime](xref:ExifLibrary.ExifTag.SubSecTime) | 37520 | 0x9290 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string[]
-[SubSecTimeDigitized](xref:ExifLibrary.ExifTag.SubSecTimeDigitized) | 37522 | 0x9292 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string[]
-[SubSecTimeOriginal](xref:ExifLibrary.ExifTag.SubSecTimeOriginal) | 37521 | 0x9291 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string[]
+[SubSecTime](xref:ExifLibrary.ExifTag.SubSecTime) | 37520 | 0x9290 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
+[SubSecTimeDigitized](xref:ExifLibrary.ExifTag.SubSecTimeDigitized) | 37522 | 0x9292 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
+[SubSecTimeOriginal](xref:ExifLibrary.ExifTag.SubSecTimeOriginal) | 37521 | 0x9291 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
 [T4Options](xref:ExifLibrary.ExifTag.T4Options) | 292 | 0x0124 | [ExifUInt](xref:ExifLibrary.ExifUInt) | uint
 [T6Options](xref:ExifLibrary.ExifTag.T6Options) | 293 | 0x0125 | [ExifUInt](xref:ExifLibrary.ExifUInt) | uint
-[TargetPrinter](xref:ExifLibrary.ExifTag.TargetPrinter) | 337 | 0x0151 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string[]
+[TargetPrinter](xref:ExifLibrary.ExifTag.TargetPrinter) | 337 | 0x0151 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
 [Threshholding](xref:ExifLibrary.ExifTag.Threshholding) | 263 | 0x0107 | [ExifUShort](xref:ExifLibrary.ExifUShort) | ushort
+[ThumbnailArtist](xref:ExifLibrary.ExifTag.ThumbnailArtist) | 315 | 0x013B | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
+[ThumbnailBitsPerSample](xref:ExifLibrary.ExifTag.ThumbnailBitsPerSample) | 258 | 0x0102 | [ExifUShortArray](xref:ExifLibrary.ExifUShortArray) | ushort[3]
+[ThumbnailCompression](xref:ExifLibrary.ExifTag.ThumbnailCompression) | 259 | 0x0103 | [ExifEnumProperty\<Compression>](xref:ExifLibrary.ExifEnumProperty`1) | enum [(Compression)](xref:ExifLibrary.Compression)
+[ThumbnailCopyright](xref:ExifLibrary.ExifTag.ThumbnailCopyright) | 33432 | 0x8298 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
+[ThumbnailDateTime](xref:ExifLibrary.ExifTag.ThumbnailDateTime) | 306 | 0x0132 | [ExifDateTime](xref:ExifLibrary.ExifDateTime) | DateTime
+[ThumbnailImageDescription](xref:ExifLibrary.ExifTag.ThumbnailImageDescription) | 270 | 0x010E | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
+[ThumbnailImageLength](xref:ExifLibrary.ExifTag.ThumbnailImageLength) | 257 | 0x0101 | [ExifUShort](xref:ExifLibrary.ExifUShort) or [ExifUInt](xref:ExifLibrary.ExifUInt) | ushort or uint
+[ThumbnailImageWidth](xref:ExifLibrary.ExifTag.ThumbnailImageWidth) | 256 | 0x0100 | [ExifUShort](xref:ExifLibrary.ExifUShort) or [ExifUInt](xref:ExifLibrary.ExifUInt) | ushort or uint
+[ThumbnailJPEGInterchangeFormat](xref:ExifLibrary.ExifTag.ThumbnailJPEGInterchangeFormat) | 513 | 0x0201 | [ExifUInt](xref:ExifLibrary.ExifUInt) | uint
+[ThumbnailJPEGInterchangeFormatLength](xref:ExifLibrary.ExifTag.ThumbnailJPEGInterchangeFormatLength) | 514 | 0x0202 | [ExifUInt](xref:ExifLibrary.ExifUInt) | uint
+[ThumbnailMake](xref:ExifLibrary.ExifTag.ThumbnailMake) | 271 | 0x010F | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
+[ThumbnailModel](xref:ExifLibrary.ExifTag.ThumbnailModel) | 272 | 0x0110 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
+[ThumbnailOrientation](xref:ExifLibrary.ExifTag.ThumbnailOrientation) | 274 | 0x0112 | [ExifEnumProperty\<Orientation>](xref:ExifLibrary.ExifEnumProperty`1) | enum [(Orientation)](xref:ExifLibrary.Orientation)
+[ThumbnailPhotometricInterpretation](xref:ExifLibrary.ExifTag.ThumbnailPhotometricInterpretation) | 262 | 0x0106 | [ExifEnumProperty\<PhotometricInterpretation>](xref:ExifLibrary.ExifEnumProperty`1) | enum [(PhotometricInterpretation)](xref:ExifLibrary.PhotometricInterpretation)
+[ThumbnailPlanarConfiguration](xref:ExifLibrary.ExifTag.ThumbnailPlanarConfiguration) | 284 | 0x011C | [ExifEnumProperty\<PlanarConfiguration>](xref:ExifLibrary.ExifEnumProperty`1) | enum [(PlanarConfiguration)](xref:ExifLibrary.PlanarConfiguration)
+[ThumbnailPrimaryChromaticities](xref:ExifLibrary.ExifTag.ThumbnailPrimaryChromaticities) | 319 | 0x013F | [ExifURationalArray](xref:ExifLibrary.ExifURationalArray) | [MathEx.UFraction32[6]](xref:ExifLibrary.MathEx.UFraction32)
+[ThumbnailReferenceBlackWhite](xref:ExifLibrary.ExifTag.ThumbnailReferenceBlackWhite) | 532 | 0x0214 | [ExifURationalArray](xref:ExifLibrary.ExifURationalArray) | [MathEx.UFraction32[6]](xref:ExifLibrary.MathEx.UFraction32)
+[ThumbnailResolutionUnit](xref:ExifLibrary.ExifTag.ThumbnailResolutionUnit) | 296 | 0x0128 | [ExifEnumProperty\<ResolutionUnit>](xref:ExifLibrary.ExifEnumProperty`1) | enum [(ResolutionUnit)](xref:ExifLibrary.ResolutionUnit)
+[ThumbnailRowsPerStrip](xref:ExifLibrary.ExifTag.ThumbnailRowsPerStrip) | 278 | 0x0116 | [ExifUShort](xref:ExifLibrary.ExifUShort) or [ExifUInt](xref:ExifLibrary.ExifUInt) | ushort or uint
+[ThumbnailSamplesPerPixel](xref:ExifLibrary.ExifTag.ThumbnailSamplesPerPixel) | 277 | 0x0115 | [ExifUShort](xref:ExifLibrary.ExifUShort) | ushort
+[ThumbnailSoftware](xref:ExifLibrary.ExifTag.ThumbnailSoftware) | 305 | 0x0131 | [ExifAscii](xref:ExifLibrary.ExifAscii) | string
+[ThumbnailStripByteCounts](xref:ExifLibrary.ExifTag.ThumbnailStripByteCounts) | 279 | 0x0117 | [ExifUShortArray](xref:ExifLibrary.ExifUShortArray) or [ExifUIntArray](xref:ExifLibrary.ExifUIntArray) | ushort[] or uint[]
+[ThumbnailStripOffsets](xref:ExifLibrary.ExifTag.ThumbnailStripOffsets) | 273 | 0x0111 | [ExifUShortArray](xref:ExifLibrary.ExifUShortArray) or [ExifUIntArray](xref:ExifLibrary.ExifUIntArray) | ushort[] or uint[]
+[ThumbnailTransferFunction](xref:ExifLibrary.ExifTag.ThumbnailTransferFunction) | 301 | 0x012D | [ExifUShortArray](xref:ExifLibrary.ExifUShortArray) | ushort[3*256]
+[ThumbnailWhitePoint](xref:ExifLibrary.ExifTag.ThumbnailWhitePoint) | 318 | 0x013E | [ExifURationalArray](xref:ExifLibrary.ExifURationalArray) | [MathEx.UFraction32[2]](xref:ExifLibrary.MathEx.UFraction32)
+[ThumbnailXResolution](xref:ExifLibrary.ExifTag.ThumbnailXResolution) | 282 | 0x011A | [ExifURational](xref:ExifLibrary.ExifURational) | [MathEx.UFraction32](xref:ExifLibrary.MathEx.UFraction32)
+[ThumbnailYCbCrCoefficients](xref:ExifLibrary.ExifTag.ThumbnailYCbCrCoefficients) | 529 | 0x0211 | [ExifURationalArray](xref:ExifLibrary.ExifURationalArray) | [MathEx.UFraction32[3]](xref:ExifLibrary.MathEx.UFraction32)
+[ThumbnailYCbCrPositioning](xref:ExifLibrary.ExifTag.ThumbnailYCbCrPositioning) | 531 | 0x0213 | [ExifEnumProperty\<YCbCrPositioning>](xref:ExifLibrary.ExifEnumProperty`1) | enum [(YCbCrPositioning)](xref:ExifLibrary.YCbCrPositioning)
+[ThumbnailYCbCrSubSampling](xref:ExifLibrary.ExifTag.ThumbnailYCbCrSubSampling) | 530 | 0x0212 | [ExifUShortArray](xref:ExifLibrary.ExifUShortArray) | ushort[2]
+[ThumbnailYResolution](xref:ExifLibrary.ExifTag.ThumbnailYResolution) | 283 | 0x011B | [ExifURational](xref:ExifLibrary.ExifURational) | [MathEx.UFraction32](xref:ExifLibrary.MathEx.UFraction32)
 [TileByteCounts](xref:ExifLibrary.ExifTag.TileByteCounts) | 325 | 0x0145 | [ExifUShortArray](xref:ExifLibrary.ExifUShortArray) or [ExifUIntArray](xref:ExifLibrary.ExifUIntArray) | ushort[TilesPerImage] or uint[TilesPerImage]
 [TileLength](xref:ExifLibrary.ExifTag.TileLength) | 323 | 0x0143 | [ExifUShort](xref:ExifLibrary.ExifUShort) or [ExifUInt](xref:ExifLibrary.ExifUInt) | ushort or uint
 [TileOffsets](xref:ExifLibrary.ExifTag.TileOffsets) | 324 | 0x0144 | [ExifUIntArray](xref:ExifLibrary.ExifUIntArray) | uint[TilesPerImage]
@@ -183,6 +210,11 @@ Exif Tag | Tag ID | Tag ID (Hex) | Property Type | Value Type
 [UserComment](xref:ExifLibrary.ExifTag.UserComment) | 37510 | 0x9286 | [ExifEncodedString](xref:ExifLibrary.ExifEncodedString) | string
 [WhiteBalance](xref:ExifLibrary.ExifTag.WhiteBalance) | 41987 | 0xA403 | [ExifEnumProperty\<WhiteBalance>](xref:ExifLibrary.ExifEnumProperty`1) | enum [(WhiteBalance)](xref:ExifLibrary.WhiteBalance)
 [WhitePoint](xref:ExifLibrary.ExifTag.WhitePoint) | 318 | 0x013E | [ExifURationalArray](xref:ExifLibrary.ExifURationalArray) | [MathEx.UFraction32[2]](xref:ExifLibrary.MathEx.UFraction32)
+[WindowsAuthor](xref:ExifLibrary.ExifTag.WindowsAuthor) | 40093 | 0x9C9D | [WindowsByteString](xref:ExifLibrary.WindowsByteString) | string
+[WindowsComment](xref:ExifLibrary.ExifTag.WindowsComment) | 40092 | 0x9C9C | [WindowsByteString](xref:ExifLibrary.WindowsByteString) | string
+[WindowsKeywords](xref:ExifLibrary.ExifTag.WindowsKeywords) | 40094 | 0x9C9E | [WindowsByteString](xref:ExifLibrary.WindowsByteString) | string
+[WindowsSubject](xref:ExifLibrary.ExifTag.WindowsSubject) | 40095 | 0x9C9F | [WindowsByteString](xref:ExifLibrary.WindowsByteString) | string
+[WindowsTitle](xref:ExifLibrary.ExifTag.WindowsTitle) | 40091 | 0x9C9B | [WindowsByteString](xref:ExifLibrary.WindowsByteString) | string
 [XPosition](xref:ExifLibrary.ExifTag.XPosition) | 286 | 0x011E | [ExifURationalArray](xref:ExifLibrary.ExifURationalArray) | [MathEx.UFraction32[]](xref:ExifLibrary.MathEx.UFraction32)
 [XResolution](xref:ExifLibrary.ExifTag.XResolution) | 282 | 0x011A | [ExifURational](xref:ExifLibrary.ExifURational) | [MathEx.UFraction32](xref:ExifLibrary.MathEx.UFraction32)
 [YCbCrCoefficients](xref:ExifLibrary.ExifTag.YCbCrCoefficients) | 529 | 0x0211 | [ExifURationalArray](xref:ExifLibrary.ExifURationalArray) | [MathEx.UFraction32[3]](xref:ExifLibrary.MathEx.UFraction32)
@@ -190,3 +222,22 @@ Exif Tag | Tag ID | Tag ID (Hex) | Property Type | Value Type
 [YCbCrSubSampling](xref:ExifLibrary.ExifTag.YCbCrSubSampling) | 530 | 0x0212 | [ExifUShortArray](xref:ExifLibrary.ExifUShortArray) | ushort[2]
 [YPosition](xref:ExifLibrary.ExifTag.YPosition) | 287 | 0x011F | [ExifURationalArray](xref:ExifLibrary.ExifURationalArray) | [MathEx.UFraction32[]](xref:ExifLibrary.MathEx.UFraction32)
 [YResolution](xref:ExifLibrary.ExifTag.YResolution) | 283 | 0x011B | [ExifURational](xref:ExifLibrary.ExifURational) | [MathEx.UFraction32](xref:ExifLibrary.MathEx.UFraction32)
+[ZerothIFDPadding](xref:ExifLibrary.ExifTag.ZerothIFDPadding) | 59932 | 0xEA1C | [ExifUndefined](xref:ExifLibrary.ExifUndefined) | byte[]
+
+## JFIF and JFXX Metadata ##
+
+Tag Name | Tag ID | Tag ID (Hex) | Property Type | Value Type
+---------|--------|--------------|---------------|-----------
+[JFIFVersion](xref:ExifLibrary.ExifTag.JFIFVersion) | 1 | 0x0001 | [JFIFVersion](xref:ExifLibrary.JFIFVersion) | ushort
+[JFIFUnits](xref:ExifLibrary.ExifTag.JFIFUnits) | 101 | 0x0065 | [ExifEnumProperty\<JFIFDensityUnit>](xref:ExifLibrary.ExifEnumProperty`1) | enum [(JFIFDensityUnit)](xref:ExifLibrary.JFIFDensityUnit)
+[XDensity](xref:ExifLibrary.ExifTag.XDensity) | 102 | 0x0066 | [ExifUShort](xref:ExifLibrary.ExifUShort) | ushort
+[YDensity](xref:ExifLibrary.ExifTag.YDensity) | 103 | 0x0067 | [ExifUShort](xref:ExifLibrary.ExifUShort) | ushort
+[JFIFXThumbnail](xref:ExifLibrary.ExifTag.JFIFXThumbnail) | 201 | 0x00C9 | [ExifByte](xref:ExifLibrary.ExifByte) | byte
+[JFIFYThumbnail](xref:ExifLibrary.ExifTag.JFIFYThumbnail) | 202 | 0x00CA | [ExifByte](xref:ExifLibrary.ExifByte) | byte
+[JFIFThumbnail](xref:ExifLibrary.ExifTag.JFIFThumbnail) | 203 | 0x00CB | [JFIFThumbnailProperty](xref:ExifLibrary.JFIFThumbnailProperty) | [JFIFThumbnail](xref:ExifLibrary.JFIFThumbnail)
+[JFXXExtensionCode](xref:ExifLibrary.ExifTag.JFXXExtensionCode) | 1 | 0x0001 | [ExifEnumProperty\<JFIFExtension>](xref:ExifLibrary.ExifEnumProperty`1) | enum [(JFIFExtension)](xref:ExifLibrary.JFIFExtension)
+[JFXXXThumbnail](xref:ExifLibrary.ExifTag.JFXXXThumbnail) | 101 | 0x0065 | [ExifByte](xref:ExifLibrary.ExifByte) | byte
+[JFXXYThumbnail](xref:ExifLibrary.ExifTag.JFXXYThumbnail) | 102 | 0x0066 | [ExifByte](xref:ExifLibrary.ExifByte) | byte
+[JFXXPalette](xref:ExifLibrary.ExifTag.JFXXPalette) | 201 | 0x00C9 | [ExifByteArray](xref:ExifLibrary.ExifByteArray) | byte[]
+[JFXXThumbnail](xref:ExifLibrary.ExifTag.JFXXThumbnail) | 202 | 0x00CA | [JFIFThumbnailProperty](xref:ExifLibrary.JFIFThumbnailProperty) | [JFIFThumbnail](xref:ExifLibrary.JFIFThumbnail)
+

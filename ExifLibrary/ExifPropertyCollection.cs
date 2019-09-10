@@ -83,7 +83,7 @@ namespace ExifLibrary
         /// <param name="value">The value of tag.</param>
         public void Add(ExifTag key, string value, Encoding encoding)
         {
-            if (key == ExifTag.WindowsTitle || key == ExifTag.WindowsTitle || key == ExifTag.WindowsComment || key == ExifTag.WindowsAuthor || key == ExifTag.WindowsKeywords || key == ExifTag.WindowsSubject)
+            if (key == ExifTag.WindowsTitle || key == ExifTag.WindowsComment || key == ExifTag.WindowsAuthor || key == ExifTag.WindowsKeywords || key == ExifTag.WindowsSubject)
             {
                 AddItem(new WindowsByteString(key, value));
             }
@@ -240,7 +240,7 @@ namespace ExifLibrary
         /// <param name="value">The value of tag.</param>
         public void Set(ExifTag key, string value, Encoding encoding)
         {
-            if (key == ExifTag.WindowsTitle || key == ExifTag.WindowsTitle || key == ExifTag.WindowsComment || key == ExifTag.WindowsAuthor || key == ExifTag.WindowsKeywords || key == ExifTag.WindowsSubject)
+            if (key == ExifTag.WindowsTitle || key == ExifTag.WindowsComment || key == ExifTag.WindowsAuthor || key == ExifTag.WindowsKeywords || key == ExifTag.WindowsSubject)
             {
                 SetItem(new WindowsByteString(key, value));
             }

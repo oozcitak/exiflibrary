@@ -18,43 +18,32 @@ To read an image file and extract metadata:
 
 ```cs
 var file = ImageFile.FromFile("path_to_image");
-foreach (var item in file.Properties)
-{
-    if (item.Tag == ExifTag.ISOSpeedRatings)
-    {
-        var isoTag = item as ExifUShort;
-        // the type of Value is unsigned short
-        // see documentation for tag data types
-        ushort iso = isoTag.Value;
-    }
-    else if (item.Tag == ExifTag.Flash)
-    {
-        var flashTag = item as ExifEnumProperty<Flash>;
-        // Value is an enum property
-        Flash flash = flashTag.Value;
-    }
-    else if (item.Tag == ExifTag.GPSLatitude)
-    {
-        var latTag = item as GPSLatitudeLongitude;
-        // Value contains three rational numbers
-        // representing degrees/minutes/seconds
-        // of the latitude 
-        MathEx.UFraction32[] lat = latTag.Value;
-    }
-}
+
+// the type of the ISO speed rating tag value is unsigned short
+// see documentation for tag data types
+var isoTag = file.Properties.Get<ExifUShort>(ExifTag.ISOSpeedRatings);
+
+// the flash tag's value is an enum
+var flashTag = data.Properties.Get<ExifEnumProperty<Flash>>(ExifTag.Flash);
+
+// GPS latitude is a custom type with three rational values
+// representing degrees/minutes/seconds of the latitude 
+var latTag = data.Properties.Get<GPSLatitudeLongitude>(ExifTag.GPSLatitude);
 ```
 
 To add metadata:
 
 ```cs
 var file = ImageFile.FromFile("path_to_image");
-file.Properties.Add(ExifTag.ISOSpeedRatings, 200);
-
+// note the explicit cast to ushort
+file.Properties.Set(ExifTag.ISOSpeedRatings, <ushort>200);
 ```
 
 To save the image with metadata:
-
 ```cs
-
 file.Save("path_to_image");
 ```
+
+# Documentation #
+
+Please visit: http://oozcitak.github.io/exiflibrary/

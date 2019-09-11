@@ -1,6 +1,24 @@
 ### YamlMime:XRefMap
 sorted: true
 references:
+- uid: Articles.JPEGMetadata
+  name: JPEG Metadata
+  href: articles/JPEGMetadata.html
+- uid: Articles.PNGMetadata
+  name: PNG Metadata
+  href: articles/PNGMetadata.html
+- uid: Articles.Properties
+  name: Metadata Properties
+  href: articles/Properties.html
+- uid: Articles.ReadFile
+  name: Reading Image Files
+  href: articles/ReadFile.html
+- uid: Articles.SaveFile
+  name: Saving Image Files
+  href: articles/SaveFile.html
+- uid: Articles.TIFFMetadata
+  name: TIFF Metadata
+  href: articles/TIFFMetadata.html
 - uid: ExifLibrary
   name: ExifLibrary
   href: obj/api/ExifLibrary.html
@@ -1218,19 +1236,19 @@ references:
   isSpec: "True"
   fullName: ExifLibrary.ExifCircularSubjectArea.ExifCircularSubjectArea
   nameWithType: ExifCircularSubjectArea.ExifCircularSubjectArea
-- uid: ExifLibrary.ExifCircularSubjectArea.Diamater
-  name: Diamater
-  href: obj/api/ExifLibrary.ExifCircularSubjectArea.html#ExifLibrary_ExifCircularSubjectArea_Diamater
-  commentId: P:ExifLibrary.ExifCircularSubjectArea.Diamater
-  fullName: ExifLibrary.ExifCircularSubjectArea.Diamater
-  nameWithType: ExifCircularSubjectArea.Diamater
-- uid: ExifLibrary.ExifCircularSubjectArea.Diamater*
-  name: Diamater
-  href: obj/api/ExifLibrary.ExifCircularSubjectArea.html#ExifLibrary_ExifCircularSubjectArea_Diamater_
-  commentId: Overload:ExifLibrary.ExifCircularSubjectArea.Diamater
+- uid: ExifLibrary.ExifCircularSubjectArea.Diameter
+  name: Diameter
+  href: obj/api/ExifLibrary.ExifCircularSubjectArea.html#ExifLibrary_ExifCircularSubjectArea_Diameter
+  commentId: P:ExifLibrary.ExifCircularSubjectArea.Diameter
+  fullName: ExifLibrary.ExifCircularSubjectArea.Diameter
+  nameWithType: ExifCircularSubjectArea.Diameter
+- uid: ExifLibrary.ExifCircularSubjectArea.Diameter*
+  name: Diameter
+  href: obj/api/ExifLibrary.ExifCircularSubjectArea.html#ExifLibrary_ExifCircularSubjectArea_Diameter_
+  commentId: Overload:ExifLibrary.ExifCircularSubjectArea.Diameter
   isSpec: "True"
-  fullName: ExifLibrary.ExifCircularSubjectArea.Diamater
-  nameWithType: ExifCircularSubjectArea.Diamater
+  fullName: ExifLibrary.ExifCircularSubjectArea.Diameter
+  nameWithType: ExifCircularSubjectArea.Diameter
 - uid: ExifLibrary.ExifCircularSubjectArea.ToString
   name: ToString()
   href: obj/api/ExifLibrary.ExifCircularSubjectArea.html#ExifLibrary_ExifCircularSubjectArea_ToString
@@ -2371,34 +2389,583 @@ references:
   isSpec: "True"
   fullName: ExifLibrary.ExifProperty.Value
   nameWithType: ExifProperty.Value
-- uid: ExifLibrary.ExifPropertyCollection
-  name: ExifPropertyCollection
-  href: obj/api/ExifLibrary.ExifPropertyCollection.html
-  commentId: T:ExifLibrary.ExifPropertyCollection
-  fullName: ExifLibrary.ExifPropertyCollection
-  nameWithType: ExifPropertyCollection
-- uid: ExifLibrary.ExifPropertyFactory
-  name: ExifPropertyFactory
-  href: obj/api/ExifLibrary.ExifPropertyFactory.html
-  commentId: T:ExifLibrary.ExifPropertyFactory
-  fullName: ExifLibrary.ExifPropertyFactory
-  nameWithType: ExifPropertyFactory
-- uid: ExifLibrary.ExifPropertyFactory.Get(System.UInt16,System.UInt16,System.UInt32,System.Byte[],ExifLibrary.BitConverterEx.ByteOrder,ExifLibrary.IFD,System.Text.Encoding)
-  name: Get(UInt16, UInt16, UInt32, Byte[], BitConverterEx.ByteOrder, IFD, Encoding)
-  href: obj/api/ExifLibrary.ExifPropertyFactory.html#ExifLibrary_ExifPropertyFactory_Get_System_UInt16_System_UInt16_System_UInt32_System_Byte___ExifLibrary_BitConverterEx_ByteOrder_ExifLibrary_IFD_System_Text_Encoding_
-  commentId: M:ExifLibrary.ExifPropertyFactory.Get(System.UInt16,System.UInt16,System.UInt32,System.Byte[],ExifLibrary.BitConverterEx.ByteOrder,ExifLibrary.IFD,System.Text.Encoding)
-  name.vb: Get(UInt16, UInt16, UInt32, Byte(), BitConverterEx.ByteOrder, IFD, Encoding)
-  fullName: ExifLibrary.ExifPropertyFactory.Get(System.UInt16, System.UInt16, System.UInt32, System.Byte[], ExifLibrary.BitConverterEx.ByteOrder, ExifLibrary.IFD, System.Text.Encoding)
-  fullName.vb: ExifLibrary.ExifPropertyFactory.Get(System.UInt16, System.UInt16, System.UInt32, System.Byte(), ExifLibrary.BitConverterEx.ByteOrder, ExifLibrary.IFD, System.Text.Encoding)
-  nameWithType: ExifPropertyFactory.Get(UInt16, UInt16, UInt32, Byte[], BitConverterEx.ByteOrder, IFD, Encoding)
-  nameWithType.vb: ExifPropertyFactory.Get(UInt16, UInt16, UInt32, Byte(), BitConverterEx.ByteOrder, IFD, Encoding)
-- uid: ExifLibrary.ExifPropertyFactory.Get*
-  name: Get
-  href: obj/api/ExifLibrary.ExifPropertyFactory.html#ExifLibrary_ExifPropertyFactory_Get_
-  commentId: Overload:ExifLibrary.ExifPropertyFactory.Get
+- uid: ExifLibrary.ExifPropertyCollection`1
+  name: ExifPropertyCollection<T>
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html
+  commentId: T:ExifLibrary.ExifPropertyCollection`1
+  name.vb: ExifPropertyCollection(Of T)
+  fullName: ExifLibrary.ExifPropertyCollection<T>
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T)
+  nameWithType: ExifPropertyCollection<T>
+  nameWithType.vb: ExifPropertyCollection(Of T)
+- uid: ExifLibrary.ExifPropertyCollection`1.Add(`0)
+  name: Add(T)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Add__0_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Add(`0)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Add(T)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Add(T)
+  nameWithType: ExifPropertyCollection<T>.Add(T)
+  nameWithType.vb: ExifPropertyCollection(Of T).Add(T)
+- uid: ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Byte)
+  name: Add(ExifTag, Byte)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_Byte_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Byte)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Add(ExifLibrary.ExifTag, System.Byte)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Add(ExifLibrary.ExifTag, System.Byte)
+  nameWithType: ExifPropertyCollection<T>.Add(ExifTag, Byte)
+  nameWithType.vb: ExifPropertyCollection(Of T).Add(ExifTag, Byte)
+- uid: ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.DateTime)
+  name: Add(ExifTag, DateTime)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_DateTime_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.DateTime)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Add(ExifLibrary.ExifTag, System.DateTime)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Add(ExifLibrary.ExifTag, System.DateTime)
+  nameWithType: ExifPropertyCollection<T>.Add(ExifTag, DateTime)
+  nameWithType.vb: ExifPropertyCollection(Of T).Add(ExifTag, DateTime)
+- uid: ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Double)
+  name: Add(ExifTag, Double)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_Double_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Double)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Add(ExifLibrary.ExifTag, System.Double)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Add(ExifLibrary.ExifTag, System.Double)
+  nameWithType: ExifPropertyCollection<T>.Add(ExifTag, Double)
+  nameWithType.vb: ExifPropertyCollection(Of T).Add(ExifTag, Double)
+- uid: ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Int32)
+  name: Add(ExifTag, Int32)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_Int32_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Int32)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Add(ExifLibrary.ExifTag, System.Int32)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Add(ExifLibrary.ExifTag, System.Int32)
+  nameWithType: ExifPropertyCollection<T>.Add(ExifTag, Int32)
+  nameWithType.vb: ExifPropertyCollection(Of T).Add(ExifTag, Int32)
+- uid: ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Object)
+  name: Add(ExifTag, Object)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_Object_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Object)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Add(ExifLibrary.ExifTag, System.Object)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Add(ExifLibrary.ExifTag, System.Object)
+  nameWithType: ExifPropertyCollection<T>.Add(ExifTag, Object)
+  nameWithType.vb: ExifPropertyCollection(Of T).Add(ExifTag, Object)
+- uid: ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Single)
+  name: Add(ExifTag, Single)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_Single_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Single)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Add(ExifLibrary.ExifTag, System.Single)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Add(ExifLibrary.ExifTag, System.Single)
+  nameWithType: ExifPropertyCollection<T>.Add(ExifTag, Single)
+  nameWithType.vb: ExifPropertyCollection(Of T).Add(ExifTag, Single)
+- uid: ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Single,System.Single,System.Single)
+  name: Add(ExifTag, Single, Single, Single)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_Single_System_Single_System_Single_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Single,System.Single,System.Single)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Add(ExifLibrary.ExifTag, System.Single, System.Single, System.Single)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Add(ExifLibrary.ExifTag, System.Single, System.Single, System.Single)
+  nameWithType: ExifPropertyCollection<T>.Add(ExifTag, Single, Single, Single)
+  nameWithType.vb: ExifPropertyCollection(Of T).Add(ExifTag, Single, Single, Single)
+- uid: ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.String)
+  name: Add(ExifTag, String)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_String_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.String)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Add(ExifLibrary.ExifTag, System.String)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Add(ExifLibrary.ExifTag, System.String)
+  nameWithType: ExifPropertyCollection<T>.Add(ExifTag, String)
+  nameWithType.vb: ExifPropertyCollection(Of T).Add(ExifTag, String)
+- uid: ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.String,System.Text.Encoding)
+  name: Add(ExifTag, String, Encoding)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_String_System_Text_Encoding_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.String,System.Text.Encoding)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Add(ExifLibrary.ExifTag, System.String, System.Text.Encoding)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Add(ExifLibrary.ExifTag, System.String, System.Text.Encoding)
+  nameWithType: ExifPropertyCollection<T>.Add(ExifTag, String, Encoding)
+  nameWithType.vb: ExifPropertyCollection(Of T).Add(ExifTag, String, Encoding)
+- uid: ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.UInt16)
+  name: Add(ExifTag, UInt16)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_UInt16_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.UInt16)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Add(ExifLibrary.ExifTag, System.UInt16)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Add(ExifLibrary.ExifTag, System.UInt16)
+  nameWithType: ExifPropertyCollection<T>.Add(ExifTag, UInt16)
+  nameWithType.vb: ExifPropertyCollection(Of T).Add(ExifTag, UInt16)
+- uid: ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.UInt32)
+  name: Add(ExifTag, UInt32)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_UInt32_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.UInt32)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Add(ExifLibrary.ExifTag, System.UInt32)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Add(ExifLibrary.ExifTag, System.UInt32)
+  nameWithType: ExifPropertyCollection<T>.Add(ExifTag, UInt32)
+  nameWithType.vb: ExifPropertyCollection(Of T).Add(ExifTag, UInt32)
+- uid: ExifLibrary.ExifPropertyCollection`1.Add*
+  name: Add
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Add_
+  commentId: Overload:ExifLibrary.ExifPropertyCollection`1.Add
   isSpec: "True"
-  fullName: ExifLibrary.ExifPropertyFactory.Get
-  nameWithType: ExifPropertyFactory.Get
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Add
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Add
+  nameWithType: ExifPropertyCollection<T>.Add
+  nameWithType.vb: ExifPropertyCollection(Of T).Add
+- uid: ExifLibrary.ExifPropertyCollection`1.AddItem(ExifLibrary.ExifProperty)
+  name: AddItem(ExifProperty)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_AddItem_ExifLibrary_ExifProperty_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.AddItem(ExifLibrary.ExifProperty)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.AddItem(ExifLibrary.ExifProperty)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).AddItem(ExifLibrary.ExifProperty)
+  nameWithType: ExifPropertyCollection<T>.AddItem(ExifProperty)
+  nameWithType.vb: ExifPropertyCollection(Of T).AddItem(ExifProperty)
+- uid: ExifLibrary.ExifPropertyCollection`1.AddItem*
+  name: AddItem
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_AddItem_
+  commentId: Overload:ExifLibrary.ExifPropertyCollection`1.AddItem
+  isSpec: "True"
+  fullName: ExifLibrary.ExifPropertyCollection<T>.AddItem
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).AddItem
+  nameWithType: ExifPropertyCollection<T>.AddItem
+  nameWithType.vb: ExifPropertyCollection(Of T).AddItem
+- uid: ExifLibrary.ExifPropertyCollection`1.Clear
+  name: Clear()
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Clear
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Clear
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Clear()
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Clear()
+  nameWithType: ExifPropertyCollection<T>.Clear()
+  nameWithType.vb: ExifPropertyCollection(Of T).Clear()
+- uid: ExifLibrary.ExifPropertyCollection`1.Clear*
+  name: Clear
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Clear_
+  commentId: Overload:ExifLibrary.ExifPropertyCollection`1.Clear
+  isSpec: "True"
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Clear
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Clear
+  nameWithType: ExifPropertyCollection<T>.Clear
+  nameWithType.vb: ExifPropertyCollection(Of T).Clear
+- uid: ExifLibrary.ExifPropertyCollection`1.Contains(`0)
+  name: Contains(T)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Contains__0_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Contains(`0)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Contains(T)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Contains(T)
+  nameWithType: ExifPropertyCollection<T>.Contains(T)
+  nameWithType.vb: ExifPropertyCollection(Of T).Contains(T)
+- uid: ExifLibrary.ExifPropertyCollection`1.Contains(ExifLibrary.ExifTag)
+  name: Contains(ExifTag)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Contains_ExifLibrary_ExifTag_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Contains(ExifLibrary.ExifTag)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Contains(ExifLibrary.ExifTag)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Contains(ExifLibrary.ExifTag)
+  nameWithType: ExifPropertyCollection<T>.Contains(ExifTag)
+  nameWithType.vb: ExifPropertyCollection(Of T).Contains(ExifTag)
+- uid: ExifLibrary.ExifPropertyCollection`1.Contains*
+  name: Contains
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Contains_
+  commentId: Overload:ExifLibrary.ExifPropertyCollection`1.Contains
+  isSpec: "True"
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Contains
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Contains
+  nameWithType: ExifPropertyCollection<T>.Contains
+  nameWithType.vb: ExifPropertyCollection(Of T).Contains
+- uid: ExifLibrary.ExifPropertyCollection`1.Count
+  name: Count
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Count
+  commentId: P:ExifLibrary.ExifPropertyCollection`1.Count
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Count
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Count
+  nameWithType: ExifPropertyCollection<T>.Count
+  nameWithType.vb: ExifPropertyCollection(Of T).Count
+- uid: ExifLibrary.ExifPropertyCollection`1.Count*
+  name: Count
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Count_
+  commentId: Overload:ExifLibrary.ExifPropertyCollection`1.Count
+  isSpec: "True"
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Count
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Count
+  nameWithType: ExifPropertyCollection<T>.Count
+  nameWithType.vb: ExifPropertyCollection(Of T).Count
+- uid: ExifLibrary.ExifPropertyCollection`1.Get(ExifLibrary.ExifTag)
+  name: Get(ExifTag)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Get_ExifLibrary_ExifTag_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Get(ExifLibrary.ExifTag)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Get(ExifLibrary.ExifTag)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Get(ExifLibrary.ExifTag)
+  nameWithType: ExifPropertyCollection<T>.Get(ExifTag)
+  nameWithType.vb: ExifPropertyCollection(Of T).Get(ExifTag)
+- uid: ExifLibrary.ExifPropertyCollection`1.Get*
+  name: Get
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Get_
+  commentId: Overload:ExifLibrary.ExifPropertyCollection`1.Get
+  isSpec: "True"
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Get
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Get
+  nameWithType: ExifPropertyCollection<T>.Get
+  nameWithType.vb: ExifPropertyCollection(Of T).Get
+- uid: ExifLibrary.ExifPropertyCollection`1.Get``1(ExifLibrary.ExifTag)
+  name: Get<T>(ExifTag)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Get__1_ExifLibrary_ExifTag_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Get``1(ExifLibrary.ExifTag)
+  name.vb: Get(Of T)(ExifTag)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Get<T>(ExifLibrary.ExifTag)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Get(Of T)(ExifLibrary.ExifTag)
+  nameWithType: ExifPropertyCollection<T>.Get<T>(ExifTag)
+  nameWithType.vb: ExifPropertyCollection(Of T).Get(Of T)(ExifTag)
+- uid: ExifLibrary.ExifPropertyCollection`1.GetEnumerator
+  name: GetEnumerator()
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_GetEnumerator
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.GetEnumerator
+  fullName: ExifLibrary.ExifPropertyCollection<T>.GetEnumerator()
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).GetEnumerator()
+  nameWithType: ExifPropertyCollection<T>.GetEnumerator()
+  nameWithType.vb: ExifPropertyCollection(Of T).GetEnumerator()
+- uid: ExifLibrary.ExifPropertyCollection`1.GetEnumerator*
+  name: GetEnumerator
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_GetEnumerator_
+  commentId: Overload:ExifLibrary.ExifPropertyCollection`1.GetEnumerator
+  isSpec: "True"
+  fullName: ExifLibrary.ExifPropertyCollection<T>.GetEnumerator
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).GetEnumerator
+  nameWithType: ExifPropertyCollection<T>.GetEnumerator
+  nameWithType.vb: ExifPropertyCollection(Of T).GetEnumerator
+- uid: ExifLibrary.ExifPropertyCollection`1.GetItem(ExifLibrary.ExifTag)
+  name: GetItem(ExifTag)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_GetItem_ExifLibrary_ExifTag_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.GetItem(ExifLibrary.ExifTag)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.GetItem(ExifLibrary.ExifTag)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).GetItem(ExifLibrary.ExifTag)
+  nameWithType: ExifPropertyCollection<T>.GetItem(ExifTag)
+  nameWithType.vb: ExifPropertyCollection(Of T).GetItem(ExifTag)
+- uid: ExifLibrary.ExifPropertyCollection`1.GetItem*
+  name: GetItem
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_GetItem_
+  commentId: Overload:ExifLibrary.ExifPropertyCollection`1.GetItem
+  isSpec: "True"
+  fullName: ExifLibrary.ExifPropertyCollection<T>.GetItem
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).GetItem
+  nameWithType: ExifPropertyCollection<T>.GetItem
+  nameWithType.vb: ExifPropertyCollection(Of T).GetItem
+- uid: ExifLibrary.ExifPropertyCollection`1.GetItems(ExifLibrary.ExifTag)
+  name: GetItems(ExifTag)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_GetItems_ExifLibrary_ExifTag_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.GetItems(ExifLibrary.ExifTag)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.GetItems(ExifLibrary.ExifTag)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).GetItems(ExifLibrary.ExifTag)
+  nameWithType: ExifPropertyCollection<T>.GetItems(ExifTag)
+  nameWithType.vb: ExifPropertyCollection(Of T).GetItems(ExifTag)
+- uid: ExifLibrary.ExifPropertyCollection`1.GetItems*
+  name: GetItems
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_GetItems_
+  commentId: Overload:ExifLibrary.ExifPropertyCollection`1.GetItems
+  isSpec: "True"
+  fullName: ExifLibrary.ExifPropertyCollection<T>.GetItems
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).GetItems
+  nameWithType: ExifPropertyCollection<T>.GetItems
+  nameWithType.vb: ExifPropertyCollection(Of T).GetItems
+- uid: ExifLibrary.ExifPropertyCollection`1.IndexOf(`0)
+  name: IndexOf(T)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_IndexOf__0_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.IndexOf(`0)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.IndexOf(T)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).IndexOf(T)
+  nameWithType: ExifPropertyCollection<T>.IndexOf(T)
+  nameWithType.vb: ExifPropertyCollection(Of T).IndexOf(T)
+- uid: ExifLibrary.ExifPropertyCollection`1.IndexOf*
+  name: IndexOf
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_IndexOf_
+  commentId: Overload:ExifLibrary.ExifPropertyCollection`1.IndexOf
+  isSpec: "True"
+  fullName: ExifLibrary.ExifPropertyCollection<T>.IndexOf
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).IndexOf
+  nameWithType: ExifPropertyCollection<T>.IndexOf
+  nameWithType.vb: ExifPropertyCollection(Of T).IndexOf
+- uid: ExifLibrary.ExifPropertyCollection`1.Item(ExifLibrary.ExifTag)
+  name: Item[ExifTag]
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Item_ExifLibrary_ExifTag_
+  commentId: P:ExifLibrary.ExifPropertyCollection`1.Item(ExifLibrary.ExifTag)
+  name.vb: Item(ExifTag)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Item[ExifLibrary.ExifTag]
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Item(ExifLibrary.ExifTag)
+  nameWithType: ExifPropertyCollection<T>.Item[ExifTag]
+  nameWithType.vb: ExifPropertyCollection(Of T).Item(ExifTag)
+- uid: ExifLibrary.ExifPropertyCollection`1.Item(System.Int32)
+  name: Item[Int32]
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Item_System_Int32_
+  commentId: P:ExifLibrary.ExifPropertyCollection`1.Item(System.Int32)
+  name.vb: Item(Int32)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Item[System.Int32]
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Item(System.Int32)
+  nameWithType: ExifPropertyCollection<T>.Item[Int32]
+  nameWithType.vb: ExifPropertyCollection(Of T).Item(Int32)
+- uid: ExifLibrary.ExifPropertyCollection`1.Item*
+  name: Item
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Item_
+  commentId: Overload:ExifLibrary.ExifPropertyCollection`1.Item
+  isSpec: "True"
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Item
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Item
+  nameWithType: ExifPropertyCollection<T>.Item
+  nameWithType.vb: ExifPropertyCollection(Of T).Item
+- uid: ExifLibrary.ExifPropertyCollection`1.Remove(`0)
+  name: Remove(T)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Remove__0_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Remove(`0)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Remove(T)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Remove(T)
+  nameWithType: ExifPropertyCollection<T>.Remove(T)
+  nameWithType.vb: ExifPropertyCollection(Of T).Remove(T)
+- uid: ExifLibrary.ExifPropertyCollection`1.Remove(ExifLibrary.ExifTag)
+  name: Remove(ExifTag)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Remove_ExifLibrary_ExifTag_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Remove(ExifLibrary.ExifTag)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Remove(ExifLibrary.ExifTag)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Remove(ExifLibrary.ExifTag)
+  nameWithType: ExifPropertyCollection<T>.Remove(ExifTag)
+  nameWithType.vb: ExifPropertyCollection(Of T).Remove(ExifTag)
+- uid: ExifLibrary.ExifPropertyCollection`1.Remove(ExifLibrary.IFD)
+  name: Remove(IFD)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Remove_ExifLibrary_IFD_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Remove(ExifLibrary.IFD)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Remove(ExifLibrary.IFD)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Remove(ExifLibrary.IFD)
+  nameWithType: ExifPropertyCollection<T>.Remove(IFD)
+  nameWithType.vb: ExifPropertyCollection(Of T).Remove(IFD)
+- uid: ExifLibrary.ExifPropertyCollection`1.Remove(System.Collections.Generic.IEnumerable{`0})
+  name: Remove(IEnumerable<T>)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Remove_System_Collections_Generic_IEnumerable__0__
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Remove(System.Collections.Generic.IEnumerable{`0})
+  name.vb: Remove(IEnumerable(Of T))
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Remove(System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Remove(System.Collections.Generic.IEnumerable(Of T))
+  nameWithType: ExifPropertyCollection<T>.Remove(IEnumerable<T>)
+  nameWithType.vb: ExifPropertyCollection(Of T).Remove(IEnumerable(Of T))
+- uid: ExifLibrary.ExifPropertyCollection`1.Remove(System.Collections.Generic.IEnumerable{ExifLibrary.ExifTag})
+  name: Remove(IEnumerable<ExifTag>)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Remove_System_Collections_Generic_IEnumerable_ExifLibrary_ExifTag__
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Remove(System.Collections.Generic.IEnumerable{ExifLibrary.ExifTag})
+  name.vb: Remove(IEnumerable(Of ExifTag))
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Remove(System.Collections.Generic.IEnumerable<ExifLibrary.ExifTag>)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Remove(System.Collections.Generic.IEnumerable(Of ExifLibrary.ExifTag))
+  nameWithType: ExifPropertyCollection<T>.Remove(IEnumerable<ExifTag>)
+  nameWithType.vb: ExifPropertyCollection(Of T).Remove(IEnumerable(Of ExifTag))
+- uid: ExifLibrary.ExifPropertyCollection`1.Remove*
+  name: Remove
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Remove_
+  commentId: Overload:ExifLibrary.ExifPropertyCollection`1.Remove
+  isSpec: "True"
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Remove
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Remove
+  nameWithType: ExifPropertyCollection<T>.Remove
+  nameWithType.vb: ExifPropertyCollection(Of T).Remove
+- uid: ExifLibrary.ExifPropertyCollection`1.RemoveAt(System.Int32)
+  name: RemoveAt(Int32)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_RemoveAt_System_Int32_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.RemoveAt(System.Int32)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.RemoveAt(System.Int32)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).RemoveAt(System.Int32)
+  nameWithType: ExifPropertyCollection<T>.RemoveAt(Int32)
+  nameWithType.vb: ExifPropertyCollection(Of T).RemoveAt(Int32)
+- uid: ExifLibrary.ExifPropertyCollection`1.RemoveAt*
+  name: RemoveAt
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_RemoveAt_
+  commentId: Overload:ExifLibrary.ExifPropertyCollection`1.RemoveAt
+  isSpec: "True"
+  fullName: ExifLibrary.ExifPropertyCollection<T>.RemoveAt
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).RemoveAt
+  nameWithType: ExifPropertyCollection<T>.RemoveAt
+  nameWithType.vb: ExifPropertyCollection(Of T).RemoveAt
+- uid: ExifLibrary.ExifPropertyCollection`1.Set(`0)
+  name: Set(T)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Set__0_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Set(`0)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Set(T)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Set(T)
+  nameWithType: ExifPropertyCollection<T>.Set(T)
+  nameWithType.vb: ExifPropertyCollection(Of T).Set(T)
+- uid: ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Byte)
+  name: Set(ExifTag, Byte)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_Byte_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Byte)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Set(ExifLibrary.ExifTag, System.Byte)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Set(ExifLibrary.ExifTag, System.Byte)
+  nameWithType: ExifPropertyCollection<T>.Set(ExifTag, Byte)
+  nameWithType.vb: ExifPropertyCollection(Of T).Set(ExifTag, Byte)
+- uid: ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.DateTime)
+  name: Set(ExifTag, DateTime)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_DateTime_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.DateTime)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Set(ExifLibrary.ExifTag, System.DateTime)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Set(ExifLibrary.ExifTag, System.DateTime)
+  nameWithType: ExifPropertyCollection<T>.Set(ExifTag, DateTime)
+  nameWithType.vb: ExifPropertyCollection(Of T).Set(ExifTag, DateTime)
+- uid: ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Double)
+  name: Set(ExifTag, Double)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_Double_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Double)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Set(ExifLibrary.ExifTag, System.Double)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Set(ExifLibrary.ExifTag, System.Double)
+  nameWithType: ExifPropertyCollection<T>.Set(ExifTag, Double)
+  nameWithType.vb: ExifPropertyCollection(Of T).Set(ExifTag, Double)
+- uid: ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Int32)
+  name: Set(ExifTag, Int32)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_Int32_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Int32)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Set(ExifLibrary.ExifTag, System.Int32)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Set(ExifLibrary.ExifTag, System.Int32)
+  nameWithType: ExifPropertyCollection<T>.Set(ExifTag, Int32)
+  nameWithType.vb: ExifPropertyCollection(Of T).Set(ExifTag, Int32)
+- uid: ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Object)
+  name: Set(ExifTag, Object)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_Object_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Object)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Set(ExifLibrary.ExifTag, System.Object)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Set(ExifLibrary.ExifTag, System.Object)
+  nameWithType: ExifPropertyCollection<T>.Set(ExifTag, Object)
+  nameWithType.vb: ExifPropertyCollection(Of T).Set(ExifTag, Object)
+- uid: ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Single)
+  name: Set(ExifTag, Single)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_Single_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Single)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Set(ExifLibrary.ExifTag, System.Single)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Set(ExifLibrary.ExifTag, System.Single)
+  nameWithType: ExifPropertyCollection<T>.Set(ExifTag, Single)
+  nameWithType.vb: ExifPropertyCollection(Of T).Set(ExifTag, Single)
+- uid: ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Single,System.Single,System.Single)
+  name: Set(ExifTag, Single, Single, Single)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_Single_System_Single_System_Single_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Single,System.Single,System.Single)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Set(ExifLibrary.ExifTag, System.Single, System.Single, System.Single)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Set(ExifLibrary.ExifTag, System.Single, System.Single, System.Single)
+  nameWithType: ExifPropertyCollection<T>.Set(ExifTag, Single, Single, Single)
+  nameWithType.vb: ExifPropertyCollection(Of T).Set(ExifTag, Single, Single, Single)
+- uid: ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.String)
+  name: Set(ExifTag, String)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_String_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.String)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Set(ExifLibrary.ExifTag, System.String)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Set(ExifLibrary.ExifTag, System.String)
+  nameWithType: ExifPropertyCollection<T>.Set(ExifTag, String)
+  nameWithType.vb: ExifPropertyCollection(Of T).Set(ExifTag, String)
+- uid: ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.String,System.Text.Encoding)
+  name: Set(ExifTag, String, Encoding)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_String_System_Text_Encoding_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.String,System.Text.Encoding)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Set(ExifLibrary.ExifTag, System.String, System.Text.Encoding)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Set(ExifLibrary.ExifTag, System.String, System.Text.Encoding)
+  nameWithType: ExifPropertyCollection<T>.Set(ExifTag, String, Encoding)
+  nameWithType.vb: ExifPropertyCollection(Of T).Set(ExifTag, String, Encoding)
+- uid: ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.UInt16)
+  name: Set(ExifTag, UInt16)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_UInt16_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.UInt16)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Set(ExifLibrary.ExifTag, System.UInt16)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Set(ExifLibrary.ExifTag, System.UInt16)
+  nameWithType: ExifPropertyCollection<T>.Set(ExifTag, UInt16)
+  nameWithType.vb: ExifPropertyCollection(Of T).Set(ExifTag, UInt16)
+- uid: ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.UInt32)
+  name: Set(ExifTag, UInt32)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_UInt32_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.UInt32)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Set(ExifLibrary.ExifTag, System.UInt32)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Set(ExifLibrary.ExifTag, System.UInt32)
+  nameWithType: ExifPropertyCollection<T>.Set(ExifTag, UInt32)
+  nameWithType.vb: ExifPropertyCollection(Of T).Set(ExifTag, UInt32)
+- uid: ExifLibrary.ExifPropertyCollection`1.Set*
+  name: Set
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Set_
+  commentId: Overload:ExifLibrary.ExifPropertyCollection`1.Set
+  isSpec: "True"
+  fullName: ExifLibrary.ExifPropertyCollection<T>.Set
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).Set
+  nameWithType: ExifPropertyCollection<T>.Set
+  nameWithType.vb: ExifPropertyCollection(Of T).Set
+- uid: ExifLibrary.ExifPropertyCollection`1.SetItem(ExifLibrary.ExifProperty)
+  name: SetItem(ExifProperty)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_SetItem_ExifLibrary_ExifProperty_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.SetItem(ExifLibrary.ExifProperty)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.SetItem(ExifLibrary.ExifProperty)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).SetItem(ExifLibrary.ExifProperty)
+  nameWithType: ExifPropertyCollection<T>.SetItem(ExifProperty)
+  nameWithType.vb: ExifPropertyCollection(Of T).SetItem(ExifProperty)
+- uid: ExifLibrary.ExifPropertyCollection`1.SetItem*
+  name: SetItem
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_SetItem_
+  commentId: Overload:ExifLibrary.ExifPropertyCollection`1.SetItem
+  isSpec: "True"
+  fullName: ExifLibrary.ExifPropertyCollection<T>.SetItem
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).SetItem
+  nameWithType: ExifPropertyCollection<T>.SetItem
+  nameWithType.vb: ExifPropertyCollection(Of T).SetItem
+- uid: ExifLibrary.ExifPropertyCollection`1.System#Collections#Generic#ICollection{T}#CopyTo(`0[],System.Int32)
+  name: ICollection<T>.CopyTo(T[], Int32)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_System_Collections_Generic_ICollection_T__CopyTo__0___System_Int32_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.System#Collections#Generic#ICollection{T}#CopyTo(`0[],System.Int32)
+  name.vb: System.Collections.Generic.ICollection<T>.CopyTo(T(), Int32)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.System.Collections.Generic.ICollection<T>.CopyTo(T[], System.Int32)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).System.Collections.Generic.ICollection<T>.CopyTo(T(), System.Int32)
+  nameWithType: ExifPropertyCollection<T>.ICollection<T>.CopyTo(T[], Int32)
+  nameWithType.vb: ExifPropertyCollection(Of T).System.Collections.Generic.ICollection<T>.CopyTo(T(), Int32)
+- uid: ExifLibrary.ExifPropertyCollection`1.System#Collections#Generic#ICollection{T}#CopyTo*
+  name: ICollection<T>.CopyTo
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_System_Collections_Generic_ICollection_T__CopyTo_
+  commentId: Overload:ExifLibrary.ExifPropertyCollection`1.System#Collections#Generic#ICollection{T}#CopyTo
+  isSpec: "True"
+  name.vb: System.Collections.Generic.ICollection<T>.CopyTo
+  fullName: ExifLibrary.ExifPropertyCollection<T>.System.Collections.Generic.ICollection<T>.CopyTo
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).System.Collections.Generic.ICollection<T>.CopyTo
+  nameWithType: ExifPropertyCollection<T>.ICollection<T>.CopyTo
+  nameWithType.vb: ExifPropertyCollection(Of T).System.Collections.Generic.ICollection<T>.CopyTo
+- uid: ExifLibrary.ExifPropertyCollection`1.System#Collections#Generic#ICollection{T}#IsReadOnly
+  name: ICollection<T>.IsReadOnly
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_System_Collections_Generic_ICollection_T__IsReadOnly
+  commentId: P:ExifLibrary.ExifPropertyCollection`1.System#Collections#Generic#ICollection{T}#IsReadOnly
+  name.vb: System.Collections.Generic.ICollection<T>.IsReadOnly
+  fullName: ExifLibrary.ExifPropertyCollection<T>.System.Collections.Generic.ICollection<T>.IsReadOnly
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).System.Collections.Generic.ICollection<T>.IsReadOnly
+  nameWithType: ExifPropertyCollection<T>.ICollection<T>.IsReadOnly
+  nameWithType.vb: ExifPropertyCollection(Of T).System.Collections.Generic.ICollection<T>.IsReadOnly
+- uid: ExifLibrary.ExifPropertyCollection`1.System#Collections#Generic#ICollection{T}#IsReadOnly*
+  name: ICollection<T>.IsReadOnly
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_System_Collections_Generic_ICollection_T__IsReadOnly_
+  commentId: Overload:ExifLibrary.ExifPropertyCollection`1.System#Collections#Generic#ICollection{T}#IsReadOnly
+  isSpec: "True"
+  name.vb: System.Collections.Generic.ICollection<T>.IsReadOnly
+  fullName: ExifLibrary.ExifPropertyCollection<T>.System.Collections.Generic.ICollection<T>.IsReadOnly
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).System.Collections.Generic.ICollection<T>.IsReadOnly
+  nameWithType: ExifPropertyCollection<T>.ICollection<T>.IsReadOnly
+  nameWithType.vb: ExifPropertyCollection(Of T).System.Collections.Generic.ICollection<T>.IsReadOnly
+- uid: ExifLibrary.ExifPropertyCollection`1.System#Collections#Generic#IList{T}#Insert(System.Int32,`0)
+  name: IList<T>.Insert(Int32, T)
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_System_Collections_Generic_IList_T__Insert_System_Int32__0_
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.System#Collections#Generic#IList{T}#Insert(System.Int32,`0)
+  name.vb: System.Collections.Generic.IList<T>.Insert(Int32, T)
+  fullName: ExifLibrary.ExifPropertyCollection<T>.System.Collections.Generic.IList<T>.Insert(System.Int32, T)
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).System.Collections.Generic.IList<T>.Insert(System.Int32, T)
+  nameWithType: ExifPropertyCollection<T>.IList<T>.Insert(Int32, T)
+  nameWithType.vb: ExifPropertyCollection(Of T).System.Collections.Generic.IList<T>.Insert(Int32, T)
+- uid: ExifLibrary.ExifPropertyCollection`1.System#Collections#Generic#IList{T}#Insert*
+  name: IList<T>.Insert
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_System_Collections_Generic_IList_T__Insert_
+  commentId: Overload:ExifLibrary.ExifPropertyCollection`1.System#Collections#Generic#IList{T}#Insert
+  isSpec: "True"
+  name.vb: System.Collections.Generic.IList<T>.Insert
+  fullName: ExifLibrary.ExifPropertyCollection<T>.System.Collections.Generic.IList<T>.Insert
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).System.Collections.Generic.IList<T>.Insert
+  nameWithType: ExifPropertyCollection<T>.IList<T>.Insert
+  nameWithType.vb: ExifPropertyCollection(Of T).System.Collections.Generic.IList<T>.Insert
+- uid: ExifLibrary.ExifPropertyCollection`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:ExifLibrary.ExifPropertyCollection`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: ExifLibrary.ExifPropertyCollection<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: ExifPropertyCollection<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: ExifPropertyCollection(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: ExifLibrary.ExifPropertyCollection`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:ExifLibrary.ExifPropertyCollection`1.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: ExifLibrary.ExifPropertyCollection<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: ExifLibrary.ExifPropertyCollection(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: ExifPropertyCollection<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: ExifPropertyCollection(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: ExifLibrary.ExifRectangularSubjectArea
   name: ExifRectangularSubjectArea
   href: obj/api/ExifLibrary.ExifRectangularSubjectArea.html
@@ -5786,601 +6353,6 @@ references:
   commentId: F:ExifLibrary.GainControl.None
   fullName: ExifLibrary.GainControl.None
   nameWithType: GainControl.None
-- uid: ExifLibrary.GenericPropertyCollection`1
-  name: GenericPropertyCollection<T>
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html
-  commentId: T:ExifLibrary.GenericPropertyCollection`1
-  name.vb: GenericPropertyCollection(Of T)
-  fullName: ExifLibrary.GenericPropertyCollection<T>
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T)
-  nameWithType: GenericPropertyCollection<T>
-  nameWithType.vb: GenericPropertyCollection(Of T)
-- uid: ExifLibrary.GenericPropertyCollection`1.Add(`0)
-  name: Add(T)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Add__0_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Add(`0)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Add(T)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Add(T)
-  nameWithType: GenericPropertyCollection<T>.Add(T)
-  nameWithType.vb: GenericPropertyCollection(Of T).Add(T)
-- uid: ExifLibrary.GenericPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Byte)
-  name: Add(ExifTag, Byte)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Add_ExifLibrary_ExifTag_System_Byte_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Byte)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Add(ExifLibrary.ExifTag, System.Byte)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Add(ExifLibrary.ExifTag, System.Byte)
-  nameWithType: GenericPropertyCollection<T>.Add(ExifTag, Byte)
-  nameWithType.vb: GenericPropertyCollection(Of T).Add(ExifTag, Byte)
-- uid: ExifLibrary.GenericPropertyCollection`1.Add(ExifLibrary.ExifTag,System.DateTime)
-  name: Add(ExifTag, DateTime)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Add_ExifLibrary_ExifTag_System_DateTime_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Add(ExifLibrary.ExifTag,System.DateTime)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Add(ExifLibrary.ExifTag, System.DateTime)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Add(ExifLibrary.ExifTag, System.DateTime)
-  nameWithType: GenericPropertyCollection<T>.Add(ExifTag, DateTime)
-  nameWithType.vb: GenericPropertyCollection(Of T).Add(ExifTag, DateTime)
-- uid: ExifLibrary.GenericPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Double)
-  name: Add(ExifTag, Double)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Add_ExifLibrary_ExifTag_System_Double_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Double)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Add(ExifLibrary.ExifTag, System.Double)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Add(ExifLibrary.ExifTag, System.Double)
-  nameWithType: GenericPropertyCollection<T>.Add(ExifTag, Double)
-  nameWithType.vb: GenericPropertyCollection(Of T).Add(ExifTag, Double)
-- uid: ExifLibrary.GenericPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Int32)
-  name: Add(ExifTag, Int32)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Add_ExifLibrary_ExifTag_System_Int32_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Int32)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Add(ExifLibrary.ExifTag, System.Int32)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Add(ExifLibrary.ExifTag, System.Int32)
-  nameWithType: GenericPropertyCollection<T>.Add(ExifTag, Int32)
-  nameWithType.vb: GenericPropertyCollection(Of T).Add(ExifTag, Int32)
-- uid: ExifLibrary.GenericPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Object)
-  name: Add(ExifTag, Object)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Add_ExifLibrary_ExifTag_System_Object_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Object)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Add(ExifLibrary.ExifTag, System.Object)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Add(ExifLibrary.ExifTag, System.Object)
-  nameWithType: GenericPropertyCollection<T>.Add(ExifTag, Object)
-  nameWithType.vb: GenericPropertyCollection(Of T).Add(ExifTag, Object)
-- uid: ExifLibrary.GenericPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Single)
-  name: Add(ExifTag, Single)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Add_ExifLibrary_ExifTag_System_Single_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Single)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Add(ExifLibrary.ExifTag, System.Single)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Add(ExifLibrary.ExifTag, System.Single)
-  nameWithType: GenericPropertyCollection<T>.Add(ExifTag, Single)
-  nameWithType.vb: GenericPropertyCollection(Of T).Add(ExifTag, Single)
-- uid: ExifLibrary.GenericPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Single,System.Single,System.Single)
-  name: Add(ExifTag, Single, Single, Single)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Add_ExifLibrary_ExifTag_System_Single_System_Single_System_Single_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Single,System.Single,System.Single)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Add(ExifLibrary.ExifTag, System.Single, System.Single, System.Single)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Add(ExifLibrary.ExifTag, System.Single, System.Single, System.Single)
-  nameWithType: GenericPropertyCollection<T>.Add(ExifTag, Single, Single, Single)
-  nameWithType.vb: GenericPropertyCollection(Of T).Add(ExifTag, Single, Single, Single)
-- uid: ExifLibrary.GenericPropertyCollection`1.Add(ExifLibrary.ExifTag,System.String)
-  name: Add(ExifTag, String)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Add_ExifLibrary_ExifTag_System_String_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Add(ExifLibrary.ExifTag,System.String)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Add(ExifLibrary.ExifTag, System.String)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Add(ExifLibrary.ExifTag, System.String)
-  nameWithType: GenericPropertyCollection<T>.Add(ExifTag, String)
-  nameWithType.vb: GenericPropertyCollection(Of T).Add(ExifTag, String)
-- uid: ExifLibrary.GenericPropertyCollection`1.Add(ExifLibrary.ExifTag,System.String,System.Text.Encoding)
-  name: Add(ExifTag, String, Encoding)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Add_ExifLibrary_ExifTag_System_String_System_Text_Encoding_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Add(ExifLibrary.ExifTag,System.String,System.Text.Encoding)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Add(ExifLibrary.ExifTag, System.String, System.Text.Encoding)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Add(ExifLibrary.ExifTag, System.String, System.Text.Encoding)
-  nameWithType: GenericPropertyCollection<T>.Add(ExifTag, String, Encoding)
-  nameWithType.vb: GenericPropertyCollection(Of T).Add(ExifTag, String, Encoding)
-- uid: ExifLibrary.GenericPropertyCollection`1.Add(ExifLibrary.ExifTag,System.UInt16)
-  name: Add(ExifTag, UInt16)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Add_ExifLibrary_ExifTag_System_UInt16_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Add(ExifLibrary.ExifTag,System.UInt16)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Add(ExifLibrary.ExifTag, System.UInt16)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Add(ExifLibrary.ExifTag, System.UInt16)
-  nameWithType: GenericPropertyCollection<T>.Add(ExifTag, UInt16)
-  nameWithType.vb: GenericPropertyCollection(Of T).Add(ExifTag, UInt16)
-- uid: ExifLibrary.GenericPropertyCollection`1.Add(ExifLibrary.ExifTag,System.UInt32)
-  name: Add(ExifTag, UInt32)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Add_ExifLibrary_ExifTag_System_UInt32_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Add(ExifLibrary.ExifTag,System.UInt32)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Add(ExifLibrary.ExifTag, System.UInt32)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Add(ExifLibrary.ExifTag, System.UInt32)
-  nameWithType: GenericPropertyCollection<T>.Add(ExifTag, UInt32)
-  nameWithType.vb: GenericPropertyCollection(Of T).Add(ExifTag, UInt32)
-- uid: ExifLibrary.GenericPropertyCollection`1.Add*
-  name: Add
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Add_
-  commentId: Overload:ExifLibrary.GenericPropertyCollection`1.Add
-  isSpec: "True"
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Add
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Add
-  nameWithType: GenericPropertyCollection<T>.Add
-  nameWithType.vb: GenericPropertyCollection(Of T).Add
-- uid: ExifLibrary.GenericPropertyCollection`1.AddItem(ExifLibrary.ExifProperty)
-  name: AddItem(ExifProperty)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_AddItem_ExifLibrary_ExifProperty_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.AddItem(ExifLibrary.ExifProperty)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.AddItem(ExifLibrary.ExifProperty)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).AddItem(ExifLibrary.ExifProperty)
-  nameWithType: GenericPropertyCollection<T>.AddItem(ExifProperty)
-  nameWithType.vb: GenericPropertyCollection(Of T).AddItem(ExifProperty)
-- uid: ExifLibrary.GenericPropertyCollection`1.AddItem*
-  name: AddItem
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_AddItem_
-  commentId: Overload:ExifLibrary.GenericPropertyCollection`1.AddItem
-  isSpec: "True"
-  fullName: ExifLibrary.GenericPropertyCollection<T>.AddItem
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).AddItem
-  nameWithType: GenericPropertyCollection<T>.AddItem
-  nameWithType.vb: GenericPropertyCollection(Of T).AddItem
-- uid: ExifLibrary.GenericPropertyCollection`1.Clear
-  name: Clear()
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Clear
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Clear
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Clear()
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Clear()
-  nameWithType: GenericPropertyCollection<T>.Clear()
-  nameWithType.vb: GenericPropertyCollection(Of T).Clear()
-- uid: ExifLibrary.GenericPropertyCollection`1.Clear*
-  name: Clear
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Clear_
-  commentId: Overload:ExifLibrary.GenericPropertyCollection`1.Clear
-  isSpec: "True"
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Clear
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Clear
-  nameWithType: GenericPropertyCollection<T>.Clear
-  nameWithType.vb: GenericPropertyCollection(Of T).Clear
-- uid: ExifLibrary.GenericPropertyCollection`1.Contains(`0)
-  name: Contains(T)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Contains__0_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Contains(`0)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Contains(T)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Contains(T)
-  nameWithType: GenericPropertyCollection<T>.Contains(T)
-  nameWithType.vb: GenericPropertyCollection(Of T).Contains(T)
-- uid: ExifLibrary.GenericPropertyCollection`1.Contains(ExifLibrary.ExifTag)
-  name: Contains(ExifTag)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Contains_ExifLibrary_ExifTag_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Contains(ExifLibrary.ExifTag)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Contains(ExifLibrary.ExifTag)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Contains(ExifLibrary.ExifTag)
-  nameWithType: GenericPropertyCollection<T>.Contains(ExifTag)
-  nameWithType.vb: GenericPropertyCollection(Of T).Contains(ExifTag)
-- uid: ExifLibrary.GenericPropertyCollection`1.Contains*
-  name: Contains
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Contains_
-  commentId: Overload:ExifLibrary.GenericPropertyCollection`1.Contains
-  isSpec: "True"
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Contains
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Contains
-  nameWithType: GenericPropertyCollection<T>.Contains
-  nameWithType.vb: GenericPropertyCollection(Of T).Contains
-- uid: ExifLibrary.GenericPropertyCollection`1.Count
-  name: Count
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Count
-  commentId: P:ExifLibrary.GenericPropertyCollection`1.Count
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Count
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Count
-  nameWithType: GenericPropertyCollection<T>.Count
-  nameWithType.vb: GenericPropertyCollection(Of T).Count
-- uid: ExifLibrary.GenericPropertyCollection`1.Count*
-  name: Count
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Count_
-  commentId: Overload:ExifLibrary.GenericPropertyCollection`1.Count
-  isSpec: "True"
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Count
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Count
-  nameWithType: GenericPropertyCollection<T>.Count
-  nameWithType.vb: GenericPropertyCollection(Of T).Count
-- uid: ExifLibrary.GenericPropertyCollection`1.Get(ExifLibrary.ExifTag)
-  name: Get(ExifTag)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Get_ExifLibrary_ExifTag_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Get(ExifLibrary.ExifTag)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Get(ExifLibrary.ExifTag)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Get(ExifLibrary.ExifTag)
-  nameWithType: GenericPropertyCollection<T>.Get(ExifTag)
-  nameWithType.vb: GenericPropertyCollection(Of T).Get(ExifTag)
-- uid: ExifLibrary.GenericPropertyCollection`1.Get*
-  name: Get
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Get_
-  commentId: Overload:ExifLibrary.GenericPropertyCollection`1.Get
-  isSpec: "True"
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Get
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Get
-  nameWithType: GenericPropertyCollection<T>.Get
-  nameWithType.vb: GenericPropertyCollection(Of T).Get
-- uid: ExifLibrary.GenericPropertyCollection`1.Get``1(ExifLibrary.ExifTag)
-  name: Get<T>(ExifTag)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Get__1_ExifLibrary_ExifTag_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Get``1(ExifLibrary.ExifTag)
-  name.vb: Get(Of T)(ExifTag)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Get<T>(ExifLibrary.ExifTag)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Get(Of T)(ExifLibrary.ExifTag)
-  nameWithType: GenericPropertyCollection<T>.Get<T>(ExifTag)
-  nameWithType.vb: GenericPropertyCollection(Of T).Get(Of T)(ExifTag)
-- uid: ExifLibrary.GenericPropertyCollection`1.GetEnumerator
-  name: GetEnumerator()
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_GetEnumerator
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.GetEnumerator
-  fullName: ExifLibrary.GenericPropertyCollection<T>.GetEnumerator()
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).GetEnumerator()
-  nameWithType: GenericPropertyCollection<T>.GetEnumerator()
-  nameWithType.vb: GenericPropertyCollection(Of T).GetEnumerator()
-- uid: ExifLibrary.GenericPropertyCollection`1.GetEnumerator*
-  name: GetEnumerator
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_GetEnumerator_
-  commentId: Overload:ExifLibrary.GenericPropertyCollection`1.GetEnumerator
-  isSpec: "True"
-  fullName: ExifLibrary.GenericPropertyCollection<T>.GetEnumerator
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).GetEnumerator
-  nameWithType: GenericPropertyCollection<T>.GetEnumerator
-  nameWithType.vb: GenericPropertyCollection(Of T).GetEnumerator
-- uid: ExifLibrary.GenericPropertyCollection`1.GetItem(ExifLibrary.ExifTag)
-  name: GetItem(ExifTag)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_GetItem_ExifLibrary_ExifTag_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.GetItem(ExifLibrary.ExifTag)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.GetItem(ExifLibrary.ExifTag)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).GetItem(ExifLibrary.ExifTag)
-  nameWithType: GenericPropertyCollection<T>.GetItem(ExifTag)
-  nameWithType.vb: GenericPropertyCollection(Of T).GetItem(ExifTag)
-- uid: ExifLibrary.GenericPropertyCollection`1.GetItem*
-  name: GetItem
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_GetItem_
-  commentId: Overload:ExifLibrary.GenericPropertyCollection`1.GetItem
-  isSpec: "True"
-  fullName: ExifLibrary.GenericPropertyCollection<T>.GetItem
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).GetItem
-  nameWithType: GenericPropertyCollection<T>.GetItem
-  nameWithType.vb: GenericPropertyCollection(Of T).GetItem
-- uid: ExifLibrary.GenericPropertyCollection`1.GetItems(ExifLibrary.ExifTag)
-  name: GetItems(ExifTag)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_GetItems_ExifLibrary_ExifTag_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.GetItems(ExifLibrary.ExifTag)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.GetItems(ExifLibrary.ExifTag)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).GetItems(ExifLibrary.ExifTag)
-  nameWithType: GenericPropertyCollection<T>.GetItems(ExifTag)
-  nameWithType.vb: GenericPropertyCollection(Of T).GetItems(ExifTag)
-- uid: ExifLibrary.GenericPropertyCollection`1.GetItems*
-  name: GetItems
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_GetItems_
-  commentId: Overload:ExifLibrary.GenericPropertyCollection`1.GetItems
-  isSpec: "True"
-  fullName: ExifLibrary.GenericPropertyCollection<T>.GetItems
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).GetItems
-  nameWithType: GenericPropertyCollection<T>.GetItems
-  nameWithType.vb: GenericPropertyCollection(Of T).GetItems
-- uid: ExifLibrary.GenericPropertyCollection`1.IndexOf(`0)
-  name: IndexOf(T)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_IndexOf__0_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.IndexOf(`0)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.IndexOf(T)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).IndexOf(T)
-  nameWithType: GenericPropertyCollection<T>.IndexOf(T)
-  nameWithType.vb: GenericPropertyCollection(Of T).IndexOf(T)
-- uid: ExifLibrary.GenericPropertyCollection`1.IndexOf*
-  name: IndexOf
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_IndexOf_
-  commentId: Overload:ExifLibrary.GenericPropertyCollection`1.IndexOf
-  isSpec: "True"
-  fullName: ExifLibrary.GenericPropertyCollection<T>.IndexOf
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).IndexOf
-  nameWithType: GenericPropertyCollection<T>.IndexOf
-  nameWithType.vb: GenericPropertyCollection(Of T).IndexOf
-- uid: ExifLibrary.GenericPropertyCollection`1.Item(ExifLibrary.ExifTag)
-  name: Item[ExifTag]
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Item_ExifLibrary_ExifTag_
-  commentId: P:ExifLibrary.GenericPropertyCollection`1.Item(ExifLibrary.ExifTag)
-  name.vb: Item(ExifTag)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Item[ExifLibrary.ExifTag]
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Item(ExifLibrary.ExifTag)
-  nameWithType: GenericPropertyCollection<T>.Item[ExifTag]
-  nameWithType.vb: GenericPropertyCollection(Of T).Item(ExifTag)
-- uid: ExifLibrary.GenericPropertyCollection`1.Item(System.Int32)
-  name: Item[Int32]
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Item_System_Int32_
-  commentId: P:ExifLibrary.GenericPropertyCollection`1.Item(System.Int32)
-  name.vb: Item(Int32)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Item[System.Int32]
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Item(System.Int32)
-  nameWithType: GenericPropertyCollection<T>.Item[Int32]
-  nameWithType.vb: GenericPropertyCollection(Of T).Item(Int32)
-- uid: ExifLibrary.GenericPropertyCollection`1.Item*
-  name: Item
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Item_
-  commentId: Overload:ExifLibrary.GenericPropertyCollection`1.Item
-  isSpec: "True"
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Item
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Item
-  nameWithType: GenericPropertyCollection<T>.Item
-  nameWithType.vb: GenericPropertyCollection(Of T).Item
-- uid: ExifLibrary.GenericPropertyCollection`1.Keep(System.Collections.Generic.IEnumerable{ExifLibrary.ExifTag})
-  name: Keep(IEnumerable<ExifTag>)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Keep_System_Collections_Generic_IEnumerable_ExifLibrary_ExifTag__
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Keep(System.Collections.Generic.IEnumerable{ExifLibrary.ExifTag})
-  name.vb: Keep(IEnumerable(Of ExifTag))
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Keep(System.Collections.Generic.IEnumerable<ExifLibrary.ExifTag>)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Keep(System.Collections.Generic.IEnumerable(Of ExifLibrary.ExifTag))
-  nameWithType: GenericPropertyCollection<T>.Keep(IEnumerable<ExifTag>)
-  nameWithType.vb: GenericPropertyCollection(Of T).Keep(IEnumerable(Of ExifTag))
-- uid: ExifLibrary.GenericPropertyCollection`1.Keep*
-  name: Keep
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Keep_
-  commentId: Overload:ExifLibrary.GenericPropertyCollection`1.Keep
-  isSpec: "True"
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Keep
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Keep
-  nameWithType: GenericPropertyCollection<T>.Keep
-  nameWithType.vb: GenericPropertyCollection(Of T).Keep
-- uid: ExifLibrary.GenericPropertyCollection`1.Remove(`0)
-  name: Remove(T)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Remove__0_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Remove(`0)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Remove(T)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Remove(T)
-  nameWithType: GenericPropertyCollection<T>.Remove(T)
-  nameWithType.vb: GenericPropertyCollection(Of T).Remove(T)
-- uid: ExifLibrary.GenericPropertyCollection`1.Remove(ExifLibrary.ExifTag)
-  name: Remove(ExifTag)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Remove_ExifLibrary_ExifTag_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Remove(ExifLibrary.ExifTag)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Remove(ExifLibrary.ExifTag)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Remove(ExifLibrary.ExifTag)
-  nameWithType: GenericPropertyCollection<T>.Remove(ExifTag)
-  nameWithType.vb: GenericPropertyCollection(Of T).Remove(ExifTag)
-- uid: ExifLibrary.GenericPropertyCollection`1.Remove(ExifLibrary.IFD)
-  name: Remove(IFD)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Remove_ExifLibrary_IFD_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Remove(ExifLibrary.IFD)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Remove(ExifLibrary.IFD)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Remove(ExifLibrary.IFD)
-  nameWithType: GenericPropertyCollection<T>.Remove(IFD)
-  nameWithType.vb: GenericPropertyCollection(Of T).Remove(IFD)
-- uid: ExifLibrary.GenericPropertyCollection`1.Remove(System.Collections.Generic.IEnumerable{`0})
-  name: Remove(IEnumerable<T>)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Remove_System_Collections_Generic_IEnumerable__0__
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Remove(System.Collections.Generic.IEnumerable{`0})
-  name.vb: Remove(IEnumerable(Of T))
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Remove(System.Collections.Generic.IEnumerable<T>)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Remove(System.Collections.Generic.IEnumerable(Of T))
-  nameWithType: GenericPropertyCollection<T>.Remove(IEnumerable<T>)
-  nameWithType.vb: GenericPropertyCollection(Of T).Remove(IEnumerable(Of T))
-- uid: ExifLibrary.GenericPropertyCollection`1.Remove(System.Collections.Generic.IEnumerable{ExifLibrary.ExifTag})
-  name: Remove(IEnumerable<ExifTag>)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Remove_System_Collections_Generic_IEnumerable_ExifLibrary_ExifTag__
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Remove(System.Collections.Generic.IEnumerable{ExifLibrary.ExifTag})
-  name.vb: Remove(IEnumerable(Of ExifTag))
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Remove(System.Collections.Generic.IEnumerable<ExifLibrary.ExifTag>)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Remove(System.Collections.Generic.IEnumerable(Of ExifLibrary.ExifTag))
-  nameWithType: GenericPropertyCollection<T>.Remove(IEnumerable<ExifTag>)
-  nameWithType.vb: GenericPropertyCollection(Of T).Remove(IEnumerable(Of ExifTag))
-- uid: ExifLibrary.GenericPropertyCollection`1.Remove*
-  name: Remove
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Remove_
-  commentId: Overload:ExifLibrary.GenericPropertyCollection`1.Remove
-  isSpec: "True"
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Remove
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Remove
-  nameWithType: GenericPropertyCollection<T>.Remove
-  nameWithType.vb: GenericPropertyCollection(Of T).Remove
-- uid: ExifLibrary.GenericPropertyCollection`1.RemoveAt(System.Int32)
-  name: RemoveAt(Int32)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_RemoveAt_System_Int32_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.RemoveAt(System.Int32)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.RemoveAt(System.Int32)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).RemoveAt(System.Int32)
-  nameWithType: GenericPropertyCollection<T>.RemoveAt(Int32)
-  nameWithType.vb: GenericPropertyCollection(Of T).RemoveAt(Int32)
-- uid: ExifLibrary.GenericPropertyCollection`1.RemoveAt*
-  name: RemoveAt
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_RemoveAt_
-  commentId: Overload:ExifLibrary.GenericPropertyCollection`1.RemoveAt
-  isSpec: "True"
-  fullName: ExifLibrary.GenericPropertyCollection<T>.RemoveAt
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).RemoveAt
-  nameWithType: GenericPropertyCollection<T>.RemoveAt
-  nameWithType.vb: GenericPropertyCollection(Of T).RemoveAt
-- uid: ExifLibrary.GenericPropertyCollection`1.Set(`0)
-  name: Set(T)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Set__0_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Set(`0)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Set(T)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Set(T)
-  nameWithType: GenericPropertyCollection<T>.Set(T)
-  nameWithType.vb: GenericPropertyCollection(Of T).Set(T)
-- uid: ExifLibrary.GenericPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Byte)
-  name: Set(ExifTag, Byte)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Set_ExifLibrary_ExifTag_System_Byte_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Byte)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Set(ExifLibrary.ExifTag, System.Byte)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Set(ExifLibrary.ExifTag, System.Byte)
-  nameWithType: GenericPropertyCollection<T>.Set(ExifTag, Byte)
-  nameWithType.vb: GenericPropertyCollection(Of T).Set(ExifTag, Byte)
-- uid: ExifLibrary.GenericPropertyCollection`1.Set(ExifLibrary.ExifTag,System.DateTime)
-  name: Set(ExifTag, DateTime)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Set_ExifLibrary_ExifTag_System_DateTime_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Set(ExifLibrary.ExifTag,System.DateTime)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Set(ExifLibrary.ExifTag, System.DateTime)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Set(ExifLibrary.ExifTag, System.DateTime)
-  nameWithType: GenericPropertyCollection<T>.Set(ExifTag, DateTime)
-  nameWithType.vb: GenericPropertyCollection(Of T).Set(ExifTag, DateTime)
-- uid: ExifLibrary.GenericPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Double)
-  name: Set(ExifTag, Double)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Set_ExifLibrary_ExifTag_System_Double_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Double)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Set(ExifLibrary.ExifTag, System.Double)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Set(ExifLibrary.ExifTag, System.Double)
-  nameWithType: GenericPropertyCollection<T>.Set(ExifTag, Double)
-  nameWithType.vb: GenericPropertyCollection(Of T).Set(ExifTag, Double)
-- uid: ExifLibrary.GenericPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Int32)
-  name: Set(ExifTag, Int32)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Set_ExifLibrary_ExifTag_System_Int32_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Int32)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Set(ExifLibrary.ExifTag, System.Int32)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Set(ExifLibrary.ExifTag, System.Int32)
-  nameWithType: GenericPropertyCollection<T>.Set(ExifTag, Int32)
-  nameWithType.vb: GenericPropertyCollection(Of T).Set(ExifTag, Int32)
-- uid: ExifLibrary.GenericPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Object)
-  name: Set(ExifTag, Object)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Set_ExifLibrary_ExifTag_System_Object_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Object)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Set(ExifLibrary.ExifTag, System.Object)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Set(ExifLibrary.ExifTag, System.Object)
-  nameWithType: GenericPropertyCollection<T>.Set(ExifTag, Object)
-  nameWithType.vb: GenericPropertyCollection(Of T).Set(ExifTag, Object)
-- uid: ExifLibrary.GenericPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Single)
-  name: Set(ExifTag, Single)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Set_ExifLibrary_ExifTag_System_Single_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Single)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Set(ExifLibrary.ExifTag, System.Single)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Set(ExifLibrary.ExifTag, System.Single)
-  nameWithType: GenericPropertyCollection<T>.Set(ExifTag, Single)
-  nameWithType.vb: GenericPropertyCollection(Of T).Set(ExifTag, Single)
-- uid: ExifLibrary.GenericPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Single,System.Single,System.Single)
-  name: Set(ExifTag, Single, Single, Single)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Set_ExifLibrary_ExifTag_System_Single_System_Single_System_Single_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Single,System.Single,System.Single)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Set(ExifLibrary.ExifTag, System.Single, System.Single, System.Single)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Set(ExifLibrary.ExifTag, System.Single, System.Single, System.Single)
-  nameWithType: GenericPropertyCollection<T>.Set(ExifTag, Single, Single, Single)
-  nameWithType.vb: GenericPropertyCollection(Of T).Set(ExifTag, Single, Single, Single)
-- uid: ExifLibrary.GenericPropertyCollection`1.Set(ExifLibrary.ExifTag,System.String)
-  name: Set(ExifTag, String)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Set_ExifLibrary_ExifTag_System_String_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Set(ExifLibrary.ExifTag,System.String)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Set(ExifLibrary.ExifTag, System.String)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Set(ExifLibrary.ExifTag, System.String)
-  nameWithType: GenericPropertyCollection<T>.Set(ExifTag, String)
-  nameWithType.vb: GenericPropertyCollection(Of T).Set(ExifTag, String)
-- uid: ExifLibrary.GenericPropertyCollection`1.Set(ExifLibrary.ExifTag,System.String,System.Text.Encoding)
-  name: Set(ExifTag, String, Encoding)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Set_ExifLibrary_ExifTag_System_String_System_Text_Encoding_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Set(ExifLibrary.ExifTag,System.String,System.Text.Encoding)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Set(ExifLibrary.ExifTag, System.String, System.Text.Encoding)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Set(ExifLibrary.ExifTag, System.String, System.Text.Encoding)
-  nameWithType: GenericPropertyCollection<T>.Set(ExifTag, String, Encoding)
-  nameWithType.vb: GenericPropertyCollection(Of T).Set(ExifTag, String, Encoding)
-- uid: ExifLibrary.GenericPropertyCollection`1.Set(ExifLibrary.ExifTag,System.UInt16)
-  name: Set(ExifTag, UInt16)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Set_ExifLibrary_ExifTag_System_UInt16_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Set(ExifLibrary.ExifTag,System.UInt16)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Set(ExifLibrary.ExifTag, System.UInt16)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Set(ExifLibrary.ExifTag, System.UInt16)
-  nameWithType: GenericPropertyCollection<T>.Set(ExifTag, UInt16)
-  nameWithType.vb: GenericPropertyCollection(Of T).Set(ExifTag, UInt16)
-- uid: ExifLibrary.GenericPropertyCollection`1.Set(ExifLibrary.ExifTag,System.UInt32)
-  name: Set(ExifTag, UInt32)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Set_ExifLibrary_ExifTag_System_UInt32_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.Set(ExifLibrary.ExifTag,System.UInt32)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Set(ExifLibrary.ExifTag, System.UInt32)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Set(ExifLibrary.ExifTag, System.UInt32)
-  nameWithType: GenericPropertyCollection<T>.Set(ExifTag, UInt32)
-  nameWithType.vb: GenericPropertyCollection(Of T).Set(ExifTag, UInt32)
-- uid: ExifLibrary.GenericPropertyCollection`1.Set*
-  name: Set
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_Set_
-  commentId: Overload:ExifLibrary.GenericPropertyCollection`1.Set
-  isSpec: "True"
-  fullName: ExifLibrary.GenericPropertyCollection<T>.Set
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).Set
-  nameWithType: GenericPropertyCollection<T>.Set
-  nameWithType.vb: GenericPropertyCollection(Of T).Set
-- uid: ExifLibrary.GenericPropertyCollection`1.SetItem(ExifLibrary.ExifProperty)
-  name: SetItem(ExifProperty)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_SetItem_ExifLibrary_ExifProperty_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.SetItem(ExifLibrary.ExifProperty)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.SetItem(ExifLibrary.ExifProperty)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).SetItem(ExifLibrary.ExifProperty)
-  nameWithType: GenericPropertyCollection<T>.SetItem(ExifProperty)
-  nameWithType.vb: GenericPropertyCollection(Of T).SetItem(ExifProperty)
-- uid: ExifLibrary.GenericPropertyCollection`1.SetItem*
-  name: SetItem
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_SetItem_
-  commentId: Overload:ExifLibrary.GenericPropertyCollection`1.SetItem
-  isSpec: "True"
-  fullName: ExifLibrary.GenericPropertyCollection<T>.SetItem
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).SetItem
-  nameWithType: GenericPropertyCollection<T>.SetItem
-  nameWithType.vb: GenericPropertyCollection(Of T).SetItem
-- uid: ExifLibrary.GenericPropertyCollection`1.System#Collections#Generic#ICollection{T}#CopyTo(`0[],System.Int32)
-  name: ICollection<T>.CopyTo(T[], Int32)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_System_Collections_Generic_ICollection_T__CopyTo__0___System_Int32_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.System#Collections#Generic#ICollection{T}#CopyTo(`0[],System.Int32)
-  name.vb: System.Collections.Generic.ICollection<T>.CopyTo(T(), Int32)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.System.Collections.Generic.ICollection<T>.CopyTo(T[], System.Int32)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).System.Collections.Generic.ICollection<T>.CopyTo(T(), System.Int32)
-  nameWithType: GenericPropertyCollection<T>.ICollection<T>.CopyTo(T[], Int32)
-  nameWithType.vb: GenericPropertyCollection(Of T).System.Collections.Generic.ICollection<T>.CopyTo(T(), Int32)
-- uid: ExifLibrary.GenericPropertyCollection`1.System#Collections#Generic#ICollection{T}#CopyTo*
-  name: ICollection<T>.CopyTo
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_System_Collections_Generic_ICollection_T__CopyTo_
-  commentId: Overload:ExifLibrary.GenericPropertyCollection`1.System#Collections#Generic#ICollection{T}#CopyTo
-  isSpec: "True"
-  name.vb: System.Collections.Generic.ICollection<T>.CopyTo
-  fullName: ExifLibrary.GenericPropertyCollection<T>.System.Collections.Generic.ICollection<T>.CopyTo
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).System.Collections.Generic.ICollection<T>.CopyTo
-  nameWithType: GenericPropertyCollection<T>.ICollection<T>.CopyTo
-  nameWithType.vb: GenericPropertyCollection(Of T).System.Collections.Generic.ICollection<T>.CopyTo
-- uid: ExifLibrary.GenericPropertyCollection`1.System#Collections#Generic#ICollection{T}#IsReadOnly
-  name: ICollection<T>.IsReadOnly
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_System_Collections_Generic_ICollection_T__IsReadOnly
-  commentId: P:ExifLibrary.GenericPropertyCollection`1.System#Collections#Generic#ICollection{T}#IsReadOnly
-  name.vb: System.Collections.Generic.ICollection<T>.IsReadOnly
-  fullName: ExifLibrary.GenericPropertyCollection<T>.System.Collections.Generic.ICollection<T>.IsReadOnly
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).System.Collections.Generic.ICollection<T>.IsReadOnly
-  nameWithType: GenericPropertyCollection<T>.ICollection<T>.IsReadOnly
-  nameWithType.vb: GenericPropertyCollection(Of T).System.Collections.Generic.ICollection<T>.IsReadOnly
-- uid: ExifLibrary.GenericPropertyCollection`1.System#Collections#Generic#ICollection{T}#IsReadOnly*
-  name: ICollection<T>.IsReadOnly
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_System_Collections_Generic_ICollection_T__IsReadOnly_
-  commentId: Overload:ExifLibrary.GenericPropertyCollection`1.System#Collections#Generic#ICollection{T}#IsReadOnly
-  isSpec: "True"
-  name.vb: System.Collections.Generic.ICollection<T>.IsReadOnly
-  fullName: ExifLibrary.GenericPropertyCollection<T>.System.Collections.Generic.ICollection<T>.IsReadOnly
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).System.Collections.Generic.ICollection<T>.IsReadOnly
-  nameWithType: GenericPropertyCollection<T>.ICollection<T>.IsReadOnly
-  nameWithType.vb: GenericPropertyCollection(Of T).System.Collections.Generic.ICollection<T>.IsReadOnly
-- uid: ExifLibrary.GenericPropertyCollection`1.System#Collections#Generic#IList{T}#Insert(System.Int32,`0)
-  name: IList<T>.Insert(Int32, T)
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_System_Collections_Generic_IList_T__Insert_System_Int32__0_
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.System#Collections#Generic#IList{T}#Insert(System.Int32,`0)
-  name.vb: System.Collections.Generic.IList<T>.Insert(Int32, T)
-  fullName: ExifLibrary.GenericPropertyCollection<T>.System.Collections.Generic.IList<T>.Insert(System.Int32, T)
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).System.Collections.Generic.IList<T>.Insert(System.Int32, T)
-  nameWithType: GenericPropertyCollection<T>.IList<T>.Insert(Int32, T)
-  nameWithType.vb: GenericPropertyCollection(Of T).System.Collections.Generic.IList<T>.Insert(Int32, T)
-- uid: ExifLibrary.GenericPropertyCollection`1.System#Collections#Generic#IList{T}#Insert*
-  name: IList<T>.Insert
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_System_Collections_Generic_IList_T__Insert_
-  commentId: Overload:ExifLibrary.GenericPropertyCollection`1.System#Collections#Generic#IList{T}#Insert
-  isSpec: "True"
-  name.vb: System.Collections.Generic.IList<T>.Insert
-  fullName: ExifLibrary.GenericPropertyCollection<T>.System.Collections.Generic.IList<T>.Insert
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).System.Collections.Generic.IList<T>.Insert
-  nameWithType: GenericPropertyCollection<T>.IList<T>.Insert
-  nameWithType.vb: GenericPropertyCollection(Of T).System.Collections.Generic.IList<T>.Insert
-- uid: ExifLibrary.GenericPropertyCollection`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:ExifLibrary.GenericPropertyCollection`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: ExifLibrary.GenericPropertyCollection<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: GenericPropertyCollection<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: GenericPropertyCollection(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: ExifLibrary.GenericPropertyCollection`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: obj/api/ExifLibrary.GenericPropertyCollection-1.html#ExifLibrary_GenericPropertyCollection_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:ExifLibrary.GenericPropertyCollection`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: ExifLibrary.GenericPropertyCollection<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: ExifLibrary.GenericPropertyCollection(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: GenericPropertyCollection<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: GenericPropertyCollection(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: ExifLibrary.GPSAltitudeRef
   name: GPSAltitudeRef
   href: obj/api/ExifLibrary.GPSAltitudeRef.html

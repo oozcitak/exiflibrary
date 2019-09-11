@@ -92,10 +92,12 @@ The coordinate values, width, and height are expressed in relation to the
 upper left as origin, prior to rotation processing as per the Rotation tag.</p>
 </section>
       <h4><a class="xref" href="ExifLibrary.ExifDate.html">ExifDate</a></h4>
-      <section><p>Represents an ASCII string formatted as Date. (EXIF Specification: ASCII) Used for the date fields.</p>
+      <section><p>Represents an ASCII string formatted as Date. (EXIF Specification: ASCII)
+Used for date fields.</p>
 </section>
       <h4><a class="xref" href="ExifLibrary.ExifDateTime.html">ExifDateTime</a></h4>
-      <section><p>Represents an ASCII string formatted as DateTime. (EXIF Specification: ASCII) Used for the date time fields.</p>
+      <section><p>Represents an ASCII string formatted as DateTime. (EXIF Specification: ASCII)
+Used for date time fields.</p>
 </section>
       <h4><a class="xref" href="ExifLibrary.ExifDouble.html">ExifDouble</a></h4>
       <section><p>Represents a 64-bit floating number. (EXIF Specification: DOUBLE)</p>
@@ -105,7 +107,8 @@ upper left as origin, prior to rotation processing as per the Rotation tag.</p>
 (EXIF Specification: DOUBLE with count &gt; 1)</p>
 </section>
       <h4><a class="xref" href="ExifLibrary.ExifEncodedString.html">ExifEncodedString</a></h4>
-      <section><p>Represents an ASCII string. (EXIF Specification: UNDEFINED) Used for the UserComment field.</p>
+      <section><p>Represents an ASCII string. (EXIF Specification: UNDEFINED)
+Used for the UserComment field.</p>
 </section>
       <h4><a class="xref" href="ExifLibrary.ExifEnumProperty-1.html">ExifEnumProperty&lt;T&gt;</a></h4>
       <section><p>Represents an enumerated value.</p>
@@ -125,11 +128,8 @@ upper left as origin, prior to rotation processing as per the Rotation tag.</p>
       <h4><a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a></h4>
       <section><p>Represents the abstract base class for an Exif property.</p>
 </section>
-      <h4><a class="xref" href="ExifLibrary.ExifPropertyCollection.html">ExifPropertyCollection</a></h4>
+      <h4><a class="xref" href="ExifLibrary.ExifPropertyCollection-1.html">ExifPropertyCollection&lt;T&gt;</a></h4>
       <section><p>Represents a collection of <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> objects.</p>
-</section>
-      <h4><a class="xref" href="ExifLibrary.ExifPropertyFactory.html">ExifPropertyFactory</a></h4>
-      <section><p>Creates exif properties from interoperability parameters.</p>
 </section>
       <h4><a class="xref" href="ExifLibrary.ExifRectangularSubjectArea.html">ExifRectangularSubjectArea</a></h4>
       <section><p>Represents the location and area of the subject (EXIF Specification: 4xSHORT)
@@ -195,9 +195,6 @@ and denominator. (EXIF Specification: RATIONAL)</p>
       <section><p>Represents the exif version as a 4 byte ASCII string. (EXIF Specification: UNDEFINED) 
 Used for the ExifVersion, FlashpixVersion and InteroperabilityVersion fields.</p>
 </section>
-      <h4><a class="xref" href="ExifLibrary.GenericPropertyCollection-1.html">GenericPropertyCollection&lt;T&gt;</a></h4>
-      <section><p>Represents a generic collection of <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> objects.</p>
-</section>
       <h4><a class="xref" href="ExifLibrary.GPSLatitudeLongitude.html">GPSLatitudeLongitude</a></h4>
       <section><p>Represents GPS latitudes and longitudes (EXIF Specification: 3xRATIONAL)</p>
 </section>
@@ -233,7 +230,7 @@ Used for the ExifVersion, FlashpixVersion and InteroperabilityVersion fields.</p
 A JPEG section is the data between markers of the JPEG file.</p>
 </section>
       <h4><a class="xref" href="ExifLibrary.LensSpecification.html">LensSpecification</a></h4>
-      <section><p>Represents GPS latitudes and longitudes (EXIF Specification: 4xRATIONAL)</p>
+      <section><p>Represents lens specification (EXIF Specification: 4xRATIONAL)</p>
 </section>
       <h4><a class="xref" href="ExifLibrary.MathEx.html">MathEx</a></h4>
       <section><p>Contains extended Math functions.</p>
@@ -333,48 +330,65 @@ Used by Windows XP.</p>
       <section><p>Represents the byte order.</p>
 </section>
       <h4><a class="xref" href="ExifLibrary.ColorSpace.html">ColorSpace</a></h4>
-      <section></section>
+      <section><p>Represents the color space specifier.</p>
+</section>
       <h4><a class="xref" href="ExifLibrary.Compression.html">Compression</a></h4>
-      <section><p>Represenst the compression scheme used for the image data. </p>
+      <section><p>Represents the compression scheme used for the image data. </p>
 </section>
       <h4><a class="xref" href="ExifLibrary.Contrast.html">Contrast</a></h4>
-      <section></section>
+      <section><p>Represents the contrast setting.</p>
+</section>
       <h4><a class="xref" href="ExifLibrary.CustomRendered.html">CustomRendered</a></h4>
-      <section></section>
+      <section><p>Represents the use of special processing on image data.</p>
+</section>
       <h4><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></h4>
       <section><p>Represents the tags associated with exif fields.</p>
 </section>
       <h4><a class="xref" href="ExifLibrary.ExposureMode.html">ExposureMode</a></h4>
-      <section></section>
+      <section><p>Represents the exposure mode.</p>
+</section>
       <h4><a class="xref" href="ExifLibrary.ExposureProgram.html">ExposureProgram</a></h4>
-      <section></section>
+      <section><p>Represents the program used by the camera to set exposure.</p>
+</section>
       <h4><a class="xref" href="ExifLibrary.FileSource.html">FileSource</a></h4>
-      <section></section>
+      <section><p>Represents the image source.</p>
+</section>
       <h4><a class="xref" href="ExifLibrary.FillOrder.html">FillOrder</a></h4>
       <section><p>Represents the logical order of bits within a byte.</p>
 </section>
       <h4><a class="xref" href="ExifLibrary.Flash.html">Flash</a></h4>
-      <section></section>
+      <section><p>Represents the status of the flash as a combination of the flags.</p>
+</section>
       <h4><a class="xref" href="ExifLibrary.GainControl.html">GainControl</a></h4>
-      <section></section>
+      <section><p>Represents the gain control.</p>
+</section>
       <h4><a class="xref" href="ExifLibrary.GPSAltitudeRef.html">GPSAltitudeRef</a></h4>
-      <section></section>
+      <section><p>Indicates the GPS longitude reference relative to the mean sea level.</p>
+</section>
       <h4><a class="xref" href="ExifLibrary.GPSDifferential.html">GPSDifferential</a></h4>
-      <section></section>
+      <section><p>Indicates the differential correction mode of the GPS receiver.</p>
+</section>
       <h4><a class="xref" href="ExifLibrary.GPSDirectionRef.html">GPSDirectionRef</a></h4>
-      <section></section>
+      <section><p>Indicates the direction mode of the GPS receiver.</p>
+</section>
       <h4><a class="xref" href="ExifLibrary.GPSDistanceRef.html">GPSDistanceRef</a></h4>
-      <section></section>
+      <section><p>Indicates the distance unit of the GPS receiver.</p>
+</section>
       <h4><a class="xref" href="ExifLibrary.GPSLatitudeRef.html">GPSLatitudeRef</a></h4>
-      <section></section>
+      <section><p>Indicates the GPS latitude reference relative to the equator.</p>
+</section>
       <h4><a class="xref" href="ExifLibrary.GPSLongitudeRef.html">GPSLongitudeRef</a></h4>
-      <section></section>
+      <section><p>Indicates the GPS longitude reference relative to the prime meridian.</p>
+</section>
       <h4><a class="xref" href="ExifLibrary.GPSMeasureMode.html">GPSMeasureMode</a></h4>
-      <section></section>
+      <section><p>Indicates the measurement mode of the GPS receiver.</p>
+</section>
       <h4><a class="xref" href="ExifLibrary.GPSSpeedRef.html">GPSSpeedRef</a></h4>
-      <section></section>
+      <section><p>Indicates the speed unit of the GPS receiver.</p>
+</section>
       <h4><a class="xref" href="ExifLibrary.GPSStatus.html">GPSStatus</a></h4>
-      <section></section>
+      <section><p>Indicates the status of the GPS receiver.</p>
+</section>
       <h4><a class="xref" href="ExifLibrary.GrayResponseUnit.html">GrayResponseUnit</a></h4>
       <section><p>Represents the precision of the information contained in the gray response curve.</p>
 </section>
@@ -400,9 +414,11 @@ for a JFIF file.</p>
       <section><p>Represents a JPEG marker byte.</p>
 </section>
       <h4><a class="xref" href="ExifLibrary.LightSource.html">LightSource</a></h4>
-      <section></section>
+      <section><p>Represents the type of light source.</p>
+</section>
       <h4><a class="xref" href="ExifLibrary.MeteringMode.html">MeteringMode</a></h4>
-      <section></section>
+      <section><p>Represents the metering mode.</p>
+</section>
       <h4><a class="xref" href="ExifLibrary.NewSubfileType.html">NewSubfileType</a></h4>
       <section><p>Represents a general indication of the kind of data contained in this subfile.</p>
 </section>
@@ -416,26 +432,32 @@ for a JFIF file.</p>
       <section><p>Represents the recording format of pixel components.</p>
 </section>
       <h4><a class="xref" href="ExifLibrary.ResolutionUnit.html">ResolutionUnit</a></h4>
-      <section><p>The unit for measuring XResolution and YResolution.</p>
+      <section><p>Represents the unit for measuring XResolution and YResolution.</p>
 </section>
       <h4><a class="xref" href="ExifLibrary.Saturation.html">Saturation</a></h4>
-      <section></section>
+      <section><p>Represents the saturation setting.</p>
+</section>
       <h4><a class="xref" href="ExifLibrary.SceneCaptureType.html">SceneCaptureType</a></h4>
-      <section></section>
+      <section><p>Represents the scene capture type.</p>
+</section>
       <h4><a class="xref" href="ExifLibrary.SceneType.html">SceneType</a></h4>
-      <section></section>
+      <section><p>Represents the type of scene.</p>
+</section>
       <h4><a class="xref" href="ExifLibrary.SensingMethod.html">SensingMethod</a></h4>
-      <section></section>
+      <section><p>Represents the type of image sensor.</p>
+</section>
       <h4><a class="xref" href="ExifLibrary.Severity.html">Severity</a></h4>
       <section><p>Represents error severity.</p>
 </section>
       <h4><a class="xref" href="ExifLibrary.Sharpness.html">Sharpness</a></h4>
-      <section></section>
+      <section><p>Represents the sharpness setting.</p>
+</section>
       <h4><a class="xref" href="ExifLibrary.SubfileType.html">SubfileType</a></h4>
       <section><p>Represents a general indication of the kind of data contained in this subfile.</p>
 </section>
       <h4><a class="xref" href="ExifLibrary.SubjectDistanceRange.html">SubjectDistanceRange</a></h4>
-      <section></section>
+      <section><p>Represents the range of subject distance.</p>
+</section>
       <h4><a class="xref" href="ExifLibrary.T4Options.html">T4Options</a></h4>
       <section><p>Represents the options for Group 3 Fax compression.</p>
 </section>
@@ -446,9 +468,12 @@ for a JFIF file.</p>
       <section><p>Represents the technique used to convert from gray to black and white pixels.</p>
 </section>
       <h4><a class="xref" href="ExifLibrary.WhiteBalance.html">WhiteBalance</a></h4>
-      <section></section>
+      <section><p>Represents the white balance mode.</p>
+</section>
       <h4><a class="xref" href="ExifLibrary.YCbCrPositioning.html">YCbCrPositioning</a></h4>
-      <section></section>
+      <section><p>Specifies the positioning of subsampled chrominance components 
+relative to luminance samples.</p>
+</section>
 </article>
           </div>
         </div>

@@ -4,12 +4,84 @@
   "xrefmap": "xrefmap.yml",
   "files": [
     {
+      "type": "Conceptual",
+      "source_relative_path": "articles/JPEGMetadata.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/JPEGMetadata.html",
+          "hash": "v1RWVzkWG4m8UuSeecjTcw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/PNGMetadata.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/PNGMetadata.html",
+          "hash": "PtAALwlw4EMYFhP4yMHmEw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/Properties.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/Properties.html",
+          "hash": "x3G+bh3eEAAy1koxyqUG3g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/ReadFile.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/ReadFile.html",
+          "hash": "B+VHmQfEJHo0Y/gsGMneSQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/SaveFile.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/SaveFile.html",
+          "hash": "i/drrk9++30af5jvB/AAfA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/TIFFMetadata.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/TIFFMetadata.html",
+          "hash": "jiDEgxLyyqDDEMCrc6cmXQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
       "type": "Toc",
       "source_relative_path": "combinedtoc/toc.yml",
       "output": {
         ".html": {
           "relative_path": "combinedtoc/toc.html",
-          "hash": "1p9MiUW/I+dmi4gt1JSveQ=="
+          "hash": "SC0q6WZkZjm4LWwwODrrnA=="
         }
       },
       "is_incremental": false,
@@ -24,7 +96,7 @@
           "hash": "fB246oSOcSm7N2C1qZK9AQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -33,10 +105,10 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.BitConverterEx.ByteOrder.html",
-          "hash": "8nUlnAAdnkumgddM2mc6CA=="
+          "hash": "7fDjev6c74rUsizDVfKLnQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -45,10 +117,10 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.BitConverterEx.html",
-          "hash": "hKo2epkIgRGNy4FZXbUlYg=="
+          "hash": "iTBDFZ3Tw3nVryfNsjqXZQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -57,10 +129,10 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ColorSpace.html",
-          "hash": "ihWxEgFb0yEh4096r8LArQ=="
+          "hash": "IM7bDfjMOc5A2w9dAQRtog=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -69,10 +141,10 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.Compression.html",
-          "hash": "igqE/2bLzM4N5cpFdHTTTQ=="
+          "hash": "VxzYtoUd2dDsXh5RGJS3fg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -81,10 +153,10 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.Contrast.html",
-          "hash": "dEs1nAt3pyzzKY+sHLW1MQ=="
+          "hash": "IEfM8EEjZpl/L1pb4/49Bw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -93,10 +165,10 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.CustomRendered.html",
-          "hash": "A4J+K8CpDeEfxpoD8KNmlQ=="
+          "hash": "B865FNsUMjWFOmoaaLrdlg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -105,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifAscii.html",
-          "hash": "d7eA/nTMEM9Mmmr3Zsg97Q=="
+          "hash": "zsjCu2bzdcME/v8fQIYcIA=="
         }
       },
       "is_incremental": false,
@@ -117,10 +189,10 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifBitConverter.html",
-          "hash": "W+kkl64pwb/VW26qMWvArw=="
+          "hash": "yyg2+5LO/Zw+k89WFJxSLg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -129,7 +201,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifByte.html",
-          "hash": "va8r3HujcqZFLsFPSScYyQ=="
+          "hash": "D/HW0rmdK77GdfU/cvMdcQ=="
         }
       },
       "is_incremental": false,
@@ -141,7 +213,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifByteArray.html",
-          "hash": "1kAQvf/S7YUAJDgqOH294g=="
+          "hash": "5b75Y8WrCuH7wMZkS7OjIA=="
         }
       },
       "is_incremental": false,
@@ -153,7 +225,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifCircularSubjectArea.html",
-          "hash": "h7S5jn12Ehv/IbLkGQyIhw=="
+          "hash": "DFj7t3Vhdds06G8LqWI57Q=="
         }
       },
       "is_incremental": false,
@@ -165,7 +237,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifDate.html",
-          "hash": "uefGf3A4reB0I5qFojNrGw=="
+          "hash": "l0Ws3B9JpoZzhqUNshQcKQ=="
         }
       },
       "is_incremental": false,
@@ -177,7 +249,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifDateTime.html",
-          "hash": "IppMCjxn4fdAD7hxzBpZPg=="
+          "hash": "mWq2mKj2oBJQdoaBQ0OLRg=="
         }
       },
       "is_incremental": false,
@@ -189,7 +261,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifDouble.html",
-          "hash": "p4nYDBtUSX290ggIzm4Kag=="
+          "hash": "ImSxCAX5mDjFf+53IuhVng=="
         }
       },
       "is_incremental": false,
@@ -201,7 +273,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifDoubleArray.html",
-          "hash": "liBByaQeB40H3lHPvA8caw=="
+          "hash": "d8cfoOQ108cML3ZIu5cfkQ=="
         }
       },
       "is_incremental": false,
@@ -213,7 +285,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifEncodedString.html",
-          "hash": "U5GLN5q/rELxsOhFcSSjWQ=="
+          "hash": "RnIqqQ05c/MDpfHWszH3Eg=="
         }
       },
       "is_incremental": false,
@@ -237,7 +309,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifFloat.html",
-          "hash": "pk0FbeOoFUoMWDp/PE9/Vg=="
+          "hash": "0GpdXz7guRFKSIt9CY1fnQ=="
         }
       },
       "is_incremental": false,
@@ -249,7 +321,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifFloatArray.html",
-          "hash": "HjOoax/a93sYD13dpPwo9g=="
+          "hash": "uri0dd5Q2407rfVYzFihEg=="
         }
       },
       "is_incremental": false,
@@ -261,7 +333,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifInterOperability.html",
-          "hash": "fzYOjT9MDqbfjox75OPmyg=="
+          "hash": "j7lceMkGHnPikJSzpy/27Q=="
         }
       },
       "is_incremental": false,
@@ -273,7 +345,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifPointSubjectArea.html",
-          "hash": "jRtwj2QZkTrzM77FX4SJrg=="
+          "hash": "I7xB2fyvE9FjQhxAC46dvA=="
         }
       },
       "is_incremental": false,
@@ -285,7 +357,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifProperty.html",
-          "hash": "0g9v+0x6p13KSvKbldZH0Q=="
+          "hash": "TBN2d4j51PQjehYiGbkn3g=="
         }
       },
       "is_incremental": false,
@@ -293,26 +365,14 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/ExifLibrary.ExifPropertyCollection.yml",
+      "source_relative_path": "obj/api/ExifLibrary.ExifPropertyCollection-1.yml",
       "output": {
         ".html": {
-          "relative_path": "obj/api/ExifLibrary.ExifPropertyCollection.html",
-          "hash": "h3CWZDkczb2k4BO6aXE/Gw=="
+          "relative_path": "obj/api/ExifLibrary.ExifPropertyCollection-1.html",
+          "hash": "/vamvj6RLDNk0le5Bnq/DA=="
         }
       },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/ExifLibrary.ExifPropertyFactory.yml",
-      "output": {
-        ".html": {
-          "relative_path": "obj/api/ExifLibrary.ExifPropertyFactory.html",
-          "hash": "s62OtoN7FckOOmYOWWRLWA=="
-        }
-      },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -321,7 +381,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifRectangularSubjectArea.html",
-          "hash": "TK6ogGbILGssCvx7FwrPtA=="
+          "hash": "a/XClHu4Lrfm8nd7RJq65w=="
         }
       },
       "is_incremental": false,
@@ -333,7 +393,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifSByte.html",
-          "hash": "yPwTIhHH/hv5OGBCPqvW3A=="
+          "hash": "gCkWbYWC1J/UtnHpX2iNVg=="
         }
       },
       "is_incremental": false,
@@ -345,7 +405,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifSByteArray.html",
-          "hash": "3XJ7mJguIDqzbGT9uN0pqw=="
+          "hash": "Gg6hdeaO5W70HQpprpt50Q=="
         }
       },
       "is_incremental": false,
@@ -357,7 +417,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifSInt.html",
-          "hash": "B5izGHvlk67jgTJyBa43GQ=="
+          "hash": "yc/BJv6jrnIHeagha/L3TQ=="
         }
       },
       "is_incremental": false,
@@ -369,7 +429,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifSIntArray.html",
-          "hash": "E4bgw9uUcHJBJqXsmMZEZw=="
+          "hash": "0Fk+98xCgLmuBzcKhAveeA=="
         }
       },
       "is_incremental": false,
@@ -381,7 +441,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifSRational.html",
-          "hash": "M4zUNjaWLKlj8u7uqA24bw=="
+          "hash": "QHoHYy7bWgZ1psLeC+4y3w=="
         }
       },
       "is_incremental": false,
@@ -393,7 +453,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifSRationalArray.html",
-          "hash": "A10DRSfoHRNm9AvWJuEDpA=="
+          "hash": "qRWlTqSFDJqnvkM+H9xkAw=="
         }
       },
       "is_incremental": false,
@@ -405,7 +465,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifSShort.html",
-          "hash": "LQGpc4VZKE8gTQpqF+Udfw=="
+          "hash": "gHkFdZYg0IiwbJXGtpbVYQ=="
         }
       },
       "is_incremental": false,
@@ -417,7 +477,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifSShortArray.html",
-          "hash": "7eSDdk6ZbukQUZQL6EXymw=="
+          "hash": "NPv9psAwLvAszlDDXMj8CQ=="
         }
       },
       "is_incremental": false,
@@ -432,7 +492,7 @@
           "hash": "ZrUgXNnEPaWqcocyn0TSaw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -444,7 +504,7 @@
           "hash": "Xw6b8pUqqAuYTDVFHsnayw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -453,7 +513,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifUInt.html",
-          "hash": "SI5XnKdvx0l5RJiQAKpUvw=="
+          "hash": "JtOF2StvgdrdYNLSCEcMgg=="
         }
       },
       "is_incremental": false,
@@ -465,7 +525,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifUIntArray.html",
-          "hash": "mIgaOntR8xxA+nwnJjf/Ew=="
+          "hash": "lSUSV63qW5METFxImN9yBw=="
         }
       },
       "is_incremental": false,
@@ -477,7 +537,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifURational.html",
-          "hash": "U5qBgZq2xko8eLNM+XE/Ow=="
+          "hash": "fvZIqNjOkDegBJBbiV2NGQ=="
         }
       },
       "is_incremental": false,
@@ -489,7 +549,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifURationalArray.html",
-          "hash": "QqmBtn6FLww2k0I1JngADw=="
+          "hash": "GFQA6Dp/MTZA7YGt6QNa6g=="
         }
       },
       "is_incremental": false,
@@ -501,7 +561,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifUShort.html",
-          "hash": "P9AQXXv+KT5AytVH+hr/BA=="
+          "hash": "djUVKRjpSnz/tTLmpYCaNg=="
         }
       },
       "is_incremental": false,
@@ -513,7 +573,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifUShortArray.html",
-          "hash": "afsKmIXWLgotoOBSo8QPPA=="
+          "hash": "5o0sBr6H1iE9AFw0CmOxDA=="
         }
       },
       "is_incremental": false,
@@ -525,7 +585,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifUndefined.html",
-          "hash": "WAttIm1ypr8E3OTBhIj9xg=="
+          "hash": "dVbTfEKuB1kXs0o1ZxIh/Q=="
         }
       },
       "is_incremental": false,
@@ -537,7 +597,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExifVersion.html",
-          "hash": "1kq0TJqaAhlH/n9+NCnH+Q=="
+          "hash": "R6tN/3f6CscCEKQW9xEhLQ=="
         }
       },
       "is_incremental": false,
@@ -549,10 +609,10 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExposureMode.html",
-          "hash": "crRYsaeAOjRE4aHtqYYoGw=="
+          "hash": "fsHoNsgkTGlfyI3j6Ni4cg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -561,10 +621,10 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ExposureProgram.html",
-          "hash": "+Nmi1hEAvteSBEJkvKZIdA=="
+          "hash": "3NfFcUCngbPAVbZzz51UKg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -573,10 +633,10 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.FileSource.html",
-          "hash": "UF6fsaVhynswXzrvJYD0DQ=="
+          "hash": "zBBMDv+4zpJSMJ4k95k/og=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -588,7 +648,7 @@
           "hash": "4FfHZki3vkIH88Zrj/w/fg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -597,10 +657,10 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.Flash.html",
-          "hash": "LooR96r56NPjUDH9zbOTCg=="
+          "hash": "mkgAnhxekwvL4H1KDReO8w=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -609,7 +669,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.GPSAltitudeRef.html",
-          "hash": "KPcBTv7oYCN1/3D6GcTABQ=="
+          "hash": "ucWFFE6zP1FOoWBaLJ6JSQ=="
         }
       },
       "is_incremental": false,
@@ -621,7 +681,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.GPSDifferential.html",
-          "hash": "NpVaTjL84uzSBVg5MAPHug=="
+          "hash": "yKiHBxPsXiSKinwvhqlBqA=="
         }
       },
       "is_incremental": false,
@@ -633,7 +693,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.GPSDirectionRef.html",
-          "hash": "LdGSKkSPKVywtKEN5aTOjQ=="
+          "hash": "lR0b92kEk/BWZnWseYGjJw=="
         }
       },
       "is_incremental": false,
@@ -645,7 +705,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.GPSDistanceRef.html",
-          "hash": "yGwP2SQGcN8nDl5KwzNvsw=="
+          "hash": "0E/PMEI+tSJXl8E30cPNnA=="
         }
       },
       "is_incremental": false,
@@ -657,7 +717,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.GPSLatitudeLongitude.html",
-          "hash": "yw5AJnkNvBFhd/gUuUwufA=="
+          "hash": "3cQWnwABpEZ86xPvT12OCw=="
         }
       },
       "is_incremental": false,
@@ -669,7 +729,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.GPSLatitudeRef.html",
-          "hash": "rtNIXS9gVjXrEOq+eGXTNw=="
+          "hash": "3L/jDp7+22Ro/ifUlLyQzQ=="
         }
       },
       "is_incremental": false,
@@ -681,7 +741,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.GPSLongitudeRef.html",
-          "hash": "PV8ZvGCEiDJLWpYbE6gzcw=="
+          "hash": "tGiRkV8ttsvwCIApFgMUnw=="
         }
       },
       "is_incremental": false,
@@ -693,7 +753,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.GPSMeasureMode.html",
-          "hash": "t74G96ea4YN3lU/skrO1ew=="
+          "hash": "ooWZsCLf3HO//zGVBXgiUQ=="
         }
       },
       "is_incremental": false,
@@ -705,7 +765,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.GPSSpeedRef.html",
-          "hash": "1F5ixbD5duCG0RWesJWXfg=="
+          "hash": "Aa5XsfH/ZKt7P0tyEo6uKA=="
         }
       },
       "is_incremental": false,
@@ -717,7 +777,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.GPSStatus.html",
-          "hash": "8/63sEiUfewPniJBRGtKrA=="
+          "hash": "1dYbkc3OdOpJF2dOQl3VGw=="
         }
       },
       "is_incremental": false,
@@ -729,7 +789,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.GPSTimeStamp.html",
-          "hash": "mAKPHREFGgw6blVhXKES5Q=="
+          "hash": "3nKIcLk3fqdWB/ywfN6pwQ=="
         }
       },
       "is_incremental": false,
@@ -741,22 +801,10 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.GainControl.html",
-          "hash": "ggD9MAmosJsz+5cMpDQwww=="
+          "hash": "/ipZZ5dfIOi0uHu8IVIDrA=="
         }
       },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/ExifLibrary.GenericPropertyCollection-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "obj/api/ExifLibrary.GenericPropertyCollection-1.html",
-          "hash": "zJAQVDq0z/9hSXjf1ON/Hg=="
-        }
-      },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -768,7 +816,7 @@
           "hash": "xkUvBFuP44JIEV3RrPAt4w=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -777,10 +825,10 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.IFD.html",
-          "hash": "PrlJFg7DkICdRnxg11dU2A=="
+          "hash": "vlzxrDR5mDJcEmOInOVv/Q=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -792,7 +840,7 @@
           "hash": "o2eLHQHKmEujMBVHHoSsBA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -804,7 +852,7 @@
           "hash": "uQUFI4cVzi8Tvgl22MlKMg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -813,10 +861,10 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ImageFile.html",
-          "hash": "5qGYq0gZ48YvYkJHgCnxug=="
+          "hash": "TgRMIzZ281QtXaDzSDkltg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -828,7 +876,7 @@
           "hash": "kZAC2qHoOAItyg6s2JTb2w=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -840,7 +888,7 @@
           "hash": "5p6N2JRv6YoludbhNcbD0w=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -852,7 +900,7 @@
           "hash": "AhNN1FouxYS7R1HRagXsDw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -876,7 +924,7 @@
           "hash": "02bVlrMItTqwtCJ+hThrDA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -888,7 +936,7 @@
           "hash": "hzE5jFuapzgalYF3H2lliA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -900,7 +948,7 @@
           "hash": "4UV8tgjs3M/dIRHRamkNXQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -912,7 +960,7 @@
           "hash": "wJ3UKlGDxKYY91EGbWkiKA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -948,7 +996,7 @@
           "hash": "09VLQMBL3DQkRjq0kLCjGQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -960,7 +1008,7 @@
           "hash": "Z2jsPVlhgVs2QZfNUH/iWw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -972,7 +1020,7 @@
           "hash": "PRqbus7JaNiVIkjM4WjvbQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -981,7 +1029,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.LensSpecification.html",
-          "hash": "ukBisMCVZM/kroLb50E3kQ=="
+          "hash": "eU+RxYxHQS0szilxbHG/ow=="
         }
       },
       "is_incremental": false,
@@ -993,7 +1041,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.LightSource.html",
-          "hash": "0FXUemj1Ab1tKPn+hoUmvQ=="
+          "hash": "EeqVq7Fi6TB5qjSaVPJ9hA=="
         }
       },
       "is_incremental": false,
@@ -1008,7 +1056,7 @@
           "hash": "Nq0A499XNf2rl015omugHA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1020,7 +1068,7 @@
           "hash": "IgZT+qF8CUGeolXj6Ebv/Q=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1032,7 +1080,7 @@
           "hash": "b8gpn1Inwfj98gD3WsTrZg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1041,10 +1089,10 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.MeteringMode.html",
-          "hash": "eXTgU0EkSSWa2d6Nr/hd1Q=="
+          "hash": "C8n86rpcfP1qN5INb7sswg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1056,7 +1104,7 @@
           "hash": "iUYsdAr5WGeSd1wu87mEWQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1068,7 +1116,7 @@
           "hash": "7B0bL6YustNfikMTNQZ/rA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1080,7 +1128,7 @@
           "hash": "B9Kthrx7QLOjp0ymyv+sMg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1092,7 +1140,7 @@
           "hash": "m4a0BxSqddpV6LJydnDorQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1104,7 +1152,7 @@
           "hash": "CDMTc6lCGBaMVneBLUbCWQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1116,7 +1164,7 @@
           "hash": "8CFj9Zml51WIy2yF7kUidA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1128,7 +1176,7 @@
           "hash": "dKs98v6doVymRtiWWAxkog=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1140,7 +1188,7 @@
           "hash": "I3B8ASv9n87jaX1oOKlLkw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1152,7 +1200,7 @@
           "hash": "17QhQ79YwkKcOnyQQfLkGg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1164,7 +1212,7 @@
           "hash": "VWhibSSeAmhMIq0X5Aw0Ag=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1212,7 +1260,7 @@
           "hash": "PwE8IgLQkAsY25ZMkAzcXQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1224,7 +1272,7 @@
           "hash": "aC1Z//ozo2pWjcQxiYYwJA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1233,10 +1281,10 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.ResolutionUnit.html",
-          "hash": "TGWWTmSKi92vUf0px4/hLw=="
+          "hash": "1KVSYZqSGQqgzQGtinWDmw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1245,10 +1293,10 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.Saturation.html",
-          "hash": "c3fdBDi7cMb9+CRFATvTdg=="
+          "hash": "29PSc1QLaJfZrSIsz+afWg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1257,10 +1305,10 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.SceneCaptureType.html",
-          "hash": "W29o1WNuLcBY1q4lw2XBVQ=="
+          "hash": "0Txz7sJwbBRvr5LVfZn6CQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1269,10 +1317,10 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.SceneType.html",
-          "hash": "1DJOHgZhr144fC6SBkP1EQ=="
+          "hash": "QEubXF4nRLbq7niqgaGyFg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1284,7 +1332,7 @@
           "hash": "weQdTXkyY3zhwwIGFffnoA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1293,10 +1341,10 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.SensingMethod.html",
-          "hash": "mqupjf+SwhodmiRffTB5tw=="
+          "hash": "fBRQe5HjG4ylk2bdD/4KnQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1308,7 +1356,7 @@
           "hash": "3caySXh5Kuzy+YmwyeVcJw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1317,10 +1365,10 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.Sharpness.html",
-          "hash": "m2d3mnemEJGNkTaAInENLA=="
+          "hash": "C/jTgnUN4DMCateUiiOIRA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1332,7 +1380,7 @@
           "hash": "L9HqMTCbjpakT+CSIbww/g=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1341,10 +1389,10 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.SubjectDistanceRange.html",
-          "hash": "iDfE/6MK9AtWVxx5nnlzGQ=="
+          "hash": "C+kYPOeINwnxLDwn+RGSyQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1356,7 +1404,7 @@
           "hash": "zXmmnhI68k//um6wdsFeSQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1368,7 +1416,7 @@
           "hash": "LjM09rYhT1mRpYHQz4paFQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1380,7 +1428,7 @@
           "hash": "VstbzWyy5VAruFhzw9ceVg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1392,7 +1440,7 @@
           "hash": "3Kgc8Ann/fapU3fotxNFxw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1404,7 +1452,7 @@
           "hash": "LsM0n94ZdLee0fjVxa7pHA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1416,7 +1464,7 @@
           "hash": "fZ3y0BaE3MfA7G1FsZLtDg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1428,7 +1476,7 @@
           "hash": "oL5oB7+h/ayYYiSu2g3gZQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1440,7 +1488,7 @@
           "hash": "qF05ce6siGJAfjEX0ufyyg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1452,7 +1500,7 @@
           "hash": "/8ZRxEphD6DcA0d1e6f8Gg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1464,7 +1512,7 @@
           "hash": "8nh4AUCwXo0OOlZwW2mVZA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1476,7 +1524,7 @@
           "hash": "UzVXRm7iYc2+J6Yi83LJEg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1485,7 +1533,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.VersionID.html",
-          "hash": "P7SGwJ5iDSU++HgJQ5csrw=="
+          "hash": "9xUhFjmB8KPoZPsY54tZBA=="
         }
       },
       "is_incremental": false,
@@ -1497,10 +1545,10 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.WhiteBalance.html",
-          "hash": "lGa8fpjAcextaxgPX7mafg=="
+          "hash": "U2tDI0sJJ4u1RNZOLIUJwA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1509,7 +1557,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.WindowsByteString.html",
-          "hash": "IEmRs2BWgCgBNbcTkaPe5A=="
+          "hash": "hzBz5FK6sbnYGFs88voFcw=="
         }
       },
       "is_incremental": false,
@@ -1521,10 +1569,10 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.YCbCrPositioning.html",
-          "hash": "1XFBq4ZIm8f7K9Hv84Zejw=="
+          "hash": "Cl9orx5jnpSODrHlhg57dg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1533,7 +1581,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/ExifLibrary.html",
-          "hash": "k7MxdMxOmhwUSP0EG3ieDg=="
+          "hash": "9mmFGeolHRcPbBOEtZV5FA=="
         }
       },
       "is_incremental": false,
@@ -1567,7 +1615,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "2wr2sFeTyjtJdBch3SVcZw=="
+          "hash": "+eXZGjQRHbZefB4BkPRhmw=="
         }
       },
       "is_incremental": false,
@@ -1586,17 +1634,17 @@
           "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
-        "TocDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build"
-        },
         "ConceptualDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build"
         },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
+          "incrementalPhase": "build"
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         }
       }

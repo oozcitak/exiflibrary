@@ -480,19 +480,6 @@ namespace ExifLibrary
             }
         }
         /// <summary>
-        /// Removes all tags from the collection except those in the 
-        /// given whitelist.
-        /// Note that this iterates through the entire collection to
-        /// find the items with the given tags.
-        /// </summary>
-        /// <param name="ifd">The IFD section to remove.</param>
-        public void Keep(IEnumerable<ExifTag> whiteList)
-        {
-            HashSet<ExifTag> toRemove = new HashSet<ExifTag>(lookup.Keys);
-            toRemove.ExceptWith(whiteList);
-            Remove(toRemove);
-        }
-        /// <summary>
         /// Returns the index of the given item.
         /// </summary>
         /// <param name="item">The item to look for in the collection.</param>

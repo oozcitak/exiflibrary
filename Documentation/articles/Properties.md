@@ -58,7 +58,7 @@ Although the [property collection](xref:ExifLibrary.ExifPropertyCollection) of a
 var file = ImageFile.FromFile("path_to_image");
 file.Set(ExifTag.ISOSpeedRatings, <ushort>200);
 ```
-The @ExifLibrary.GenericPropertyCollection`1.Set(`0) method overwrites a property with the same tag or adds a new property if there is no existing property with the given tag. The @ExifLibrary.GenericPropertyCollection`1.Add(`0) method, on the other hand, adds the given property without checking if there is an existing property. So, it can potentially create duplicate properties. This is compliant with the standard, but not probably what you want.
+The @ExifLibrary.ExifPropertyCollection`1.Set(`0) method overwrites a property with the same tag or adds a new property if there is no existing property with the given tag. The @ExifLibrary.ExifPropertyCollection`1.Add(`0) method, on the other hand, adds the given property without checking if there is an existing property. So, it can potentially create duplicate properties. This is compliant with the standard, but not probably what you want.
 
 Also, note the explicit cast to `ushort` in the above example. Without the cast, the data type would be `int`, which would be the wrong data type for the `ISOSpeedRatings` tag.
 
@@ -82,4 +82,4 @@ A better alternative to clear metadata is to use the @ExifLibrary.ImageFile.Crus
 var file = ImageFile.FromFile("path_to_image");
 file.Crush();
 ```
-`Crush` uses a built-in whitelist. To provide your own whitelist you can use the @ExifLibrary.GenericPropertyCollection`1.Keep(System.Collections.Generic.IEnumerable{ExifLibrary.ExifTag}) method on the property collection.
+`Crush` uses a built-in whitelist.

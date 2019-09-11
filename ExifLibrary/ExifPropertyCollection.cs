@@ -7,15 +7,7 @@ namespace ExifLibrary
     /// <summary>
     /// Represents a collection of <see cref="ExifLibrary.ExifProperty"/> objects.
     /// </summary>
-    public class ExifPropertyCollection : GenericPropertyCollection<ExifProperty>
-    {
-
-    }
-
-    /// <summary>
-    /// Represents a generic collection of <see cref="ExifLibrary.ExifProperty"/> objects.
-    /// </summary>
-    public class GenericPropertyCollection<T> : IList<T> where T : ExifProperty
+    public class ExifPropertyCollection<T> : IList<T> where T : ExifProperty
     {
         #region Member Variables
         private List<T> items;
@@ -23,7 +15,7 @@ namespace ExifLibrary
         #endregion
 
         #region Constructor
-        internal GenericPropertyCollection()
+        internal ExifPropertyCollection()
         {
             items = new List<T>();
             lookup = new Dictionary<ExifTag, List<T>>();

@@ -18,7 +18,7 @@ namespace ExifLibrary
         protected ImageFile()
         {
             Format = ImageFileFormat.Unknown;
-            Properties = new ExifPropertyCollection();
+            Properties = new ExifPropertyCollection<ExifProperty>();
             Encoding = Encoding.UTF8;
             Errors = new List<ImageError>();
         }
@@ -32,7 +32,7 @@ namespace ExifLibrary
         /// <summary>
         /// Gets the collection of Exif properties contained in the <see cref="ImageFile"/>.
         /// </summary>
-        public ExifPropertyCollection Properties { get; private set; }
+        public ExifPropertyCollection<ExifProperty> Properties { get; private set; }
         /// <summary>
         /// Gets or sets the embedded thumbnail image.
         /// </summary>

@@ -184,9 +184,9 @@ namespace ExifLibrary
         /// <returns>The item with the given tag cast to the specified 
         /// type. If the tag does not exist, or it cannot be cast to the
         /// given type it returns null.</returns>
-        public T Get<T>(ExifTag key) where T : ExifProperty
+        public U Get<U>(ExifTag key) where U : ExifProperty
         {
-            return GetItem(key) as T;
+            return GetItem(key) as U;
         }
         /// <summary>
         /// Gets the <see cref="ExifLibrary.ExifProperty"/> with the specified key.

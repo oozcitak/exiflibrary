@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.IO;
-using System.Security.Cryptography;
 using System.IO.Compression;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace ExifLibrary
 {
@@ -41,17 +41,26 @@ namespace ExifLibrary
         /// <returns>Contents of the <paramref name="stream"/> as a byte array.</returns>
         public static byte[] GetStreamBytes(Stream stream, long length)
         {
-            using (MemoryStream mem = new MemoryStream())
+            if (length < 32768)
             {
-                byte[] b = new byte[32768];
-                int r;
-                while (length > 0 && (r = stream.Read(b, 0, (int)Math.Min(length, b.Length))) > 0)
+                byte[] b = new byte[length];
+                int r = stream.Read(b, 0, (int)length);
+                return b;
+            }
+            else
+            {
+                using (MemoryStream mem = new MemoryStream())
                 {
-                    mem.Write(b, 0, r);
-                    length = length - r;
-                }
+                    byte[] b = new byte[32768];
+                    int r;
+                    while (length > 0 && (r = stream.Read(b, 0, (int)Math.Min(length, b.Length))) > 0)
+                    {
+                        mem.Write(b, 0, r);
+                        length = length - r;
+                    }
 
-                return mem.ToArray();
+                    return mem.ToArray();
+                }
             }
         }
         #endregion

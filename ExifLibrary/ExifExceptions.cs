@@ -75,4 +75,23 @@ namespace ExifLibrary
             ;
         }
     }
+
+    /// <summary>
+    /// The exception that is thrown when the format of the GIF file
+    /// could not be understood.
+    /// </summary>
+    public class NotValidGIFFileException : Exception
+    {
+        public NotValidGIFFileException()
+            : base("Not a valid GIF file.")
+        {
+            ;
+        }
+
+        public NotValidGIFFileException(string message)
+            : base(message)
+        {
+            ;
+        }
+    }
 }

@@ -25,5 +25,9 @@ namespace ExifLibrary
         /// The file is a PNG File.
         /// </summary>
         PNG,
+        /// <summary>
+        /// The file is a GIF File.
+        /// </summary>
+        GIF,
     }
 }

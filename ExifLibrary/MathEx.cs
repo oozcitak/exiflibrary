@@ -9,6 +9,35 @@ namespace ExifLibrary
     public static class MathEx
     {
         /// <summary>
+        /// Raises a number to the given power.
+        /// </summary>
+        /// <param name="x">A number to be raised to a power.</param>
+        /// <param name="y">A number that specifies a power.</param>
+        /// <returns></returns>
+        public static int Power(int x, uint y)
+        {
+            int ret = 1;
+            while (y != 0)
+            {
+                if ((y & 1) == 1)
+                    ret *= x;
+                x *= x;
+                y >>= 1;
+            }
+            return ret;
+        }
+
+        /// <summary>
+        /// Raises two to the given power.
+        /// </summary>
+        /// <param name="y">A number that specifies a power.</param>
+        /// <returns></returns>
+        public static int Power2(uint y)
+        {
+            return 1 << (int)y;
+        }
+
+        /// <summary>
         /// Returns the greatest common divisor of two numbers.
         /// </summary>
         /// <param name="a">First number.</param>

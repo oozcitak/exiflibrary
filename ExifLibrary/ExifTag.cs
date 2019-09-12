@@ -367,5 +367,12 @@ namespace ExifLibrary
         /// The time of the last image modification
         /// </summary>
         PNGTimeStamp = IFD.PNG + 200,
+        // ****************************
+        // GIF Tags
+        // ****************************
+        /// <summary>
+        /// Comment text
+        /// </summary>
+        GIFComment = IFD.GIF + 0,
     }
 }

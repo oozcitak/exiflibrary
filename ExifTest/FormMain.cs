@@ -1,15 +1,16 @@
-﻿using System;
+﻿using ExifLibrary;
+using System;
 using System.ComponentModel;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using ExifLibrary;
 
 namespace ExifTest
 {
     public partial class FormMain : Form
     {
         private ImageFile data;
+        private string imageFilename = null;
 
         public FormMain()
         {
@@ -32,11 +33,9 @@ namespace ExifTest
         private void ReadFile(string filename)
         {
             data = ImageFile.FromFile(filename);
+            imageFilename = filename;
 
             UpdateView();
-
-            this.Text = Path.GetFileName(filename) + " - Exif Test";
-            lblStatus.Text = Path.GetFileName(filename);
         }
 
         private void UpdateView()
@@ -87,9 +86,21 @@ namespace ExifTest
             lvExif.Sort();
 
             txtErrors.Text = "";
-            foreach(var err in data.Errors)
+            foreach (var err in data.Errors)
             {
                 txtErrors.Text += err.Message + Environment.NewLine;
+            }
+
+
+            if (imageFilename == null)
+            {
+                Text = "Exif Test";
+                lblStatus.Text = "Ready";
+            }
+            else
+            {
+                Text = Path.GetFileName(imageFilename) + " - Exif Test";
+                lblStatus.Text = Path.GetFileName(imageFilename);
             }
         }
 
@@ -188,7 +199,7 @@ namespace ExifTest
         {
             if (fdOpen.ShowDialog() == DialogResult.OK)
             {
-                data.Thumbnail =File.ReadAllBytes(fdOpen.FileName);
+                data.Thumbnail = File.ReadAllBytes(fdOpen.FileName);
                 UpdateView();
             }
         }
@@ -207,9 +218,18 @@ namespace ExifTest
             {
                 fdSave.Filter = "PNG Images *.png|*.png";
             }
+            else if (data.Format == ImageFileFormat.GIF)
+            {
+                fdSave.Filter = "GIF Images *.gif|*.gif";
+            }
             else
             {
                 MessageBox.Show("Unknown image format", "Exif Test", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if(imageFilename!=null)
+            {
+                fdSave.FileName = imageFilename;
             }
 
             if (fdSave.ShowDialog() == DialogResult.OK)

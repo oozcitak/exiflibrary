@@ -49,5 +49,9 @@ namespace ExifLibrary
         /// A pseudo-IFD section containing PGN tags.
         /// </summary>
         PNG = 900000,
+        /// <summary>
+        /// A pseudo-IFD section containing GIF tags.
+        /// </summary>
+        GIF = 1000000,
     }
 }

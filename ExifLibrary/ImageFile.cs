@@ -287,6 +287,11 @@ namespace ExifLibrary
                 header[4] == 0x0D && header[5] == 0x0A && header[6] == 0x1A && header[7] == 0x0A)
                 return new PNGFile(stream, encoding);
 
+            // GIF
+            string gifHeader = Encoding.ASCII.GetString(header, 0, 3);
+            if (gifHeader == "GIF")
+                return new GIFFile(stream, encoding);
+
             throw new NotValidImageFileException();
         }
         #endregion

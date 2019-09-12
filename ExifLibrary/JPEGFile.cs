@@ -27,7 +27,7 @@ namespace ExifLibrary
         /// </summary>
         public BitConverterEx.ByteOrder ByteOrder { get; set; }
         /// <summary>
-        /// Gets or sets the sections contained in the <see cref="ImageFile"/>.
+        /// Gets the sections contained in the <see cref="ImageFile"/>.
         /// </summary>
         public List<JPEGSection> Sections { get; private set; }
         /// <summary>

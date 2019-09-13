@@ -1,0 +1,831 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class GIFFile
+   | ExifLibrary </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class GIFFile
+   | ExifLibrary ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../resources/icons/favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../combinedtoc/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../resources/icons/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-12">
+            <article class="content wrap" id="_content" data-uid="ExifLibrary.GIFFile">
+  
+  
+  <h1 id="ExifLibrary_GIFFile" data-uid="ExifLibrary.GIFFile" class="text-break">Class GIFFile
+  </h1>
+  <div class="markdown level0 summary"><p>Represents the binary view of a GIF file.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="ExifLibrary.ImageFile.html">ImageFile</a></div>
+    <div class="level2"><span class="xref">GIFFile</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_Format">ImageFile.Format</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_Properties">ImageFile.Properties</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_Thumbnail">ImageFile.Thumbnail</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_Item_System_Int32_">ImageFile.Item[Int32]</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_Encoding">ImageFile.Encoding</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_Errors">ImageFile.Errors</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_Save_System_String_">ImageFile.Save(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_Save_System_IO_Stream_">ImageFile.Save(Stream)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_SaveAsync_System_String_">ImageFile.SaveAsync(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_SaveAsync_System_IO_Stream_">ImageFile.SaveAsync(Stream)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_FromFile_System_String_">ImageFile.FromFile(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_FromFile_System_String_System_Text_Encoding_">ImageFile.FromFile(String, Encoding)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_FromStream_System_IO_Stream_">ImageFile.FromStream(Stream)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_FromStream_System_IO_Stream_System_Text_Encoding_">ImageFile.FromStream(Stream, Encoding)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_FromBuffer_System_Byte___">ImageFile.FromBuffer(Byte[])</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_FromBuffer_System_Byte___System_Text_Encoding_">ImageFile.FromBuffer(Byte[], Encoding)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_FromFileAsync_System_String_">ImageFile.FromFileAsync(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_FromFileAsync_System_String_System_Text_Encoding_">ImageFile.FromFileAsync(String, Encoding)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_FromStreamAsync_System_IO_Stream_">ImageFile.FromStreamAsync(Stream)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_FromStreamAsync_System_IO_Stream_System_Text_Encoding_">ImageFile.FromStreamAsync(Stream, Encoding)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_FromStreamInternal_System_IO_MemoryStream_System_Text_Encoding_">ImageFile.FromStreamInternal(MemoryStream, Encoding)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="ExifLibrary.html">ExifLibrary</a></h6>
+  <h6><strong>Assembly</strong>: ExifLibrary.dll</h6>
+  <h5 id="ExifLibrary_GIFFile_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class GIFFile : ImageFile</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_GIFFile__ctor_System_IO_MemoryStream_System_Text_Encoding_.md&amp;value=---%0Auid%3A%20ExifLibrary.GIFFile.%23ctor(System.IO.MemoryStream%2CSystem.Text.Encoding)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/GIFFile.cs/#L71">View Source</a>
+  </span>
+  <a id="ExifLibrary_GIFFile__ctor_" data-uid="ExifLibrary.GIFFile.#ctor*"></a>
+  <h4 id="ExifLibrary_GIFFile__ctor_System_IO_MemoryStream_System_Text_Encoding_" data-uid="ExifLibrary.GIFFile.#ctor(System.IO.MemoryStream,System.Text.Encoding)">GIFFile(MemoryStream, Encoding)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="ExifLibrary.GIFFile.html">GIFFile</a> class from the
+specified data stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected GIFFile(MemoryStream stream, Encoding encoding)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IO.MemoryStream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td><p>A stream that contains image data.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Text.Encoding</span></td>
+        <td><span class="parametername">encoding</span></td>
+        <td><p>The encoding to be used for text metadata when the source encoding is unknown.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_GIFFile_BackcolorIndex.md&amp;value=---%0Auid%3A%20ExifLibrary.GIFFile.BackcolorIndex%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/GIFFile.cs/#L46">View Source</a>
+  </span>
+  <a id="ExifLibrary_GIFFile_BackcolorIndex_" data-uid="ExifLibrary.GIFFile.BackcolorIndex*"></a>
+  <h4 id="ExifLibrary_GIFFile_BackcolorIndex" data-uid="ExifLibrary.GIFFile.BackcolorIndex">BackcolorIndex</h4>
+  <div class="markdown level1 summary"><p>Gets the index of the backcolor in the global color table.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte BackcolorIndex { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_GIFFile_Blocks.md&amp;value=---%0Auid%3A%20ExifLibrary.GIFFile.Blocks%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/GIFFile.cs/#L61">View Source</a>
+  </span>
+  <a id="ExifLibrary_GIFFile_Blocks_" data-uid="ExifLibrary.GIFFile.Blocks*"></a>
+  <h4 id="ExifLibrary_GIFFile_Blocks" data-uid="ExifLibrary.GIFFile.Blocks">Blocks</h4>
+  <div class="markdown level1 summary"><p>Gets the blocks contained in the <a class="xref" href="ExifLibrary.GIFFile.html">GIFFile</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;GIFBlock&gt; Blocks { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="ExifLibrary.GIFBlock.html">GIFBlock</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_GIFFile_ColorResolution.md&amp;value=---%0Auid%3A%20ExifLibrary.GIFFile.ColorResolution%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/GIFFile.cs/#L29">View Source</a>
+  </span>
+  <a id="ExifLibrary_GIFFile_ColorResolution_" data-uid="ExifLibrary.GIFFile.ColorResolution*"></a>
+  <h4 id="ExifLibrary_GIFFile_ColorResolution" data-uid="ExifLibrary.GIFFile.ColorResolution">ColorResolution</h4>
+  <div class="markdown level1 summary"><p>Gets the bumber of bits per primary color available.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte ColorResolution { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_GIFFile_GCT.md&amp;value=---%0Auid%3A%20ExifLibrary.GIFFile.GCT%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/GIFFile.cs/#L50">View Source</a>
+  </span>
+  <a id="ExifLibrary_GIFFile_GCT_" data-uid="ExifLibrary.GIFFile.GCT*"></a>
+  <h4 id="ExifLibrary_GIFFile_GCT" data-uid="ExifLibrary.GIFFile.GCT">GCT</h4>
+  <div class="markdown level1 summary"><p>Gets the global color table.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte[, ] GCT { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[,]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_GIFFile_HasGCT.md&amp;value=---%0Auid%3A%20ExifLibrary.GIFFile.HasGCT%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/GIFFile.cs/#L38">View Source</a>
+  </span>
+  <a id="ExifLibrary_GIFFile_HasGCT_" data-uid="ExifLibrary.GIFFile.HasGCT*"></a>
+  <h4 id="ExifLibrary_GIFFile_HasGCT" data-uid="ExifLibrary.GIFFile.HasGCT">HasGCT</h4>
+  <div class="markdown level1 summary"><p>Gets whether the file contains a global color table.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasGCT { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_GIFFile_IsGCTSorted.md&amp;value=---%0Auid%3A%20ExifLibrary.GIFFile.IsGCTSorted%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/GIFFile.cs/#L42">View Source</a>
+  </span>
+  <a id="ExifLibrary_GIFFile_IsGCTSorted_" data-uid="ExifLibrary.GIFFile.IsGCTSorted*"></a>
+  <h4 id="ExifLibrary_GIFFile_IsGCTSorted" data-uid="ExifLibrary.GIFFile.IsGCTSorted">IsGCTSorted</h4>
+  <div class="markdown level1 summary"><p>Gets whether the global color table is sorted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsGCTSorted { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_GIFFile_PixelAspectRatio.md&amp;value=---%0Auid%3A%20ExifLibrary.GIFFile.PixelAspectRatio%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/GIFFile.cs/#L56">View Source</a>
+  </span>
+  <a id="ExifLibrary_GIFFile_PixelAspectRatio_" data-uid="ExifLibrary.GIFFile.PixelAspectRatio*"></a>
+  <h4 id="ExifLibrary_GIFFile_PixelAspectRatio" data-uid="ExifLibrary.GIFFile.PixelAspectRatio">PixelAspectRatio</h4>
+  <div class="markdown level1 summary"><p>Gets the pixel aspect ratio.
+The actual aspect ratio is calculated as: Aspect Ratio = (Pixel Aspect Ratio + 15) / 64.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte PixelAspectRatio { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_GIFFile_ScreenHeight.md&amp;value=---%0Auid%3A%20ExifLibrary.GIFFile.ScreenHeight%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/GIFFile.cs/#L25">View Source</a>
+  </span>
+  <a id="ExifLibrary_GIFFile_ScreenHeight_" data-uid="ExifLibrary.GIFFile.ScreenHeight*"></a>
+  <h4 id="ExifLibrary_GIFFile_ScreenHeight" data-uid="ExifLibrary.GIFFile.ScreenHeight">ScreenHeight</h4>
+  <div class="markdown level1 summary"><p>Gets the raster height in pixels.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ushort ScreenHeight { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt16</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_GIFFile_ScreenWidth.md&amp;value=---%0Auid%3A%20ExifLibrary.GIFFile.ScreenWidth%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/GIFFile.cs/#L21">View Source</a>
+  </span>
+  <a id="ExifLibrary_GIFFile_ScreenWidth_" data-uid="ExifLibrary.GIFFile.ScreenWidth*"></a>
+  <h4 id="ExifLibrary_GIFFile_ScreenWidth" data-uid="ExifLibrary.GIFFile.ScreenWidth">ScreenWidth</h4>
+  <div class="markdown level1 summary"><p>Gets the raster width in pixels.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ushort ScreenWidth { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt16</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_GIFFile_SizeOfGCT.md&amp;value=---%0Auid%3A%20ExifLibrary.GIFFile.SizeOfGCT%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/GIFFile.cs/#L34">View Source</a>
+  </span>
+  <a id="ExifLibrary_GIFFile_SizeOfGCT_" data-uid="ExifLibrary.GIFFile.SizeOfGCT*"></a>
+  <h4 id="ExifLibrary_GIFFile_SizeOfGCT" data-uid="ExifLibrary.GIFFile.SizeOfGCT">SizeOfGCT</h4>
+  <div class="markdown level1 summary"><p>Gets the size of the global color table.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte SizeOfGCT { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_GIFFile_Version.md&amp;value=---%0Auid%3A%20ExifLibrary.GIFFile.Version%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/GIFFile.cs/#L17">View Source</a>
+  </span>
+  <a id="ExifLibrary_GIFFile_Version_" data-uid="ExifLibrary.GIFFile.Version*"></a>
+  <h4 id="ExifLibrary_GIFFile_Version" data-uid="ExifLibrary.GIFFile.Version">Version</h4>
+  <div class="markdown level1 summary"><p>Gets the GIF version string. e.g. 89a</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Version { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_GIFFile_Crush.md&amp;value=---%0Auid%3A%20ExifLibrary.GIFFile.Crush%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/GIFFile.cs/#L263">View Source</a>
+  </span>
+  <a id="ExifLibrary_GIFFile_Crush_" data-uid="ExifLibrary.GIFFile.Crush*"></a>
+  <h4 id="ExifLibrary_GIFFile_Crush" data-uid="ExifLibrary.GIFFile.Crush">Crush()</h4>
+  <div class="markdown level1 summary"><p>Decreases file size by removing all ancillary chunks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Crush()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_Crush">ImageFile.Crush()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_GIFFile_ReadColorTable_System_IO_MemoryStream_System_Int32_.md&amp;value=---%0Auid%3A%20ExifLibrary.GIFFile.ReadColorTable(System.IO.MemoryStream%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/GIFFile.cs/#L426">View Source</a>
+  </span>
+  <a id="ExifLibrary_GIFFile_ReadColorTable_" data-uid="ExifLibrary.GIFFile.ReadColorTable*"></a>
+  <h4 id="ExifLibrary_GIFFile_ReadColorTable_System_IO_MemoryStream_System_Int32_" data-uid="ExifLibrary.GIFFile.ReadColorTable(System.IO.MemoryStream,System.Int32)">ReadColorTable(MemoryStream, Int32)</h4>
+  <div class="markdown level1 summary"><p>Reads a GIF color table.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected byte[, ] ReadColorTable(MemoryStream stream, int length)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IO.MemoryStream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td><p>A stream that contains image data.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">length</span></td>
+        <td><p>Length of color table.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[,]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_GIFFile_ReadDataBlock_System_IO_MemoryStream_.md&amp;value=---%0Auid%3A%20ExifLibrary.GIFFile.ReadDataBlock(System.IO.MemoryStream)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/GIFFile.cs/#L453">View Source</a>
+  </span>
+  <a id="ExifLibrary_GIFFile_ReadDataBlock_" data-uid="ExifLibrary.GIFFile.ReadDataBlock*"></a>
+  <h4 id="ExifLibrary_GIFFile_ReadDataBlock_System_IO_MemoryStream_" data-uid="ExifLibrary.GIFFile.ReadDataBlock(System.IO.MemoryStream)">ReadDataBlock(MemoryStream)</h4>
+  <div class="markdown level1 summary"><p>Reads data sub-blocks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected byte[][] ReadDataBlock(MemoryStream stream)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IO.MemoryStream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td><p>A stream that contains image data.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[][]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_GIFFile_ReadMetadata.md&amp;value=---%0Auid%3A%20ExifLibrary.GIFFile.ReadMetadata%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/GIFFile.cs/#L481">View Source</a>
+  </span>
+  <a id="ExifLibrary_GIFFile_ReadMetadata_" data-uid="ExifLibrary.GIFFile.ReadMetadata*"></a>
+  <h4 id="ExifLibrary_GIFFile_ReadMetadata" data-uid="ExifLibrary.GIFFile.ReadMetadata">ReadMetadata()</h4>
+  <div class="markdown level1 summary"><p>Reads GIF metadata in extension blocks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void ReadMetadata()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_GIFFile_SaveInternal_System_IO_MemoryStream_.md&amp;value=---%0Auid%3A%20ExifLibrary.GIFFile.SaveInternal(System.IO.MemoryStream)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/GIFFile.cs/#L274">View Source</a>
+  </span>
+  <a id="ExifLibrary_GIFFile_SaveInternal_" data-uid="ExifLibrary.GIFFile.SaveInternal*"></a>
+  <h4 id="ExifLibrary_GIFFile_SaveInternal_System_IO_MemoryStream_" data-uid="ExifLibrary.GIFFile.SaveInternal(System.IO.MemoryStream)">SaveInternal(MemoryStream)</h4>
+  <div class="markdown level1 summary"><p>Saves the <a class="xref" href="ExifLibrary.ImageFile.html">ImageFile</a> to the given stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void SaveInternal(MemoryStream stream)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IO.MemoryStream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td><p>The data stream used to save the image.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ExifLibrary.ImageFile.html#ExifLibrary_ImageFile_SaveInternal_System_IO_MemoryStream_">ImageFile.SaveInternal(MemoryStream)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_GIFFile_WriteColorTable_System_IO_MemoryStream_System_Byte_0__0___.md&amp;value=---%0Auid%3A%20ExifLibrary.GIFFile.WriteColorTable(System.IO.MemoryStream%2CSystem.Byte%5B0%3A%2C0%3A%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/GIFFile.cs/#L442">View Source</a>
+  </span>
+  <a id="ExifLibrary_GIFFile_WriteColorTable_" data-uid="ExifLibrary.GIFFile.WriteColorTable*"></a>
+  <h4 id="ExifLibrary_GIFFile_WriteColorTable_System_IO_MemoryStream_System_Byte_0__0___" data-uid="ExifLibrary.GIFFile.WriteColorTable(System.IO.MemoryStream,System.Byte[0:,0:])">WriteColorTable(MemoryStream, Byte[,])</h4>
+  <div class="markdown level1 summary"><p>Writes GIF color table.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void WriteColorTable(MemoryStream stream, byte[, ] table)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IO.MemoryStream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td><p>A stream that contains image data.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[,]</td>
+        <td><span class="parametername">table</span></td>
+        <td><p>Color table.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_GIFFile_WriteDataBlock_System_IO_MemoryStream_System_Byte_____.md&amp;value=---%0Auid%3A%20ExifLibrary.GIFFile.WriteDataBlock(System.IO.MemoryStream%2CSystem.Byte%5B%5D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/GIFFile.cs/#L470">View Source</a>
+  </span>
+  <a id="ExifLibrary_GIFFile_WriteDataBlock_" data-uid="ExifLibrary.GIFFile.WriteDataBlock*"></a>
+  <h4 id="ExifLibrary_GIFFile_WriteDataBlock_System_IO_MemoryStream_System_Byte_____" data-uid="ExifLibrary.GIFFile.WriteDataBlock(System.IO.MemoryStream,System.Byte[][])">WriteDataBlock(MemoryStream, Byte[][])</h4>
+  <div class="markdown level1 summary"><p>Writes data sub-blocks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void WriteDataBlock(MemoryStream stream, byte[][] data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IO.MemoryStream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td><p>A stream that contains image data.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[][]</td>
+        <td><span class="parametername">data</span></td>
+        <td><p>A data sub-block</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_GIFFile_WriteMetadata.md&amp;value=---%0Auid%3A%20ExifLibrary.GIFFile.WriteMetadata%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/GIFFile.cs/#L502">View Source</a>
+  </span>
+  <a id="ExifLibrary_GIFFile_WriteMetadata_" data-uid="ExifLibrary.GIFFile.WriteMetadata*"></a>
+  <h4 id="ExifLibrary_GIFFile_WriteMetadata" data-uid="ExifLibrary.GIFFile.WriteMetadata">WriteMetadata()</h4>
+  <div class="markdown level1 summary"><p>Writes GIF metadata into extension blocks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void WriteMetadata()</code></pre>
+  </div>
+</article>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2019 Özgür Özçıtak
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

@@ -951,14 +951,14 @@ given type it returns null.</p>
     <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L187">View Source</a>
   </span>
   <a id="ExifLibrary_ExifPropertyCollection_1_Get_" data-uid="ExifLibrary.ExifPropertyCollection`1.Get*"></a>
-  <h4 id="ExifLibrary_ExifPropertyCollection_1_Get__1_ExifLibrary_ExifTag_" data-uid="ExifLibrary.ExifPropertyCollection`1.Get``1(ExifLibrary.ExifTag)">Get&lt;T&gt;(ExifTag)</h4>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Get__1_ExifLibrary_ExifTag_" data-uid="ExifLibrary.ExifPropertyCollection`1.Get``1(ExifLibrary.ExifTag)">Get&lt;U&gt;(ExifTag)</h4>
   <div class="markdown level1 summary"><p>Gets the <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> with the specified key.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T Get&lt;T&gt;(ExifTag key)
-    where T : ExifProperty</code></pre>
+    <pre><code class="lang-csharp hljs">public U Get&lt;U&gt;(ExifTag key)
+    where U : ExifProperty</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -988,7 +988,7 @@ given type it returns null.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">T</span></td>
+        <td><span class="xref">U</span></td>
         <td><p>The item with the given tag cast to the specified 
 type. If the tag does not exist, or it cannot be cast to the
 given type it returns null.</p>
@@ -1006,7 +1006,7 @@ given type it returns null.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="parametername">T</span></td>
+        <td><span class="parametername">U</span></td>
         <td></td>
       </tr>
     </tbody>

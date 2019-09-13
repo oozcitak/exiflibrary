@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/GIFMetadata.html",
-          "hash": "N2fSPDq4I0k3Nj0ajE2PZQ=="
+          "hash": "LRshcdF0aqGCnCZv7g5oPg=="
         }
       },
       "is_incremental": true,
@@ -1807,11 +1807,11 @@
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
-        "ManagedReferenceDocumentProcessor": {
+        "ConceptualDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build"
         },
-        "ConceptualDocumentProcessor": {
+        "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build"
         }

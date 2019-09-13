@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="../styles/docfx.css">
     <link rel="stylesheet" href="../styles/main.css">
     <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="../combinedtoc/toc.html">
     
     
     
@@ -49,7 +49,14 @@
         </nav>
       </header>
       <div role="main" class="container body-content hide-when-search">
-        <div class="article row grid">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
           <div class="col-md-12">
             <article class="content wrap" id="_content" data-uid="Articles.GIFMetadata">
 <h1 id="gıf-metadata">GIF Metadata</h1>
@@ -69,7 +76,7 @@
 <td><a class="xref" href="../obj/api/ExifLibrary.ExifTag.html#ExifLibrary_ExifTag_GIFComment">GIFComment</a></td>
 <td>0</td>
 <td>0x0000</td>
-<td><a class="xref" href="../obj/api/ExifLibrary.ExifAscii.html">ExifAscii</a></td>
+<td><a class="xref" href="../obj/api/ExifLibrary.GIFComment.html">GIFComment</a></td>
 <td>string</td>
 </tr>
 </tbody>

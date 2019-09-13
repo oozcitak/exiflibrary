@@ -47,6 +47,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="articles\GIFMetadata.md" />
     <None Include="articles\SaveFile.md" />
     <None Include="articles\ReadFile.md" />
     <None Include="articles\TIFFMetadata.md" />

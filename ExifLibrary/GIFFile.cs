@@ -480,8 +480,10 @@ namespace ExifLibrary
         /// </summary>
         protected void ReadMetadata()
         {
-            foreach (var block in Blocks)
+            for (int i = 0; i < Blocks.Count; i++)
             {
+                var block = Blocks[i];
+                var nextBlock = (i == Blocks.Count - 1 ? null : Blocks[i + 1]);
                 var extension = block as GIFCommentExtension;
                 if (extension == null) continue;
                 using (var memStream = new MemoryStream())
@@ -490,7 +492,7 @@ namespace ExifLibrary
                     {
                         memStream.Write(subData, 0, subData.Length);
                     }
-                    Properties.Add(new GIFComment(ExifTag.GIFComment, Encoding.ASCII.GetString(memStream.ToArray())));
+                    Properties.Add(new GIFComment(ExifTag.GIFComment, Encoding.ASCII.GetString(memStream.ToArray()), nextBlock));
                 }
             }
         }
@@ -500,7 +502,6 @@ namespace ExifLibrary
         protected void WriteMetadata()
         {
             Blocks.RemoveAll(b => b as GIFCommentExtension != null);
-            int index = Blocks[Blocks.Count - 1].Separator == GIFSeparator.Terminator ? Blocks.Count - 1 : Blocks.Count;
             foreach (var prop in Properties)
             {
                 if (prop.Tag == ExifTag.GIFComment)
@@ -521,6 +522,14 @@ namespace ExifLibrary
                             Array.Copy(interop.Data, offset, block.Data[i], 0, count);
                             offset += count;
                         }
+
+                        var insertBefore = gifComment.InsertBefore;
+                        int index = insertBefore == null ? -1 : Blocks.IndexOf(insertBefore);
+                        if (index == -1)
+                        {
+                            index = Blocks[Blocks.Count - 1].Separator == GIFSeparator.Terminator ? Blocks.Count - 1 : Blocks.Count;
+                        }
+
                         Blocks.Insert(index, block);
                         index++;
                     }

@@ -460,8 +460,11 @@ namespace ExifLibrary
                 throw new NotValidExifFileException();
 
             // Offset to 0th IFD
-            int ifd0offset = (int)BitConverterEx.ToUInt32(header, tiffoffset + 4, tiffByteOrder, BitConverterEx.SystemByteOrder);
-            ifdqueue.Add(ifd0offset, IFD.Zeroth);
+            if (header.Length - (tiffoffset + 4) >= 4)
+            {
+                int ifd0offset = (int)BitConverterEx.ToUInt32(header, tiffoffset + 4, tiffByteOrder, BitConverterEx.SystemByteOrder);
+                ifdqueue.Add(ifd0offset, IFD.Zeroth);
+            }
 
             BitConverterEx conv = new BitConverterEx(ByteOrder, BitConverterEx.SystemByteOrder);
             int thumboffset = -1;

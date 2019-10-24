@@ -191,45 +191,37 @@ namespace ExifLibrary
     public enum Orientation : ushort
     {
         /// <summary>
-        /// The 0th row is at the visual top of the image, and the 0th column is the
-        /// visual left-hand side.
+        /// The image is oriented normally.
         /// </summary>
         Normal = 1,
         /// <summary>
-        /// The 0th row is at the visual top of the image, and the 0th column is
-        /// the visual right-hand side.
+        /// The image is flipped (i.e. mirrored horizontally).
         /// </summary>
-        MirroredVertically = 2,
+        Flipped = 2,
         /// <summary>
-        /// The 0th row is at the visual bottom of the image, and the 0th column is
-        /// the visual right-hand side.
+        /// The image is rotated 180 degrees.
         /// </summary>
         Rotated180 = 3,
         /// <summary>
-        /// The 0th row is at the visual bottom of the image, and the 0th column is
-        /// the visual left-hand side.
+        /// The image is flipped and rotated 180 degrees.
         /// </summary>
-        MirroredHorizontally = 4,
+        FlippedAndRotated180 = 4,
         /// <summary>
-        /// The 0th row is the visual left-hand side of the image, and the 0th column
-        /// is the visual top.
+        /// The image is flipped and rotated 90 degrees left.
         /// </summary>
-        RotatedLeftAndMirroredVertically = 5,
+        FlippedAndRotatedLeft = 5,
         /// <summary>
-        /// The 0th row is the visual right-hand side of the image, and the 0th column
-        /// is the visual top.
+        /// The image is rotated 90 degrees to left.
         /// </summary>
-        RotatedRight = 6,
+        RotatedLeft = 6,
         /// <summary>
-        /// The 0th row is the visual right-hand side of the image, and the 0th column
-        /// is the visual bottom.
+        /// The image is flipped and rotated 90 degrees right.
         /// </summary>
-        RotatedLeft = 7,
+        FlippedAndRotatedRight = 7,
         /// <summary>
-        /// The 0th row is the visual left-hand side of the image, and the 0th column
-        /// is the visual bottom.
+        /// The image is rotated 90 degrees to right.
         /// </summary>
-        RotatedRightAndMirroredVertically = 8
+        RotatedRight = 8
     }
 
     /// <summary>

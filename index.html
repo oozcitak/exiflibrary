@@ -1,104 +1,49 @@
 ﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Home | ExifLibrary </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Home | ExifLibrary ">
-    <meta name="generator" content="docfx 2.40.4.0">
-    
-    <link rel="shortcut icon" href="resources/icons/favicon.ico">
-    <link rel="stylesheet" href="styles/docfx.vendor.css">
-    <link rel="stylesheet" href="styles/docfx.css">
-    <link rel="stylesheet" href="styles/main.css">
-    <meta property="docfx:navrel" content="toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-    
-    
-    
-  </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="index.html">
-                <img id="logo" class="svg" src="resources/icons/logo.png" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
-              </form>
-            </div>
-          </div>
-        </nav>
-      </header>
-      <div role="main" class="container body-content hide-when-search">
-        <div class="article row grid">
-          <div class="col-md-12">
-            <article class="content wrap" id="_content" data-uid="Home">
-<h1 id="ıntroduction">Introduction</h1>
+<head>
+  <link rel="shortcut icon" href="./resources/icons/favicon.ico">
+  <link rel="stylesheet" href="./styles/docfx.vendor.css">
+  <link rel="stylesheet" href="./styles/docfx.css">
 
-<p>ExifLibrary is a .NET Standard library for extracting image metadata.</p>
-<h1 id="ınstallation">Installation</h1>
-<p>If you are using <a href="https://nuget.org/">NuGet</a> search for <code>ExifLibNet</code> in the NuGet Package Manager or install the assembly from the package manager console with:</p>
-<p><code>PM&gt; Install-Package ExifLibNet</code></p>
-<h1 id="quick-start">Quick Start</h1>
-<p>To read an image file and extract metadata:</p>
-<pre><code class="lang-cs">var file = ImageFile.FromFile(&quot;path_to_image&quot;);
+  <link rel="stylesheet" type="text/css" href="./resources/slick/slick.css">
+  <link rel="stylesheet" type="text/css" href="./resources/slick/slick-theme.css">
 
-// the type of the ISO speed rating tag value is unsigned short
-// see documentation for tag data types
-var isoTag = file.Properties.Get&lt;ExifUShort&gt;(ExifTag.ISOSpeedRatings);
-
-// the flash tag&#39;s value is an enum
-var flashTag = data.Properties.Get&lt;ExifEnumProperty&lt;Flash&gt;&gt;(ExifTag.Flash);
-
-// GPS latitude is a custom type with three rational values
-// representing degrees/minutes/seconds of the latitude 
-var latTag = data.Properties.Get&lt;GPSLatitudeLongitude&gt;(ExifTag.GPSLatitude);
-</code></pre><p>To add metadata:</p>
-<pre><code class="lang-cs">var file = ImageFile.FromFile(&quot;path_to_image&quot;);
-// note the explicit cast to ushort
-file.Properties.Set(ExifTag.ISOSpeedRatings, &lt;ushort&gt;200);
-</code></pre><p>To save the image with metadata:</p>
-<pre><code class="lang-cs">file.Save(&quot;path_to_image&quot;);
-</code></pre></article>
-          </div>
-        </div>
-      </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            Copyright © 2019 Özgür Özçıtak
-            
-          </div>
-        </div>
-      </footer>
+  <link rel="stylesheet" href="./styles/main.css"></head>
+<body>
+  <div id="hero">
+  <div class="header">
+    <div class="title">
+      <strong>ImageListView</strong>
     </div>
-    
-    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="styles/docfx.js"></script>
-    <script type="text/javascript" src="styles/main.js"></script>
-  </body>
+    <div class="info">a winforms control for image files with asynchronously loaded thumbnails</div>
+    <div class="buttons">
+      <a href="https://www.nuget.org/packages/ImageListView"><img src="https://img.shields.io/npm/v/npm.svg?logo=npm&amp;style=for-the-badge&amp;colorA=7c7&amp;colorB=4a4" alt="npm"></a>
+      &nbsp;&nbsp;&nbsp;
+      <a href="https://github.com/oozcitak/imagelistview"><img src="https://img.shields.io/badge/GitHub-Source%20Code-green.svg?logo=github&amp;style=for-the-badge&amp;colorA=7c7&amp;colorB=4a4" alt="GitHub"></a>
+    </div>
+    <div class="doclinks">
+      <a class="xref" href="articles/Introduction.html">Introduction</a> | <a class="xref" href="api/index.html">ImageListView Overview</a>
+    </div>
+  </div>
+  <div class="content">
+    <div class="demo-images">
+      <div><img src="resources/images/demo/ImageListView.thumbnail.png" alt="ImageListView in thumbnail view mode"></div>
+      <div><img src="resources/images/demo/ImageListView.gallery.png" alt="ImageListView in gallery view mode"></div>
+      <div><img src="resources/images/demo/ImageListView.details.png" alt="ImageListView in details view mode"></div>
+      <div><img src="resources/images/demo/ImageListView.pane.png" alt="ImageListView in pane view mode"></div>
+      <div><img src="resources/images/demo/ImageListView.tiles.png" alt="ImageListView with tiles renderer"></div>
+      <div><img src="resources/images/demo/ImageListView.xp.png" alt="ImageListView with XP renderer"></div>
+      <div><img src="resources/images/demo/ImageListView.noir.png" alt="ImageListView with noir renderer"></div>
+    </div>
+    <div class="demo-images-caption"></div>
+  </div>
+</div>
+
+  
+  <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+  <script type="text/javascript" src="styles/docfx.js"></script>
+  <script type="text/javascript" src="styles/main.js"></script>
+  <script src="./resources/slick/slick.min.js"></script>
+</body>
 </html>

@@ -22,9 +22,9 @@ namespace UnitTests
             }
         }
 
-        public static string TestImagePath(string filename)
+        public static string TestImagePath(string subfolder, string filename)
         {
-            return Path.Combine(TestImagesPath, filename);
+            return Path.Combine(TestImagesPath, subfolder, filename);
         }
     }
 }

@@ -899,19 +899,19 @@ references:
   isSpec: "True"
   fullName: Manina.Windows.Forms.ImageListView.AllowColumnResize
   nameWithType: ImageListView.AllowColumnResize
-- uid: Manina.Windows.Forms.ImageListView.AllowDrag
-  name: AllowDrag
-  href: obj/api/Manina.Windows.Forms.ImageListView.html#Manina_Windows_Forms_ImageListView_AllowDrag
-  commentId: P:Manina.Windows.Forms.ImageListView.AllowDrag
-  fullName: Manina.Windows.Forms.ImageListView.AllowDrag
-  nameWithType: ImageListView.AllowDrag
-- uid: Manina.Windows.Forms.ImageListView.AllowDrag*
-  name: AllowDrag
-  href: obj/api/Manina.Windows.Forms.ImageListView.html#Manina_Windows_Forms_ImageListView_AllowDrag_
-  commentId: Overload:Manina.Windows.Forms.ImageListView.AllowDrag
+- uid: Manina.Windows.Forms.ImageListView.AllowDrop
+  name: AllowDrop
+  href: obj/api/Manina.Windows.Forms.ImageListView.html#Manina_Windows_Forms_ImageListView_AllowDrop
+  commentId: P:Manina.Windows.Forms.ImageListView.AllowDrop
+  fullName: Manina.Windows.Forms.ImageListView.AllowDrop
+  nameWithType: ImageListView.AllowDrop
+- uid: Manina.Windows.Forms.ImageListView.AllowDrop*
+  name: AllowDrop
+  href: obj/api/Manina.Windows.Forms.ImageListView.html#Manina_Windows_Forms_ImageListView_AllowDrop_
+  commentId: Overload:Manina.Windows.Forms.ImageListView.AllowDrop
   isSpec: "True"
-  fullName: Manina.Windows.Forms.ImageListView.AllowDrag
-  nameWithType: ImageListView.AllowDrag
+  fullName: Manina.Windows.Forms.ImageListView.AllowDrop
+  nameWithType: ImageListView.AllowDrop
 - uid: Manina.Windows.Forms.ImageListView.AllowDuplicateFileNames
   name: AllowDuplicateFileNames
   href: obj/api/Manina.Windows.Forms.ImageListView.html#Manina_Windows_Forms_ImageListView_AllowDuplicateFileNames
@@ -925,6 +925,19 @@ references:
   isSpec: "True"
   fullName: Manina.Windows.Forms.ImageListView.AllowDuplicateFileNames
   nameWithType: ImageListView.AllowDuplicateFileNames
+- uid: Manina.Windows.Forms.ImageListView.AllowItemReorder
+  name: AllowItemReorder
+  href: obj/api/Manina.Windows.Forms.ImageListView.html#Manina_Windows_Forms_ImageListView_AllowItemReorder
+  commentId: P:Manina.Windows.Forms.ImageListView.AllowItemReorder
+  fullName: Manina.Windows.Forms.ImageListView.AllowItemReorder
+  nameWithType: ImageListView.AllowItemReorder
+- uid: Manina.Windows.Forms.ImageListView.AllowItemReorder*
+  name: AllowItemReorder
+  href: obj/api/Manina.Windows.Forms.ImageListView.html#Manina_Windows_Forms_ImageListView_AllowItemReorder_
+  commentId: Overload:Manina.Windows.Forms.ImageListView.AllowItemReorder
+  isSpec: "True"
+  fullName: Manina.Windows.Forms.ImageListView.AllowItemReorder
+  nameWithType: ImageListView.AllowItemReorder
 - uid: Manina.Windows.Forms.ImageListView.AllowPaneResize
   name: AllowPaneResize
   href: obj/api/Manina.Windows.Forms.ImageListView.html#Manina_Windows_Forms_ImageListView_AllowPaneResize

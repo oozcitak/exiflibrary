@@ -164,6 +164,12 @@ references:
   commentId: F:Manina.Windows.Forms.CacheThread.Details
   fullName: Manina.Windows.Forms.CacheThread.Details
   nameWithType: CacheThread.Details
+- uid: Manina.Windows.Forms.CacheThread.ShellInfo
+  name: ShellInfo
+  href: obj/api/Manina.Windows.Forms.CacheThread.html#Manina_Windows_Forms_CacheThread_ShellInfo
+  commentId: F:Manina.Windows.Forms.CacheThread.ShellInfo
+  fullName: Manina.Windows.Forms.CacheThread.ShellInfo
+  nameWithType: CacheThread.ShellInfo
 - uid: Manina.Windows.Forms.CacheThread.Thumbnail
   name: Thumbnail
   href: obj/api/Manina.Windows.Forms.CacheThread.html#Manina_Windows_Forms_CacheThread_Thumbnail
@@ -899,19 +905,19 @@ references:
   isSpec: "True"
   fullName: Manina.Windows.Forms.ImageListView.AllowColumnResize
   nameWithType: ImageListView.AllowColumnResize
-- uid: Manina.Windows.Forms.ImageListView.AllowDrop
-  name: AllowDrop
-  href: obj/api/Manina.Windows.Forms.ImageListView.html#Manina_Windows_Forms_ImageListView_AllowDrop
-  commentId: P:Manina.Windows.Forms.ImageListView.AllowDrop
-  fullName: Manina.Windows.Forms.ImageListView.AllowDrop
-  nameWithType: ImageListView.AllowDrop
-- uid: Manina.Windows.Forms.ImageListView.AllowDrop*
-  name: AllowDrop
-  href: obj/api/Manina.Windows.Forms.ImageListView.html#Manina_Windows_Forms_ImageListView_AllowDrop_
-  commentId: Overload:Manina.Windows.Forms.ImageListView.AllowDrop
+- uid: Manina.Windows.Forms.ImageListView.AllowDrag
+  name: AllowDrag
+  href: obj/api/Manina.Windows.Forms.ImageListView.html#Manina_Windows_Forms_ImageListView_AllowDrag
+  commentId: P:Manina.Windows.Forms.ImageListView.AllowDrag
+  fullName: Manina.Windows.Forms.ImageListView.AllowDrag
+  nameWithType: ImageListView.AllowDrag
+- uid: Manina.Windows.Forms.ImageListView.AllowDrag*
+  name: AllowDrag
+  href: obj/api/Manina.Windows.Forms.ImageListView.html#Manina_Windows_Forms_ImageListView_AllowDrag_
+  commentId: Overload:Manina.Windows.Forms.ImageListView.AllowDrag
   isSpec: "True"
-  fullName: Manina.Windows.Forms.ImageListView.AllowDrop
-  nameWithType: ImageListView.AllowDrop
+  fullName: Manina.Windows.Forms.ImageListView.AllowDrag
+  nameWithType: ImageListView.AllowDrag
 - uid: Manina.Windows.Forms.ImageListView.AllowDuplicateFileNames
   name: AllowDuplicateFileNames
   href: obj/api/Manina.Windows.Forms.ImageListView.html#Manina_Windows_Forms_ImageListView_AllowDuplicateFileNames
@@ -1186,6 +1192,18 @@ references:
   isSpec: "True"
   fullName: Manina.Windows.Forms.ImageListView.DefaultImage
   nameWithType: ImageListView.DefaultImage
+- uid: Manina.Windows.Forms.ImageListView.DetailsCached
+  name: DetailsCached
+  href: obj/api/Manina.Windows.Forms.ImageListView.html#Manina_Windows_Forms_ImageListView_DetailsCached
+  commentId: E:Manina.Windows.Forms.ImageListView.DetailsCached
+  fullName: Manina.Windows.Forms.ImageListView.DetailsCached
+  nameWithType: ImageListView.DetailsCached
+- uid: Manina.Windows.Forms.ImageListView.DetailsCaching
+  name: DetailsCaching
+  href: obj/api/Manina.Windows.Forms.ImageListView.html#Manina_Windows_Forms_ImageListView_DetailsCaching
+  commentId: E:Manina.Windows.Forms.ImageListView.DetailsCaching
+  fullName: Manina.Windows.Forms.ImageListView.DetailsCaching
+  nameWithType: ImageListView.DetailsCaching
 - uid: Manina.Windows.Forms.ImageListView.DisableAll
   name: DisableAll()
   href: obj/api/Manina.Windows.Forms.ImageListView.html#Manina_Windows_Forms_ImageListView_DisableAll
@@ -4211,6 +4229,32 @@ references:
   isSpec: "True"
   fullName: Manina.Windows.Forms.ImageListView.OnColumnWidthChanged
   nameWithType: ImageListView.OnColumnWidthChanged
+- uid: Manina.Windows.Forms.ImageListView.OnDetailsCached(Manina.Windows.Forms.ItemEventArgs)
+  name: OnDetailsCached(ItemEventArgs)
+  href: obj/api/Manina.Windows.Forms.ImageListView.html#Manina_Windows_Forms_ImageListView_OnDetailsCached_Manina_Windows_Forms_ItemEventArgs_
+  commentId: M:Manina.Windows.Forms.ImageListView.OnDetailsCached(Manina.Windows.Forms.ItemEventArgs)
+  fullName: Manina.Windows.Forms.ImageListView.OnDetailsCached(Manina.Windows.Forms.ItemEventArgs)
+  nameWithType: ImageListView.OnDetailsCached(ItemEventArgs)
+- uid: Manina.Windows.Forms.ImageListView.OnDetailsCached*
+  name: OnDetailsCached
+  href: obj/api/Manina.Windows.Forms.ImageListView.html#Manina_Windows_Forms_ImageListView_OnDetailsCached_
+  commentId: Overload:Manina.Windows.Forms.ImageListView.OnDetailsCached
+  isSpec: "True"
+  fullName: Manina.Windows.Forms.ImageListView.OnDetailsCached
+  nameWithType: ImageListView.OnDetailsCached
+- uid: Manina.Windows.Forms.ImageListView.OnDetailsCaching(Manina.Windows.Forms.ItemEventArgs)
+  name: OnDetailsCaching(ItemEventArgs)
+  href: obj/api/Manina.Windows.Forms.ImageListView.html#Manina_Windows_Forms_ImageListView_OnDetailsCaching_Manina_Windows_Forms_ItemEventArgs_
+  commentId: M:Manina.Windows.Forms.ImageListView.OnDetailsCaching(Manina.Windows.Forms.ItemEventArgs)
+  fullName: Manina.Windows.Forms.ImageListView.OnDetailsCaching(Manina.Windows.Forms.ItemEventArgs)
+  nameWithType: ImageListView.OnDetailsCaching(ItemEventArgs)
+- uid: Manina.Windows.Forms.ImageListView.OnDetailsCaching*
+  name: OnDetailsCaching
+  href: obj/api/Manina.Windows.Forms.ImageListView.html#Manina_Windows_Forms_ImageListView_OnDetailsCaching_
+  commentId: Overload:Manina.Windows.Forms.ImageListView.OnDetailsCaching
+  isSpec: "True"
+  fullName: Manina.Windows.Forms.ImageListView.OnDetailsCaching
+  nameWithType: ImageListView.OnDetailsCaching
 - uid: Manina.Windows.Forms.ImageListView.OnDragDrop(System.Windows.Forms.DragEventArgs)
   name: OnDragDrop(DragEventArgs)
   href: obj/api/Manina.Windows.Forms.ImageListView.html#Manina_Windows_Forms_ImageListView_OnDragDrop_System_Windows_Forms_DragEventArgs_
@@ -4562,6 +4606,32 @@ references:
   isSpec: "True"
   fullName: Manina.Windows.Forms.ImageListView.OnSelectionChanged
   nameWithType: ImageListView.OnSelectionChanged
+- uid: Manina.Windows.Forms.ImageListView.OnShellInfoCached(Manina.Windows.Forms.ShellInfoCachedEventArgs)
+  name: OnShellInfoCached(ShellInfoCachedEventArgs)
+  href: obj/api/Manina.Windows.Forms.ImageListView.html#Manina_Windows_Forms_ImageListView_OnShellInfoCached_Manina_Windows_Forms_ShellInfoCachedEventArgs_
+  commentId: M:Manina.Windows.Forms.ImageListView.OnShellInfoCached(Manina.Windows.Forms.ShellInfoCachedEventArgs)
+  fullName: Manina.Windows.Forms.ImageListView.OnShellInfoCached(Manina.Windows.Forms.ShellInfoCachedEventArgs)
+  nameWithType: ImageListView.OnShellInfoCached(ShellInfoCachedEventArgs)
+- uid: Manina.Windows.Forms.ImageListView.OnShellInfoCached*
+  name: OnShellInfoCached
+  href: obj/api/Manina.Windows.Forms.ImageListView.html#Manina_Windows_Forms_ImageListView_OnShellInfoCached_
+  commentId: Overload:Manina.Windows.Forms.ImageListView.OnShellInfoCached
+  isSpec: "True"
+  fullName: Manina.Windows.Forms.ImageListView.OnShellInfoCached
+  nameWithType: ImageListView.OnShellInfoCached
+- uid: Manina.Windows.Forms.ImageListView.OnShellInfoCaching(Manina.Windows.Forms.ShellInfoCachingEventArgs)
+  name: OnShellInfoCaching(ShellInfoCachingEventArgs)
+  href: obj/api/Manina.Windows.Forms.ImageListView.html#Manina_Windows_Forms_ImageListView_OnShellInfoCaching_Manina_Windows_Forms_ShellInfoCachingEventArgs_
+  commentId: M:Manina.Windows.Forms.ImageListView.OnShellInfoCaching(Manina.Windows.Forms.ShellInfoCachingEventArgs)
+  fullName: Manina.Windows.Forms.ImageListView.OnShellInfoCaching(Manina.Windows.Forms.ShellInfoCachingEventArgs)
+  nameWithType: ImageListView.OnShellInfoCaching(ShellInfoCachingEventArgs)
+- uid: Manina.Windows.Forms.ImageListView.OnShellInfoCaching*
+  name: OnShellInfoCaching
+  href: obj/api/Manina.Windows.Forms.ImageListView.html#Manina_Windows_Forms_ImageListView_OnShellInfoCaching_
+  commentId: Overload:Manina.Windows.Forms.ImageListView.OnShellInfoCaching
+  isSpec: "True"
+  fullName: Manina.Windows.Forms.ImageListView.OnShellInfoCaching
+  nameWithType: ImageListView.OnShellInfoCaching
 - uid: Manina.Windows.Forms.ImageListView.OnThumbnailCached(Manina.Windows.Forms.ThumbnailCachedEventArgs)
   name: OnThumbnailCached(ThumbnailCachedEventArgs)
   href: obj/api/Manina.Windows.Forms.ImageListView.html#Manina_Windows_Forms_ImageListView_OnThumbnailCached_Manina_Windows_Forms_ThumbnailCachedEventArgs_
@@ -4868,6 +4938,18 @@ references:
   isSpec: "True"
   fullName: Manina.Windows.Forms.ImageListView.ShellIconFromFileContent
   nameWithType: ImageListView.ShellIconFromFileContent
+- uid: Manina.Windows.Forms.ImageListView.ShellInfoCached
+  name: ShellInfoCached
+  href: obj/api/Manina.Windows.Forms.ImageListView.html#Manina_Windows_Forms_ImageListView_ShellInfoCached
+  commentId: E:Manina.Windows.Forms.ImageListView.ShellInfoCached
+  fullName: Manina.Windows.Forms.ImageListView.ShellInfoCached
+  nameWithType: ImageListView.ShellInfoCached
+- uid: Manina.Windows.Forms.ImageListView.ShellInfoCaching
+  name: ShellInfoCaching
+  href: obj/api/Manina.Windows.Forms.ImageListView.html#Manina_Windows_Forms_ImageListView_ShellInfoCaching
+  commentId: E:Manina.Windows.Forms.ImageListView.ShellInfoCaching
+  fullName: Manina.Windows.Forms.ImageListView.ShellInfoCaching
+  nameWithType: ImageListView.ShellInfoCaching
 - uid: Manina.Windows.Forms.ImageListView.ShouldSerializeColors
   name: ShouldSerializeColors()
   href: obj/api/Manina.Windows.Forms.ImageListView.html#Manina_Windows_Forms_ImageListView_ShouldSerializeColors
@@ -8735,6 +8817,109 @@ references:
   commentId: F:Manina.Windows.Forms.ShellInfo.SmallIcon
   fullName: Manina.Windows.Forms.ShellInfo.SmallIcon
   nameWithType: ShellInfo.SmallIcon
+- uid: Manina.Windows.Forms.ShellInfoCachedEventArgs
+  name: ShellInfoCachedEventArgs
+  href: obj/api/Manina.Windows.Forms.ShellInfoCachedEventArgs.html
+  commentId: T:Manina.Windows.Forms.ShellInfoCachedEventArgs
+  fullName: Manina.Windows.Forms.ShellInfoCachedEventArgs
+  nameWithType: ShellInfoCachedEventArgs
+- uid: Manina.Windows.Forms.ShellInfoCachedEventArgs.#ctor(System.String,System.Drawing.Image,System.Drawing.Image,System.String)
+  name: ShellInfoCachedEventArgs(String, Image, Image, String)
+  href: obj/api/Manina.Windows.Forms.ShellInfoCachedEventArgs.html#Manina_Windows_Forms_ShellInfoCachedEventArgs__ctor_System_String_System_Drawing_Image_System_Drawing_Image_System_String_
+  commentId: M:Manina.Windows.Forms.ShellInfoCachedEventArgs.#ctor(System.String,System.Drawing.Image,System.Drawing.Image,System.String)
+  fullName: Manina.Windows.Forms.ShellInfoCachedEventArgs.ShellInfoCachedEventArgs(System.String, System.Drawing.Image, System.Drawing.Image, System.String)
+  nameWithType: ShellInfoCachedEventArgs.ShellInfoCachedEventArgs(String, Image, Image, String)
+- uid: Manina.Windows.Forms.ShellInfoCachedEventArgs.#ctor*
+  name: ShellInfoCachedEventArgs
+  href: obj/api/Manina.Windows.Forms.ShellInfoCachedEventArgs.html#Manina_Windows_Forms_ShellInfoCachedEventArgs__ctor_
+  commentId: Overload:Manina.Windows.Forms.ShellInfoCachedEventArgs.#ctor
+  isSpec: "True"
+  fullName: Manina.Windows.Forms.ShellInfoCachedEventArgs.ShellInfoCachedEventArgs
+  nameWithType: ShellInfoCachedEventArgs.ShellInfoCachedEventArgs
+- uid: Manina.Windows.Forms.ShellInfoCachedEventArgs.Extension
+  name: Extension
+  href: obj/api/Manina.Windows.Forms.ShellInfoCachedEventArgs.html#Manina_Windows_Forms_ShellInfoCachedEventArgs_Extension
+  commentId: P:Manina.Windows.Forms.ShellInfoCachedEventArgs.Extension
+  fullName: Manina.Windows.Forms.ShellInfoCachedEventArgs.Extension
+  nameWithType: ShellInfoCachedEventArgs.Extension
+- uid: Manina.Windows.Forms.ShellInfoCachedEventArgs.Extension*
+  name: Extension
+  href: obj/api/Manina.Windows.Forms.ShellInfoCachedEventArgs.html#Manina_Windows_Forms_ShellInfoCachedEventArgs_Extension_
+  commentId: Overload:Manina.Windows.Forms.ShellInfoCachedEventArgs.Extension
+  isSpec: "True"
+  fullName: Manina.Windows.Forms.ShellInfoCachedEventArgs.Extension
+  nameWithType: ShellInfoCachedEventArgs.Extension
+- uid: Manina.Windows.Forms.ShellInfoCachedEventArgs.FileType
+  name: FileType
+  href: obj/api/Manina.Windows.Forms.ShellInfoCachedEventArgs.html#Manina_Windows_Forms_ShellInfoCachedEventArgs_FileType
+  commentId: P:Manina.Windows.Forms.ShellInfoCachedEventArgs.FileType
+  fullName: Manina.Windows.Forms.ShellInfoCachedEventArgs.FileType
+  nameWithType: ShellInfoCachedEventArgs.FileType
+- uid: Manina.Windows.Forms.ShellInfoCachedEventArgs.FileType*
+  name: FileType
+  href: obj/api/Manina.Windows.Forms.ShellInfoCachedEventArgs.html#Manina_Windows_Forms_ShellInfoCachedEventArgs_FileType_
+  commentId: Overload:Manina.Windows.Forms.ShellInfoCachedEventArgs.FileType
+  isSpec: "True"
+  fullName: Manina.Windows.Forms.ShellInfoCachedEventArgs.FileType
+  nameWithType: ShellInfoCachedEventArgs.FileType
+- uid: Manina.Windows.Forms.ShellInfoCachedEventArgs.LargeIcon
+  name: LargeIcon
+  href: obj/api/Manina.Windows.Forms.ShellInfoCachedEventArgs.html#Manina_Windows_Forms_ShellInfoCachedEventArgs_LargeIcon
+  commentId: P:Manina.Windows.Forms.ShellInfoCachedEventArgs.LargeIcon
+  fullName: Manina.Windows.Forms.ShellInfoCachedEventArgs.LargeIcon
+  nameWithType: ShellInfoCachedEventArgs.LargeIcon
+- uid: Manina.Windows.Forms.ShellInfoCachedEventArgs.LargeIcon*
+  name: LargeIcon
+  href: obj/api/Manina.Windows.Forms.ShellInfoCachedEventArgs.html#Manina_Windows_Forms_ShellInfoCachedEventArgs_LargeIcon_
+  commentId: Overload:Manina.Windows.Forms.ShellInfoCachedEventArgs.LargeIcon
+  isSpec: "True"
+  fullName: Manina.Windows.Forms.ShellInfoCachedEventArgs.LargeIcon
+  nameWithType: ShellInfoCachedEventArgs.LargeIcon
+- uid: Manina.Windows.Forms.ShellInfoCachedEventArgs.SmallIcon
+  name: SmallIcon
+  href: obj/api/Manina.Windows.Forms.ShellInfoCachedEventArgs.html#Manina_Windows_Forms_ShellInfoCachedEventArgs_SmallIcon
+  commentId: P:Manina.Windows.Forms.ShellInfoCachedEventArgs.SmallIcon
+  fullName: Manina.Windows.Forms.ShellInfoCachedEventArgs.SmallIcon
+  nameWithType: ShellInfoCachedEventArgs.SmallIcon
+- uid: Manina.Windows.Forms.ShellInfoCachedEventArgs.SmallIcon*
+  name: SmallIcon
+  href: obj/api/Manina.Windows.Forms.ShellInfoCachedEventArgs.html#Manina_Windows_Forms_ShellInfoCachedEventArgs_SmallIcon_
+  commentId: Overload:Manina.Windows.Forms.ShellInfoCachedEventArgs.SmallIcon
+  isSpec: "True"
+  fullName: Manina.Windows.Forms.ShellInfoCachedEventArgs.SmallIcon
+  nameWithType: ShellInfoCachedEventArgs.SmallIcon
+- uid: Manina.Windows.Forms.ShellInfoCachingEventArgs
+  name: ShellInfoCachingEventArgs
+  href: obj/api/Manina.Windows.Forms.ShellInfoCachingEventArgs.html
+  commentId: T:Manina.Windows.Forms.ShellInfoCachingEventArgs
+  fullName: Manina.Windows.Forms.ShellInfoCachingEventArgs
+  nameWithType: ShellInfoCachingEventArgs
+- uid: Manina.Windows.Forms.ShellInfoCachingEventArgs.#ctor(System.String)
+  name: ShellInfoCachingEventArgs(String)
+  href: obj/api/Manina.Windows.Forms.ShellInfoCachingEventArgs.html#Manina_Windows_Forms_ShellInfoCachingEventArgs__ctor_System_String_
+  commentId: M:Manina.Windows.Forms.ShellInfoCachingEventArgs.#ctor(System.String)
+  fullName: Manina.Windows.Forms.ShellInfoCachingEventArgs.ShellInfoCachingEventArgs(System.String)
+  nameWithType: ShellInfoCachingEventArgs.ShellInfoCachingEventArgs(String)
+- uid: Manina.Windows.Forms.ShellInfoCachingEventArgs.#ctor*
+  name: ShellInfoCachingEventArgs
+  href: obj/api/Manina.Windows.Forms.ShellInfoCachingEventArgs.html#Manina_Windows_Forms_ShellInfoCachingEventArgs__ctor_
+  commentId: Overload:Manina.Windows.Forms.ShellInfoCachingEventArgs.#ctor
+  isSpec: "True"
+  fullName: Manina.Windows.Forms.ShellInfoCachingEventArgs.ShellInfoCachingEventArgs
+  nameWithType: ShellInfoCachingEventArgs.ShellInfoCachingEventArgs
+- uid: Manina.Windows.Forms.ShellInfoCachingEventArgs.Extension
+  name: Extension
+  href: obj/api/Manina.Windows.Forms.ShellInfoCachingEventArgs.html#Manina_Windows_Forms_ShellInfoCachingEventArgs_Extension
+  commentId: P:Manina.Windows.Forms.ShellInfoCachingEventArgs.Extension
+  fullName: Manina.Windows.Forms.ShellInfoCachingEventArgs.Extension
+  nameWithType: ShellInfoCachingEventArgs.Extension
+- uid: Manina.Windows.Forms.ShellInfoCachingEventArgs.Extension*
+  name: Extension
+  href: obj/api/Manina.Windows.Forms.ShellInfoCachingEventArgs.html#Manina_Windows_Forms_ShellInfoCachingEventArgs_Extension_
+  commentId: Overload:Manina.Windows.Forms.ShellInfoCachingEventArgs.Extension
+  isSpec: "True"
+  fullName: Manina.Windows.Forms.ShellInfoCachingEventArgs.Extension
+  nameWithType: ShellInfoCachingEventArgs.Extension
 - uid: Manina.Windows.Forms.SortOrder
   name: SortOrder
   href: obj/api/Manina.Windows.Forms.SortOrder.html

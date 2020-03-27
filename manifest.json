@@ -81,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "combinedtoc/toc.html",
-          "hash": "s2Q1Dnc6csKeyi3Rm8uSvA=="
+          "hash": "3ztdcM1I2VZs0DnrutbIiA=="
         }
       },
       "is_incremental": false,
@@ -105,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/Manina.Windows.Forms.CacheErrorEventArgs.html",
-          "hash": "Xp8LotWoL4suKcUZoe44sw=="
+          "hash": "DDqOe0slMuIpBsOS6LF57w=="
         }
       },
       "is_incremental": false,
@@ -141,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/Manina.Windows.Forms.CacheThread.html",
-          "hash": "7DxfszHwVa7lHvHyFwIC+Q=="
+          "hash": "X3jxjmz5RBcthnW9jkcS+g=="
         }
       },
       "is_incremental": false,
@@ -165,7 +165,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/Manina.Windows.Forms.ColumnClickEventArgs.html",
-          "hash": "D7ySiZSsyPP06J0Ha3hn/g=="
+          "hash": "VBdDhcxAdQaVhd4REqINrw=="
         }
       },
       "is_incremental": false,
@@ -177,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/Manina.Windows.Forms.ColumnEventArgs.html",
-          "hash": "JBXY7qk6CdIO5r+UIZ50wg=="
+          "hash": "yCnEJbKWXArJWWzA7TvCTw=="
         }
       },
       "is_incremental": false,
@@ -189,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/Manina.Windows.Forms.ColumnHoverEventArgs.html",
-          "hash": "yhVlacUZPZgQ33tP2qPgmg=="
+          "hash": "pcMh5Agm6LLQhNYB4ZxSbA=="
         }
       },
       "is_incremental": false,
@@ -225,7 +225,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/Manina.Windows.Forms.DropCompleteEventArgs.html",
-          "hash": "qyasda1tofm+sJ1fDUeY2Q=="
+          "hash": "N/COiwWB0afBLJluLvrkDw=="
         }
       },
       "is_incremental": false,
@@ -237,7 +237,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/Manina.Windows.Forms.DropFileEventArgs.html",
-          "hash": "QpozjFB60cTiFkmbIidRKw=="
+          "hash": "ViV6b/Zk0Pr0p8wEqX+yBg=="
         }
       },
       "is_incremental": false,
@@ -249,7 +249,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/Manina.Windows.Forms.DropItemEventArgs.html",
-          "hash": "CgpSYoWTpqnlWS6XXtpibg=="
+          "hash": "02+EkZkjlVs2PuDWGz3zzw=="
         }
       },
       "is_incremental": false,
@@ -417,7 +417,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/Manina.Windows.Forms.ImageListView.html",
-          "hash": "Su93ZiPehgoAaM/+OGUHzQ=="
+          "hash": "YUurazqD4vLvxLEw39Ittw=="
         }
       },
       "is_incremental": false,
@@ -621,7 +621,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/Manina.Windows.Forms.ItemClickEventArgs.html",
-          "hash": "WPAEivi0f8s1ffXC2CQ0Gw=="
+          "hash": "Z8ylKlG38Voj5UoRqdzKLQ=="
         }
       },
       "is_incremental": false,
@@ -633,7 +633,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/Manina.Windows.Forms.ItemCollectionChangedEventArgs.html",
-          "hash": "fv2vk9+/NvBAbxe8gTmusA=="
+          "hash": "J/V6CCbjduDO1pD4unDU/g=="
         }
       },
       "is_incremental": false,
@@ -657,7 +657,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/Manina.Windows.Forms.ItemEventArgs.html",
-          "hash": "1FFG2qC8fv1TpTm6tk+qCg=="
+          "hash": "l4Zzn47QnaA1s8AM8vSEcA=="
         }
       },
       "is_incremental": false,
@@ -669,7 +669,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/Manina.Windows.Forms.ItemHoverEventArgs.html",
-          "hash": "fsnUBe0zVcCUv/FqSHKcnQ=="
+          "hash": "qzsw2umC8HUAVX2gIdeYrQ=="
         }
       },
       "is_incremental": false,
@@ -705,7 +705,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/Manina.Windows.Forms.LayoutEventArgs.html",
-          "hash": "vCf1Xjej70IVilotiXp6iQ=="
+          "hash": "W5fcHhNvKNryTpQossLmRg=="
         }
       },
       "is_incremental": false,
@@ -729,7 +729,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/Manina.Windows.Forms.PaneResizedEventArgs.html",
-          "hash": "Q1PpXPrewf+Vbcgi2mIWBw=="
+          "hash": "UCGcmd9ZUjLQpu7w7BRuaQ=="
         }
       },
       "is_incremental": false,
@@ -741,7 +741,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/Manina.Windows.Forms.PaneResizingEventArgs.html",
-          "hash": "fHeNxuNSG3OyK7vFjDzDrw=="
+          "hash": "LYTIpZJHH6bNEgV+FwKaZQ=="
         }
       },
       "is_incremental": false,
@@ -809,6 +809,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Manina.Windows.Forms.ShellInfoCachedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/Manina.Windows.Forms.ShellInfoCachedEventArgs.html",
+          "hash": "aXGvv09Qo0j671nBc6H7nA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Manina.Windows.Forms.ShellInfoCachingEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "obj/api/Manina.Windows.Forms.ShellInfoCachingEventArgs.html",
+          "hash": "7w1nEAEFP+ix5uzx8eNpxQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Manina.Windows.Forms.SortOrder.yml",
       "output": {
         ".html": {
@@ -825,7 +849,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/Manina.Windows.Forms.ThumbnailCachedEventArgs.html",
-          "hash": "TUAA23Z2UFJKjNNj2V3kTg=="
+          "hash": "mvnMD87+gZYy5WZLjJQ5Mw=="
         }
       },
       "is_incremental": false,
@@ -837,7 +861,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/Manina.Windows.Forms.ThumbnailCachingEventArgs.html",
-          "hash": "dhpgXfcM70XHIhkVYBHNgw=="
+          "hash": "ZkU7lgo4/RR6DOiLZv2U+A=="
         }
       },
       "is_incremental": false,
@@ -933,7 +957,7 @@
       "output": {
         ".html": {
           "relative_path": "obj/api/Manina.Windows.Forms.html",
-          "hash": "wg1s+TeL9fRgBeoxO3pYtw=="
+          "hash": "/OyXQaX02tvkyQ87MlDVmg=="
         }
       },
       "is_incremental": false,
@@ -1339,17 +1363,17 @@
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
-        "ResourceDocumentProcessor": {
+        "ConceptualDocumentProcessor": {
           "can_incremental": false,
-          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build"
         },
-        "ConceptualDocumentProcessor": {
+        "ResourceDocumentProcessor": {
           "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         }
       }

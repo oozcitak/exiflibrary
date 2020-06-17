@@ -197,9 +197,8 @@ namespace ExifLibrary
             // Write sections
             foreach (JPEGSection section in Sections)
             {
-                // Section header (including length bytes and section marker) 
-                // must not exceed 64 kB.
-                if (section.Header.Length + 2 + 2 > 64 * 1024)
+                // Section header (including length bytes) must not exceed 64 kB.
+                if (section.Header.Length + 2 > 64 * 1024)
                     throw new SectionExceeds64KBException();
 
                 // APP sections must have a header.

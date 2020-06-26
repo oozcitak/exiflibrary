@@ -170,6 +170,36 @@ namespace ExifLibrary
             {
                 ImageFileDirectory ifd = IFDs[i];
 
+                // Update zeroth IFD fields from image properties
+                if (i == 0)
+                {
+                    var ifdZeroth = new Dictionary<ushort, ImageFileDirectoryEntry>();
+                    foreach (var field in ifd.Fields)
+                    {
+                        ifdZeroth.Add(field.Tag, field);
+                    }
+
+                    foreach (var prop in Properties)
+                    {
+                        if (prop.IFD == IFD.Zeroth)
+                        {
+                            var interop = prop.Interoperability;
+                            if (ifdZeroth.TryGetValue(interop.TagID, out var field))
+                            {
+                                field.Count = interop.Count;
+                                field.Data = interop.Data;
+                            }
+                            else
+                            {
+                                ifdZeroth.Add(interop.TagID, new ImageFileDirectoryEntry(interop.TagID, (ushort)interop.TypeID, interop.Count, interop.Data));
+                            }
+                        }
+                    }
+
+                    ifd.Fields.Clear();
+                    ifd.Fields.AddRange(ifdZeroth.Values);
+                }
+
                 // Save the location of IFD offset
                 long ifdLocation = stream.Position - 4;
 

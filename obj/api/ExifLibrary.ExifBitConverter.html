@@ -1,0 +1,1826 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ExifBitConverter
+   | ExifLibrary </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ExifBitConverter
+   | ExifLibrary ">
+    <meta name="generator" content="docfx 2.55.0.0">
+    
+    <link rel="shortcut icon" href="../../resources/icons/favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../combinedtoc/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../resources/icons/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-12">
+            <article class="content wrap" id="_content" data-uid="ExifLibrary.ExifBitConverter">
+  
+  
+  <h1 id="ExifLibrary_ExifBitConverter" data-uid="ExifLibrary.ExifBitConverter" class="text-break">Class ExifBitConverter
+  </h1>
+  <div class="markdown level0 summary"><p>Converts between exif data types and array of bytes.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="ExifLibrary.BitConverterEx.html">BitConverterEx</a></div>
+    <div class="level2"><span class="xref">ExifBitConverter</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_SystemByteOrder">BitConverterEx.SystemByteOrder</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_LittleEndian">BitConverterEx.LittleEndian</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_BigEndian">BitConverterEx.BigEndian</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_SystemEndian">BitConverterEx.SystemEndian</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_ToChar_System_Byte___System_Int64_ExifLibrary_BitConverterEx_ByteOrder_ExifLibrary_BitConverterEx_ByteOrder_">BitConverterEx.ToChar(Byte[], Int64, BitConverterEx.ByteOrder, BitConverterEx.ByteOrder)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_ToUInt16_System_Byte___System_Int64_ExifLibrary_BitConverterEx_ByteOrder_ExifLibrary_BitConverterEx_ByteOrder_">BitConverterEx.ToUInt16(Byte[], Int64, BitConverterEx.ByteOrder, BitConverterEx.ByteOrder)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_ToUInt32_System_Byte___System_Int64_ExifLibrary_BitConverterEx_ByteOrder_ExifLibrary_BitConverterEx_ByteOrder_">BitConverterEx.ToUInt32(Byte[], Int64, BitConverterEx.ByteOrder, BitConverterEx.ByteOrder)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_ToUInt64_System_Byte___System_Int64_ExifLibrary_BitConverterEx_ByteOrder_ExifLibrary_BitConverterEx_ByteOrder_">BitConverterEx.ToUInt64(Byte[], Int64, BitConverterEx.ByteOrder, BitConverterEx.ByteOrder)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_ToInt16_System_Byte___System_Int64_ExifLibrary_BitConverterEx_ByteOrder_ExifLibrary_BitConverterEx_ByteOrder_">BitConverterEx.ToInt16(Byte[], Int64, BitConverterEx.ByteOrder, BitConverterEx.ByteOrder)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_ToInt32_System_Byte___System_Int64_ExifLibrary_BitConverterEx_ByteOrder_ExifLibrary_BitConverterEx_ByteOrder_">BitConverterEx.ToInt32(Byte[], Int64, BitConverterEx.ByteOrder, BitConverterEx.ByteOrder)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_ToInt64_System_Byte___System_Int64_ExifLibrary_BitConverterEx_ByteOrder_ExifLibrary_BitConverterEx_ByteOrder_">BitConverterEx.ToInt64(Byte[], Int64, BitConverterEx.ByteOrder, BitConverterEx.ByteOrder)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_ToSingle_System_Byte___System_Int64_ExifLibrary_BitConverterEx_ByteOrder_ExifLibrary_BitConverterEx_ByteOrder_">BitConverterEx.ToSingle(Byte[], Int64, BitConverterEx.ByteOrder, BitConverterEx.ByteOrder)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_ToDouble_System_Byte___System_Int64_ExifLibrary_BitConverterEx_ByteOrder_ExifLibrary_BitConverterEx_ByteOrder_">BitConverterEx.ToDouble(Byte[], Int64, BitConverterEx.ByteOrder, BitConverterEx.ByteOrder)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_GetBytes_System_UInt16_ExifLibrary_BitConverterEx_ByteOrder_ExifLibrary_BitConverterEx_ByteOrder_">BitConverterEx.GetBytes(UInt16, BitConverterEx.ByteOrder, BitConverterEx.ByteOrder)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_GetBytes_System_UInt32_ExifLibrary_BitConverterEx_ByteOrder_ExifLibrary_BitConverterEx_ByteOrder_">BitConverterEx.GetBytes(UInt32, BitConverterEx.ByteOrder, BitConverterEx.ByteOrder)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_GetBytes_System_UInt64_ExifLibrary_BitConverterEx_ByteOrder_ExifLibrary_BitConverterEx_ByteOrder_">BitConverterEx.GetBytes(UInt64, BitConverterEx.ByteOrder, BitConverterEx.ByteOrder)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_GetBytes_System_Int16_ExifLibrary_BitConverterEx_ByteOrder_ExifLibrary_BitConverterEx_ByteOrder_">BitConverterEx.GetBytes(Int16, BitConverterEx.ByteOrder, BitConverterEx.ByteOrder)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_GetBytes_System_Int32_ExifLibrary_BitConverterEx_ByteOrder_ExifLibrary_BitConverterEx_ByteOrder_">BitConverterEx.GetBytes(Int32, BitConverterEx.ByteOrder, BitConverterEx.ByteOrder)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_GetBytes_System_Int64_ExifLibrary_BitConverterEx_ByteOrder_ExifLibrary_BitConverterEx_ByteOrder_">BitConverterEx.GetBytes(Int64, BitConverterEx.ByteOrder, BitConverterEx.ByteOrder)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_GetBytes_System_Single_ExifLibrary_BitConverterEx_ByteOrder_ExifLibrary_BitConverterEx_ByteOrder_">BitConverterEx.GetBytes(Single, BitConverterEx.ByteOrder, BitConverterEx.ByteOrder)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_GetBytes_System_Double_ExifLibrary_BitConverterEx_ByteOrder_ExifLibrary_BitConverterEx_ByteOrder_">BitConverterEx.GetBytes(Double, BitConverterEx.ByteOrder, BitConverterEx.ByteOrder)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_ToChar_System_Byte___System_Int64_">BitConverterEx.ToChar(Byte[], Int64)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_ToUInt16_System_Byte___System_Int64_">BitConverterEx.ToUInt16(Byte[], Int64)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_ToUInt32_System_Byte___System_Int64_">BitConverterEx.ToUInt32(Byte[], Int64)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_ToUInt64_System_Byte___System_Int64_">BitConverterEx.ToUInt64(Byte[], Int64)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_ToInt16_System_Byte___System_Int64_">BitConverterEx.ToInt16(Byte[], Int64)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_ToInt32_System_Byte___System_Int64_">BitConverterEx.ToInt32(Byte[], Int64)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_ToInt64_System_Byte___System_Int64_">BitConverterEx.ToInt64(Byte[], Int64)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_ToSingle_System_Byte___System_Int64_">BitConverterEx.ToSingle(Byte[], Int64)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_ToDouble_System_Byte___System_Int64_">BitConverterEx.ToDouble(Byte[], Int64)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_GetBytes_System_UInt16_">BitConverterEx.GetBytes(UInt16)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_GetBytes_System_UInt32_">BitConverterEx.GetBytes(UInt32)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_GetBytes_System_UInt64_">BitConverterEx.GetBytes(UInt64)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_GetBytes_System_Int16_">BitConverterEx.GetBytes(Int16)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_GetBytes_System_Int32_">BitConverterEx.GetBytes(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_GetBytes_System_Int64_">BitConverterEx.GetBytes(Int64)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_GetBytes_System_Single_">BitConverterEx.GetBytes(Single)</a>
+    </div>
+    <div>
+      <a class="xref" href="ExifLibrary.BitConverterEx.html#ExifLibrary_BitConverterEx_GetBytes_System_Double_">BitConverterEx.GetBytes(Double)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="ExifLibrary.html">ExifLibrary</a></h6>
+  <h6><strong>Assembly</strong>: ExifLibrary.dll</h6>
+  <h5 id="ExifLibrary_ExifBitConverter_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ExifBitConverter : BitConverterEx</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifBitConverter__ctor_ExifLibrary_BitConverterEx_ByteOrder_ExifLibrary_BitConverterEx_ByteOrder_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifBitConverter.%23ctor(ExifLibrary.BitConverterEx.ByteOrder%2CExifLibrary.BitConverterEx.ByteOrder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifBitConverter.cs/#L17">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifBitConverter__ctor_" data-uid="ExifLibrary.ExifBitConverter.#ctor*"></a>
+  <h4 id="ExifLibrary_ExifBitConverter__ctor_ExifLibrary_BitConverterEx_ByteOrder_ExifLibrary_BitConverterEx_ByteOrder_" data-uid="ExifLibrary.ExifBitConverter.#ctor(ExifLibrary.BitConverterEx.ByteOrder,ExifLibrary.BitConverterEx.ByteOrder)">ExifBitConverter(BitConverterEx.ByteOrder, BitConverterEx.ByteOrder)</h4>
+  <div class="markdown level1 summary"><p>Intializes a new instance of the <a class="xref" href="ExifLibrary.ExifBitConverter.html">ExifBitConverter</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExifBitConverter(BitConverterEx.ByteOrder from, BitConverterEx.ByteOrder to)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.BitConverterEx.ByteOrder.html">BitConverterEx.ByteOrder</a></td>
+        <td><span class="parametername">from</span></td>
+        <td><p>The byte order to convert from.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.BitConverterEx.ByteOrder.html">BitConverterEx.ByteOrder</a></td>
+        <td><span class="parametername">to</span></td>
+        <td><p>The byte order to convert to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifBitConverter_GetBytes_ExifLibrary_MathEx_Fraction32_ExifLibrary_BitConverterEx_ByteOrder_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifBitConverter.GetBytes(ExifLibrary.MathEx.Fraction32%2CExifLibrary.BitConverterEx.ByteOrder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifBitConverter.cs/#L324">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifBitConverter_GetBytes_" data-uid="ExifLibrary.ExifBitConverter.GetBytes*"></a>
+  <h4 id="ExifLibrary_ExifBitConverter_GetBytes_ExifLibrary_MathEx_Fraction32_ExifLibrary_BitConverterEx_ByteOrder_" data-uid="ExifLibrary.ExifBitConverter.GetBytes(ExifLibrary.MathEx.Fraction32,ExifLibrary.BitConverterEx.ByteOrder)">GetBytes(MathEx.Fraction32, BitConverterEx.ByteOrder)</h4>
+  <div class="markdown level1 summary"><p>Converts the given signed rational number to an array of bytes.
+Numbers are converted from the platform byte-order to the given byte-order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] GetBytes(MathEx.Fraction32 value, BitConverterEx.ByteOrder tobyteorder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.MathEx.Fraction32.html">MathEx.Fraction32</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.BitConverterEx.ByteOrder.html">BitConverterEx.ByteOrder</a></td>
+        <td><span class="parametername">tobyteorder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifBitConverter_GetBytes_ExifLibrary_MathEx_Fraction32___ExifLibrary_BitConverterEx_ByteOrder_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifBitConverter.GetBytes(ExifLibrary.MathEx.Fraction32%5B%5D%2CExifLibrary.BitConverterEx.ByteOrder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifBitConverter.cs/#L400">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifBitConverter_GetBytes_" data-uid="ExifLibrary.ExifBitConverter.GetBytes*"></a>
+  <h4 id="ExifLibrary_ExifBitConverter_GetBytes_ExifLibrary_MathEx_Fraction32___ExifLibrary_BitConverterEx_ByteOrder_" data-uid="ExifLibrary.ExifBitConverter.GetBytes(ExifLibrary.MathEx.Fraction32[],ExifLibrary.BitConverterEx.ByteOrder)">GetBytes(MathEx.Fraction32[], BitConverterEx.ByteOrder)</h4>
+  <div class="markdown level1 summary"><p>Converts the given array of signed rationals to an array of bytes.
+Numbers are converted from the platform byte-order to the given byte-order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] GetBytes(MathEx.Fraction32[] value, BitConverterEx.ByteOrder tobyteorder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.MathEx.Fraction32.html">MathEx.Fraction32</a>[]</td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.BitConverterEx.ByteOrder.html">BitConverterEx.ByteOrder</a></td>
+        <td><span class="parametername">tobyteorder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifBitConverter_GetBytes_ExifLibrary_MathEx_UFraction32_ExifLibrary_BitConverterEx_ByteOrder_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifBitConverter.GetBytes(ExifLibrary.MathEx.UFraction32%2CExifLibrary.BitConverterEx.ByteOrder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifBitConverter.cs/#L310">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifBitConverter_GetBytes_" data-uid="ExifLibrary.ExifBitConverter.GetBytes*"></a>
+  <h4 id="ExifLibrary_ExifBitConverter_GetBytes_ExifLibrary_MathEx_UFraction32_ExifLibrary_BitConverterEx_ByteOrder_" data-uid="ExifLibrary.ExifBitConverter.GetBytes(ExifLibrary.MathEx.UFraction32,ExifLibrary.BitConverterEx.ByteOrder)">GetBytes(MathEx.UFraction32, BitConverterEx.ByteOrder)</h4>
+  <div class="markdown level1 summary"><p>Converts the given unsigned rational number to an array of bytes.
+Numbers are converted from the platform byte-order to the given byte-order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] GetBytes(MathEx.UFraction32 value, BitConverterEx.ByteOrder tobyteorder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.MathEx.UFraction32.html">MathEx.UFraction32</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.BitConverterEx.ByteOrder.html">BitConverterEx.ByteOrder</a></td>
+        <td><span class="parametername">tobyteorder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifBitConverter_GetBytes_ExifLibrary_MathEx_UFraction32___ExifLibrary_BitConverterEx_ByteOrder_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifBitConverter.GetBytes(ExifLibrary.MathEx.UFraction32%5B%5D%2CExifLibrary.BitConverterEx.ByteOrder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifBitConverter.cs/#L383">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifBitConverter_GetBytes_" data-uid="ExifLibrary.ExifBitConverter.GetBytes*"></a>
+  <h4 id="ExifLibrary_ExifBitConverter_GetBytes_ExifLibrary_MathEx_UFraction32___ExifLibrary_BitConverterEx_ByteOrder_" data-uid="ExifLibrary.ExifBitConverter.GetBytes(ExifLibrary.MathEx.UFraction32[],ExifLibrary.BitConverterEx.ByteOrder)">GetBytes(MathEx.UFraction32[], BitConverterEx.ByteOrder)</h4>
+  <div class="markdown level1 summary"><p>Converts the given array of unsigned rationals to an array of bytes.
+Numbers are converted from the platform byte-order to the given byte-order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] GetBytes(MathEx.UFraction32[] value, BitConverterEx.ByteOrder tobyteorder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.MathEx.UFraction32.html">MathEx.UFraction32</a>[]</td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.BitConverterEx.ByteOrder.html">BitConverterEx.ByteOrder</a></td>
+        <td><span class="parametername">tobyteorder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifBitConverter_GetBytes_System_DateTime_System_Boolean_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifBitConverter.GetBytes(System.DateTime%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifBitConverter.cs/#L296">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifBitConverter_GetBytes_" data-uid="ExifLibrary.ExifBitConverter.GetBytes*"></a>
+  <h4 id="ExifLibrary_ExifBitConverter_GetBytes_System_DateTime_System_Boolean_" data-uid="ExifLibrary.ExifBitConverter.GetBytes(System.DateTime,System.Boolean)">GetBytes(DateTime, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Converts the given datetime to an array of bytes with a null terminator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] GetBytes(DateTime value, bool hastime)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.DateTime</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">hastime</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifBitConverter_GetBytes_System_Double___ExifLibrary_BitConverterEx_ByteOrder_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifBitConverter.GetBytes(System.Double%5B%5D%2CExifLibrary.BitConverterEx.ByteOrder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifBitConverter.cs/#L447">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifBitConverter_GetBytes_" data-uid="ExifLibrary.ExifBitConverter.GetBytes*"></a>
+  <h4 id="ExifLibrary_ExifBitConverter_GetBytes_System_Double___ExifLibrary_BitConverterEx_ByteOrder_" data-uid="ExifLibrary.ExifBitConverter.GetBytes(System.Double[],ExifLibrary.BitConverterEx.ByteOrder)">GetBytes(Double[], BitConverterEx.ByteOrder)</h4>
+  <div class="markdown level1 summary"><p>Converts the given array of 64-bit floating numbers to an array of bytes.
+Numbers are converted from the platform byte-order to the given byte-order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] GetBytes(double[] value, BitConverterEx.ByteOrder tobyteorder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span>[]</td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.BitConverterEx.ByteOrder.html">BitConverterEx.ByteOrder</a></td>
+        <td><span class="parametername">tobyteorder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifBitConverter_GetBytes_System_Int16___ExifLibrary_BitConverterEx_ByteOrder_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifBitConverter.GetBytes(System.Int16%5B%5D%2CExifLibrary.BitConverterEx.ByteOrder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifBitConverter.cs/#L417">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifBitConverter_GetBytes_" data-uid="ExifLibrary.ExifBitConverter.GetBytes*"></a>
+  <h4 id="ExifLibrary_ExifBitConverter_GetBytes_System_Int16___ExifLibrary_BitConverterEx_ByteOrder_" data-uid="ExifLibrary.ExifBitConverter.GetBytes(System.Int16[],ExifLibrary.BitConverterEx.ByteOrder)">GetBytes(Int16[], BitConverterEx.ByteOrder)</h4>
+  <div class="markdown level1 summary"><p>Converts the given array of 16-bit signed integers to an array of bytes.
+Numbers are converted from the platform byte-order to the given byte-order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] GetBytes(short[] value, BitConverterEx.ByteOrder tobyteorder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int16</span>[]</td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.BitConverterEx.ByteOrder.html">BitConverterEx.ByteOrder</a></td>
+        <td><span class="parametername">tobyteorder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifBitConverter_GetBytes_System_Int32___ExifLibrary_BitConverterEx_ByteOrder_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifBitConverter.GetBytes(System.Int32%5B%5D%2CExifLibrary.BitConverterEx.ByteOrder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifBitConverter.cs/#L368">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifBitConverter_GetBytes_" data-uid="ExifLibrary.ExifBitConverter.GetBytes*"></a>
+  <h4 id="ExifLibrary_ExifBitConverter_GetBytes_System_Int32___ExifLibrary_BitConverterEx_ByteOrder_" data-uid="ExifLibrary.ExifBitConverter.GetBytes(System.Int32[],ExifLibrary.BitConverterEx.ByteOrder)">GetBytes(Int32[], BitConverterEx.ByteOrder)</h4>
+  <div class="markdown level1 summary"><p>Converts the given array of 32-bit signed integers to an array of bytes.
+Numbers are converted from the platform byte-order to the given byte-order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] GetBytes(int[] value, BitConverterEx.ByteOrder tobyteorder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span>[]</td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.BitConverterEx.ByteOrder.html">BitConverterEx.ByteOrder</a></td>
+        <td><span class="parametername">tobyteorder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifBitConverter_GetBytes_System_Single___ExifLibrary_BitConverterEx_ByteOrder_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifBitConverter.GetBytes(System.Single%5B%5D%2CExifLibrary.BitConverterEx.ByteOrder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifBitConverter.cs/#L432">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifBitConverter_GetBytes_" data-uid="ExifLibrary.ExifBitConverter.GetBytes*"></a>
+  <h4 id="ExifLibrary_ExifBitConverter_GetBytes_System_Single___ExifLibrary_BitConverterEx_ByteOrder_" data-uid="ExifLibrary.ExifBitConverter.GetBytes(System.Single[],ExifLibrary.BitConverterEx.ByteOrder)">GetBytes(Single[], BitConverterEx.ByteOrder)</h4>
+  <div class="markdown level1 summary"><p>Converts the given array of 32-bit floating numbers to an array of bytes.
+Numbers are converted from the platform byte-order to the given byte-order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] GetBytes(float[] value, BitConverterEx.ByteOrder tobyteorder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span>[]</td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.BitConverterEx.ByteOrder.html">BitConverterEx.ByteOrder</a></td>
+        <td><span class="parametername">tobyteorder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifBitConverter_GetBytes_System_String_System_Boolean_System_Text_Encoding_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifBitConverter.GetBytes(System.String%2CSystem.Boolean%2CSystem.Text.Encoding)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifBitConverter.cs/#L279">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifBitConverter_GetBytes_" data-uid="ExifLibrary.ExifBitConverter.GetBytes*"></a>
+  <h4 id="ExifLibrary_ExifBitConverter_GetBytes_System_String_System_Boolean_System_Text_Encoding_" data-uid="ExifLibrary.ExifBitConverter.GetBytes(System.String,System.Boolean,System.Text.Encoding)">GetBytes(String, Boolean, Encoding)</h4>
+  <div class="markdown level1 summary"><p>Converts the given ascii string to an array of bytes optionally adding a null terminator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] GetBytes(string value, bool addnull, Encoding encoding)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">addnull</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Text.Encoding</span></td>
+        <td><span class="parametername">encoding</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifBitConverter_GetBytes_System_String_System_Text_Encoding_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifBitConverter.GetBytes(System.String%2CSystem.Text.Encoding)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifBitConverter.cs/#L288">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifBitConverter_GetBytes_" data-uid="ExifLibrary.ExifBitConverter.GetBytes*"></a>
+  <h4 id="ExifLibrary_ExifBitConverter_GetBytes_System_String_System_Text_Encoding_" data-uid="ExifLibrary.ExifBitConverter.GetBytes(System.String,System.Text.Encoding)">GetBytes(String, Encoding)</h4>
+  <div class="markdown level1 summary"><p>Converts the given ascii string to an array of bytes without adding a null terminator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] GetBytes(string value, Encoding encoding)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Text.Encoding</span></td>
+        <td><span class="parametername">encoding</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifBitConverter_GetBytes_System_UInt16___ExifLibrary_BitConverterEx_ByteOrder_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifBitConverter.GetBytes(System.UInt16%5B%5D%2CExifLibrary.BitConverterEx.ByteOrder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifBitConverter.cs/#L338">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifBitConverter_GetBytes_" data-uid="ExifLibrary.ExifBitConverter.GetBytes*"></a>
+  <h4 id="ExifLibrary_ExifBitConverter_GetBytes_System_UInt16___ExifLibrary_BitConverterEx_ByteOrder_" data-uid="ExifLibrary.ExifBitConverter.GetBytes(System.UInt16[],ExifLibrary.BitConverterEx.ByteOrder)">GetBytes(UInt16[], BitConverterEx.ByteOrder)</h4>
+  <div class="markdown level1 summary"><p>Converts the given array of 16-bit unsigned integers to an array of bytes.
+Numbers are converted from the platform byte-order to the given byte-order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] GetBytes(ushort[] value, BitConverterEx.ByteOrder tobyteorder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt16</span>[]</td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.BitConverterEx.ByteOrder.html">BitConverterEx.ByteOrder</a></td>
+        <td><span class="parametername">tobyteorder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifBitConverter_GetBytes_System_UInt32___ExifLibrary_BitConverterEx_ByteOrder_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifBitConverter.GetBytes(System.UInt32%5B%5D%2CExifLibrary.BitConverterEx.ByteOrder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifBitConverter.cs/#L353">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifBitConverter_GetBytes_" data-uid="ExifLibrary.ExifBitConverter.GetBytes*"></a>
+  <h4 id="ExifLibrary_ExifBitConverter_GetBytes_System_UInt32___ExifLibrary_BitConverterEx_ByteOrder_" data-uid="ExifLibrary.ExifBitConverter.GetBytes(System.UInt32[],ExifLibrary.BitConverterEx.ByteOrder)">GetBytes(UInt32[], BitConverterEx.ByteOrder)</h4>
+  <div class="markdown level1 summary"><p>Converts the given array of 32-bit unsigned integers to an array of bytes.
+Numbers are converted from the platform byte-order to the given byte-order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] GetBytes(uint[] value, BitConverterEx.ByteOrder tobyteorder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt32</span>[]</td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.BitConverterEx.ByteOrder.html">BitConverterEx.ByteOrder</a></td>
+        <td><span class="parametername">tobyteorder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifBitConverter_ToAscii_System_Byte___System_Boolean_System_Text_Encoding_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifBitConverter.ToAscii(System.Byte%5B%5D%2CSystem.Boolean%2CSystem.Text.Encoding)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifBitConverter.cs/#L28">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifBitConverter_ToAscii_" data-uid="ExifLibrary.ExifBitConverter.ToAscii*"></a>
+  <h4 id="ExifLibrary_ExifBitConverter_ToAscii_System_Byte___System_Boolean_System_Text_Encoding_" data-uid="ExifLibrary.ExifBitConverter.ToAscii(System.Byte[],System.Boolean,System.Text.Encoding)">ToAscii(Byte[], Boolean, Encoding)</h4>
+  <div class="markdown level1 summary"><p>Returns an ASCII string converted from the given byte array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ToAscii(byte[] data, bool endatfirstnull, Encoding encoding)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">data</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">endatfirstnull</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Text.Encoding</span></td>
+        <td><span class="parametername">encoding</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifBitConverter_ToAscii_System_Byte___System_Text_Encoding_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifBitConverter.ToAscii(System.Byte%5B%5D%2CSystem.Text.Encoding)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifBitConverter.cs/#L42">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifBitConverter_ToAscii_" data-uid="ExifLibrary.ExifBitConverter.ToAscii*"></a>
+  <h4 id="ExifLibrary_ExifBitConverter_ToAscii_System_Byte___System_Text_Encoding_" data-uid="ExifLibrary.ExifBitConverter.ToAscii(System.Byte[],System.Text.Encoding)">ToAscii(Byte[], Encoding)</h4>
+  <div class="markdown level1 summary"><p>Returns an ASCII string converted from the given byte array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ToAscii(byte[] data, Encoding encoding)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">data</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Text.Encoding</span></td>
+        <td><span class="parametername">encoding</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifBitConverter_ToDateTime_System_Byte___.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifBitConverter.ToDateTime(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifBitConverter.cs/#L98">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifBitConverter_ToDateTime_" data-uid="ExifLibrary.ExifBitConverter.ToDateTime*"></a>
+  <h4 id="ExifLibrary_ExifBitConverter_ToDateTime_System_Byte___" data-uid="ExifLibrary.ExifBitConverter.ToDateTime(System.Byte[])">ToDateTime(Byte[])</h4>
+  <div class="markdown level1 summary"><p>Returns a DateTime object converted from the given byte array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime ToDateTime(byte[] data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.DateTime</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifBitConverter_ToDateTime_System_Byte___System_Boolean_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifBitConverter.ToDateTime(System.Byte%5B%5D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifBitConverter.cs/#L62">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifBitConverter_ToDateTime_" data-uid="ExifLibrary.ExifBitConverter.ToDateTime*"></a>
+  <h4 id="ExifLibrary_ExifBitConverter_ToDateTime_System_Byte___System_Boolean_" data-uid="ExifLibrary.ExifBitConverter.ToDateTime(System.Byte[],System.Boolean)">ToDateTime(Byte[], Boolean)</h4>
+  <div class="markdown level1 summary"><p>Returns a DateTime object converted from the given byte array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime ToDateTime(byte[] data, bool hastime)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">data</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">hastime</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.DateTime</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifBitConverter_ToDoubleArray_System_Byte___System_Int32_ExifLibrary_BitConverterEx_ByteOrder_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifBitConverter.ToDoubleArray(System.Byte%5B%5D%2CSystem.Int32%2CExifLibrary.BitConverterEx.ByteOrder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifBitConverter.cs/#L264">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifBitConverter_ToDoubleArray_" data-uid="ExifLibrary.ExifBitConverter.ToDoubleArray*"></a>
+  <h4 id="ExifLibrary_ExifBitConverter_ToDoubleArray_System_Byte___System_Int32_ExifLibrary_BitConverterEx_ByteOrder_" data-uid="ExifLibrary.ExifBitConverter.ToDoubleArray(System.Byte[],System.Int32,ExifLibrary.BitConverterEx.ByteOrder)">ToDoubleArray(Byte[], Int32, BitConverterEx.ByteOrder)</h4>
+  <div class="markdown level1 summary"><p>Returns an array of 64-bit floating numbers converted from 
+the given byte array.
+Numbers are converted from the given byte-order to platform byte-order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double[] ToDoubleArray(byte[] data, int count, BitConverterEx.ByteOrder frombyteorder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">data</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">count</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.BitConverterEx.ByteOrder.html">BitConverterEx.ByteOrder</a></td>
+        <td><span class="parametername">frombyteorder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifBitConverter_ToSingleArray_System_Byte___System_Int32_ExifLibrary_BitConverterEx_ByteOrder_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifBitConverter.ToSingleArray(System.Byte%5B%5D%2CSystem.Int32%2CExifLibrary.BitConverterEx.ByteOrder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifBitConverter.cs/#L247">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifBitConverter_ToSingleArray_" data-uid="ExifLibrary.ExifBitConverter.ToSingleArray*"></a>
+  <h4 id="ExifLibrary_ExifBitConverter_ToSingleArray_System_Byte___System_Int32_ExifLibrary_BitConverterEx_ByteOrder_" data-uid="ExifLibrary.ExifBitConverter.ToSingleArray(System.Byte[],System.Int32,ExifLibrary.BitConverterEx.ByteOrder)">ToSingleArray(Byte[], Int32, BitConverterEx.ByteOrder)</h4>
+  <div class="markdown level1 summary"><p>Returns an array of 32-bit floating numbers converted from 
+the given byte array.
+Numbers are converted from the given byte-order to platform byte-order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float[] ToSingleArray(byte[] data, int count, BitConverterEx.ByteOrder frombyteorder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">data</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">count</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.BitConverterEx.ByteOrder.html">BitConverterEx.ByteOrder</a></td>
+        <td><span class="parametername">frombyteorder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifBitConverter_ToSIntArray_System_Byte___System_Int32_ExifLibrary_BitConverterEx_ByteOrder_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifBitConverter.ToSIntArray(System.Byte%5B%5D%2CSystem.Int32%2CExifLibrary.BitConverterEx.ByteOrder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifBitConverter.cs/#L174">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifBitConverter_ToSIntArray_" data-uid="ExifLibrary.ExifBitConverter.ToSIntArray*"></a>
+  <h4 id="ExifLibrary_ExifBitConverter_ToSIntArray_System_Byte___System_Int32_ExifLibrary_BitConverterEx_ByteOrder_" data-uid="ExifLibrary.ExifBitConverter.ToSIntArray(System.Byte[],System.Int32,ExifLibrary.BitConverterEx.ByteOrder)">ToSIntArray(Byte[], Int32, BitConverterEx.ByteOrder)</h4>
+  <div class="markdown level1 summary"><p>Returns an array of 32-bit signed integers converted from 
+the given byte array.
+Numbers are converted from the given byte-order to platform byte-order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int[] ToSIntArray(byte[] data, int count, BitConverterEx.ByteOrder byteorder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">data</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">count</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.BitConverterEx.ByteOrder.html">BitConverterEx.ByteOrder</a></td>
+        <td><span class="parametername">byteorder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifBitConverter_ToSRational_System_Byte___ExifLibrary_BitConverterEx_ByteOrder_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifBitConverter.ToSRational(System.Byte%5B%5D%2CExifLibrary.BitConverterEx.ByteOrder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifBitConverter.cs/#L126">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifBitConverter_ToSRational_" data-uid="ExifLibrary.ExifBitConverter.ToSRational*"></a>
+  <h4 id="ExifLibrary_ExifBitConverter_ToSRational_System_Byte___ExifLibrary_BitConverterEx_ByteOrder_" data-uid="ExifLibrary.ExifBitConverter.ToSRational(System.Byte[],ExifLibrary.BitConverterEx.ByteOrder)">ToSRational(Byte[], BitConverterEx.ByteOrder)</h4>
+  <div class="markdown level1 summary"><p>Returns a signed rational number converted from the first 
+eight bytes of the given byte array. The first four bytes are
+assumed to be the numerator and the next four bytes are the
+denumerator.
+Numbers are converted from the given byte-order to platform byte-order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MathEx.Fraction32 ToSRational(byte[] data, BitConverterEx.ByteOrder frombyteorder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">data</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.BitConverterEx.ByteOrder.html">BitConverterEx.ByteOrder</a></td>
+        <td><span class="parametername">frombyteorder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.MathEx.Fraction32.html">MathEx.Fraction32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifBitConverter_ToSRationalArray_System_Byte___System_Int32_ExifLibrary_BitConverterEx_ByteOrder_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifBitConverter.ToSRationalArray(System.Byte%5B%5D%2CSystem.Int32%2CExifLibrary.BitConverterEx.ByteOrder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifBitConverter.cs/#L210">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifBitConverter_ToSRationalArray_" data-uid="ExifLibrary.ExifBitConverter.ToSRationalArray*"></a>
+  <h4 id="ExifLibrary_ExifBitConverter_ToSRationalArray_System_Byte___System_Int32_ExifLibrary_BitConverterEx_ByteOrder_" data-uid="ExifLibrary.ExifBitConverter.ToSRationalArray(System.Byte[],System.Int32,ExifLibrary.BitConverterEx.ByteOrder)">ToSRationalArray(Byte[], Int32, BitConverterEx.ByteOrder)</h4>
+  <div class="markdown level1 summary"><p>Returns an array of signed rational numbers converted from 
+the given byte array.
+Numbers are converted from the given byte-order to platform byte-order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MathEx.Fraction32[] ToSRationalArray(byte[] data, int count, BitConverterEx.ByteOrder frombyteorder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">data</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">count</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.BitConverterEx.ByteOrder.html">BitConverterEx.ByteOrder</a></td>
+        <td><span class="parametername">frombyteorder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.MathEx.Fraction32.html">MathEx.Fraction32</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifBitConverter_ToSShortArray_System_Byte___System_Int32_ExifLibrary_BitConverterEx_ByteOrder_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifBitConverter.ToSShortArray(System.Byte%5B%5D%2CSystem.Int32%2CExifLibrary.BitConverterEx.ByteOrder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifBitConverter.cs/#L230">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifBitConverter_ToSShortArray_" data-uid="ExifLibrary.ExifBitConverter.ToSShortArray*"></a>
+  <h4 id="ExifLibrary_ExifBitConverter_ToSShortArray_System_Byte___System_Int32_ExifLibrary_BitConverterEx_ByteOrder_" data-uid="ExifLibrary.ExifBitConverter.ToSShortArray(System.Byte[],System.Int32,ExifLibrary.BitConverterEx.ByteOrder)">ToSShortArray(Byte[], Int32, BitConverterEx.ByteOrder)</h4>
+  <div class="markdown level1 summary"><p>Returns an array of 16-bit signed integers converted from 
+the given byte array.
+Numbers are converted from the given byte-order to platform byte-order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static short[] ToSShortArray(byte[] data, int count, BitConverterEx.ByteOrder frombyteorder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">data</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">count</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.BitConverterEx.ByteOrder.html">BitConverterEx.ByteOrder</a></td>
+        <td><span class="parametername">frombyteorder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int16</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifBitConverter_ToString_System_Byte___.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifBitConverter.ToString(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifBitConverter.cs/#L51">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifBitConverter_ToString_" data-uid="ExifLibrary.ExifBitConverter.ToString*"></a>
+  <h4 id="ExifLibrary_ExifBitConverter_ToString_System_Byte___" data-uid="ExifLibrary.ExifBitConverter.ToString(System.Byte[])">ToString(Byte[])</h4>
+  <div class="markdown level1 summary"><p>Returns a string converted from the given byte array.
+from the numeric value of each byte.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ToString(byte[] data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifBitConverter_ToUIntArray_System_Byte___System_Int32_ExifLibrary_BitConverterEx_ByteOrder_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifBitConverter.ToUIntArray(System.Byte%5B%5D%2CSystem.Int32%2CExifLibrary.BitConverterEx.ByteOrder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifBitConverter.cs/#L157">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifBitConverter_ToUIntArray_" data-uid="ExifLibrary.ExifBitConverter.ToUIntArray*"></a>
+  <h4 id="ExifLibrary_ExifBitConverter_ToUIntArray_System_Byte___System_Int32_ExifLibrary_BitConverterEx_ByteOrder_" data-uid="ExifLibrary.ExifBitConverter.ToUIntArray(System.Byte[],System.Int32,ExifLibrary.BitConverterEx.ByteOrder)">ToUIntArray(Byte[], Int32, BitConverterEx.ByteOrder)</h4>
+  <div class="markdown level1 summary"><p>Returns an array of 32-bit unsigned integers converted from 
+the given byte array.
+Numbers are converted from the given byte-order to platform byte-order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static uint[] ToUIntArray(byte[] data, int count, BitConverterEx.ByteOrder frombyteorder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">data</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">count</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.BitConverterEx.ByteOrder.html">BitConverterEx.ByteOrder</a></td>
+        <td><span class="parametername">frombyteorder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt32</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifBitConverter_ToURational_System_Byte___ExifLibrary_BitConverterEx_ByteOrder_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifBitConverter.ToURational(System.Byte%5B%5D%2CExifLibrary.BitConverterEx.ByteOrder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifBitConverter.cs/#L110">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifBitConverter_ToURational_" data-uid="ExifLibrary.ExifBitConverter.ToURational*"></a>
+  <h4 id="ExifLibrary_ExifBitConverter_ToURational_System_Byte___ExifLibrary_BitConverterEx_ByteOrder_" data-uid="ExifLibrary.ExifBitConverter.ToURational(System.Byte[],ExifLibrary.BitConverterEx.ByteOrder)">ToURational(Byte[], BitConverterEx.ByteOrder)</h4>
+  <div class="markdown level1 summary"><p>Returns an unsigned rational number converted from the first 
+eight bytes of the given byte array. The first four bytes are
+assumed to be the numerator and the next four bytes are the
+denumerator.
+Numbers are converted from the given byte-order to platform byte-order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MathEx.UFraction32 ToURational(byte[] data, BitConverterEx.ByteOrder frombyteorder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">data</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.BitConverterEx.ByteOrder.html">BitConverterEx.ByteOrder</a></td>
+        <td><span class="parametername">frombyteorder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.MathEx.UFraction32.html">MathEx.UFraction32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifBitConverter_ToURationalArray_System_Byte___System_Int32_ExifLibrary_BitConverterEx_ByteOrder_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifBitConverter.ToURationalArray(System.Byte%5B%5D%2CSystem.Int32%2CExifLibrary.BitConverterEx.ByteOrder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifBitConverter.cs/#L191">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifBitConverter_ToURationalArray_" data-uid="ExifLibrary.ExifBitConverter.ToURationalArray*"></a>
+  <h4 id="ExifLibrary_ExifBitConverter_ToURationalArray_System_Byte___System_Int32_ExifLibrary_BitConverterEx_ByteOrder_" data-uid="ExifLibrary.ExifBitConverter.ToURationalArray(System.Byte[],System.Int32,ExifLibrary.BitConverterEx.ByteOrder)">ToURationalArray(Byte[], Int32, BitConverterEx.ByteOrder)</h4>
+  <div class="markdown level1 summary"><p>Returns an array of unsigned rational numbers converted from 
+the given byte array.
+Numbers are converted from the given byte-order to platform byte-order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MathEx.UFraction32[] ToURationalArray(byte[] data, int count, BitConverterEx.ByteOrder frombyteorder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">data</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">count</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.BitConverterEx.ByteOrder.html">BitConverterEx.ByteOrder</a></td>
+        <td><span class="parametername">frombyteorder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.MathEx.UFraction32.html">MathEx.UFraction32</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifBitConverter_ToUShortArray_System_Byte___System_Int32_ExifLibrary_BitConverterEx_ByteOrder_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifBitConverter.ToUShortArray(System.Byte%5B%5D%2CSystem.Int32%2CExifLibrary.BitConverterEx.ByteOrder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifBitConverter.cs/#L140">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifBitConverter_ToUShortArray_" data-uid="ExifLibrary.ExifBitConverter.ToUShortArray*"></a>
+  <h4 id="ExifLibrary_ExifBitConverter_ToUShortArray_System_Byte___System_Int32_ExifLibrary_BitConverterEx_ByteOrder_" data-uid="ExifLibrary.ExifBitConverter.ToUShortArray(System.Byte[],System.Int32,ExifLibrary.BitConverterEx.ByteOrder)">ToUShortArray(Byte[], Int32, BitConverterEx.ByteOrder)</h4>
+  <div class="markdown level1 summary"><p>Returns an array of 16-bit unsigned integers converted from 
+the given byte array.
+Numbers are converted from the given byte-order to platform byte-order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ushort[] ToUShortArray(byte[] data, int count, BitConverterEx.ByteOrder frombyteorder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">data</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">count</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.BitConverterEx.ByteOrder.html">BitConverterEx.ByteOrder</a></td>
+        <td><span class="parametername">frombyteorder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt16</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2019 Özgür Özçıtak
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

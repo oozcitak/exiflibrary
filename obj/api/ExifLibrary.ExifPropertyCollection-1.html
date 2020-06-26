@@ -1,0 +1,2151 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ExifPropertyCollection&lt;T&gt;
+   | ExifLibrary </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ExifPropertyCollection&lt;T&gt;
+   | ExifLibrary ">
+    <meta name="generator" content="docfx 2.55.0.0">
+    
+    <link rel="shortcut icon" href="../../resources/icons/favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../../combinedtoc/toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../resources/icons/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-12">
+            <article class="content wrap" id="_content" data-uid="ExifLibrary.ExifPropertyCollection`1">
+  
+  
+  <h1 id="ExifLibrary_ExifPropertyCollection_1" data-uid="ExifLibrary.ExifPropertyCollection`1" class="text-break">Class ExifPropertyCollection&lt;T&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>Represents a collection of <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> objects.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">ExifPropertyCollection&lt;T&gt;</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.Collections.Generic.IList</span>&lt;T&gt;</div>
+    <div><span class="xref">System.Collections.Generic.ICollection</span>&lt;T&gt;</div>
+    <div><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</div>
+    <div><span class="xref">System.Collections.IEnumerable</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="ExifLibrary.html">ExifLibrary</a></h6>
+  <h6><strong>Assembly</strong>: ExifLibrary.dll</h6>
+  <h5 id="ExifLibrary_ExifPropertyCollection_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ExifPropertyCollection&lt;T&gt; : IList&lt;T&gt;, ICollection&lt;T&gt;, IEnumerable&lt;T&gt;, IEnumerable where T : ExifProperty</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Count.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Count%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L29">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Count_" data-uid="ExifLibrary.ExifPropertyCollection`1.Count*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Count" data-uid="ExifLibrary.ExifPropertyCollection`1.Count">Count</h4>
+  <div class="markdown level1 summary"><p>Gets the number of elements contained in the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Item_ExifLibrary_ExifTag_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Item(ExifLibrary.ExifTag)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L46">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Item_" data-uid="ExifLibrary.ExifPropertyCollection`1.Item*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Item_ExifLibrary_ExifTag_" data-uid="ExifLibrary.ExifPropertyCollection`1.Item(ExifLibrary.ExifTag)">Item[ExifTag]</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> with the specified tag.
+Note that this method iterates through the entire collection to find an item with
+the given tag.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T this[ExifTag tag] { get; set; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">tag</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Item_System_Int32_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Item(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L36">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Item_" data-uid="ExifLibrary.ExifPropertyCollection`1.Item*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Item_System_Int32_" data-uid="ExifLibrary.ExifPropertyCollection`1.Item(System.Int32)">Item[Int32]</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> with the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T this[int index] { get; set; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Add__0_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Add(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L58">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Add_" data-uid="ExifLibrary.ExifPropertyCollection`1.Add*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Add__0_" data-uid="ExifLibrary.ExifPropertyCollection`1.Add(`0)">Add(T)</h4>
+  <div class="markdown level1 summary"><p>Adds an <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(T item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>The item to add.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_Byte_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Add(ExifLibrary.ExifTag%2CSystem.Byte)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L67">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Add_" data-uid="ExifLibrary.ExifPropertyCollection`1.Add*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_Byte_" data-uid="ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Byte)">Add(ExifTag, Byte)</h4>
+  <div class="markdown level1 summary"><p>Adds an <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(ExifTag key, byte value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The tag to set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value of tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_DateTime_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Add(ExifLibrary.ExifTag%2CSystem.DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L162">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Add_" data-uid="ExifLibrary.ExifPropertyCollection`1.Add*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_DateTime_" data-uid="ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.DateTime)">Add(ExifTag, DateTime)</h4>
+  <div class="markdown level1 summary"><p>Adds an <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(ExifTag key, DateTime value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The tag to set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.DateTime</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value of tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_Double_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Add(ExifLibrary.ExifTag%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L141">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Add_" data-uid="ExifLibrary.ExifPropertyCollection`1.Add*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_Double_" data-uid="ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Double)">Add(ExifTag, Double)</h4>
+  <div class="markdown level1 summary"><p>Adds an <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(ExifTag key, double value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The tag to set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value of tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_Int32_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Add(ExifLibrary.ExifTag%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L114">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Add_" data-uid="ExifLibrary.ExifPropertyCollection`1.Add*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_Int32_" data-uid="ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Int32)">Add(ExifTag, Int32)</h4>
+  <div class="markdown level1 summary"><p>Adds an <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(ExifTag key, int value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The tag to set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value of tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_Object_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Add(ExifLibrary.ExifTag%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L150">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Add_" data-uid="ExifLibrary.ExifPropertyCollection`1.Add*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_Object_" data-uid="ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Object)">Add(ExifTag, Object)</h4>
+  <div class="markdown level1 summary"><p>Adds an <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(ExifTag key, object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The tag to set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value of tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_Single_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Add(ExifLibrary.ExifTag%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L132">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Add_" data-uid="ExifLibrary.ExifPropertyCollection`1.Add*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_Single_" data-uid="ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Single)">Add(ExifTag, Single)</h4>
+  <div class="markdown level1 summary"><p>Adds an <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(ExifTag key, float value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The tag to set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value of tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_Single_System_Single_System_Single_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Add(ExifLibrary.ExifTag%2CSystem.Single%2CSystem.Single%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L173">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Add_" data-uid="ExifLibrary.ExifPropertyCollection`1.Add*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_Single_System_Single_System_Single_" data-uid="ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.Single,System.Single,System.Single)">Add(ExifTag, Single, Single, Single)</h4>
+  <div class="markdown level1 summary"><p>Adds an <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(ExifTag key, float d, float m, float s)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The tag to set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">d</span></td>
+        <td><p>Angular degrees (or clock hours for a timestamp).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">m</span></td>
+        <td><p>Angular minutes (or clock minutes for a timestamp).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">s</span></td>
+        <td><p>Angular seconds (or clock seconds for a timestamp).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_String_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Add(ExifLibrary.ExifTag%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L96">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Add_" data-uid="ExifLibrary.ExifPropertyCollection`1.Add*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_String_" data-uid="ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.String)">Add(ExifTag, String)</h4>
+  <div class="markdown level1 summary"><p>Adds an <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(ExifTag key, string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The tag to set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value of tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_String_System_Text_Encoding_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Add(ExifLibrary.ExifTag%2CSystem.String%2CSystem.Text.Encoding)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L76">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Add_" data-uid="ExifLibrary.ExifPropertyCollection`1.Add*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_String_System_Text_Encoding_" data-uid="ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.String,System.Text.Encoding)">Add(ExifTag, String, Encoding)</h4>
+  <div class="markdown level1 summary"><p>Adds an <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(ExifTag key, string value, Encoding encoding)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The tag to set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value of tag.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Text.Encoding</span></td>
+        <td><span class="parametername">encoding</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_UInt16_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Add(ExifLibrary.ExifTag%2CSystem.UInt16)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L105">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Add_" data-uid="ExifLibrary.ExifPropertyCollection`1.Add*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_UInt16_" data-uid="ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.UInt16)">Add(ExifTag, UInt16)</h4>
+  <div class="markdown level1 summary"><p>Adds an <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(ExifTag key, ushort value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The tag to set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.UInt16</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value of tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_UInt32_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Add(ExifLibrary.ExifTag%2CSystem.UInt32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L123">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Add_" data-uid="ExifLibrary.ExifPropertyCollection`1.Add*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Add_ExifLibrary_ExifTag_System_UInt32_" data-uid="ExifLibrary.ExifPropertyCollection`1.Add(ExifLibrary.ExifTag,System.UInt32)">Add(ExifTag, UInt32)</h4>
+  <div class="markdown level1 summary"><p>Adds an <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(ExifTag key, uint value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The tag to set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value of tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_AddItem_ExifLibrary_ExifProperty_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.AddItem(ExifLibrary.ExifProperty)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L536">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_AddItem_" data-uid="ExifLibrary.ExifPropertyCollection`1.AddItem*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_AddItem_ExifLibrary_ExifProperty_" data-uid="ExifLibrary.ExifPropertyCollection`1.AddItem(ExifLibrary.ExifProperty)">AddItem(ExifProperty)</h4>
+  <div class="markdown level1 summary"><p>Adds an item to the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void AddItem(ExifProperty item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>an item to add to the collection</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Clear.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Clear%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L358">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Clear_" data-uid="ExifLibrary.ExifPropertyCollection`1.Clear*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Clear" data-uid="ExifLibrary.ExifPropertyCollection`1.Clear">Clear()</h4>
+  <div class="markdown level1 summary"><p>Removes all items from the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Contains__0_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Contains(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L372">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Contains_" data-uid="ExifLibrary.ExifPropertyCollection`1.Contains*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Contains__0_" data-uid="ExifLibrary.ExifPropertyCollection`1.Contains(`0)">Contains(T)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the collection contains the given element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Contains(T item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>The item to locate in the collection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>true if the collection contains the given element; otherwise, false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">item</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Contains_ExifLibrary_ExifTag_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Contains(ExifLibrary.ExifTag)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L388">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Contains_" data-uid="ExifLibrary.ExifPropertyCollection`1.Contains*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Contains_ExifLibrary_ExifTag_" data-uid="ExifLibrary.ExifPropertyCollection`1.Contains(ExifLibrary.ExifTag)">Contains(ExifTag)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the collection contains an element with the specified tag.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Contains(ExifTag tag)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">tag</span></td>
+        <td><p>The tag to locate in the collection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>true if the collection contains an element with the tag; otherwise, false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Get_ExifLibrary_ExifTag_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Get(ExifLibrary.ExifTag)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L198">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Get_" data-uid="ExifLibrary.ExifPropertyCollection`1.Get*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Get_ExifLibrary_ExifTag_" data-uid="ExifLibrary.ExifPropertyCollection`1.Get(ExifLibrary.ExifTag)">Get(ExifTag)</h4>
+  <div class="markdown level1 summary"><p>Gets the <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExifProperty Get(ExifTag key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The tag to get.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a></td>
+        <td><p>The item with the given tag cast to the specified 
+type. If the tag does not exist, or it cannot be cast to the
+given type it returns null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Get__1_ExifLibrary_ExifTag_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Get%60%601(ExifLibrary.ExifTag)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L187">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Get_" data-uid="ExifLibrary.ExifPropertyCollection`1.Get*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Get__1_ExifLibrary_ExifTag_" data-uid="ExifLibrary.ExifPropertyCollection`1.Get``1(ExifLibrary.ExifTag)">Get&lt;U&gt;(ExifTag)</h4>
+  <div class="markdown level1 summary"><p>Gets the <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public U Get&lt;U&gt;(ExifTag key)
+    where U : ExifProperty</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The tag to get.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">U</span></td>
+        <td><p>The item with the given tag cast to the specified 
+type. If the tag does not exist, or it cannot be cast to the
+given type it returns null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">U</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_GetEnumerator.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.GetEnumerator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L494">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_GetEnumerator_" data-uid="ExifLibrary.ExifPropertyCollection`1.GetEnumerator*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_GetEnumerator" data-uid="ExifLibrary.ExifPropertyCollection`1.GetEnumerator">GetEnumerator()</h4>
+  <div class="markdown level1 summary"><p>Returns an enumerator to iterate the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;T&gt; GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerator</span>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_GetItem_ExifLibrary_ExifTag_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.GetItem(ExifLibrary.ExifTag)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L556">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_GetItem_" data-uid="ExifLibrary.ExifPropertyCollection`1.GetItem*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_GetItem_ExifLibrary_ExifTag_" data-uid="ExifLibrary.ExifPropertyCollection`1.GetItem(ExifLibrary.ExifTag)">GetItem(ExifTag)</h4>
+  <div class="markdown level1 summary"><p>Gets an item with the given tag from the collection.
+If there are multiple items with the same tag, returns the first
+item with the given tag.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ExifProperty GetItem(ExifTag tag)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">tag</span></td>
+        <td><p>the tag ıf an item to get from the collection</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_GetItems_ExifLibrary_ExifTag_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.GetItems(ExifLibrary.ExifTag)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L572">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_GetItems_" data-uid="ExifLibrary.ExifPropertyCollection`1.GetItems*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_GetItems_ExifLibrary_ExifTag_" data-uid="ExifLibrary.ExifPropertyCollection`1.GetItems(ExifLibrary.ExifTag)">GetItems(ExifTag)</h4>
+  <div class="markdown level1 summary"><p>Gets a list of items with the given tag from the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected List&lt;ExifProperty&gt; GetItems(ExifTag tag)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">tag</span></td>
+        <td><p>the tag ıf an item to get from the collection</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_IndexOf__0_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.IndexOf(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L487">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_IndexOf_" data-uid="ExifLibrary.ExifPropertyCollection`1.IndexOf*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_IndexOf__0_" data-uid="ExifLibrary.ExifPropertyCollection`1.IndexOf(`0)">IndexOf(T)</h4>
+  <div class="markdown level1 summary"><p>Returns the index of the given item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int IndexOf(T item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>The item to look for in the collection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Remove__0_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Remove(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L401">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Remove_" data-uid="ExifLibrary.ExifPropertyCollection`1.Remove*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Remove__0_" data-uid="ExifLibrary.ExifPropertyCollection`1.Remove(`0)">Remove(T)</h4>
+  <div class="markdown level1 summary"><p>Removes the given element from the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Remove(T item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>The element to remove.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>true if the element is successfully removed; otherwise, false.  </p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">item</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Remove_ExifLibrary_ExifTag_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Remove(ExifLibrary.ExifTag)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L459">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Remove_" data-uid="ExifLibrary.ExifPropertyCollection`1.Remove*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Remove_ExifLibrary_ExifTag_" data-uid="ExifLibrary.ExifPropertyCollection`1.Remove(ExifLibrary.ExifTag)">Remove(ExifTag)</h4>
+  <div class="markdown level1 summary"><p>Removes all items with the given tag from the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Remove(ExifTag tag)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">tag</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Remove_ExifLibrary_IFD_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Remove(ExifLibrary.IFD)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L445">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Remove_" data-uid="ExifLibrary.ExifPropertyCollection`1.Remove*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Remove_ExifLibrary_IFD_" data-uid="ExifLibrary.ExifPropertyCollection`1.Remove(ExifLibrary.IFD)">Remove(IFD)</h4>
+  <div class="markdown level1 summary"><p>Removes all items with the given IFD from the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Remove(IFD ifd)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.IFD.html">IFD</a></td>
+        <td><span class="parametername">ifd</span></td>
+        <td><p>The IFD section to remove.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Remove_System_Collections_Generic_IEnumerable__0__.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Remove(System.Collections.Generic.IEnumerable%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L429">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Remove_" data-uid="ExifLibrary.ExifPropertyCollection`1.Remove*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Remove_System_Collections_Generic_IEnumerable__0__" data-uid="ExifLibrary.ExifPropertyCollection`1.Remove(System.Collections.Generic.IEnumerable{`0})">Remove(IEnumerable&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Removes the given elements from the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Remove(IEnumerable&lt;T&gt; itemsToRemove)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="parametername">itemsToRemove</span></td>
+        <td><p>The list of elements to remove.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Remove_System_Collections_Generic_IEnumerable_ExifLibrary_ExifTag__.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Remove(System.Collections.Generic.IEnumerable%7BExifLibrary.ExifTag%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L475">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Remove_" data-uid="ExifLibrary.ExifPropertyCollection`1.Remove*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Remove_System_Collections_Generic_IEnumerable_ExifLibrary_ExifTag__" data-uid="ExifLibrary.ExifPropertyCollection`1.Remove(System.Collections.Generic.IEnumerable{ExifLibrary.ExifTag})">Remove(IEnumerable&lt;ExifTag&gt;)</h4>
+  <div class="markdown level1 summary"><p>Removes all items with the given tags from the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Remove(IEnumerable&lt;ExifTag&gt; tags)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a>&gt;</td>
+        <td><span class="parametername">tags</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_RemoveAt_System_Int32_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.RemoveAt(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L415">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_RemoveAt_" data-uid="ExifLibrary.ExifPropertyCollection`1.RemoveAt*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_RemoveAt_System_Int32_" data-uid="ExifLibrary.ExifPropertyCollection`1.RemoveAt(System.Int32)">RemoveAt(Int32)</h4>
+  <div class="markdown level1 summary"><p>Removes the item at the given index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveAt(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>The index of the item to remove.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Set__0_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Set(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L211">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Set_" data-uid="ExifLibrary.ExifPropertyCollection`1.Set*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Set__0_" data-uid="ExifLibrary.ExifPropertyCollection`1.Set(`0)">Set(T)</h4>
+  <div class="markdown level1 summary"><p>Sets an <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> with the specified key.
+Note that if there are multiple items with the same key, all of them will be
+replaced by the given item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Set(T item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>The item to set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_Byte_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Set(ExifLibrary.ExifTag%2CSystem.Byte)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L222">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Set_" data-uid="ExifLibrary.ExifPropertyCollection`1.Set*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_Byte_" data-uid="ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Byte)">Set(ExifTag, Byte)</h4>
+  <div class="markdown level1 summary"><p>Sets an <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> with the specified key.
+Note that if there are multiple items with the same key, all of them will be
+replaced by the given item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Set(ExifTag key, byte value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The tag to set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value of tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_DateTime_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Set(ExifLibrary.ExifTag%2CSystem.DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L335">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Set_" data-uid="ExifLibrary.ExifPropertyCollection`1.Set*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_DateTime_" data-uid="ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.DateTime)">Set(ExifTag, DateTime)</h4>
+  <div class="markdown level1 summary"><p>Sets an <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> with the specified key.
+Note that if there are multiple items with the same key, all of them will be
+replaced by the given item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Set(ExifTag key, DateTime value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The tag to set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.DateTime</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value of tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_Double_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Set(ExifLibrary.ExifTag%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L310">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Set_" data-uid="ExifLibrary.ExifPropertyCollection`1.Set*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_Double_" data-uid="ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Double)">Set(ExifTag, Double)</h4>
+  <div class="markdown level1 summary"><p>Sets an <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> with the specified key.
+Note that if there are multiple items with the same key, all of them will be
+replaced by the given item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Set(ExifTag key, double value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The tag to set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value of tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_Int32_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Set(ExifLibrary.ExifTag%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L277">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Set_" data-uid="ExifLibrary.ExifPropertyCollection`1.Set*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_Int32_" data-uid="ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Int32)">Set(ExifTag, Int32)</h4>
+  <div class="markdown level1 summary"><p>Sets an <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> with the specified key.
+Note that if there are multiple items with the same key, all of them will be
+replaced by the given item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Set(ExifTag key, int value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The tag to set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value of tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_Object_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Set(ExifLibrary.ExifTag%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L321">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Set_" data-uid="ExifLibrary.ExifPropertyCollection`1.Set*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_Object_" data-uid="ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Object)">Set(ExifTag, Object)</h4>
+  <div class="markdown level1 summary"><p>Sets an <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> with the specified key.
+Note that if there are multiple items with the same key, all of them will be
+replaced by the given item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Set(ExifTag key, object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The tag to set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value of tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_Single_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Set(ExifLibrary.ExifTag%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L299">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Set_" data-uid="ExifLibrary.ExifPropertyCollection`1.Set*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_Single_" data-uid="ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Single)">Set(ExifTag, Single)</h4>
+  <div class="markdown level1 summary"><p>Sets an <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> with the specified key.
+Note that if there are multiple items with the same key, all of them will be
+replaced by the given item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Set(ExifTag key, float value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The tag to set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value of tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_Single_System_Single_System_Single_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Set(ExifLibrary.ExifTag%2CSystem.Single%2CSystem.Single%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L348">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Set_" data-uid="ExifLibrary.ExifPropertyCollection`1.Set*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_Single_System_Single_System_Single_" data-uid="ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.Single,System.Single,System.Single)">Set(ExifTag, Single, Single, Single)</h4>
+  <div class="markdown level1 summary"><p>Sets an <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> with the specified key.
+Note that if there are multiple items with the same key, all of them will be
+replaced by the given item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Set(ExifTag key, float d, float m, float s)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The tag to set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">d</span></td>
+        <td><p>Angular degrees (or clock hours for a timestamp).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">m</span></td>
+        <td><p>Angular minutes (or clock minutes for a timestamp).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">s</span></td>
+        <td><p>Angular seconds (or clock seconds for a timestamp).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_String_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Set(ExifLibrary.ExifTag%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L255">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Set_" data-uid="ExifLibrary.ExifPropertyCollection`1.Set*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_String_" data-uid="ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.String)">Set(ExifTag, String)</h4>
+  <div class="markdown level1 summary"><p>Sets an <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> with the specified key.
+Note that if there are multiple items with the same key, all of them will be
+replaced by the given item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Set(ExifTag key, string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The tag to set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value of tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_String_System_Text_Encoding_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Set(ExifLibrary.ExifTag%2CSystem.String%2CSystem.Text.Encoding)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L233">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Set_" data-uid="ExifLibrary.ExifPropertyCollection`1.Set*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_String_System_Text_Encoding_" data-uid="ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.String,System.Text.Encoding)">Set(ExifTag, String, Encoding)</h4>
+  <div class="markdown level1 summary"><p>Sets an <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> with the specified key.
+Note that if there are multiple items with the same key, all of them will be
+replaced by the given item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Set(ExifTag key, string value, Encoding encoding)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The tag to set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value of tag.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Text.Encoding</span></td>
+        <td><span class="parametername">encoding</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_UInt16_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Set(ExifLibrary.ExifTag%2CSystem.UInt16)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L266">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Set_" data-uid="ExifLibrary.ExifPropertyCollection`1.Set*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_UInt16_" data-uid="ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.UInt16)">Set(ExifTag, UInt16)</h4>
+  <div class="markdown level1 summary"><p>Sets an <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> with the specified key.
+Note that if there are multiple items with the same key, all of them will be
+replaced by the given item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Set(ExifTag key, ushort value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The tag to set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.UInt16</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value of tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_UInt32_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.Set(ExifLibrary.ExifTag%2CSystem.UInt32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L288">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_Set_" data-uid="ExifLibrary.ExifPropertyCollection`1.Set*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_Set_ExifLibrary_ExifTag_System_UInt32_" data-uid="ExifLibrary.ExifPropertyCollection`1.Set(ExifLibrary.ExifTag,System.UInt32)">Set(ExifTag, UInt32)</h4>
+  <div class="markdown level1 summary"><p>Sets an <a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a> with the specified key.
+Note that if there are multiple items with the same key, all of them will be
+replaced by the given item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Set(ExifTag key, uint value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifTag.html">ExifTag</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The tag to set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value of tag.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_SetItem_ExifLibrary_ExifProperty_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.SetItem(ExifLibrary.ExifProperty)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L587">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_SetItem_" data-uid="ExifLibrary.ExifPropertyCollection`1.SetItem*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_SetItem_ExifLibrary_ExifProperty_" data-uid="ExifLibrary.ExifPropertyCollection`1.SetItem(ExifLibrary.ExifProperty)">SetItem(ExifProperty)</h4>
+  <div class="markdown level1 summary"><p>Sets an item in the collection.
+If there are multiple items with the same tag, replaces all items 
+with the given item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetItem(ExifProperty item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExifLibrary.ExifProperty.html">ExifProperty</a></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>an item to set in the collection</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_System_Collections_Generic_ICollection_T__CopyTo__0___System_Int32_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.System%23Collections%23Generic%23ICollection%7BT%7D%23CopyTo(%600%5B%5D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L515">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_System_Collections_Generic_ICollection_T__CopyTo_" data-uid="ExifLibrary.ExifPropertyCollection`1.System#Collections#Generic#ICollection{T}#CopyTo*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_System_Collections_Generic_ICollection_T__CopyTo__0___System_Int32_" data-uid="ExifLibrary.ExifPropertyCollection`1.System#Collections#Generic#ICollection{T}#CopyTo(`0[],System.Int32)">ICollection&lt;T&gt;.CopyTo(T[], Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ICollection&lt;T&gt;.CopyTo(T[] array, int arrayIndex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>T[]</td>
+        <td><span class="parametername">array</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">arrayIndex</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_System_Collections_Generic_ICollection_T__IsReadOnly.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.System%23Collections%23Generic%23ICollection%7BT%7D%23IsReadOnly%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L520">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_System_Collections_Generic_ICollection_T__IsReadOnly_" data-uid="ExifLibrary.ExifPropertyCollection`1.System#Collections#Generic#ICollection{T}#IsReadOnly*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_System_Collections_Generic_ICollection_T__IsReadOnly" data-uid="ExifLibrary.ExifPropertyCollection`1.System#Collections#Generic#ICollection{T}#IsReadOnly">ICollection&lt;T&gt;.IsReadOnly</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool ICollection&lt;T&gt;.IsReadOnly { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_System_Collections_Generic_IList_T__Insert_System_Int32__0_.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.System%23Collections%23Generic%23IList%7BT%7D%23Insert(System.Int32%2C%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L501">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_System_Collections_Generic_IList_T__Insert_" data-uid="ExifLibrary.ExifPropertyCollection`1.System#Collections#Generic#IList{T}#Insert*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_System_Collections_Generic_IList_T__Insert_System_Int32__0_" data-uid="ExifLibrary.ExifPropertyCollection`1.System#Collections#Generic#IList{T}#Insert(System.Int32,`0)">IList&lt;T&gt;.Insert(Int32, T)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void IList&lt;T&gt;.Insert(int index, T item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/oozcitak/exiflibrary/new/master/apiSpec/new?filename=ExifLibrary_ExifPropertyCollection_1_System_Collections_IEnumerable_GetEnumerator.md&amp;value=---%0Auid%3A%20ExifLibrary.ExifPropertyCollection%601.System%23Collections%23IEnumerable%23GetEnumerator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/oozcitak/exiflibrary/blob/master/ExifLibrary/ExifPropertyCollection.cs/#L525">View Source</a>
+  </span>
+  <a id="ExifLibrary_ExifPropertyCollection_1_System_Collections_IEnumerable_GetEnumerator_" data-uid="ExifLibrary.ExifPropertyCollection`1.System#Collections#IEnumerable#GetEnumerator*"></a>
+  <h4 id="ExifLibrary_ExifPropertyCollection_1_System_Collections_IEnumerable_GetEnumerator" data-uid="ExifLibrary.ExifPropertyCollection`1.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.IEnumerator</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.Collections.Generic.IList&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.ICollection&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.IEnumerable</span>
+  </div>
+</article>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2019 Özgür Özçıtak
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

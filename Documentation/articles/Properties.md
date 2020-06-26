@@ -42,7 +42,7 @@ ExifProperty tag2 = file.Properties[ExifTag.ISOSpeedRatings];
 
 ## Enumerating Properties ##
 
-The [property collection](xref:ExifLibrary.ExifPropertyCollection) of an image file can be enumerated sequentially:
+The [property collection](xref:ExifLibrary.ExifPropertyCollection`1) of an image file can be enumerated sequentially:
 ```cs
 var file = ImageFile.FromFile("path_to_image");
 foreach(var property in file.Properties)
@@ -53,7 +53,7 @@ foreach(var property in file.Properties)
 
 ## Adding and Modifying Properties ##
 
-Although the [property collection](xref:ExifLibrary.ExifPropertyCollection) of an image file is a list, it also provides dictionary-like access to set properties by their tags:
+Although the [property collection](xref:ExifLibrary.ExifPropertyCollection`1) of an image file is a list, it also provides dictionary-like access to set properties by their tags:
 ```cs
 var file = ImageFile.FromFile("path_to_image");
 file.Set(ExifTag.ISOSpeedRatings, <ushort>200);

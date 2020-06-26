@@ -81,14 +81,14 @@ DateTime dateTime = (tag as ExifDateTime).Value;
 ExifProperty tag1 = file.Properties[0];
 ExifProperty tag2 = file.Properties[ExifTag.ISOSpeedRatings];
 </code></pre><h2 id="enumerating-properties">Enumerating Properties</h2>
-<p>The <a href="xref:ExifLibrary.ExifPropertyCollection">property collection</a> of an image file can be enumerated sequentially:</p>
+<p>The <a class="xref" href="../obj/api/ExifLibrary.ExifPropertyCollection-1.html">property collection</a> of an image file can be enumerated sequentially:</p>
 <pre><code class="lang-cs">var file = ImageFile.FromFile(&quot;path_to_image&quot;);
 foreach(var property in file.Properties)
 {
     Console.WriteLine(property.Name);
 }
 </code></pre><h2 id="adding-and-modifying-properties">Adding and Modifying Properties</h2>
-<p>Although the <a href="xref:ExifLibrary.ExifPropertyCollection">property collection</a> of an image file is a list, it also provides dictionary-like access to set properties by their tags:</p>
+<p>Although the <a class="xref" href="../obj/api/ExifLibrary.ExifPropertyCollection-1.html">property collection</a> of an image file is a list, it also provides dictionary-like access to set properties by their tags:</p>
 <pre><code class="lang-cs">var file = ImageFile.FromFile(&quot;path_to_image&quot;);
 file.Set(ExifTag.ISOSpeedRatings, &lt;ushort&gt;200);
 </code></pre><p>The <a class="xref" href="../obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Set__0_">Set(T)</a> method overwrites a property with the same tag or adds a new property if there is no existing property with the given tag. The <a class="xref" href="../obj/api/ExifLibrary.ExifPropertyCollection-1.html#ExifLibrary_ExifPropertyCollection_1_Add__0_">Add(T)</a> method, on the other hand, adds the given property without checking if there is an existing property. So, it can potentially create duplicate properties. This is compliant with the standard, but not probably what you want.</p>

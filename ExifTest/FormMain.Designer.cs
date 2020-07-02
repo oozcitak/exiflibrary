@@ -217,6 +217,7 @@
             this.lvExif.View = System.Windows.Forms.View.Details;
             this.lvExif.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvExif_ColumnClick);
             this.lvExif.SelectedIndexChanged += new System.EventHandler(this.lvExif_SelectedIndexChanged);
+            this.lvExif.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lvExif_KeyDown);
             // 
             // columnHeader1
             // 

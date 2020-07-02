@@ -1,5 +1,6 @@
 ﻿using ExifLibrary;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Text;
@@ -133,6 +134,24 @@ namespace ExifTest
             foreach (byte b in data)
                 s.AppendFormat("0x{0:X2} ", b);
             return s.ToString();
+        }
+
+        private void lvExif_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                List<ListViewItem> toRemove = new List<ListViewItem>();
+                foreach (ListViewItem lvItem in lvExif.SelectedItems)
+                {
+                    ExifProperty item = (ExifProperty)lvItem.Tag;
+                    data.Properties.Remove(item);
+                    toRemove.Add(lvItem);
+                }
+                foreach (ListViewItem lvItem in toRemove)
+                {
+                    lvExif.Items.Remove(lvItem);
+                }
+            }
         }
 
         private void lvExif_ColumnClick(object sender, ColumnClickEventArgs e)

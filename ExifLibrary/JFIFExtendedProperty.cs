@@ -24,6 +24,12 @@ namespace ExifLibrary
             ;
         }
 
+        public JFIFVersion(ExifTag tag, byte major, byte minor)
+            : base(tag, (ushort)(major * 256 + minor))
+        {
+            ;
+        }
+
         public override string ToString()
         {
             return string.Format("{0}.{1:00}", Major, Minor);

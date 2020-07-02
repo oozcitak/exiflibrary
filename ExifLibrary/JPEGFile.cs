@@ -144,7 +144,11 @@ namespace ExifLibrary
                     if (readTrailingData)
                     {
                         long eoflength = stream.Length - stream.Position;
-                        TrailingData = Utility.GetStreamBytes(stream, eoflength);
+                        if (eoflength > 0)
+                        {
+                            Errors.Add(new ImageError(Severity.Info, "Reading trailing data past end-of-image marker."));
+                            TrailingData = Utility.GetStreamBytes(stream, eoflength);
+                        }
                     }
                     // stop reading once we are past the EOI marker
                     break;
@@ -248,7 +252,7 @@ namespace ExifLibrary
 
             byte[] header = jfifApp0.Header;
             BitConverterEx jfifConv = BitConverterEx.BigEndian;
-            
+
             // Version
             ushort version = jfifConv.ToUInt16(header, 5);
             Properties.Add(new JFIFVersion(ExifTag.JFIFVersion, version));
@@ -294,6 +298,7 @@ namespace ExifLibrary
                 // It is OK for an Exif image to not have a JFIF APP0 segment
                 if (jfifApp0 != null)
                 {
+                    Errors.Add(new ImageError(Severity.Info, "Removing unused JFIF APP0 segment."));
                     Sections.Remove(jfifApp0);
                     jfifApp0 = null;
                 }
@@ -311,6 +316,7 @@ namespace ExifLibrary
             else
             {
                 // default to JFIF version 1.02
+                Errors.Add(new ImageError(Severity.Info, "Adding missing JFIF version tag."));
                 ifdjfef.Add(new JFIFVersion(ExifTag.JFIFVersion, 1, 2));
             }
 
@@ -321,6 +327,7 @@ namespace ExifLibrary
             }
             else
             {
+                Errors.Add(new ImageError(Severity.Info, "Adding missing JFIF density unit tag."));
                 ifdjfef.Add(new ExifEnumProperty<JFIFDensityUnit>(ExifTag.JFIFUnits, JFIFDensityUnit.None));
             }
 
@@ -331,6 +338,7 @@ namespace ExifLibrary
             }
             else
             {
+                Errors.Add(new ImageError(Severity.Info, "Adding missing JFIF X density tag."));
                 ifdjfef.Add(new ExifUShort(ExifTag.XDensity, 1));
             }
             if (ifdjfefExisting.TryGetValue(ExifTag.YDensity, out ExifProperty ydensity))
@@ -339,6 +347,7 @@ namespace ExifLibrary
             }
             else
             {
+                Errors.Add(new ImageError(Severity.Info, "Adding missing JFIF Y density tag."));
                 ifdjfef.Add(new ExifUShort(ExifTag.YDensity, 1));
             }
 
@@ -349,6 +358,7 @@ namespace ExifLibrary
             }
             else
             {
+                Errors.Add(new ImageError(Severity.Info, "Adding missing JFIF X thumbnail pixel count tag."));
                 ifdjfef.Add(new ExifByte(ExifTag.JFIFXThumbnail, 0));
             }
             if (ifdjfefExisting.TryGetValue(ExifTag.JFIFYThumbnail, out ExifProperty ythumbnail))
@@ -357,6 +367,7 @@ namespace ExifLibrary
             }
             else
             {
+                Errors.Add(new ImageError(Severity.Info, "Adding missing JFIF Y thumbnail pixel count tag."));
                 ifdjfef.Add(new ExifByte(ExifTag.JFIFYThumbnail, 0));
             }
 
@@ -367,6 +378,7 @@ namespace ExifLibrary
             }
             else
             {
+                Errors.Add(new ImageError(Severity.Info, "Adding missing JFIF thumbnail tag."));
                 ifdjfef.Add(new JFIFThumbnailProperty(ExifTag.JFIFThumbnail, new JFIFThumbnail(JFIFThumbnail.ImageFormat.JPEG, new byte[0])));
             }
 
@@ -462,6 +474,7 @@ namespace ExifLibrary
                 // Nothing to write
                 if (jfxxApp0 != null)
                 {
+                    Errors.Add(new ImageError(Severity.Info, "Removing unused JFXX APP0 segment."));
                     Sections.Remove(jfxxApp0);
                     jfxxApp0 = null;
                 }

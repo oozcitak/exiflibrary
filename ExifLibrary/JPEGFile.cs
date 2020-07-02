@@ -248,7 +248,7 @@ namespace ExifLibrary
 
             byte[] header = jfifApp0.Header;
             BitConverterEx jfifConv = BitConverterEx.BigEndian;
-
+            
             // Version
             ushort version = jfifConv.ToUInt16(header, 5);
             Properties.Add(new JFIFVersion(ExifTag.JFIFVersion, version));
@@ -281,19 +281,94 @@ namespace ExifLibrary
         private bool WriteJFIFApp0()
         {
             // Which IFD sections do we have?
-            List<ExifProperty> ifdjfef = new List<ExifProperty>();
+            Dictionary<ExifTag, ExifProperty> ifdjfefExisting = new Dictionary<ExifTag, ExifProperty>();
             foreach (ExifProperty prop in Properties)
             {
                 if (prop.IFD == IFD.JFIF)
-                    ifdjfef.Add(prop);
+                    ifdjfefExisting.Add(prop.Tag, prop);
             }
 
-            if (ifdjfef.Count == 0)
+            if (ifdjfefExisting.Count == 0)
             {
                 // Nothing to write
+                // It is OK for an Exif image to not have a JFIF APP0 segment
+                if (jfifApp0 != null)
+                {
+                    Sections.Remove(jfifApp0);
+                    jfifApp0 = null;
+                }
                 return false;
             }
 
+            // Check and insert missing tags
+            List<ExifProperty> ifdjfef = new List<ExifProperty>();
+
+            // Version
+            if (ifdjfefExisting.TryGetValue(ExifTag.JFIFVersion, out ExifProperty version))
+            {
+                ifdjfef.Add(version);
+            }
+            else
+            {
+                // default to JFIF version 1.02
+                ifdjfef.Add(new JFIFVersion(ExifTag.JFIFVersion, 1, 2));
+            }
+
+            // Units
+            if (ifdjfefExisting.TryGetValue(ExifTag.JFIFUnits, out ExifProperty units))
+            {
+                ifdjfef.Add(units);
+            }
+            else
+            {
+                ifdjfef.Add(new ExifEnumProperty<JFIFDensityUnit>(ExifTag.JFIFUnits, JFIFDensityUnit.None));
+            }
+
+            // X and Y densities
+            if (ifdjfefExisting.TryGetValue(ExifTag.XDensity, out ExifProperty xdensity))
+            {
+                ifdjfef.Add(xdensity);
+            }
+            else
+            {
+                ifdjfef.Add(new ExifUShort(ExifTag.XDensity, 1));
+            }
+            if (ifdjfefExisting.TryGetValue(ExifTag.YDensity, out ExifProperty ydensity))
+            {
+                ifdjfef.Add(ydensity);
+            }
+            else
+            {
+                ifdjfef.Add(new ExifUShort(ExifTag.YDensity, 1));
+            }
+
+            // Thumbnails pixel count
+            if (ifdjfefExisting.TryGetValue(ExifTag.JFIFXThumbnail, out ExifProperty xthumbnail))
+            {
+                ifdjfef.Add(xthumbnail);
+            }
+            else
+            {
+                ifdjfef.Add(new ExifByte(ExifTag.JFIFXThumbnail, 0));
+            }
+            if (ifdjfefExisting.TryGetValue(ExifTag.JFIFYThumbnail, out ExifProperty ythumbnail))
+            {
+                ifdjfef.Add(ythumbnail);
+            }
+            else
+            {
+                ifdjfef.Add(new ExifByte(ExifTag.JFIFYThumbnail, 0));
+            }
+
+            // JFIF thumbnail
+            if (ifdjfefExisting.TryGetValue(ExifTag.JFIFThumbnail, out ExifProperty jfifThumbnail))
+            {
+                ifdjfef.Add(jfifThumbnail);
+            }
+            else
+            {
+                ifdjfef.Add(new JFIFThumbnailProperty(ExifTag.JFIFThumbnail, new JFIFThumbnail(JFIFThumbnail.ImageFormat.JPEG, new byte[0])));
+            }
 
             // Create a memory stream to write the APP0 section to
             using (MemoryStream ms = new MemoryStream())
@@ -312,7 +387,7 @@ namespace ExifLibrary
                     ms.Write(data, 0, data.Length);
                 }
 
-                // Return APP0 header
+                // Write APP0 header
                 jfifApp0.Header = ms.ToArray();
             }
             return true;
@@ -385,13 +460,17 @@ namespace ExifLibrary
             if (ifdjfef.Count == 0)
             {
                 // Nothing to write
+                if (jfxxApp0 != null)
+                {
+                    Sections.Remove(jfxxApp0);
+                    jfxxApp0 = null;
+                }
                 return false;
             }
 
             // Create a memory stream to write the APP0 section to
             using (MemoryStream ms = new MemoryStream())
             {
-
                 // JFIF identifer
                 ms.Write(Encoding.ASCII.GetBytes("JFXX\0"), 0, 5);
 

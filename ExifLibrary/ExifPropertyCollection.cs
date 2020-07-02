@@ -174,6 +174,15 @@ namespace ExifLibrary
         {
             AddItem(new ExifURationalArray(key, new MathEx.UFraction32[] { new MathEx.UFraction32(d), new MathEx.UFraction32(m), new MathEx.UFraction32(s) }));
         }
+        /// <summary>
+        /// Adds an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
+        /// </summary>
+        /// <param name="key">The tag to set.</param>
+        /// <param name="value">The value of tag.</param>
+        public void Add<TEnum>(ExifTag key, TEnum value) where TEnum : Enum
+        {
+            AddItem(new ExifEnumProperty<TEnum>(key, value));
+        }
         #endregion
 
         #region ExifProperty Collection Getters
@@ -348,6 +357,17 @@ namespace ExifLibrary
         public void Set(ExifTag key, float d, float m, float s)
         {
             SetItem(new ExifURationalArray(key, new MathEx.UFraction32[] { new MathEx.UFraction32(d), new MathEx.UFraction32(m), new MathEx.UFraction32(s) }));
+        }
+        /// <summary>
+        /// Sets an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
+        /// Note that if there are multiple items with the same key, all of them will be
+        /// replaced by the given item.
+        /// </summary>
+        /// <param name="key">The tag to set.</param>
+        /// <param name="value">The value of tag.</param>
+        public void Set<TEnum>(ExifTag key, TEnum value) where TEnum : Enum
+        {
+            SetItem(new ExifEnumProperty<TEnum>(key, value));
         }
         #endregion
 

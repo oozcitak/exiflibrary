@@ -6,7 +6,7 @@ namespace ExifLibrary
     /// <summary>
     /// Represents an enumerated value.
     /// </summary>
-    public class ExifEnumProperty<T> : ExifProperty
+    public class ExifEnumProperty<T> : ExifProperty where T : Enum
     {
         protected T mValue;
         protected bool mIsBitField;

@@ -91,7 +91,8 @@
             // 
             // fdOpen
             // 
-            this.fdOpen.Filter = "Image Files (*.jpg;*.tiff;*.png;*.gif)|*.jpg;*.tiff;*.png;*.gif";
+            this.fdOpen.Filter = "Image Files (*.jfif;*.jpg;*.tif;*.tiff;*.png;*.gif)|*.jfif;*.jpg;*.tif;*.tiff;*.p" +
+    "ng;*.gif";
             // 
             // toolStripContainer1
             // 

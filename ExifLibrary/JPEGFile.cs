@@ -37,19 +37,30 @@ namespace ExifLibrary
         #endregion
 
         #region Constructor
+
+        /// <summary>
+        /// Initializes a new empty instance of the <see cref="JPEGFile"/> class.
+        /// </summary>
+        /// <remarks>
+        /// This constructor is useful to implement derived classes that just want to add metadata.
+        /// </remarks>
+        /// <param name="encoding">The encoding to be used for text metadata when the source encoding is unknown.</param>
+        protected JPEGFile(Encoding encoding)
+        {
+            Format = ImageFileFormat.JPEG;
+            Sections = new List<JPEGSection>();
+            TrailingData = new byte[0];
+            Encoding = encoding;
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="JPEGFile"/> class.
         /// </summary>
         /// <param name="stream">A stream that contains image data.</param>
         /// <param name="encoding">The encoding to be used for text metadata when the source encoding is unknown.</param>
         /// <param name="readTrailingData">Whether to read data beyond the EOI (end of image) marker.</param>
-        protected internal JPEGFile(MemoryStream stream, Encoding encoding, bool readTrailingData = false)
+        protected internal JPEGFile(MemoryStream stream, Encoding encoding, bool readTrailingData = false) : this(encoding)
         {
-            Format = ImageFileFormat.JPEG;
-            Sections = new List<JPEGSection>();
-            TrailingData = new byte[0];
-            Encoding = encoding;
-
             stream.Seek(0, SeekOrigin.Begin);
 
             // Read the Start of Image (SOI) marker. SOI marker is represented

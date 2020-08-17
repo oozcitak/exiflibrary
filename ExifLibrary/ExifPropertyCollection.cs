@@ -485,7 +485,7 @@ namespace ExifLibrary
                 {
                     items.Remove(item);
                 }
-                lookup[tag] = new List<T>();
+                lookup.Remove(tag);
             }
         }
         /// <summary>

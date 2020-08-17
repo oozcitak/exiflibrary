@@ -38,6 +38,21 @@ namespace ExifLibrary
 
         #region Constructor
         /// <summary>
+        /// Initializes a new empty instance of the <see cref="JPEGFile"/> class.
+        /// </summary>
+        /// <remarks>
+        /// This constructor is useful to implement derived classes that just want to add metadata.
+        /// </remarks>
+        /// <param name="encoding">The encoding to be used for text metadata when the source encoding is unknown.</param>
+        protected internal JPEGFile(Encoding encoding)
+        {
+            Format = ImageFileFormat.JPEG;
+            Sections = new List<JPEGSection>();
+            TrailingData = new byte[0];
+            Encoding = encoding;
+        }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="JPEGFile"/> class.
         /// </summary>
         /// <param name="stream">A stream that contains image data.</param>

@@ -24,11 +24,11 @@ var file = ImageFile.FromFile("path_to_image");
 var isoTag = file.Properties.Get<ExifUShort>(ExifTag.ISOSpeedRatings);
 
 // the flash tag's value is an enum
-var flashTag = data.Properties.Get<ExifEnumProperty<Flash>>(ExifTag.Flash);
+var flashTag = file.Properties.Get<ExifEnumProperty<Flash>>(ExifTag.Flash);
 
 // GPS latitude is a custom type with three rational values
 // representing degrees/minutes/seconds of the latitude 
-var latTag = data.Properties.Get<GPSLatitudeLongitude>(ExifTag.GPSLatitude);
+var latTag = file.Properties.Get<GPSLatitudeLongitude>(ExifTag.GPSLatitude);
 ```
 
 To add metadata:

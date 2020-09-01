@@ -600,6 +600,11 @@ namespace ExifLibrary
                     ushort type = conv.ToUInt16(header, fieldoffset + 2);
                     uint count = conv.ToUInt32(header, fieldoffset + 4);
                     byte[] value = new byte[4];
+                    if (fieldoffset + 8 + 4 > header.Length)
+                    {
+                        Errors.Add(new ImageError(Severity.Warning, $"Invalid IFD0 directory entry for tag {tag}."));
+                        continue;
+                    }
                     Array.Copy(header, fieldoffset + 8, value, 0, 4);
 
                     // Fields containing offsets to other IFDs

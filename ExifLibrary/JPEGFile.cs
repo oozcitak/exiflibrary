@@ -611,17 +611,38 @@ namespace ExifLibrary
                     if (currentifd == IFD.Zeroth && tag == 0x8769)
                     {
                         int exififdpointer = (int)conv.ToUInt32(value, 0);
-                        ifdqueue.Add(exififdpointer, IFD.EXIF);
+                        if (ifdqueue.ContainsKey(exififdpointer))
+                        {
+                            Errors.Add(new ImageError(Severity.Warning, "IFD queue already contains an Exif IFD pointer."));
+                        }
+                        else
+                        {
+                            ifdqueue.Add(exififdpointer, IFD.EXIF);
+                        }
                     }
                     else if (currentifd == IFD.Zeroth && tag == 0x8825)
                     {
                         int gpsifdpointer = (int)conv.ToUInt32(value, 0);
-                        ifdqueue.Add(gpsifdpointer, IFD.GPS);
+                        if (ifdqueue.ContainsKey(gpsifdpointer))
+                        {
+                            Errors.Add(new ImageError(Severity.Warning, "IFD queue already contains a GPS IFD pointer."));
+                        }
+                        else
+                        {
+                            ifdqueue.Add(gpsifdpointer, IFD.GPS);
+                        }
                     }
                     else if (currentifd == IFD.EXIF && tag == 0xa005)
                     {
                         int interopifdpointer = (int)conv.ToUInt32(value, 0);
-                        ifdqueue.Add(interopifdpointer, IFD.Interop);
+                        if (ifdqueue.ContainsKey(interopifdpointer))
+                        {
+                            Errors.Add(new ImageError(Severity.Warning, "IFD queue already contains an Interop IFD pointer."));
+                        }
+                        else
+                        {
+                            ifdqueue.Add(interopifdpointer, IFD.Interop);
+                        }
                     }
 
                     // Save the offset to maker note data

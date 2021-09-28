@@ -56,7 +56,7 @@ foreach(var property in file.Properties)
 Although the [property collection](xref:ExifLibrary.ExifPropertyCollection`1) of an image file is a list, it also provides dictionary-like access to set properties by their tags:
 ```cs
 var file = ImageFile.FromFile("path_to_image");
-file.Set(ExifTag.ISOSpeedRatings, <ushort>200);
+file.Properties.Set(ExifTag.ISOSpeedRatings, <ushort>200);
 ```
 The @ExifLibrary.ExifPropertyCollection`1.Set(`0) method overwrites a property with the same tag or adds a new property if there is no existing property with the given tag. The @ExifLibrary.ExifPropertyCollection`1.Add(`0) method, on the other hand, adds the given property without checking if there is an existing property. So, it can potentially create duplicate properties. This is compliant with the standard, but not probably what you want.
 

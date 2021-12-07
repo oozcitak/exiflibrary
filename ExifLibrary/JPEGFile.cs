@@ -586,12 +586,13 @@ namespace ExifLibrary
                 ifdqueue.RemoveAt(0);
 
                 // Field count
-                ushort fieldcount = conv.ToUInt16(header, ifdoffset);
-                if (ifdoffset > header.Length - 1 || ifdoffset + 2 > header.Length)
+                if (ifdoffset < 0 || ifdoffset > header.Length - 1 || ifdoffset + 2 > header.Length)
                 {
                     Errors.Add(new ImageError(Severity.Warning, $"IFD field count overflow for IFD {currentifd}."));
                     continue;
                 }
+
+                ushort fieldcount = conv.ToUInt16(header, ifdoffset);
                 for (short i = 0; i < fieldcount; i++)
                 {
                     // Read field info

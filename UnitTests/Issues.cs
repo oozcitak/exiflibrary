@@ -55,6 +55,28 @@ namespace UnitTests
             Assert.Null(exception);
         }
 
+        [Fact(DisplayName = "Windows Explorer doesn't recognize the Long/Lat ref")]
+        public void Issue94()
+        {
+            var image = ImageFile.FromFile(TestHelpers.TestImagePath(".", "issue-94.jpg"));
+            image.Properties.Set(new GPSLatitudeLongitude(ExifTag.GPSLatitude, new[]
+                {
+                    new MathEx.UFraction32(33),
+                    new MathEx.UFraction32(52),
+                    new MathEx.UFraction32(979, 45)
+                }));
+            var latRef = new Random().NextDouble() < 0.5 ? GPSLatitudeRef.North : GPSLatitudeRef.South;
+            image.Properties.Set(ExifTag.GPSLatitudeRef, latRef);
+
+            // read back
+            var latRef2 = image.Properties.Get<ExifEnumProperty<GPSLatitudeRef>>(ExifTag.GPSLatitudeRef);
+            Assert.Equal(latRef2.Value, latRef);
+
+            // note that this doesn't obviously test windows explorer, just that the tag is written and read properly
+            // this issue is due to windows explorer only having a fixed set of tags to display as discussed here:
+            // https://exiftool.org/forum/index.php?topic=6201.0
+        }
+
         [Fact(DisplayName = "Imprecision results from inconsistent use of Float vs Rational in reading & writing GPS lat/long")]
         public void Issue95()
         {

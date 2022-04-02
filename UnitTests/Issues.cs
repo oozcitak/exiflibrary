@@ -54,5 +54,35 @@ namespace UnitTests
             var exception = Record.Exception(() => ImageFile.FromFile(TestHelpers.TestImagePath(".", "issue-79.jpg")));
             Assert.Null(exception);
         }
+
+        [Fact(DisplayName = "Imprecision results from inconsistent use of Float vs Rational in reading & writing GPS lat/long")]
+        public void Issue95()
+        {
+            // set rational lat/long values
+            var image = ImageFile.FromFile(TestHelpers.TestImagePath(".", "issue-95.jpg"));
+            image.Properties.Set(new GPSLatitudeLongitude(ExifTag.GPSLatitude, new[]
+                {
+                    new MathEx.UFraction32(33),
+                    new MathEx.UFraction32(52),
+                    new MathEx.UFraction32(979, 45)
+                }));
+            image.Properties.Set(ExifTag.GPSLatitudeRef, GPSLatitudeRef.South);
+            image.Properties.Set(new GPSLatitudeLongitude(ExifTag.GPSLongitude, new[]
+                {
+                    new MathEx.UFraction32(151),
+                    new MathEx.UFraction32(12),
+                    new MathEx.UFraction32(23306, 1137)
+                }));
+            image.Properties.Set(ExifTag.GPSLongitudeRef, GPSLongitudeRef.East);
+
+            // read back
+            var latitude = image.Properties.Get<GPSLatitudeLongitude>(ExifTag.GPSLatitude);
+            Assert.Equal(latitude.Seconds.Numerator, (uint)979);
+            Assert.Equal(latitude.Seconds.Denominator, (uint)45);
+
+            var longitude = image.Properties.Get<GPSLatitudeLongitude>(ExifTag.GPSLongitude);
+            Assert.Equal(longitude.Seconds.Numerator, (uint)23306);
+            Assert.Equal(longitude.Seconds.Denominator, (uint)1137);
+        }
     }
 }

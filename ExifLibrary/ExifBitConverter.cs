@@ -65,17 +65,26 @@ namespace ExifLibrary
             string[] parts = str.Split(new char[] { ':', ' ' });
             try
             {
-                if (hastime && parts.Length == 6)
+                if (hastime && parts.Length >= 6)
                 {
                     // yyyy:MM:dd HH:mm:ss
                     // This is the expected format though some cameras
                     // can use single digits. See Issue 21.
-                    return new DateTime(int.Parse(parts[0]), int.Parse(parts[1]), int.Parse(parts[2]), int.Parse(parts[3]), int.Parse(parts[4]), int.Parse(parts[5]));
+                    if (!int.TryParse(parts[0], out int year)) year = 1;
+                    if (!int.TryParse(parts[1], out int month)) month = 1;
+                    if (!int.TryParse(parts[2], out int day)) day = 1;
+                    if (!int.TryParse(parts[3], out int hour)) hour = 0;
+                    if (!int.TryParse(parts[4], out int minute)) minute = 0;
+                    if (!int.TryParse(parts[5], out int second)) second = 0;
+                    return new DateTime(year, month, day, hour, minute, second);
                 }
-                else if (!hastime && parts.Length == 3)
+                else if (!hastime && parts.Length >= 3)
                 {
                     // yyyy:MM:dd
-                    return new DateTime(int.Parse(parts[0]), int.Parse(parts[1]), int.Parse(parts[2]));
+                    if (!int.TryParse(parts[0], out int year)) year = 1;
+                    if (!int.TryParse(parts[1], out int month)) month = 1;
+                    if (!int.TryParse(parts[2], out int day)) day = 1;
+                    return new DateTime(year, month, day);
                 }
                 else
                 {

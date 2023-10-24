@@ -65,7 +65,7 @@ namespace ExifLibrary
             string[] parts = str.Split(new char[] { ':', ' ' });
             try
             {
-                if (hastime && parts.Length == 6)
+                if (hastime && parts.Length >= 6)
                 {
                     // yyyy:MM:dd HH:mm:ss
                     // This is the expected format though some cameras
@@ -78,7 +78,7 @@ namespace ExifLibrary
                     if (!int.TryParse(parts[5], out int second)) second = 0;
                     return new DateTime(year, month, day, hour, minute, second);
                 }
-                else if (!hastime && parts.Length == 3)
+                else if (!hastime && parts.Length >= 3)
                 {
                     // yyyy:MM:dd
                     if (!int.TryParse(parts[0], out int year)) year = 1;

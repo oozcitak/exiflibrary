@@ -1,27 +1,27 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <TargetFramework>netstandard1.3</TargetFramework>
-	<AssemblyName>ExifLibrary</AssemblyName>
+    <TargetFramework>net8.0</TargetFramework>
+    <AssemblyName>ExifLibrary</AssemblyName>
     <PackageId>ExifLibNet</PackageId>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <Version>2.1.3</Version>
-	<Title>ExifLibNet</Title>
-	<Authors>oozcitak;Devedse</Authors>
-	<Description>Exif metadata modification library.</Description>
-	<PackageProjectUrl>https://github.com/oozcitak/exiflibrary</PackageProjectUrl>
-	<PackageTags>exif;jpeg;image</PackageTags>
-	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	<PackageIconUrl>https://github.com/oozcitak/exiflibrary/raw/master/ExifLibrary/exiflibrary_64.png</PackageIconUrl>
-	<RepositoryUrl>https://github.com/oozcitak/exiflibrary</RepositoryUrl>
-	<PackageLicenseUrl>https://raw.githubusercontent.com/oozcitak/exiflibrary/master/LICENSE</PackageLicenseUrl>
+    <Title>ExifLibNet</Title>
+    <Authors>oozcitak;Devedse</Authors>
+    <Description>Exif metadata modification library.</Description>
+    <PackageProjectUrl>https://github.com/oozcitak/exiflibrary</PackageProjectUrl>
+    <PackageTags>exif;jpeg;image</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageIconUrl>https://github.com/oozcitak/exiflibrary/raw/master/ExifLibrary/exiflibrary_64.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/oozcitak/exiflibrary</RepositoryUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/oozcitak/exiflibrary/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <WarningLevel>0</WarningLevel>
   </PropertyGroup>
-
+  <ItemGroup>
+    <Folder Include="Documentation\" />
+  </ItemGroup>
 </Project>

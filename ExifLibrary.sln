@@ -1,13 +1,10 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29418.71
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExifLibrary", "ExifLibrary\ExifLibrary.csproj", "{E1EDB2A4-1091-4E86-90CB-5DD8F277FB55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExifTest", "ExifTest\ExifTest.csproj", "{C54386D3-1A21-4678-BC0A-CF4990E603D2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Documentation", "Documentation\Documentation.csproj", "{FE354FEF-85B4-4A5B-A130-7DD226A9B015}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExifTest", "ExifTest\ExifTest.csproj", "{C54386D3-1A21-4678-BC0A-CF4990E603D2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\UnitTests.csproj", "{24ABEB4D-2C2A-4853-A6D0-BB582C935AD8}"
 EndProject
@@ -30,10 +27,6 @@ Global
 		{C54386D3-1A21-4678-BC0A-CF4990E603D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C54386D3-1A21-4678-BC0A-CF4990E603D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C54386D3-1A21-4678-BC0A-CF4990E603D2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FE354FEF-85B4-4A5B-A130-7DD226A9B015}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FE354FEF-85B4-4A5B-A130-7DD226A9B015}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FE354FEF-85B4-4A5B-A130-7DD226A9B015}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FE354FEF-85B4-4A5B-A130-7DD226A9B015}.Release|Any CPU.Build.0 = Release|Any CPU
 		{24ABEB4D-2C2A-4853-A6D0-BB582C935AD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{24ABEB4D-2C2A-4853-A6D0-BB582C935AD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24ABEB4D-2C2A-4853-A6D0-BB582C935AD8}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -10,21 +10,24 @@ namespace ExifLibrary
     public struct ImageFileDirectoryEntry
     {
         /// <summary>
-        /// The tag that identifies the field.
-        /// </summary>
-        public ushort Tag;
-        /// <summary>
-        /// Field type identifier.
-        /// </summary>
-        public ushort Type;
-        /// <summary>
         /// Count of Type.
         /// </summary>
         public uint Count;
+
         /// <summary>
         /// Field data.
         /// </summary>
         public byte[] Data;
+
+        /// <summary>
+        /// The tag that identifies the field.
+        /// </summary>
+        public ushort Tag;
+
+        /// <summary>
+        /// Field type identifier.
+        /// </summary>
+        public ushort Type;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageFileDirectoryEntry"/> struct.
@@ -39,6 +42,30 @@ namespace ExifLibrary
             Type = type;
             Count = count;
             Data = data;
+        }
+
+        /// <summary>
+        /// Gets the base byte length for the given type.
+        /// </summary>
+        /// <param name="type">Type identifier.</param>
+        private static uint GetBaseLength(ushort type)
+        {
+            if (type == 1 || type == 6) // BYTE and SBYTE
+                return 1;
+            else if (type == 2 || type == 7) // ASCII and UNDEFINED
+                return 1;
+            else if (type == 3 || type == 8) // SHORT and SSHORT
+                return 2;
+            else if (type == 4 || type == 9) // LONG and SLONG
+                return 4;
+            else if (type == 5 || type == 10) // RATIONAL (2xLONG) and SRATIONAL (2xSLONG)
+                return 8;
+            else if (type == 11) // FLOAT
+                return 4;
+            else if (type == 12) // DOUBLE
+                return 8;
+
+            throw new ArgumentException("Unknown type identifier.", "type");
         }
 
         /// <summary>
@@ -90,30 +117,6 @@ namespace ExifLibrary
             }
 
             return new ImageFileDirectoryEntry(tag, type, count, value);
-        }
-
-        /// <summary>
-        /// Gets the base byte length for the given type.
-        /// </summary>
-        /// <param name="type">Type identifier.</param>
-        private static uint GetBaseLength(ushort type)
-        {
-            if (type == 1 || type == 6) // BYTE and SBYTE
-                return 1;
-            else if (type == 2 || type == 7) // ASCII and UNDEFINED
-                return 1;
-            else if (type == 3 || type == 8) // SHORT and SSHORT
-                return 2;
-            else if (type == 4 || type == 9) // LONG and SLONG
-                return 4;
-            else if (type == 5 || type == 10) // RATIONAL (2xLONG) and SRATIONAL (2xSLONG)
-                return 8;
-            else if (type == 11) // FLOAT
-                return 4;
-            else if (type == 12) // DOUBLE
-                return 8;
-
-            throw new ArgumentException("Unknown type identifier.", "type");
         }
     }
 }

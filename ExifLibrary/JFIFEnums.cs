@@ -14,15 +14,18 @@ namespace ExifLibrary
         /// No units, XDensity and YDensity specify the pixel aspect ratio.
         /// </summary>
         None = 0,
+
         /// <summary>
         /// XDensity and YDensity are dots per inch.
         /// </summary>
         DotsPerInch = 1,
+
         /// <summary>
         /// XDensity and YDensity are dots per cm.
         /// </summary>
         DotsPerCm = 2,
     }
+
     /// <summary>
     /// Represents the JFIF extension.
     /// </summary>
@@ -32,10 +35,12 @@ namespace ExifLibrary
         /// Thumbnail coded using JPEG.
         /// </summary>
         ThumbnailJPEG = 0x10,
+
         /// <summary>
         /// Thumbnail stored using a 256-Color RGB palette.
         /// </summary>
         ThumbnailPaletteRGB = 0x11,
+
         /// <summary>
         /// Thumbnail stored using 3 bytes/pixel (24-bit) RGB values.
         /// </summary>

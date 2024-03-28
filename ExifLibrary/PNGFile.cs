@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.IO;
+using System.Text;
 
 namespace ExifLibrary
 {
@@ -10,14 +10,6 @@ namespace ExifLibrary
     /// </summary>
     public class PNGFile : ImageFile
     {
-        #region Properties
-        /// <summary>
-        /// Gets or sets the chunks contained in the <see cref="PNGFile"/>.
-        /// </summary>
-        public List<PNGChunk> Chunks { get; private set; }
-        #endregion
-
-        #region Constructor
         /// <summary>
         /// Initializes a new instance of the <see cref="PNGFile"/> class from the
         /// specified data stream.
@@ -67,75 +59,12 @@ namespace ExifLibrary
 
             ReadPNGMetadata();
         }
-        #endregion
-
-        #region Instance Methods
-        /// <summary>
-        /// Decreases file size by removing all ancillary chunks.
-        /// </summary>
-        public override void Crush()
-        {
-            Properties.Clear();
-
-            Chunks.RemoveAll(c => !c.IsCritical);
-        }
 
         /// <summary>
-        /// Saves the <see cref="ImageFile"/> to the given stream.
+        /// Gets or sets the chunks contained in the <see cref="PNGFile"/>.
         /// </summary>
-        /// <param name="stream">The data stream used to save the image.</param>
-        protected override void SaveInternal(MemoryStream stream)
-        {
-            // Add end chunk if it does not exist
-            if (Chunks[Chunks.Count - 1].Type != "IEND")
-            {
-                Chunks.Add(new PNGChunk("IEND", new byte[0]));
-            }
+        public List<PNGChunk> Chunks { get; private set; }
 
-            // Save metadata
-            WritePNGMetadata();
-
-            BitConverterEx conv = BitConverterEx.BigEndian;
-
-            // Write header
-            stream.WriteByte(0x89);
-            stream.WriteByte(0x50);
-            stream.WriteByte(0x4E);
-            stream.WriteByte(0x47);
-            stream.WriteByte(0x0D);
-            stream.WriteByte(0x0A);
-            stream.WriteByte(0x1A);
-            stream.WriteByte(0x0A);
-
-            // Write chunks in order
-            foreach (PNGChunk chunk in Chunks)
-            {
-                // Length of chunk data
-                stream.Write(conv.GetBytes((uint)chunk.Data.Length), 0, 4);
-
-                // Chunk type
-                stream.Write(Encoding.ASCII.GetBytes(chunk.Type), 0, 4);
-
-                // Chunk data
-                int rem = chunk.Data.Length;
-                int offset = 0;
-                byte[] b = new byte[32768];
-                while (rem > 0)
-                {
-                    int len = (int)Math.Min(rem, b.Length);
-                    Array.Copy(chunk.Data, offset, b, 0, len);
-                    stream.Write(b, 0, len);
-                    rem -= len;
-                    offset += len;
-                }
-
-                // CRC of type name and data
-                stream.Write(conv.GetBytes(chunk.CRC), 0, 4);
-            }
-        }
-        #endregion
-
-        #region Private Helper Methods
         /// <summary>
         /// Reads the metadata from chunks.
         /// </summary>
@@ -271,6 +200,7 @@ namespace ExifLibrary
             else
                 return ExifTag.PNGText;
         }
+
         /// <summary>
         /// Writes metadata back into PNG chunks.
         /// </summary>
@@ -302,6 +232,69 @@ namespace ExifLibrary
                 }
             }
         }
-        #endregion
+
+        /// <summary>
+        /// Saves the <see cref="ImageFile"/> to the given stream.
+        /// </summary>
+        /// <param name="stream">The data stream used to save the image.</param>
+        protected override void SaveInternal(MemoryStream stream)
+        {
+            // Add end chunk if it does not exist
+            if (Chunks[Chunks.Count - 1].Type != "IEND")
+            {
+                Chunks.Add(new PNGChunk("IEND", new byte[0]));
+            }
+
+            // Save metadata
+            WritePNGMetadata();
+
+            BitConverterEx conv = BitConverterEx.BigEndian;
+
+            // Write header
+            stream.WriteByte(0x89);
+            stream.WriteByte(0x50);
+            stream.WriteByte(0x4E);
+            stream.WriteByte(0x47);
+            stream.WriteByte(0x0D);
+            stream.WriteByte(0x0A);
+            stream.WriteByte(0x1A);
+            stream.WriteByte(0x0A);
+
+            // Write chunks in order
+            foreach (PNGChunk chunk in Chunks)
+            {
+                // Length of chunk data
+                stream.Write(conv.GetBytes((uint)chunk.Data.Length), 0, 4);
+
+                // Chunk type
+                stream.Write(Encoding.ASCII.GetBytes(chunk.Type), 0, 4);
+
+                // Chunk data
+                int rem = chunk.Data.Length;
+                int offset = 0;
+                byte[] b = new byte[32768];
+                while (rem > 0)
+                {
+                    int len = (int)Math.Min(rem, b.Length);
+                    Array.Copy(chunk.Data, offset, b, 0, len);
+                    stream.Write(b, 0, len);
+                    rem -= len;
+                    offset += len;
+                }
+
+                // CRC of type name and data
+                stream.Write(conv.GetBytes(chunk.CRC), 0, 4);
+            }
+        }
+
+        /// <summary>
+        /// Decreases file size by removing all ancillary chunks.
+        /// </summary>
+        public override void Crush()
+        {
+            Properties.Clear();
+
+            Chunks.RemoveAll(c => !c.IsCritical);
+        }
     }
 }

@@ -21,4 +21,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <WarningLevel>0</WarningLevel>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Documentation\" />
+  </ItemGroup>
 </Project>

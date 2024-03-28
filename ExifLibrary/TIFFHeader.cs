@@ -13,15 +13,18 @@ namespace ExifLibrary
         /// The byte order of the image file.
         /// </summary>
         public BitConverterEx.ByteOrder ByteOrder;
+
         /// <summary>
         /// TIFF ID. This value should always be 42.
         /// </summary>
         public byte ID;
+
         /// <summary>
-        /// The offset to the first IFD section from the 
+        /// The offset to the first IFD section from the
         /// start of the TIFF header.
         /// </summary>
         public uint IFDOffset;
+
         /// <summary>
         /// The byte order of the TIFF header itself.
         /// </summary>
@@ -32,7 +35,7 @@ namespace ExifLibrary
         /// </summary>
         /// <param name="byteOrder">The byte order.</param>
         /// <param name="id">The TIFF ID. This value should always be 42.</param>
-        /// <param name="ifdOffset">The offset to the first IFD section from the 
+        /// <param name="ifdOffset">The offset to the first IFD section from the
         /// start of the TIFF header.</param>
         /// <param name="headerByteOrder">The byte order of the TIFF header itself.</param>
         public TIFFHeader(BitConverterEx.ByteOrder byteOrder, byte id, uint ifdOffset, BitConverterEx.ByteOrder headerByteOrder)

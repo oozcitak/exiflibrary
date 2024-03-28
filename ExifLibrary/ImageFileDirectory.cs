@@ -10,19 +10,6 @@ namespace ExifLibrary
     public class ImageFileDirectory
     {
         /// <summary>
-        /// The fields contained in this IFD.
-        /// </summary>
-        public List<ImageFileDirectoryEntry> Fields { get; private set; }
-        /// <summary>
-        /// Offset to the next IFD.
-        /// </summary>
-        public uint NextIFDOffset { get; private set; }
-        /// <summary>
-        /// Compressed image data.
-        /// </summary>
-        public List<TIFFStrip> Strips { get; private set; }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="ImageFileDirectory"/> class.
         /// </summary>
         public ImageFileDirectory()
@@ -30,6 +17,21 @@ namespace ExifLibrary
             Fields = new List<ImageFileDirectoryEntry>();
             Strips = new List<TIFFStrip>();
         }
+
+        /// <summary>
+        /// The fields contained in this IFD.
+        /// </summary>
+        public List<ImageFileDirectoryEntry> Fields { get; private set; }
+
+        /// <summary>
+        /// Offset to the next IFD.
+        /// </summary>
+        public uint NextIFDOffset { get; private set; }
+
+        /// <summary>
+        /// Compressed image data.
+        /// </summary>
+        public List<TIFFStrip> Strips { get; private set; }
 
         /// <summary>
         /// Returns a <see cref="ImageFileDirectory"/> initialized from the given byte data.

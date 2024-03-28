@@ -12,7 +12,44 @@ namespace ExifLibrary
     /// </summary>
     public class Utility
     {
-        #region File I/O
+        /// <summary>
+        /// Compresses the given string.
+        /// </summary>
+        /// <param name="text">Input string.</param>
+        /// <param name="encoding">Text encoding.</param>
+        /// <returns>The compressed bytes.</returns>
+        public static byte[] CompressString(String text, Encoding encoding)
+        {
+            using (MemoryStream stream = new MemoryStream())
+            using (DeflateStream zip = new DeflateStream(stream, CompressionMode.Compress))
+            using (StreamWriter writer = new StreamWriter(zip, encoding))
+            {
+                writer.Write(text);
+                return stream.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// Compresses the given bytes representing a string.
+        /// </summary>
+        /// <param name="input">Input data.</param>
+        /// <param name="encoding">Text encoding.</param>
+        /// <returns>The decompressed string.</returns>
+        public static string DecompressString(byte[] input, Encoding encoding)
+        {
+            using (MemoryStream stream = new MemoryStream(input))
+            {
+                //stream.Seek(2, SeekOrigin.Begin); // Skip zlib flags
+                int b1 = stream.ReadByte();
+                int b2 = stream.ReadByte();
+                using (DeflateStream zip = new DeflateStream(stream, CompressionMode.Decompress))
+                using (StreamReader reader = new StreamReader(zip, encoding))
+                {
+                    return reader.ReadToEnd();
+                }
+            }
+        }
+
         /// <summary>
         /// Reads the entire stream and returns its contents as a byte array.
         /// </summary>
@@ -63,9 +100,40 @@ namespace ExifLibrary
                 }
             }
         }
-        #endregion
 
-        #region Crypto
+        /// <summary>
+        /// Splits the given byte array at seperators.
+        /// </summary>
+        /// <param name="data">Input array.</param>
+        /// <param name="seperator">Separator byte.</param>
+        /// <returns>Sub arrays splitted at the separator.</returns>
+        public static List<byte[]> SplitByteArray(byte[] data, byte seperator)
+        {
+            List<byte[]> output = new List<byte[]>();
+            int lastSepIndex = -1;
+            int sepIndex = -1;
+            for (int i = 0; i < data.Length; i++)
+            {
+                if (data[i] == seperator)
+                {
+                    sepIndex = i;
+                    byte[] subArray = new byte[sepIndex - (lastSepIndex + 1)];
+                    Array.Copy(data, lastSepIndex + 1, subArray, 0, subArray.Length);
+                    lastSepIndex = sepIndex;
+                    output.Add(subArray);
+                }
+            }
+            if (lastSepIndex < data.Length - 1)
+            {
+                sepIndex = data.Length - 1;
+                byte[] subArray = new byte[sepIndex - (lastSepIndex + 1)];
+                Array.Copy(data, lastSepIndex + 1, subArray, 0, subArray.Length);
+                lastSepIndex = sepIndex;
+                output.Add(subArray);
+            }
+            return output;
+        }
+
         public static class CRC32
         {
             // Table of CRCs of all 8-bit messages.
@@ -138,80 +206,5 @@ namespace ExifLibrary
                 return UpdateCRC(crc, buffer) ^ 0xffffffffL;
             }
         }
-        #endregion
-
-        #region Compression
-        /// <summary>
-        /// Compresses the given string.
-        /// </summary>
-        /// <param name="text">Input string.</param>
-        /// <param name="encoding">Text encoding.</param>
-        /// <returns>The compressed bytes.</returns>
-        public static byte[] CompressString(String text, Encoding encoding)
-        {
-            using (MemoryStream stream = new MemoryStream())
-            using (DeflateStream zip = new DeflateStream(stream, CompressionMode.Compress))
-            using (StreamWriter writer = new StreamWriter(zip, encoding))
-            {
-                writer.Write(text);
-                return stream.ToArray();
-            }
-        }
-        /// <summary>
-        /// Compresses the given bytes representing a string.
-        /// </summary>
-        /// <param name="input">Input data.</param>
-        /// <param name="encoding">Text encoding.</param>
-        /// <returns>The decompressed string.</returns>
-        public static string DecompressString(byte[] input, Encoding encoding)
-        {
-            using (MemoryStream stream = new MemoryStream(input))
-            {
-                //stream.Seek(2, SeekOrigin.Begin); // Skip zlib flags
-                int b1 = stream.ReadByte();
-                int b2 = stream.ReadByte();
-                using (DeflateStream zip = new DeflateStream(stream, CompressionMode.Decompress))
-                using (StreamReader reader = new StreamReader(zip, encoding))
-                {
-                    return reader.ReadToEnd();
-                }
-            }
-        }
-        #endregion
-
-        #region Arrays
-        /// <summary>
-        /// Splits the given byte array at seperators.
-        /// </summary>
-        /// <param name="data">Input array.</param>
-        /// <param name="seperator">Separator byte.</param>
-        /// <returns>Sub arrays splitted at the separator.</returns>
-        public static List<byte[]> SplitByteArray(byte[] data, byte seperator)
-        {
-            List<byte[]> output = new List<byte[]>();
-            int lastSepIndex = -1;
-            int sepIndex = -1;
-            for (int i = 0; i < data.Length; i++)
-            {
-                if (data[i] == seperator)
-                {
-                    sepIndex = i;
-                    byte[] subArray = new byte[sepIndex - (lastSepIndex + 1)];
-                    Array.Copy(data, lastSepIndex + 1, subArray, 0, subArray.Length);
-                    lastSepIndex = sepIndex;
-                    output.Add(subArray);
-                }
-            }
-            if (lastSepIndex < data.Length - 1)
-            {
-                sepIndex = data.Length - 1;
-                byte[] subArray = new byte[sepIndex - (lastSepIndex + 1)];
-                Array.Copy(data, lastSepIndex + 1, subArray, 0, subArray.Length);
-                lastSepIndex = sepIndex;
-                output.Add(subArray);
-            }
-            return output;
-        }
-        #endregion
     }
 }

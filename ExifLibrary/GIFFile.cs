@@ -10,58 +10,6 @@ namespace ExifLibrary
     /// </summary>
     public class GIFFile : ImageFile
     {
-        #region Properties
-        /// <summary>
-        /// Gets the GIF version string. e.g. 89a
-        /// </summary>
-        public string Version { get; private set; }
-        /// <summary>
-        /// Gets the raster width in pixels.
-        /// </summary>
-        public ushort ScreenWidth { get; private set; }
-        /// <summary>
-        /// Gets the raster height in pixels.
-        /// </summary>
-        public ushort ScreenHeight { get; private set; }
-        /// <summary>
-        /// Gets the bumber of bits per primary color available.
-        /// </summary>
-        public byte ColorResolution { get; private set; }
-
-        /// <summary>
-        /// Gets the size of the global color table.
-        /// </summary>
-        public byte SizeOfGCT { get; private set; }
-        /// <summary>
-        /// Gets whether the file contains a global color table.
-        /// </summary>
-        public bool HasGCT { get; private set; }
-        /// <summary>
-        /// Gets whether the global color table is sorted.
-        /// </summary>
-        public bool IsGCTSorted { get; private set; }
-        /// <summary>
-        /// Gets the index of the backcolor in the global color table.
-        /// </summary>
-        public byte BackcolorIndex { get; private set; }
-        /// <summary>
-        /// Gets the global color table.
-        /// </summary>
-        public byte[,] GCT { get; private set; }
-
-        /// <summary>
-        /// Gets the pixel aspect ratio.
-        /// The actual aspect ratio is calculated as: Aspect Ratio = (Pixel Aspect Ratio + 15) / 64.
-        /// </summary>
-        public byte PixelAspectRatio { get; private set; }
-
-        /// <summary>
-        /// Gets the blocks contained in the <see cref="GIFFile"/>.
-        /// </summary>
-        public List<GIFBlock> Blocks { get; private set; }
-        #endregion
-
-        #region Constructor
         /// <summary>
         /// Initializes a new instance of the <see cref="GIFFile"/> class from the
         /// specified data stream.
@@ -110,7 +58,8 @@ namespace ExifLibrary
             while (stream.Position != stream.Length)
             {
                 int val = stream.ReadByte();
-                if (val == -1) break;
+                if (val == -1)
+                    break;
 
                 byte separator = (byte)val;
                 if (separator == 0x3B)
@@ -158,7 +107,8 @@ namespace ExifLibrary
                 {
                     // extension block
                     val = stream.ReadByte();
-                    if (val == -1) break;
+                    if (val == -1)
+                        break;
                     var label = (byte)val;
                     if (label == 0xF9)
                     {
@@ -254,17 +204,119 @@ namespace ExifLibrary
             // process metadata
             ReadMetadata();
         }
-        #endregion
 
-        #region Instance Methods
         /// <summary>
-        /// Decreases file size by removing all ancillary chunks.
+        /// Gets the index of the backcolor in the global color table.
         /// </summary>
-        public override void Crush()
-        {
-            Properties.Clear();
+        public byte BackcolorIndex { get; private set; }
 
-            Blocks.RemoveAll(b => b as GIFCommentExtension != null);
+        /// <summary>
+        /// Gets the blocks contained in the <see cref="GIFFile"/>.
+        /// </summary>
+        public List<GIFBlock> Blocks { get; private set; }
+
+        /// <summary>
+        /// Gets the bumber of bits per primary color available.
+        /// </summary>
+        public byte ColorResolution { get; private set; }
+
+        /// <summary>
+        /// Gets the global color table.
+        /// </summary>
+        public byte[,] GCT { get; private set; }
+
+        /// <summary>
+        /// Gets whether the file contains a global color table.
+        /// </summary>
+        public bool HasGCT { get; private set; }
+
+        /// <summary>
+        /// Gets whether the global color table is sorted.
+        /// </summary>
+        public bool IsGCTSorted { get; private set; }
+
+        /// <summary>
+        /// Gets the pixel aspect ratio.
+        /// The actual aspect ratio is calculated as: Aspect Ratio = (Pixel Aspect Ratio + 15) / 64.
+        /// </summary>
+        public byte PixelAspectRatio { get; private set; }
+
+        /// <summary>
+        /// Gets the raster height in pixels.
+        /// </summary>
+        public ushort ScreenHeight { get; private set; }
+
+        /// <summary>
+        /// Gets the raster width in pixels.
+        /// </summary>
+        public ushort ScreenWidth { get; private set; }
+
+        /// <summary>
+        /// Gets the size of the global color table.
+        /// </summary>
+        public byte SizeOfGCT { get; private set; }
+
+        /// <summary>
+        /// Gets the GIF version string. e.g. 89a
+        /// </summary>
+        public string Version { get; private set; }
+
+        /// <summary>
+        /// Reads a GIF color table.
+        /// </summary>
+        /// <param name="stream">A stream that contains image data.</param>
+        /// <param name="length">Length of color table.</param>
+        protected byte[,] ReadColorTable(MemoryStream stream, int length)
+        {
+            var table = new byte[length, 3];
+            for (int i = 0; i < length; i++)
+            {
+                table[i, 0] = (byte)stream.ReadByte();
+                table[i, 1] = (byte)stream.ReadByte();
+                table[i, 2] = (byte)stream.ReadByte();
+            }
+            return table;
+        }
+
+        /// <summary>
+        /// Reads data sub-blocks.
+        /// </summary>
+        /// <param name="stream">A stream that contains image data.</param>
+        protected byte[][] ReadDataBlock(MemoryStream stream)
+        {
+            List<byte[]> data = new List<byte[]>();
+            while (true)
+            {
+                int val = stream.ReadByte();
+                if (val == -1 || val == 0)
+                    break;
+                byte count = (byte)val;
+                data.Add(Utility.GetStreamBytes(stream, count));
+            }
+            return data.ToArray();
+        }
+
+        /// <summary>
+        /// Reads GIF metadata in extension blocks.
+        /// </summary>
+        protected void ReadMetadata()
+        {
+            for (int i = 0; i < Blocks.Count; i++)
+            {
+                var block = Blocks[i];
+                var nextBlock = (i == Blocks.Count - 1 ? null : Blocks[i + 1]);
+                var extension = block as GIFCommentExtension;
+                if (extension == null)
+                    continue;
+                using (var memStream = new MemoryStream())
+                {
+                    foreach (var subData in extension.Data)
+                    {
+                        memStream.Write(subData, 0, subData.Length);
+                    }
+                    Properties.Add(new GIFComment(ExifTag.GIFComment, Encoding.ASCII.GetString(memStream.ToArray()), nextBlock));
+                }
+            }
         }
 
         /// <summary>
@@ -288,11 +340,13 @@ namespace ExifLibrary
 
             int val = 0;
             // global color table flag in bit 7
-            if (HasGCT) val |= 1 << 7;
+            if (HasGCT)
+                val |= 1 << 7;
             // color resolution in bits 6, 5, 4
             val |= (ColorResolution - 1) << 4;
             // global color table sorted flag in bit 3
-            if (IsGCTSorted) val |= 1 << 3;
+            if (IsGCTSorted)
+                val |= 1 << 3;
             // global color table size bits 2, 1, 0
             val |= (SizeOfGCT - 1);
             stream.WriteByte((byte)val);
@@ -320,11 +374,14 @@ namespace ExifLibrary
 
                     val = 0;
                     // local color table flag in bit 7
-                    if (idBlock.HasLCT) val |= 1 << 7;
+                    if (idBlock.HasLCT)
+                        val |= 1 << 7;
                     // interlaced flag in bit 6
-                    if (idBlock.IsInterlaced) val |= 1 << 6;
+                    if (idBlock.IsInterlaced)
+                        val |= 1 << 6;
                     // local color table sorted flag in bit 5
-                    if (idBlock.IsLCTSorted) val |= 1 << 5;
+                    if (idBlock.IsLCTSorted)
+                        val |= 1 << 5;
                     // reserved value in bits 4, 3
                     val |= idBlock.Reserved << 3;
                     // local color table size bits 2, 1, 0
@@ -364,9 +421,11 @@ namespace ExifLibrary
                         // disposal method in bits 4, 3, 2
                         val |= (gceBlock.DisposalMethod) << 2;
                         // user input flag in bit 1
-                        if (gceBlock.UserInputFlag) val |= 1 << 1;
+                        if (gceBlock.UserInputFlag)
+                            val |= 1 << 1;
                         // transparent color flag in bit 0
-                        if (gceBlock.TransparentColorFlag) val |= 1 << 0;
+                        if (gceBlock.TransparentColorFlag)
+                            val |= 1 << 0;
                         stream.WriteByte((byte)val);
 
                         stream.Write(conv.GetBytes(gceBlock.DelayTime), 0, 2);
@@ -415,25 +474,7 @@ namespace ExifLibrary
                 }
             }
         }
-        #endregion
 
-        #region Private Helper Methods
-        /// <summary>
-        /// Reads a GIF color table.
-        /// </summary>
-        /// <param name="stream">A stream that contains image data.</param>
-        /// <param name="length">Length of color table.</param>
-        protected byte[,] ReadColorTable(MemoryStream stream, int length)
-        {
-            var table = new byte[length, 3];
-            for (int i = 0; i < length; i++)
-            {
-                table[i, 0] = (byte)stream.ReadByte();
-                table[i, 1] = (byte)stream.ReadByte();
-                table[i, 2] = (byte)stream.ReadByte();
-            }
-            return table;
-        }
         /// <summary>
         /// Writes GIF color table.
         /// </summary>
@@ -446,22 +487,7 @@ namespace ExifLibrary
                 stream.WriteByte(b);
             }
         }
-        /// <summary>
-        /// Reads data sub-blocks.
-        /// </summary>
-        /// <param name="stream">A stream that contains image data.</param>
-        protected byte[][] ReadDataBlock(MemoryStream stream)
-        {
-            List<byte[]> data = new List<byte[]>();
-            while (true)
-            {
-                int val = stream.ReadByte();
-                if (val == -1 || val == 0) break;
-                byte count = (byte)val;
-                data.Add(Utility.GetStreamBytes(stream, count));
-            }
-            return data.ToArray();
-        }
+
         /// <summary>
         /// Writes data sub-blocks.
         /// </summary>
@@ -475,27 +501,7 @@ namespace ExifLibrary
                 stream.Write(subData, 0, subData.Length);
             }
         }
-        /// <summary>
-        /// Reads GIF metadata in extension blocks.
-        /// </summary>
-        protected void ReadMetadata()
-        {
-            for (int i = 0; i < Blocks.Count; i++)
-            {
-                var block = Blocks[i];
-                var nextBlock = (i == Blocks.Count - 1 ? null : Blocks[i + 1]);
-                var extension = block as GIFCommentExtension;
-                if (extension == null) continue;
-                using (var memStream = new MemoryStream())
-                {
-                    foreach (var subData in extension.Data)
-                    {
-                        memStream.Write(subData, 0, subData.Length);
-                    }
-                    Properties.Add(new GIFComment(ExifTag.GIFComment, Encoding.ASCII.GetString(memStream.ToArray()), nextBlock));
-                }
-            }
-        }
+
         /// <summary>
         /// Writes GIF metadata into extension blocks.
         /// </summary>
@@ -511,7 +517,8 @@ namespace ExifLibrary
                     {
                         var block = new GIFCommentExtension();
                         var interop = gifComment.Interoperability;
-                        if (interop.Count == 0) continue;
+                        if (interop.Count == 0)
+                            continue;
                         var subBlockCount = (interop.Count - 1) / 255 + 1;
                         block.Data = new byte[subBlockCount][];
                         int offset = 0;
@@ -536,6 +543,15 @@ namespace ExifLibrary
                 }
             }
         }
-        #endregion
+
+        /// <summary>
+        /// Decreases file size by removing all ancillary chunks.
+        /// </summary>
+        public override void Crush()
+        {
+            Properties.Clear();
+
+            Blocks.RemoveAll(b => b as GIFCommentExtension != null);
+        }
     }
 }

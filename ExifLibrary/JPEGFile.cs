@@ -10,33 +10,22 @@ namespace ExifLibrary
     /// </summary>
     public class JPEGFile : ImageFile
     {
-        #region Member Variables
-        private JPEGSection jfifApp0;
-        private JPEGSection jfxxApp0;
         private JPEGSection exifApp1;
-        private uint makerNoteOffset;
+
         private long exifIFDFieldOffset, gpsIFDFieldOffset, interopIFDFieldOffset, firstIFDFieldOffset;
-        private long thumbOffsetLocation, thumbSizeLocation;
-        private uint thumbOffsetValue, thumbSizeValue;
+
+        private JPEGSection jfifApp0;
+
+        private JPEGSection jfxxApp0;
+
+        private uint makerNoteOffset;
+
         private bool makerNoteProcessed;
-        #endregion
 
-        #region Properties
-        /// <summary>
-        /// Gets or sets the byte-order of the Exif properties.
-        /// </summary>
-        public BitConverterEx.ByteOrder ByteOrder { get; set; }
-        /// <summary>
-        /// Gets the sections contained in the <see cref="ImageFile"/>.
-        /// </summary>
-        public List<JPEGSection> Sections { get; private set; }
-        /// <summary>
-        /// Gets or sets non-standard trailing data following the End of Image (EOI) marker.
-        /// </summary>
-        public byte[] TrailingData { get; private set; }
-        #endregion
+        private long thumbOffsetLocation, thumbSizeLocation;
 
-        #region Constructor
+        private uint thumbOffsetValue, thumbSizeValue;
+
         /// <summary>
         /// Initializes a new empty instance of the <see cref="JPEGFile"/> class.
         /// </summary>
@@ -77,7 +66,7 @@ namespace ExifLibrary
             // Search and read sections until we reach the end of file.
             while (stream.Position != stream.Length)
             {
-                // Read the next section marker. Section markers are two bytes 
+                // Read the next section marker. Section markers are two bytes
                 // with values 0xFF, 0x?? where ?? must not be 0x00 or 0xFF.
                 if (stream.Read(markerbytes, 0, 2) != 2 || markerbytes[0] != 0xFF || markerbytes[1] == 0x00 || markerbytes[1] == 0xFF)
                     throw new NotValidJPEGFileException();
@@ -89,7 +78,7 @@ namespace ExifLibrary
                 if (marker != JPEGMarker.SOI && marker != JPEGMarker.EOI && !(marker >= JPEGMarker.RST0 && marker <= JPEGMarker.RST7))
                 {
                     // Length of the header including the length bytes.
-                    // This value is a 16-bit unsigned integer 
+                    // This value is a 16-bit unsigned integer
                     // in big endian byte-order.
                     byte[] lengthbytes = new byte[2];
                     if (stream.Read(lengthbytes, 0, 2) != 2)
@@ -128,8 +117,8 @@ namespace ExifLibrary
                                 break;
                         } while ((byte)nextbyte == 0xFF);
 
-                        // We either reached the end of file before a new marker(this would indicate 
-                        // a corrupt image file) or we are at a section marker. In that case the 
+                        // We either reached the end of file before a new marker(this would indicate
+                        // a corrupt image file) or we are at a section marker. In that case the
                         // next byte must not be 0x00.
                         if (nextbyte != 0)
                         {
@@ -178,345 +167,21 @@ namespace ExifLibrary
             // Process the maker note
             makerNoteProcessed = false;
         }
-        #endregion
-
-        #region Instance Methods
-        /// <summary>
-        /// Decreases file size by removing all metadata.
-        /// </summary>
-        public override void Crush()
-        {
-            Properties.Clear();
-
-            // Remove metadata sections.
-            // Keep the sections in this whitelist only:
-            //   SOF0 - SOF15
-            //   DHT
-            //   DAC
-            //   RST0 - RST7
-            //   SOI, EOI
-            //   DQT
-            //	 DNL
-            //	 DRI
-            //	 DHP
-            //	 EXP
-            Sections.RemoveAll(section => section.Marker < JPEGMarker.SOF0 || section.Marker > JPEGMarker.EXP);
-        }
 
         /// <summary>
-        /// Saves the JPEG/Exif image to the given stream.
+        /// Gets or sets the byte-order of the Exif properties.
         /// </summary>
-        /// <param name="filename">The path to the JPEG/Exif file.</param>
-        protected override void SaveInternal(MemoryStream stream)
-        {
-            WriteJFIFApp0();
-            WriteJFXXApp0();
-            WriteExifApp1(true);
+        public BitConverterEx.ByteOrder ByteOrder { get; set; }
 
-            // Write sections
-            foreach (JPEGSection section in Sections)
-            {
-                // Section header (including length bytes) must not exceed 64 kB.
-                if (section.Header.Length + 2 > 64 * 1024)
-                    throw new SectionExceeds64KBException();
-
-                // APP sections must have a header.
-                // Otherwise skip the entire section.
-                if (section.Marker >= JPEGMarker.APP0 && section.Marker <= JPEGMarker.APP15 && section.Header.Length == 0)
-                    continue;
-
-                // Write section marker
-                stream.Write(new byte[] { 0xFF, (byte)section.Marker }, 0, 2);
-
-                // SOI, EOI and RST markers do not contain any header
-                if (section.Marker != JPEGMarker.SOI && section.Marker != JPEGMarker.EOI && !(section.Marker >= JPEGMarker.RST0 && section.Marker <= JPEGMarker.RST7))
-                {
-                    // Header length including the length field itself
-                    stream.Write(BitConverterEx.BigEndian.GetBytes((ushort)(section.Header.Length + 2)), 0, 2);
-
-                    // Write section header
-                    if (section.Header.Length != 0)
-                        stream.Write(section.Header, 0, section.Header.Length);
-                }
-
-                // Write entropy coded data
-                if (section.EntropyData.Length != 0)
-                    stream.Write(section.EntropyData, 0, section.EntropyData.Length);
-            }
-
-            // Write trailing data, if any
-            if (TrailingData.Length != 0)
-                stream.Write(TrailingData, 0, TrailingData.Length);
-        }
-        #endregion
-
-        #region Private Helper Methods
         /// <summary>
-        /// Reads the APP0 section containing JFIF metadata.
+        /// Gets the sections contained in the <see cref="ImageFile"/>.
         /// </summary>
-        private void ReadJFIFAPP0()
-        {
-            // Find the APP0 section containing JFIF metadata
-            jfifApp0 = Sections.Find(a => (a.Marker == JPEGMarker.APP0) &&
-                a.Header.Length >= 5 &&
-                (Encoding.ASCII.GetString(a.Header, 0, 5) == "JFIF\0"));
+        public List<JPEGSection> Sections { get; private set; }
 
-            // If there is no APP0 section, return.
-            if (jfifApp0 == null)
-                return;
-
-            byte[] header = jfifApp0.Header;
-            BitConverterEx jfifConv = BitConverterEx.BigEndian;
-
-            // Version
-            ushort version = jfifConv.ToUInt16(header, 5);
-            Properties.Add(new JFIFVersion(ExifTag.JFIFVersion, version));
-
-            // Units
-            byte unit = header[7];
-            Properties.Add(new ExifEnumProperty<JFIFDensityUnit>(ExifTag.JFIFUnits, (JFIFDensityUnit)unit));
-
-            // X and Y densities
-            ushort xdensity = jfifConv.ToUInt16(header, 8);
-            Properties.Add(new ExifUShort(ExifTag.XDensity, xdensity));
-            ushort ydensity = jfifConv.ToUInt16(header, 10);
-            Properties.Add(new ExifUShort(ExifTag.YDensity, ydensity));
-
-            // Thumbnails pixel count
-            byte xthumbnail = header[12];
-            Properties.Add(new ExifByte(ExifTag.JFIFXThumbnail, xthumbnail));
-            byte ythumbnail = header[13];
-            Properties.Add(new ExifByte(ExifTag.JFIFYThumbnail, ythumbnail));
-
-            // Read JFIF thumbnail
-            int n = xthumbnail * ythumbnail;
-            byte[] jfifThumbnail = new byte[n];
-            Array.Copy(header, 14, jfifThumbnail, 0, n);
-            Properties.Add(new JFIFThumbnailProperty(ExifTag.JFIFThumbnail, new JFIFThumbnail(JFIFThumbnail.ImageFormat.JPEG, jfifThumbnail)));
-        }
         /// <summary>
-        /// Replaces the contents of the APP0 section with the JFIF properties.
+        /// Gets or sets non-standard trailing data following the End of Image (EOI) marker.
         /// </summary>
-        private bool WriteJFIFApp0()
-        {
-            // Which IFD sections do we have?
-            Dictionary<ExifTag, ExifProperty> ifdjfefExisting = new Dictionary<ExifTag, ExifProperty>();
-            foreach (ExifProperty prop in Properties)
-            {
-                if (prop.IFD == IFD.JFIF)
-                    ifdjfefExisting.Add(prop.Tag, prop);
-            }
-
-            if (ifdjfefExisting.Count == 0)
-            {
-                // Nothing to write
-                // It is OK for an Exif image to not have a JFIF APP0 segment
-                if (jfifApp0 != null)
-                {
-                    Errors.Add(new ImageError(Severity.Info, "Removing unused JFIF APP0 segment."));
-                    Sections.Remove(jfifApp0);
-                    jfifApp0 = null;
-                }
-                return false;
-            }
-
-            // Check and insert missing tags
-            List<ExifProperty> ifdjfef = new List<ExifProperty>();
-
-            // Version
-            if (ifdjfefExisting.TryGetValue(ExifTag.JFIFVersion, out ExifProperty version))
-            {
-                ifdjfef.Add(version);
-            }
-            else
-            {
-                // default to JFIF version 1.02
-                Errors.Add(new ImageError(Severity.Info, "Adding missing JFIF version tag."));
-                ifdjfef.Add(new JFIFVersion(ExifTag.JFIFVersion, 1, 2));
-            }
-
-            // Units
-            if (ifdjfefExisting.TryGetValue(ExifTag.JFIFUnits, out ExifProperty units))
-            {
-                ifdjfef.Add(units);
-            }
-            else
-            {
-                Errors.Add(new ImageError(Severity.Info, "Adding missing JFIF density unit tag."));
-                ifdjfef.Add(new ExifEnumProperty<JFIFDensityUnit>(ExifTag.JFIFUnits, JFIFDensityUnit.None));
-            }
-
-            // X and Y densities
-            if (ifdjfefExisting.TryGetValue(ExifTag.XDensity, out ExifProperty xdensity))
-            {
-                ifdjfef.Add(xdensity);
-            }
-            else
-            {
-                Errors.Add(new ImageError(Severity.Info, "Adding missing JFIF X density tag."));
-                ifdjfef.Add(new ExifUShort(ExifTag.XDensity, 1));
-            }
-            if (ifdjfefExisting.TryGetValue(ExifTag.YDensity, out ExifProperty ydensity))
-            {
-                ifdjfef.Add(ydensity);
-            }
-            else
-            {
-                Errors.Add(new ImageError(Severity.Info, "Adding missing JFIF Y density tag."));
-                ifdjfef.Add(new ExifUShort(ExifTag.YDensity, 1));
-            }
-
-            // Thumbnails pixel count
-            if (ifdjfefExisting.TryGetValue(ExifTag.JFIFXThumbnail, out ExifProperty xthumbnail))
-            {
-                ifdjfef.Add(xthumbnail);
-            }
-            else
-            {
-                Errors.Add(new ImageError(Severity.Info, "Adding missing JFIF X thumbnail pixel count tag."));
-                ifdjfef.Add(new ExifByte(ExifTag.JFIFXThumbnail, 0));
-            }
-            if (ifdjfefExisting.TryGetValue(ExifTag.JFIFYThumbnail, out ExifProperty ythumbnail))
-            {
-                ifdjfef.Add(ythumbnail);
-            }
-            else
-            {
-                Errors.Add(new ImageError(Severity.Info, "Adding missing JFIF Y thumbnail pixel count tag."));
-                ifdjfef.Add(new ExifByte(ExifTag.JFIFYThumbnail, 0));
-            }
-
-            // JFIF thumbnail
-            if (ifdjfefExisting.TryGetValue(ExifTag.JFIFThumbnail, out ExifProperty jfifThumbnail))
-            {
-                ifdjfef.Add(jfifThumbnail);
-            }
-            else
-            {
-                Errors.Add(new ImageError(Severity.Info, "Adding missing JFIF thumbnail tag."));
-                ifdjfef.Add(new JFIFThumbnailProperty(ExifTag.JFIFThumbnail, new JFIFThumbnail(JFIFThumbnail.ImageFormat.JPEG, new byte[0])));
-            }
-
-            // Create a memory stream to write the APP0 section to
-            using (MemoryStream ms = new MemoryStream())
-            {
-
-                // JFIF identifer
-                ms.Write(Encoding.ASCII.GetBytes("JFIF\0"), 0, 5);
-
-                // Write tags
-                foreach (ExifProperty prop in ifdjfef)
-                {
-                    ExifInterOperability interop = prop.Interoperability;
-                    byte[] data = interop.Data;
-                    if (BitConverterEx.SystemByteOrder != BitConverterEx.ByteOrder.BigEndian && interop.TypeID == InterOpType.SHORT)
-                        Array.Reverse(data);
-                    ms.Write(data, 0, data.Length);
-                }
-
-                // Write APP0 header
-                jfifApp0.Header = ms.ToArray();
-            }
-            return true;
-        }
-        /// <summary>
-        /// Reads the APP0 section containing JFIF extension metadata.
-        /// </summary>
-        private void ReadJFXXAPP0()
-        {
-            // Find the APP0 section containing JFIF metadata
-            jfxxApp0 = Sections.Find(a => (a.Marker == JPEGMarker.APP0) &&
-                a.Header.Length >= 5 &&
-                (Encoding.ASCII.GetString(a.Header, 0, 5) == "JFXX\0"));
-
-            // If there is no APP0 section, return.
-            if (jfxxApp0 == null)
-                return;
-
-            byte[] header = jfxxApp0.Header;
-
-            // Version
-            JFIFExtension version = (JFIFExtension)header[5];
-            Properties.Add(new ExifEnumProperty<JFIFExtension>(ExifTag.JFXXExtensionCode, version));
-
-            // Read thumbnail
-            if (version == JFIFExtension.ThumbnailJPEG)
-            {
-                byte[] data = new byte[header.Length - 6];
-                Array.Copy(header, 6, data, 0, data.Length);
-                Properties.Add(new JFIFThumbnailProperty(ExifTag.JFXXThumbnail, new JFIFThumbnail(JFIFThumbnail.ImageFormat.JPEG, data)));
-            }
-            else if (version == JFIFExtension.Thumbnail24BitRGB)
-            {
-                // Thumbnails pixel count
-                byte xthumbnail = header[6];
-                Properties.Add(new ExifByte(ExifTag.JFXXXThumbnail, xthumbnail));
-                byte ythumbnail = header[7];
-                Properties.Add(new ExifByte(ExifTag.JFXXYThumbnail, ythumbnail));
-                byte[] data = new byte[3 * xthumbnail * ythumbnail];
-                Array.Copy(header, 8, data, 0, data.Length);
-                Properties.Add(new JFIFThumbnailProperty(ExifTag.JFXXThumbnail, new JFIFThumbnail(JFIFThumbnail.ImageFormat.BMP24Bit, data)));
-            }
-            else if (version == JFIFExtension.ThumbnailPaletteRGB)
-            {
-                // Thumbnails pixel count
-                byte xthumbnail = header[6];
-                Properties.Add(new ExifByte(ExifTag.JFXXXThumbnail, xthumbnail));
-                byte ythumbnail = header[7];
-                Properties.Add(new ExifByte(ExifTag.JFXXYThumbnail, ythumbnail));
-                byte[] palette = new byte[768];
-                Array.Copy(header, 8, palette, 0, palette.Length);
-                byte[] data = new byte[xthumbnail * ythumbnail];
-                Array.Copy(header, 8 + 768, data, 0, data.Length);
-                Properties.Add(new JFIFThumbnailProperty(ExifTag.JFXXThumbnail, new JFIFThumbnail(palette, data)));
-            }
-        }
-        /// <summary>
-        /// Replaces the contents of the APP0 section with the JFIF extension properties.
-        /// </summary>
-        private bool WriteJFXXApp0()
-        {
-            // Which IFD sections do we have?
-            List<ExifProperty> ifdjfef = new List<ExifProperty>();
-            foreach (ExifProperty prop in Properties)
-            {
-                if (prop.IFD == IFD.JFXX)
-                    ifdjfef.Add(prop);
-            }
-
-            if (ifdjfef.Count == 0)
-            {
-                // Nothing to write
-                if (jfxxApp0 != null)
-                {
-                    Errors.Add(new ImageError(Severity.Info, "Removing unused JFXX APP0 segment."));
-                    Sections.Remove(jfxxApp0);
-                    jfxxApp0 = null;
-                }
-                return false;
-            }
-
-            // Create a memory stream to write the APP0 section to
-            using (MemoryStream ms = new MemoryStream())
-            {
-                // JFIF identifer
-                ms.Write(Encoding.ASCII.GetBytes("JFXX\0"), 0, 5);
-
-                // Write tags
-                foreach (ExifProperty prop in ifdjfef)
-                {
-                    ExifInterOperability interop = prop.Interoperability;
-                    byte[] data = interop.Data;
-                    if (BitConverterEx.SystemByteOrder != BitConverterEx.ByteOrder.BigEndian && interop.TypeID == InterOpType.SHORT)
-                        Array.Reverse(data);
-                    ms.Write(data, 0, data.Length);
-                }
-
-                // Return APP0 header
-                jfxxApp0.Header = ms.ToArray();
-            }
-            return true;
-        }
+        public byte[] TrailingData { get; private set; }
 
         /// <summary>
         /// Reads the APP1 section containing Exif metadata.
@@ -532,7 +197,8 @@ namespace ExifLibrary
             if (exifApp1 == null)
             {
                 int insertionIndex = Sections.FindLastIndex(a => a.Marker == JPEGMarker.APP0);
-                if (insertionIndex == -1) insertionIndex = 0;
+                if (insertionIndex == -1)
+                    insertionIndex = 0;
                 insertionIndex++;
                 exifApp1 = new JPEGSection(JPEGMarker.APP1);
                 Sections.Insert(insertionIndex, exifApp1);
@@ -576,7 +242,6 @@ namespace ExifLibrary
             int thumboffset = -1;
             int thumblength = 0;
             int thumbtype = -1;
-
 
             // Read IFDs
             while (ifdqueue.Count != 0)
@@ -783,6 +448,103 @@ namespace ExifLibrary
         }
 
         /// <summary>
+        /// Reads the APP0 section containing JFIF metadata.
+        /// </summary>
+        private void ReadJFIFAPP0()
+        {
+            // Find the APP0 section containing JFIF metadata
+            jfifApp0 = Sections.Find(a => (a.Marker == JPEGMarker.APP0) &&
+                a.Header.Length >= 5 &&
+                (Encoding.ASCII.GetString(a.Header, 0, 5) == "JFIF\0"));
+
+            // If there is no APP0 section, return.
+            if (jfifApp0 == null)
+                return;
+
+            byte[] header = jfifApp0.Header;
+            BitConverterEx jfifConv = BitConverterEx.BigEndian;
+
+            // Version
+            ushort version = jfifConv.ToUInt16(header, 5);
+            Properties.Add(new JFIFVersion(ExifTag.JFIFVersion, version));
+
+            // Units
+            byte unit = header[7];
+            Properties.Add(new ExifEnumProperty<JFIFDensityUnit>(ExifTag.JFIFUnits, (JFIFDensityUnit)unit));
+
+            // X and Y densities
+            ushort xdensity = jfifConv.ToUInt16(header, 8);
+            Properties.Add(new ExifUShort(ExifTag.XDensity, xdensity));
+            ushort ydensity = jfifConv.ToUInt16(header, 10);
+            Properties.Add(new ExifUShort(ExifTag.YDensity, ydensity));
+
+            // Thumbnails pixel count
+            byte xthumbnail = header[12];
+            Properties.Add(new ExifByte(ExifTag.JFIFXThumbnail, xthumbnail));
+            byte ythumbnail = header[13];
+            Properties.Add(new ExifByte(ExifTag.JFIFYThumbnail, ythumbnail));
+
+            // Read JFIF thumbnail
+            int n = xthumbnail * ythumbnail;
+            byte[] jfifThumbnail = new byte[n];
+            Array.Copy(header, 14, jfifThumbnail, 0, n);
+            Properties.Add(new JFIFThumbnailProperty(ExifTag.JFIFThumbnail, new JFIFThumbnail(JFIFThumbnail.ImageFormat.JPEG, jfifThumbnail)));
+        }
+
+        /// <summary>
+        /// Reads the APP0 section containing JFIF extension metadata.
+        /// </summary>
+        private void ReadJFXXAPP0()
+        {
+            // Find the APP0 section containing JFIF metadata
+            jfxxApp0 = Sections.Find(a => (a.Marker == JPEGMarker.APP0) &&
+                a.Header.Length >= 5 &&
+                (Encoding.ASCII.GetString(a.Header, 0, 5) == "JFXX\0"));
+
+            // If there is no APP0 section, return.
+            if (jfxxApp0 == null)
+                return;
+
+            byte[] header = jfxxApp0.Header;
+
+            // Version
+            JFIFExtension version = (JFIFExtension)header[5];
+            Properties.Add(new ExifEnumProperty<JFIFExtension>(ExifTag.JFXXExtensionCode, version));
+
+            // Read thumbnail
+            if (version == JFIFExtension.ThumbnailJPEG)
+            {
+                byte[] data = new byte[header.Length - 6];
+                Array.Copy(header, 6, data, 0, data.Length);
+                Properties.Add(new JFIFThumbnailProperty(ExifTag.JFXXThumbnail, new JFIFThumbnail(JFIFThumbnail.ImageFormat.JPEG, data)));
+            }
+            else if (version == JFIFExtension.Thumbnail24BitRGB)
+            {
+                // Thumbnails pixel count
+                byte xthumbnail = header[6];
+                Properties.Add(new ExifByte(ExifTag.JFXXXThumbnail, xthumbnail));
+                byte ythumbnail = header[7];
+                Properties.Add(new ExifByte(ExifTag.JFXXYThumbnail, ythumbnail));
+                byte[] data = new byte[3 * xthumbnail * ythumbnail];
+                Array.Copy(header, 8, data, 0, data.Length);
+                Properties.Add(new JFIFThumbnailProperty(ExifTag.JFXXThumbnail, new JFIFThumbnail(JFIFThumbnail.ImageFormat.BMP24Bit, data)));
+            }
+            else if (version == JFIFExtension.ThumbnailPaletteRGB)
+            {
+                // Thumbnails pixel count
+                byte xthumbnail = header[6];
+                Properties.Add(new ExifByte(ExifTag.JFXXXThumbnail, xthumbnail));
+                byte ythumbnail = header[7];
+                Properties.Add(new ExifByte(ExifTag.JFXXYThumbnail, ythumbnail));
+                byte[] palette = new byte[768];
+                Array.Copy(header, 8, palette, 0, palette.Length);
+                byte[] data = new byte[xthumbnail * ythumbnail];
+                Array.Copy(header, 8 + 768, data, 0, data.Length);
+                Properties.Add(new JFIFThumbnailProperty(ExifTag.JFXXThumbnail, new JFIFThumbnail(palette, data)));
+            }
+        }
+
+        /// <summary>
         /// Replaces the contents of the APP1 section with the Exif properties.
         /// </summary>
         private bool WriteExifApp1(bool preserveMakerNote)
@@ -802,9 +564,12 @@ namespace ExifLibrary
             ExifProperty thumbnailLengthProperty = null;
             foreach (var prop in Properties)
             {
-                if (prop.Tag == ExifTag.ThumbnailJPEGInterchangeFormat) thumbnailFormatProperty = prop;
-                if (prop.Tag == ExifTag.ThumbnailJPEGInterchangeFormatLength) thumbnailLengthProperty = prop;
-                if (thumbnailFormatProperty != null && thumbnailLengthProperty != null) break;
+                if (prop.Tag == ExifTag.ThumbnailJPEGInterchangeFormat)
+                    thumbnailFormatProperty = prop;
+                if (prop.Tag == ExifTag.ThumbnailJPEGInterchangeFormatLength)
+                    thumbnailLengthProperty = prop;
+                if (thumbnailFormatProperty != null && thumbnailLengthProperty != null)
+                    break;
             }
             if (Thumbnail == null)
             {
@@ -835,15 +600,19 @@ namespace ExifLibrary
                     case IFD.Zeroth:
                         ifdzeroth[prop.Tag] = prop;
                         break;
+
                     case IFD.EXIF:
                         ifdexif[prop.Tag] = prop;
                         break;
+
                     case IFD.GPS:
                         ifdgps[prop.Tag] = prop;
                         break;
+
                     case IFD.Interop:
                         ifdinterop[prop.Tag] = prop;
                         break;
+
                     case IFD.First:
                         ifdfirst[prop.Tag] = prop;
                         break;
@@ -880,7 +649,6 @@ namespace ExifLibrary
             // Create a memory stream to write the APP1 section to
             using (MemoryStream ms = new MemoryStream())
             {
-
                 // Exif identifer
                 ms.Write(Encoding.ASCII.GetBytes("Exif\0\0"), 0, 6);
 
@@ -1009,7 +777,8 @@ namespace ExifLibrary
                     interop.TypeID == InterOpType.RATIONAL || interop.TypeID == InterOpType.SRATIONAL))
                 {
                     int vlen = 4;
-                    if (interop.TypeID == InterOpType.SHORT) vlen = 2;
+                    if (interop.TypeID == InterOpType.SHORT)
+                        vlen = 2;
                     int n = data.Length / vlen;
 
                     for (int i = 0; i < n; i++)
@@ -1078,6 +847,245 @@ namespace ExifLibrary
                 }
             }
         }
-        #endregion
+
+        /// <summary>
+        /// Replaces the contents of the APP0 section with the JFIF properties.
+        /// </summary>
+        private bool WriteJFIFApp0()
+        {
+            // Which IFD sections do we have?
+            Dictionary<ExifTag, ExifProperty> ifdjfefExisting = new Dictionary<ExifTag, ExifProperty>();
+            foreach (ExifProperty prop in Properties)
+            {
+                if (prop.IFD == IFD.JFIF)
+                    ifdjfefExisting.Add(prop.Tag, prop);
+            }
+
+            if (ifdjfefExisting.Count == 0)
+            {
+                // Nothing to write
+                // It is OK for an Exif image to not have a JFIF APP0 segment
+                if (jfifApp0 != null)
+                {
+                    Errors.Add(new ImageError(Severity.Info, "Removing unused JFIF APP0 segment."));
+                    Sections.Remove(jfifApp0);
+                    jfifApp0 = null;
+                }
+                return false;
+            }
+
+            // Check and insert missing tags
+            List<ExifProperty> ifdjfef = new List<ExifProperty>();
+
+            // Version
+            if (ifdjfefExisting.TryGetValue(ExifTag.JFIFVersion, out ExifProperty version))
+            {
+                ifdjfef.Add(version);
+            }
+            else
+            {
+                // default to JFIF version 1.02
+                Errors.Add(new ImageError(Severity.Info, "Adding missing JFIF version tag."));
+                ifdjfef.Add(new JFIFVersion(ExifTag.JFIFVersion, 1, 2));
+            }
+
+            // Units
+            if (ifdjfefExisting.TryGetValue(ExifTag.JFIFUnits, out ExifProperty units))
+            {
+                ifdjfef.Add(units);
+            }
+            else
+            {
+                Errors.Add(new ImageError(Severity.Info, "Adding missing JFIF density unit tag."));
+                ifdjfef.Add(new ExifEnumProperty<JFIFDensityUnit>(ExifTag.JFIFUnits, JFIFDensityUnit.None));
+            }
+
+            // X and Y densities
+            if (ifdjfefExisting.TryGetValue(ExifTag.XDensity, out ExifProperty xdensity))
+            {
+                ifdjfef.Add(xdensity);
+            }
+            else
+            {
+                Errors.Add(new ImageError(Severity.Info, "Adding missing JFIF X density tag."));
+                ifdjfef.Add(new ExifUShort(ExifTag.XDensity, 1));
+            }
+            if (ifdjfefExisting.TryGetValue(ExifTag.YDensity, out ExifProperty ydensity))
+            {
+                ifdjfef.Add(ydensity);
+            }
+            else
+            {
+                Errors.Add(new ImageError(Severity.Info, "Adding missing JFIF Y density tag."));
+                ifdjfef.Add(new ExifUShort(ExifTag.YDensity, 1));
+            }
+
+            // Thumbnails pixel count
+            if (ifdjfefExisting.TryGetValue(ExifTag.JFIFXThumbnail, out ExifProperty xthumbnail))
+            {
+                ifdjfef.Add(xthumbnail);
+            }
+            else
+            {
+                Errors.Add(new ImageError(Severity.Info, "Adding missing JFIF X thumbnail pixel count tag."));
+                ifdjfef.Add(new ExifByte(ExifTag.JFIFXThumbnail, 0));
+            }
+            if (ifdjfefExisting.TryGetValue(ExifTag.JFIFYThumbnail, out ExifProperty ythumbnail))
+            {
+                ifdjfef.Add(ythumbnail);
+            }
+            else
+            {
+                Errors.Add(new ImageError(Severity.Info, "Adding missing JFIF Y thumbnail pixel count tag."));
+                ifdjfef.Add(new ExifByte(ExifTag.JFIFYThumbnail, 0));
+            }
+
+            // JFIF thumbnail
+            if (ifdjfefExisting.TryGetValue(ExifTag.JFIFThumbnail, out ExifProperty jfifThumbnail))
+            {
+                ifdjfef.Add(jfifThumbnail);
+            }
+            else
+            {
+                Errors.Add(new ImageError(Severity.Info, "Adding missing JFIF thumbnail tag."));
+                ifdjfef.Add(new JFIFThumbnailProperty(ExifTag.JFIFThumbnail, new JFIFThumbnail(JFIFThumbnail.ImageFormat.JPEG, new byte[0])));
+            }
+
+            // Create a memory stream to write the APP0 section to
+            using (MemoryStream ms = new MemoryStream())
+            {
+                // JFIF identifer
+                ms.Write(Encoding.ASCII.GetBytes("JFIF\0"), 0, 5);
+
+                // Write tags
+                foreach (ExifProperty prop in ifdjfef)
+                {
+                    ExifInterOperability interop = prop.Interoperability;
+                    byte[] data = interop.Data;
+                    if (BitConverterEx.SystemByteOrder != BitConverterEx.ByteOrder.BigEndian && interop.TypeID == InterOpType.SHORT)
+                        Array.Reverse(data);
+                    ms.Write(data, 0, data.Length);
+                }
+
+                // Write APP0 header
+                jfifApp0.Header = ms.ToArray();
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Replaces the contents of the APP0 section with the JFIF extension properties.
+        /// </summary>
+        private bool WriteJFXXApp0()
+        {
+            // Which IFD sections do we have?
+            List<ExifProperty> ifdjfef = new List<ExifProperty>();
+            foreach (ExifProperty prop in Properties)
+            {
+                if (prop.IFD == IFD.JFXX)
+                    ifdjfef.Add(prop);
+            }
+
+            if (ifdjfef.Count == 0)
+            {
+                // Nothing to write
+                if (jfxxApp0 != null)
+                {
+                    Errors.Add(new ImageError(Severity.Info, "Removing unused JFXX APP0 segment."));
+                    Sections.Remove(jfxxApp0);
+                    jfxxApp0 = null;
+                }
+                return false;
+            }
+
+            // Create a memory stream to write the APP0 section to
+            using (MemoryStream ms = new MemoryStream())
+            {
+                // JFIF identifer
+                ms.Write(Encoding.ASCII.GetBytes("JFXX\0"), 0, 5);
+
+                // Write tags
+                foreach (ExifProperty prop in ifdjfef)
+                {
+                    ExifInterOperability interop = prop.Interoperability;
+                    byte[] data = interop.Data;
+                    if (BitConverterEx.SystemByteOrder != BitConverterEx.ByteOrder.BigEndian && interop.TypeID == InterOpType.SHORT)
+                        Array.Reverse(data);
+                    ms.Write(data, 0, data.Length);
+                }
+
+                // Return APP0 header
+                jfxxApp0.Header = ms.ToArray();
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Saves the JPEG/Exif image to the given stream.
+        /// </summary>
+        /// <param name="filename">The path to the JPEG/Exif file.</param>
+        protected override void SaveInternal(MemoryStream stream)
+        {
+            WriteJFIFApp0();
+            WriteJFXXApp0();
+            WriteExifApp1(true);
+
+            // Write sections
+            foreach (JPEGSection section in Sections)
+            {
+                // Section header (including length bytes) must not exceed 64 kB.
+                if (section.Header.Length + 2 > 64 * 1024)
+                    throw new SectionExceeds64KBException();
+
+                // APP sections must have a header.
+                // Otherwise skip the entire section.
+                if (section.Marker >= JPEGMarker.APP0 && section.Marker <= JPEGMarker.APP15 && section.Header.Length == 0)
+                    continue;
+
+                // Write section marker
+                stream.Write(new byte[] { 0xFF, (byte)section.Marker }, 0, 2);
+
+                // SOI, EOI and RST markers do not contain any header
+                if (section.Marker != JPEGMarker.SOI && section.Marker != JPEGMarker.EOI && !(section.Marker >= JPEGMarker.RST0 && section.Marker <= JPEGMarker.RST7))
+                {
+                    // Header length including the length field itself
+                    stream.Write(BitConverterEx.BigEndian.GetBytes((ushort)(section.Header.Length + 2)), 0, 2);
+
+                    // Write section header
+                    if (section.Header.Length != 0)
+                        stream.Write(section.Header, 0, section.Header.Length);
+                }
+
+                // Write entropy coded data
+                if (section.EntropyData.Length != 0)
+                    stream.Write(section.EntropyData, 0, section.EntropyData.Length);
+            }
+
+            // Write trailing data, if any
+            if (TrailingData.Length != 0)
+                stream.Write(TrailingData, 0, TrailingData.Length);
+        }
+
+        /// <summary>
+        /// Decreases file size by removing all metadata.
+        /// </summary>
+        public override void Crush()
+        {
+            Properties.Clear();
+
+            // Remove metadata sections.
+            // Keep the sections in this whitelist only:
+            //   SOF0 - SOF15
+            //   DHT
+            //   DAC
+            //   RST0 - RST7
+            //   SOI, EOI
+            //   DQT
+            //	 DNL
+            //	 DRI
+            //	 DHP
+            //	 EXP
+            Sections.RemoveAll(section => section.Marker < JPEGMarker.SOF0 || section.Marker > JPEGMarker.EXP);
+        }
     }
 }

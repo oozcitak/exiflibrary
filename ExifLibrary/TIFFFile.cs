@@ -9,7 +9,6 @@ namespace ExifLibrary
     /// </summary>
     public class TIFFFile : ImageFile
     {
-        #region White List
         /// <summary>
         /// The whitelist of tags to keep.
         /// </summary>
@@ -78,20 +77,7 @@ namespace ExifLibrary
             { ExifTag.YPosition, false },
             { ExifTag.YResolution, false },
         };
-        #endregion
 
-        #region Properties
-        /// <summary>
-        /// Gets the TIFF header.
-        /// </summary>
-        public TIFFHeader TIFFHeader { get; private set; }
-        /// <summary>
-        /// Gets the image file directories.
-        /// </summary>
-        public List<ImageFileDirectory> IFDs { get; private set; }
-        #endregion
-
-        #region Constructor
         /// <summary>
         /// Initializes a new instance of the <see cref="TIFFFile"/> class from the
         /// specified data stream.
@@ -128,25 +114,16 @@ namespace ExifLibrary
                 Properties.Add(ExifPropertyFactory.Get(field.Tag, field.Type, field.Count, field.Data, BitConverterEx.SystemByteOrder, IFD.Zeroth, Encoding));
             }
         }
-        #endregion
 
-        #region Instance Methods
         /// <summary>
-        /// Decreases file size by removing all metadata.
+        /// Gets the image file directories.
         /// </summary>
-        public override void Crush()
-        {
-            Properties.Clear();
+        public List<ImageFileDirectory> IFDs { get; private set; }
 
-            // Remove tags.
-            foreach (ImageFileDirectory ifd in IFDs)
-            {
-                ifd.Fields.RemoveAll((field) =>
-                {
-                    return (!WhiteList.ContainsKey((ExifTag)field.Tag));
-                });
-            }
-        }
+        /// <summary>
+        /// Gets the TIFF header.
+        /// </summary>
+        public TIFFHeader TIFFHeader { get; private set; }
 
         /// <summary>
         /// Saves the <see cref="ImageFile"/> to the given stream.
@@ -273,6 +250,22 @@ namespace ExifLibrary
                 stream.Write(conv.GetBytes(i == IFDs.Count - 1 ? 0 : ifdoffset), 0, 4);
             }
         }
-        #endregion
+
+        /// <summary>
+        /// Decreases file size by removing all metadata.
+        /// </summary>
+        public override void Crush()
+        {
+            Properties.Clear();
+
+            // Remove tags.
+            foreach (ImageFileDirectory ifd in IFDs)
+            {
+                ifd.Fields.RemoveAll((field) =>
+                {
+                    return (!WhiteList.ContainsKey((ExifTag)field.Tag));
+                });
+            }
+        }
     }
 }

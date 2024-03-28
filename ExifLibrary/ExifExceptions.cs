@@ -3,6 +3,24 @@
 namespace ExifLibrary
 {
     /// <summary>
+    /// The exception that is thrown when the 0th IFD section does not contain any fields.
+    /// </summary>
+    public class IFD0IsEmptyException : Exception
+    {
+        public IFD0IsEmptyException()
+            : base("0th IFD section cannot be empty.")
+        {
+            ;
+        }
+
+        public IFD0IsEmptyException(string message)
+            : base(message)
+        {
+            ;
+        }
+    }
+
+    /// <summary>
     /// The exception that is thrown when the format of the JPEG/Exif file
     /// could not be understood.
     /// </summary>
@@ -22,17 +40,18 @@ namespace ExifLibrary
     }
 
     /// <summary>
-    /// The exception that is thrown when the IFD section ID could not be understood.
+    /// The exception that is thrown when the format of the GIF file
+    /// could not be understood.
     /// </summary>
-    public class UnknownIFDSectionException : Exception
+    public class NotValidGIFFileException : Exception
     {
-        public UnknownIFDSectionException()
-            : base("Unknown IFD section.")
+        public NotValidGIFFileException()
+            : base("Not a valid GIF file.")
         {
             ;
         }
 
-        public UnknownIFDSectionException(string message)
+        public NotValidGIFFileException(string message)
             : base(message)
         {
             ;
@@ -40,7 +59,7 @@ namespace ExifLibrary
     }
 
     /// <summary>
-    /// The exception that is thrown when an invalid enum type is given to an 
+    /// The exception that is thrown when an invalid enum type is given to an
     /// ExifEnumProperty.
     /// </summary>
     public class UnknownEnumTypeException : Exception
@@ -59,36 +78,17 @@ namespace ExifLibrary
     }
 
     /// <summary>
-    /// The exception that is thrown when the 0th IFD section does not contain any fields.
+    /// The exception that is thrown when the IFD section ID could not be understood.
     /// </summary>
-    public class IFD0IsEmptyException : Exception
+    public class UnknownIFDSectionException : Exception
     {
-        public IFD0IsEmptyException()
-            : base("0th IFD section cannot be empty.")
+        public UnknownIFDSectionException()
+            : base("Unknown IFD section.")
         {
             ;
         }
 
-        public IFD0IsEmptyException(string message)
-            : base(message)
-        {
-            ;
-        }
-    }
-
-    /// <summary>
-    /// The exception that is thrown when the format of the GIF file
-    /// could not be understood.
-    /// </summary>
-    public class NotValidGIFFileException : Exception
-    {
-        public NotValidGIFFileException()
-            : base("Not a valid GIF file.")
-        {
-            ;
-        }
-
-        public NotValidGIFFileException(string message)
+        public UnknownIFDSectionException(string message)
             : base(message)
         {
             ;

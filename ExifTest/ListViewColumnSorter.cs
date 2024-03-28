@@ -10,10 +10,6 @@ namespace ExifTest
     {
         private IComparer mComparer;
 
-        public int SortColumn { get; set; }
-        public SortOrder SortOrder { get; set; }
-        public IComparer Comparer { get { return mComparer; } }
-
         public ListViewColumnSorter()
         {
             SortColumn = 0;
@@ -30,9 +26,17 @@ namespace ExifTest
             mComparer = comparer;
         }
 
+        public IComparer Comparer
+        { get { return mComparer; } }
+
+        public int SortColumn { get; set; }
+
+        public SortOrder SortOrder { get; set; }
+
         public int Compare(object x, object y)
         {
-            if (SortOrder == SortOrder.None) return 0;
+            if (SortOrder == SortOrder.None)
+                return 0;
 
             string xs = ((ListViewItem)x).SubItems[SortColumn].Text;
             string ys = ((ListViewItem)y).SubItems[SortColumn].Text;

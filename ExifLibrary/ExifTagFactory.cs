@@ -4,7 +4,6 @@ namespace ExifLibrary
 {
     public static class ExifTagFactory
     {
-        #region Static Methods
         /// <summary>
         /// Returns the ExifTag corresponding to the given tag id.
         /// </summary>
@@ -31,6 +30,20 @@ namespace ExifLibrary
         }
 
         /// <summary>
+        /// Returns the string representation for the given exif tag including
+        /// IFD section and tag id.
+        /// </summary>
+        public static string GetTagLongName(ExifTag tag)
+        {
+            string ifdname = Enum.GetName(typeof(IFD), GetTagIFD(tag));
+            string name = Enum.GetName(typeof(ExifTag), tag);
+            if (name == null)
+                name = "Unknown";
+            string tagidname = GetTagID(tag).ToString();
+            return ifdname + ": " + name + " (" + tagidname + ")";
+        }
+
+        /// <summary>
         /// Returns the string representation for the given exif tag.
         /// </summary>
         public static string GetTagName(ExifTag tag)
@@ -49,20 +62,5 @@ namespace ExifLibrary
         {
             return GetTagName(GetExifTag(ifd, tagid));
         }
-
-        /// <summary>
-        /// Returns the string representation for the given exif tag including 
-        /// IFD section and tag id.
-        /// </summary>
-        public static string GetTagLongName(ExifTag tag)
-        {
-            string ifdname = Enum.GetName(typeof(IFD), GetTagIFD(tag));
-            string name = Enum.GetName(typeof(ExifTag), tag);
-            if (name == null)
-                name = "Unknown";
-            string tagidname = GetTagID(tag).ToString();
-            return ifdname + ": " + name + " (" + tagidname + ")";
-        }
-        #endregion
     }
 }

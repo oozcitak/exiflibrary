@@ -8,7 +8,6 @@ namespace ExifLibrary
     /// </summary>
     internal static class ExifPropertyFactory
     {
-        #region Static Methods
         /// <summary>
         /// Creates an ExifProperty from the given interoperability parameters.
         /// </summary>
@@ -206,7 +205,7 @@ namespace ExifLibrary
                 else
                     return new ExifByteArray(etag, value);
             }
-            else if (type == 2) // 2 = ASCII An 8-bit byte containing one 7-bit ASCII code. 
+            else if (type == 2) // 2 = ASCII An 8-bit byte containing one 7-bit ASCII code.
             {
                 return new ExifAscii(etag, ExifBitConverter.ToAscii(value, encoding), encoding);
             }
@@ -284,6 +283,5 @@ namespace ExifLibrary
             else
                 throw new ArgumentException("Unknown property type.");
         }
-        #endregion
     }
 }

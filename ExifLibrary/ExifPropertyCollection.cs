@@ -9,20 +9,16 @@ namespace ExifLibrary
     /// </summary>
     public class ExifPropertyCollection<T> : IList<T> where T : ExifProperty
     {
-        #region Member Variables
         private List<T> items;
-        private Dictionary<ExifTag, List<T>> lookup;
-        #endregion
 
-        #region Constructor
+        private Dictionary<ExifTag, List<T>> lookup;
+
         internal ExifPropertyCollection()
         {
             items = new List<T>();
             lookup = new Dictionary<ExifTag, List<T>>();
         }
-        #endregion
 
-        #region Properties
         /// <summary>
         /// Gets the number of elements contained in the collection.
         /// </summary>
@@ -30,6 +26,12 @@ namespace ExifLibrary
         {
             get { return items.Count; }
         }
+
+        bool ICollection<T>.IsReadOnly
+        {
+            get { return false; }
+        }
+
         /// <summary>
         /// Gets or sets the <see cref="ExifLibrary.ExifProperty"/> with the specified index.
         /// </summary>
@@ -38,6 +40,7 @@ namespace ExifLibrary
             get { return items[index]; }
             set { items[index] = value; }
         }
+
         /// <summary>
         /// Gets or sets the <see cref="ExifLibrary.ExifProperty"/> with the specified tag.
         /// Note that this method iterates through the entire collection to find an item with
@@ -48,9 +51,80 @@ namespace ExifLibrary
             get { return Get<T>(tag); }
             set { Set(tag, value); }
         }
-        #endregion
 
-        #region ExifProperty Collection Adders
+        /// <summary>
+        /// Adds an item to the collection.
+        /// </summary>
+        /// <param name="item">an item to add to the collection</param>
+        protected void AddItem(ExifProperty item)
+        {
+            var genericItem = item as T;
+            items.Add(genericItem);
+            List<T> lookupitems;
+            if (lookup.TryGetValue(item.Tag, out lookupitems))
+            {
+                lookupitems.Add(genericItem);
+            }
+            else
+            {
+                lookup[item.Tag] = new List<T>() { genericItem };
+            }
+        }
+
+        /// <summary>
+        /// Gets an item with the given tag from the collection.
+        /// If there are multiple items with the same tag, returns the first
+        /// item with the given tag.
+        /// </summary>
+        /// <param name="tag">the tag ıf an item to get from the collection</param>
+        protected ExifProperty GetItem(ExifTag tag)
+        {
+            List<T> lookupitems;
+            if (lookup.TryGetValue(tag, out lookupitems))
+            {
+                if (lookupitems.Count != 0)
+                    return lookupitems[0];
+                else
+                    return null;
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Gets a list of items with the given tag from the collection.
+        /// </summary>
+        /// <param name="tag">the tag ıf an item to get from the collection</param>
+        protected List<ExifProperty> GetItems(ExifTag tag)
+        {
+            List<T> lookupitems;
+            if (lookup.TryGetValue(tag, out lookupitems))
+            {
+                return lookupitems as List<ExifProperty>;
+            }
+            return new List<ExifProperty>();
+        }
+
+        /// <summary>
+        /// Sets an item in the collection.
+        /// If there are multiple items with the same tag, replaces all items
+        /// with the given item.
+        /// </summary>
+        /// <param name="item">an item to set in the collection</param>
+        protected void SetItem(ExifProperty item)
+        {
+            List<T> lookupitems;
+            if (lookup.TryGetValue(item.Tag, out lookupitems))
+            {
+                foreach (var existingItem in lookupitems)
+                {
+                    items.Remove(existingItem);
+                }
+            }
+            var genericItem = item as T;
+            items.Add(genericItem);
+            lookup[item.Tag] = new List<T>() { genericItem };
+        }
+
         /// <summary>
         /// Adds an <see cref="ExifLibrary.ExifProperty"/>.
         /// </summary>
@@ -59,6 +133,7 @@ namespace ExifLibrary
         {
             AddItem(item);
         }
+
         /// <summary>
         /// Adds an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// </summary>
@@ -68,6 +143,7 @@ namespace ExifLibrary
         {
             AddItem(new ExifByte(key, value));
         }
+
         /// <summary>
         /// Adds an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// </summary>
@@ -88,6 +164,7 @@ namespace ExifLibrary
                 AddItem(new ExifAscii(key, value, encoding));
             }
         }
+
         /// <summary>
         /// Adds an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// </summary>
@@ -97,6 +174,7 @@ namespace ExifLibrary
         {
             Add(key, value, Encoding.UTF8);
         }
+
         /// <summary>
         /// Adds an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// </summary>
@@ -106,6 +184,7 @@ namespace ExifLibrary
         {
             AddItem(new ExifUShort(key, value));
         }
+
         /// <summary>
         /// Adds an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// </summary>
@@ -115,6 +194,7 @@ namespace ExifLibrary
         {
             AddItem(new ExifSInt(key, value));
         }
+
         /// <summary>
         /// Adds an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// </summary>
@@ -124,6 +204,7 @@ namespace ExifLibrary
         {
             AddItem(new ExifUInt(key, value));
         }
+
         /// <summary>
         /// Adds an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// </summary>
@@ -133,6 +214,7 @@ namespace ExifLibrary
         {
             AddItem(new ExifURational(key, new MathEx.UFraction32(value)));
         }
+
         /// <summary>
         /// Adds an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// </summary>
@@ -142,6 +224,7 @@ namespace ExifLibrary
         {
             AddItem(new ExifURational(key, new MathEx.UFraction32(value)));
         }
+
         /// <summary>
         /// Adds an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// </summary>
@@ -154,6 +237,7 @@ namespace ExifLibrary
             object prop = Activator.CreateInstance(etype, new object[] { key, value });
             AddItem((ExifProperty)prop);
         }
+
         /// <summary>
         /// Adds an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// </summary>
@@ -163,6 +247,7 @@ namespace ExifLibrary
         {
             AddItem(new ExifDateTime(key, value));
         }
+
         /// <summary>
         /// Adds an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// </summary>
@@ -174,6 +259,7 @@ namespace ExifLibrary
         {
             AddItem(new ExifURationalArray(key, new MathEx.UFraction32[] { new MathEx.UFraction32(d), new MathEx.UFraction32(m), new MathEx.UFraction32(s) }));
         }
+
         /// <summary>
         /// Adds an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// </summary>
@@ -183,34 +269,209 @@ namespace ExifLibrary
         {
             AddItem(new ExifEnumProperty<TEnum>(key, value));
         }
-        #endregion
 
-        #region ExifProperty Collection Getters
+        /// <summary>
+        /// Removes all items from the collection.
+        /// </summary>
+        public void Clear()
+        {
+            items.Clear();
+            lookup.Clear();
+        }
+
+        /// <summary>
+        /// Determines whether the collection contains the given element.
+        /// </summary>
+        /// <param name="item">The item to locate in the collection.</param>
+        /// <returns>
+        /// true if the collection contains the given element; otherwise, false.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// <paramref name="item"/> is null.</exception>
+        public bool Contains(T item)
+        {
+            List<T> foundItems;
+            if (lookup.TryGetValue(item.Tag, out foundItems))
+            {
+                return foundItems.Contains(item);
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Determines whether the collection contains an element with the specified tag.
+        /// </summary>
+        /// <param name="tag">The tag to locate in the collection.</param>
+        /// <returns>
+        /// true if the collection contains an element with the tag; otherwise, false.
+        /// </returns>
+        public bool Contains(ExifTag tag)
+        {
+            return lookup.ContainsKey(tag);
+        }
+
+        void ICollection<T>.CopyTo(T[] array, int arrayIndex)
+        {
+            items.CopyTo(array, arrayIndex);
+        }
+
         /// <summary>
         /// Gets the <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// </summary>
         /// <param name="key">The tag to get.</param>
-        /// <returns>The item with the given tag cast to the specified 
+        /// <returns>The item with the given tag cast to the specified
         /// type. If the tag does not exist, or it cannot be cast to the
         /// given type it returns null.</returns>
         public U Get<U>(ExifTag key) where U : ExifProperty
         {
             return GetItem(key) as U;
         }
+
         /// <summary>
         /// Gets the <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// </summary>
         /// <param name="key">The tag to get.</param>
-        /// <returns>The item with the given tag cast to the specified 
+        /// <returns>The item with the given tag cast to the specified
         /// type. If the tag does not exist, or it cannot be cast to the
         /// given type it returns null.</returns>
         public ExifProperty Get(ExifTag key)
         {
             return GetItem(key);
         }
-        #endregion
 
-        #region ExifProperty Collection Setters
+        /// <summary>
+        /// Returns an enumerator to iterate the collection.
+        /// </summary>
+        public IEnumerator<T> GetEnumerator()
+        {
+            return items.GetEnumerator();
+        }
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        /// <summary>
+        /// Returns the index of the given item.
+        /// </summary>
+        /// <param name="item">The item to look for in the collection.</param>
+        /// <returns></returns>
+        public int IndexOf(T item)
+        {
+            return items.IndexOf(item);
+        }
+
+        void IList<T>.Insert(int index, T item)
+        {
+            items.Insert(index, item);
+            List<T> lookupitems;
+            if (lookup.TryGetValue(item.Tag, out lookupitems))
+            {
+                lookupitems.Add(item);
+            }
+            else
+            {
+                lookup[item.Tag] = new List<T>() { item };
+            }
+        }
+
+        /// <summary>
+        /// Removes the given element from the collection.
+        /// </summary>
+        /// <param name="item">The element to remove.</param>
+        /// <returns>
+        /// true if the element is successfully removed; otherwise, false.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// <paramref name="item"/> is null.</exception>
+        public bool Remove(T item)
+        {
+            bool contains = items.Remove(item);
+            List<T> foundItems;
+            if (lookup.TryGetValue(item.Tag, out foundItems))
+            {
+                foundItems.Remove(item);
+            }
+            return contains;
+        }
+
+        /// <summary>
+        /// Removes the given elements from the collection.
+        /// </summary>
+        /// <param name="itemsToRemove">The list of elements to remove.</param>
+        public void Remove(IEnumerable<T> itemsToRemove)
+        {
+            foreach (var item in itemsToRemove)
+            {
+                items.Remove(item);
+                List<T> foundItems;
+                if (lookup.TryGetValue(item.Tag, out foundItems))
+                {
+                    foundItems.Remove(item);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Removes all items with the given IFD from the collection.
+        /// </summary>
+        /// <param name="ifd">The IFD section to remove.</param>
+        public void Remove(IFD ifd)
+        {
+            List<T> toRemove = new List<T>();
+            foreach (T item in items)
+            {
+                if (item.IFD == ifd)
+                    toRemove.Add(item);
+            }
+            Remove(toRemove);
+        }
+
+        /// <summary>
+        /// Removes all items with the given tag from the collection.
+        /// </summary>
+        /// <param name="ifd">The IFD section to remove.</param>
+        public void Remove(ExifTag tag)
+        {
+            List<T> toRemove;
+            if (lookup.TryGetValue(tag, out toRemove))
+            {
+                foreach (var item in toRemove)
+                {
+                    items.Remove(item);
+                }
+                lookup.Remove(tag);
+            }
+        }
+
+        /// <summary>
+        /// Removes all items with the given tags from the collection.
+        /// </summary>
+        /// <param name="ifd">The IFD section to remove.</param>
+        public void Remove(IEnumerable<ExifTag> tags)
+        {
+            foreach (var tag in tags)
+            {
+                Remove(tag);
+            }
+        }
+
+        /// <summary>
+        /// Removes the item at the given index.
+        /// </summary>
+        /// <param name="index">The index of the item to remove.</param>
+        public void RemoveAt(int index)
+        {
+            var item = items[index];
+            items.RemoveAt(index);
+            List<T> foundItems;
+            if (lookup.TryGetValue(item.Tag, out foundItems))
+            {
+                foundItems.Remove(item);
+            }
+        }
+
         /// <summary>
         /// Sets an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// Note that if there are multiple items with the same key, all of them will be
@@ -221,6 +482,7 @@ namespace ExifLibrary
         {
             SetItem(item);
         }
+
         /// <summary>
         /// Sets an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// Note that if there are multiple items with the same key, all of them will be
@@ -232,6 +494,7 @@ namespace ExifLibrary
         {
             SetItem(new ExifByte(key, value));
         }
+
         /// <summary>
         /// Sets an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// Note that if there are multiple items with the same key, all of them will be
@@ -254,6 +517,7 @@ namespace ExifLibrary
                 SetItem(new ExifAscii(key, value, encoding));
             }
         }
+
         /// <summary>
         /// Sets an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// Note that if there are multiple items with the same key, all of them will be
@@ -265,6 +529,7 @@ namespace ExifLibrary
         {
             Add(key, value, Encoding.UTF8);
         }
+
         /// <summary>
         /// Sets an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// Note that if there are multiple items with the same key, all of them will be
@@ -276,6 +541,7 @@ namespace ExifLibrary
         {
             SetItem(new ExifUShort(key, value));
         }
+
         /// <summary>
         /// Sets an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// Note that if there are multiple items with the same key, all of them will be
@@ -287,6 +553,7 @@ namespace ExifLibrary
         {
             SetItem(new ExifSInt(key, value));
         }
+
         /// <summary>
         /// Sets an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// Note that if there are multiple items with the same key, all of them will be
@@ -298,6 +565,7 @@ namespace ExifLibrary
         {
             SetItem(new ExifUInt(key, value));
         }
+
         /// <summary>
         /// Sets an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// Note that if there are multiple items with the same key, all of them will be
@@ -309,6 +577,7 @@ namespace ExifLibrary
         {
             SetItem(new ExifURational(key, new MathEx.UFraction32(value)));
         }
+
         /// <summary>
         /// Sets an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// Note that if there are multiple items with the same key, all of them will be
@@ -320,6 +589,7 @@ namespace ExifLibrary
         {
             SetItem(new ExifURational(key, new MathEx.UFraction32(value)));
         }
+
         /// <summary>
         /// Sets an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// Note that if there are multiple items with the same key, all of them will be
@@ -334,6 +604,7 @@ namespace ExifLibrary
             object prop = Activator.CreateInstance(etype, new object[] { key, value });
             SetItem((ExifProperty)prop);
         }
+
         /// <summary>
         /// Sets an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// Note that if there are multiple items with the same key, all of them will be
@@ -345,6 +616,7 @@ namespace ExifLibrary
         {
             SetItem(new ExifDateTime(key, value));
         }
+
         /// <summary>
         /// Sets an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// Note that if there are multiple items with the same key, all of them will be
@@ -358,6 +630,7 @@ namespace ExifLibrary
         {
             SetItem(new ExifURationalArray(key, new MathEx.UFraction32[] { new MathEx.UFraction32(d), new MathEx.UFraction32(m), new MathEx.UFraction32(s) }));
         }
+
         /// <summary>
         /// Sets an <see cref="ExifLibrary.ExifProperty"/> with the specified key.
         /// Note that if there are multiple items with the same key, all of them will be
@@ -369,255 +642,5 @@ namespace ExifLibrary
         {
             SetItem(new ExifEnumProperty<TEnum>(key, value));
         }
-        #endregion
-
-        #region Instance Methods
-        /// <summary>
-        /// Removes all items from the collection.
-        /// </summary>
-        public void Clear()
-        {
-            items.Clear();
-            lookup.Clear();
-        }
-        /// <summary>
-        /// Determines whether the collection contains the given element.
-        /// </summary>
-        /// <param name="item">The item to locate in the collection.</param>
-        /// <returns>
-        /// true if the collection contains the given element; otherwise, false.
-        /// </returns>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// <paramref name="item"/> is null.</exception>
-        public bool Contains(T item)
-        {
-            List<T> foundItems;
-            if (lookup.TryGetValue(item.Tag, out foundItems))
-            {
-                return foundItems.Contains(item);
-            }
-            return false;
-        }
-        /// <summary>
-        /// Determines whether the collection contains an element with the specified tag.
-        /// </summary>
-        /// <param name="tag">The tag to locate in the collection.</param>
-        /// <returns>
-        /// true if the collection contains an element with the tag; otherwise, false.
-        /// </returns>
-        public bool Contains(ExifTag tag)
-        {
-            return lookup.ContainsKey(tag);
-        }
-        /// <summary>
-        /// Removes the given element from the collection.
-        /// </summary>
-        /// <param name="item">The element to remove.</param>
-        /// <returns>
-        /// true if the element is successfully removed; otherwise, false.  
-        /// </returns>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// <paramref name="item"/> is null.</exception>
-        public bool Remove(T item)
-        {
-            bool contains = items.Remove(item);
-            List<T> foundItems;
-            if (lookup.TryGetValue(item.Tag, out foundItems))
-            {
-                foundItems.Remove(item);
-            }
-            return contains;
-        }
-        /// <summary>
-        /// Removes the item at the given index.
-        /// </summary>
-        /// <param name="index">The index of the item to remove.</param>
-        public void RemoveAt(int index)
-        {
-            var item = items[index];
-            items.RemoveAt(index);
-            List<T> foundItems;
-            if (lookup.TryGetValue(item.Tag, out foundItems))
-            {
-                foundItems.Remove(item);
-            }
-        }
-        /// <summary>
-        /// Removes the given elements from the collection.
-        /// </summary>
-        /// <param name="itemsToRemove">The list of elements to remove.</param>
-        public void Remove(IEnumerable<T> itemsToRemove)
-        {
-            foreach (var item in itemsToRemove)
-            {
-                items.Remove(item);
-                List<T> foundItems;
-                if (lookup.TryGetValue(item.Tag, out foundItems))
-                {
-                    foundItems.Remove(item);
-                }
-            }
-        }
-        /// <summary>
-        /// Removes all items with the given IFD from the collection.
-        /// </summary>
-        /// <param name="ifd">The IFD section to remove.</param>
-        public void Remove(IFD ifd)
-        {
-            List<T> toRemove = new List<T>();
-            foreach (T item in items)
-            {
-                if (item.IFD == ifd)
-                    toRemove.Add(item);
-            }
-            Remove(toRemove);
-        }
-        /// <summary>
-        /// Removes all items with the given tag from the collection.
-        /// </summary>
-        /// <param name="ifd">The IFD section to remove.</param>
-        public void Remove(ExifTag tag)
-        {
-            List<T> toRemove;
-            if (lookup.TryGetValue(tag, out toRemove))
-            {
-                foreach (var item in toRemove)
-                {
-                    items.Remove(item);
-                }
-                lookup.Remove(tag);
-            }
-        }
-        /// <summary>
-        /// Removes all items with the given tags from the collection.
-        /// </summary>
-        /// <param name="ifd">The IFD section to remove.</param>
-        public void Remove(IEnumerable<ExifTag> tags)
-        {
-            foreach (var tag in tags)
-            {
-                Remove(tag);
-            }
-        }
-        /// <summary>
-        /// Returns the index of the given item.
-        /// </summary>
-        /// <param name="item">The item to look for in the collection.</param>
-        /// <returns></returns>
-        public int IndexOf(T item)
-        {
-            return items.IndexOf(item);
-        }
-        /// <summary>
-        /// Returns an enumerator to iterate the collection.
-        /// </summary>
-        public IEnumerator<T> GetEnumerator()
-        {
-            return items.GetEnumerator();
-        }
-        #endregion
-
-        #region Hidden Interface
-        void IList<T>.Insert(int index, T item)
-        {
-            items.Insert(index, item);
-            List<T> lookupitems;
-            if (lookup.TryGetValue(item.Tag, out lookupitems))
-            {
-                lookupitems.Add(item);
-            }
-            else
-            {
-                lookup[item.Tag] = new List<T>() { item };
-            }
-        }
-
-        void ICollection<T>.CopyTo(T[] array, int arrayIndex)
-        {
-            items.CopyTo(array, arrayIndex);
-        }
-
-        bool ICollection<T>.IsReadOnly
-        {
-            get { return false; }
-        }
-
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-        #endregion
-
-        #region Internal Methods
-        /// <summary>
-        /// Adds an item to the collection.
-        /// </summary>
-        /// <param name="item">an item to add to the collection</param>
-        protected void AddItem(ExifProperty item)
-        {
-            var genericItem = item as T;
-            items.Add(genericItem);
-            List<T> lookupitems;
-            if (lookup.TryGetValue(item.Tag, out lookupitems))
-            {
-                lookupitems.Add(genericItem);
-            }
-            else
-            {
-                lookup[item.Tag] = new List<T>() { genericItem };
-            }
-        }
-        /// <summary>
-        /// Gets an item with the given tag from the collection.
-        /// If there are multiple items with the same tag, returns the first
-        /// item with the given tag.
-        /// </summary>
-        /// <param name="tag">the tag ıf an item to get from the collection</param>
-        protected ExifProperty GetItem(ExifTag tag)
-        {
-            List<T> lookupitems;
-            if (lookup.TryGetValue(tag, out lookupitems))
-            {
-                if (lookupitems.Count != 0)
-                    return lookupitems[0];
-                else
-                    return null;
-            }
-            return null;
-        }
-        /// <summary>
-        /// Gets a list of items with the given tag from the collection.
-        /// </summary>
-        /// <param name="tag">the tag ıf an item to get from the collection</param>
-        protected List<ExifProperty> GetItems(ExifTag tag)
-        {
-            List<T> lookupitems;
-            if (lookup.TryGetValue(tag, out lookupitems))
-            {
-                return lookupitems as List<ExifProperty>;
-            }
-            return new List<ExifProperty>();
-        }
-        /// <summary>
-        /// Sets an item in the collection.
-        /// If there are multiple items with the same tag, replaces all items 
-        /// with the given item.
-        /// </summary>
-        /// <param name="item">an item to set in the collection</param>
-        protected void SetItem(ExifProperty item)
-        {
-            List<T> lookupitems;
-            if (lookup.TryGetValue(item.Tag, out lookupitems))
-            {
-                foreach (var existingItem in lookupitems)
-                {
-                    items.Remove(existingItem);
-                }
-            }
-            var genericItem = item as T;
-            items.Add(genericItem);
-            lookup[item.Tag] = new List<T>() { genericItem };
-        }
-        #endregion
     }
 }

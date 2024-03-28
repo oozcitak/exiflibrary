@@ -13,18 +13,22 @@ namespace ExifLibrary
         /// The file is not recognized.
         /// </summary>
         Unknown,
+
         /// <summary>
         /// The file is a JPEG/Exif or JPEG/JFIF file.
         /// </summary>
         JPEG,
+
         /// <summary>
         /// The file is a TIFF File.
         /// </summary>
         TIFF,
+
         /// <summary>
         /// The file is a PNG File.
         /// </summary>
         PNG,
+
         /// <summary>
         /// The file is a GIF File.
         /// </summary>

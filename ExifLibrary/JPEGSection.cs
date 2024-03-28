@@ -10,24 +10,6 @@ namespace ExifLibrary
     /// </summary>
     public class JPEGSection
     {
-        #region Properties
-        /// <summary>
-        /// The marker byte representing the section.
-        /// </summary>
-        public JPEGMarker Marker { get; private set; }
-        /// <summary>
-        /// Section header as a byte array. This is different from the header
-        /// definition in JPEG specification in that it does not include the 
-        /// two byte section length.
-        /// </summary>
-        public byte[] Header { get; set; }
-        /// <summary>
-        /// For the SOS and RST markers, this contains the entropy coded data.
-        /// </summary>
-        public byte[] EntropyData { get; set; }
-        #endregion
-
-        #region Constructors
         /// <summary>
         /// Constructs a JPEGSection represented by the marker byte and containing
         /// the given data.
@@ -51,9 +33,24 @@ namespace ExifLibrary
         {
             ;
         }
-        #endregion
 
-        #region Instance Methods
+        /// <summary>
+        /// For the SOS and RST markers, this contains the entropy coded data.
+        /// </summary>
+        public byte[] EntropyData { get; set; }
+
+        /// <summary>
+        /// Section header as a byte array. This is different from the header
+        /// definition in JPEG specification in that it does not include the
+        /// two byte section length.
+        /// </summary>
+        public byte[] Header { get; set; }
+
+        /// <summary>
+        /// The marker byte representing the section.
+        /// </summary>
+        public JPEGMarker Marker { get; private set; }
+
         /// <summary>
         /// Returns a string representation of the current section.
         /// </summary>
@@ -62,6 +59,5 @@ namespace ExifLibrary
         {
             return string.Format("{0} => Header: {1} bytes, Entropy Data: {2} bytes", Marker, Header.Length, EntropyData.Length);
         }
-        #endregion
     }
 }

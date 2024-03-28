@@ -6,7 +6,9 @@
     public enum Severity
     {
         Info,
+
         Warning,
+
         Error,
     }
 
@@ -15,17 +17,6 @@
     /// </summary>
     public class ImageError
     {
-
-        /// <summary>
-        /// Gets the severity of the error.
-        /// </summary>
-        public Severity Severity { get;}
-
-        /// <summary>
-        /// Gets the error message.
-        /// </summary>
-        public string Message { get; }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageError"/> class.
         /// </summary>
@@ -36,6 +27,16 @@
             Severity = severity;
             Message = message;
         }
+
+        /// <summary>
+        /// Gets the error message.
+        /// </summary>
+        public string Message { get; }
+
+        /// <summary>
+        /// Gets the severity of the error.
+        /// </summary>
+        public Severity Severity { get; }
 
         /// <summary>
         /// Returns a string that represents the current object.

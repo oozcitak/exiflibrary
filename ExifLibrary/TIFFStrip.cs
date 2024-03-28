@@ -10,11 +10,6 @@ namespace ExifLibrary
     public class TIFFStrip
     {
         /// <summary>
-        /// Compressed image data contained in this strip.
-        /// </summary>
-        public byte[] Data { get; private set; }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="TIFFStrip"/> class.
         /// </summary>
         /// <param name="data">The byte array to copy strip from.</param>
@@ -25,5 +20,10 @@ namespace ExifLibrary
             Data = new byte[length];
             Array.Copy(data, (int)offset, Data, 0, (int)length);
         }
+
+        /// <summary>
+        /// Compressed image data contained in this strip.
+        /// </summary>
+        public byte[] Data { get; private set; }
     }
 }

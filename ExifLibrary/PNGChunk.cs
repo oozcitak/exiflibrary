@@ -9,35 +9,6 @@ namespace ExifLibrary
     /// </summary>
     public class PNGChunk
     {
-        #region Properties
-        /// <summary>
-        /// The four character ASCII chunk name/type.
-        /// </summary>
-        public string Type { get; set; }
-        /// <summary>
-        /// Chunk data.
-        /// </summary>
-        public byte[] Data { get; set; }
-        /// <summary>
-        ///  The CRC computed over the chunk type and chunk data
-        /// </summary>
-        public uint CRC { get; private set; }
-        /// <summary>
-        /// Determines if this is a critical chunk.
-        /// </summary>
-        public bool IsCritical { get { return (Type[0] >= 'A') && (Type[0] <= 'Z'); } }
-        /// <summary>
-        /// Determines if this is a public chunk.
-        /// </summary>
-        public bool IsPublic { get { return (Type[1] >= 'A') && (Type[1] <= 'Z'); } }
-        /// <summary>
-        /// Determines if the chunk may be safely copied 
-        /// regardless of the extent of modifications to the file.
-        /// </summary>
-        public bool IsSafeToCopy { get { return (Type[3] >= 'a') && (Type[3] <= 'z'); } }
-        #endregion
-
-        #region Constructors
         /// <summary>
         /// Constructs a PNGChunk represented by the type name and containing
         /// the given data.
@@ -51,17 +22,40 @@ namespace ExifLibrary
 
             UpdateCRC();
         }
-        #endregion
 
-        #region Instance Methods
         /// <summary>
-        /// Updates the CRC value.
+        ///  The CRC computed over the chunk type and chunk data
         /// </summary>
-        public void UpdateCRC()
-        {
-            CRC = (uint)Utility.CRC32.Hash(0, Encoding.ASCII.GetBytes(Type));
-            CRC = (uint)Utility.CRC32.Hash(CRC, Data);
-        }
+        public uint CRC { get; private set; }
+
+        /// <summary>
+        /// Chunk data.
+        /// </summary>
+        public byte[] Data { get; set; }
+
+        /// <summary>
+        /// Determines if this is a critical chunk.
+        /// </summary>
+        public bool IsCritical
+        { get { return (Type[0] >= 'A') && (Type[0] <= 'Z'); } }
+
+        /// <summary>
+        /// Determines if this is a public chunk.
+        /// </summary>
+        public bool IsPublic
+        { get { return (Type[1] >= 'A') && (Type[1] <= 'Z'); } }
+
+        /// <summary>
+        /// Determines if the chunk may be safely copied
+        /// regardless of the extent of modifications to the file.
+        /// </summary>
+        public bool IsSafeToCopy
+        { get { return (Type[3] >= 'a') && (Type[3] <= 'z'); } }
+
+        /// <summary>
+        /// The four character ASCII chunk name/type.
+        /// </summary>
+        public string Type { get; set; }
 
         /// <summary>
         /// Returns a string representation of the current chunk.
@@ -71,6 +65,14 @@ namespace ExifLibrary
         {
             return string.Format("{0} => Data: {1} bytes, CRC32: {2}", Type, Data.Length, CRC);
         }
-        #endregion
+
+        /// <summary>
+        /// Updates the CRC value.
+        /// </summary>
+        public void UpdateCRC()
+        {
+            CRC = (uint)Utility.CRC32.Hash(0, Encoding.ASCII.GetBytes(Type));
+            CRC = (uint)Utility.CRC32.Hash(CRC, Data);
+        }
     }
 }
